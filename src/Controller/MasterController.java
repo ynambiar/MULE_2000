@@ -54,6 +54,7 @@ public class MasterController {
             startScene = new Scene(root);
 
         } catch (IOException e) {
+            System.out.println("shit's broke");
             System.out.println("MasterController(): " + e);
         }
 

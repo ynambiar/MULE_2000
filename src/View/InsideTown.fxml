@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.insideTownController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.insideTownController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="612.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -54,8 +54,7 @@
             <Image url="@Resources/assayCrystite.png" />
          </image>
       </ImageView>
-      <Button fx:id="leaveTownBtn" layoutY="374.0" mnemonicParsing="false" onAction="#buttonHandler" text="Leave Town" />
-      <Button fx:id="pubBtn" layoutX="322.0" layoutY="258.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="163.0" visible="false" />
-      <Button fx:id="pubBtn" layoutX="506.0" layoutY="373.0" mnemonicParsing="false" onAction="#buttonHandler" text="Go to Pub" />
+      <Button fx:id="leaveTownBtn" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" text="Leave Town" />
+      <Button fx:id="pubBtn" layoutX="319.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" prefHeight="122.0" prefWidth="256.0" visible="false" />
    </children>
 </AnchorPane>

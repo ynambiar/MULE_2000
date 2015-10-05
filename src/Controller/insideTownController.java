@@ -1,19 +1,10 @@
-package game;
+package Controller;
 
-import Controller.MasterController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
 
-/**
- * Created by tuckerlocicero on 9/24/15.
- */
 public class insideTownController {
 
     @FXML
@@ -22,7 +13,7 @@ public class insideTownController {
     private Button pubBtn;
 
     @FXML
-    private void buttonHandler(ActionEvent event) {
+    private void buttonHandler(MouseEvent event) {
         Button source = (Button) event.getSource();
         if (source == leaveTownBtn) {
             MasterController.getInstance().loadMapScene();
@@ -30,7 +21,4 @@ public class insideTownController {
             MasterController.getInstance().loadPubScene();
         }
     }
-
-
-
 }
