@@ -8,8 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
+import javafx.scene.control.Label;
 
-import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
