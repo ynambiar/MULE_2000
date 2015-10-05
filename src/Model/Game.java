@@ -52,6 +52,7 @@ public class Game {
     public Map getMap() { return map;}
     public int getRoundNumber() { return roundNumber;}
     public int getTurnNumber() { return turnNumber;}
+    public Player getCurrentPlayer() { return currentPlayer;}
 
 
 

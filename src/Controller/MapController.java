@@ -1,5 +1,6 @@
 package Controller;
 import Model.Main;
+import Model.Player;
 import javafx.scene.layout.GridPane;
 import Model.Map;
 import javafx.fxml.FXML;
@@ -36,8 +37,8 @@ public class MapController {
         int col = map.getColumnIndex(tile);
         if (Main.myGame.getMap().purchase(row, col)) {
             System.out.println("change me");
-            ImageView select = new ImageView("/View/Resources/p1Selector");
-            tile.
+            tile.setStyle("-fx-border-color: " + Main.myGame.getCurrentPlayer().getColor() + ";");
+
         }
     }
 }
