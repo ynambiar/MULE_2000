@@ -5,7 +5,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MapController">
    <children>
       <GridPane fx:id="map" layoutX="5.0" layoutY="5.0" prefHeight="380.0" prefWidth="684.0" style="-fx-background-color: GREEN;">
@@ -31,17 +30,17 @@
       <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="684.0" style="-fx-background-color: grey;">
          <children>
             <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
-            <Label prefHeight="40.0" prefWidth="240.0" text="CURRENT PHASE:">
+            <Label fx:id="currentPhaseLabel" prefHeight="40.0" prefWidth="240.0" text="CURRENT PHASE:">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
             </Label>
-            <Label prefHeight="40.0" prefWidth="240.0" text="CURRENT PLAYER:">
+            <Label fx:id="currentPlayerLabel" prefHeight="40.0" prefWidth="240.0" text="CURRENT PLAYER:">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
             </Label>
-            <Label prefHeight="50.0" prefWidth="240.0" text="TIME LEFT:">
+            <Label fx:id="timeLeftLabel" prefHeight="50.0" prefWidth="240.0" text="TIME LEFT:">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>

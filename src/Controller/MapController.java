@@ -17,10 +17,13 @@ import java.util.TimerTask;
 public class MapController {
 
     @FXML
-    private Label time;
-    @FXML
     private GridPane map;
-
+    @FXML
+    private Label currentPhaseLabel;
+    @FXML
+    private Label currentPlayerLabel;
+    @FXML
+    private Label timeLeftLabel;
 
 
     public void initialize() {
@@ -105,16 +108,11 @@ public class MapController {
                                 hours = "0" + Integer.toString(timerhr);
                             }
 
-                            time.setText(hours + ":" + minutes +":"+ seconds);
-                            System.out.println(time.getText());
+                            timeLeftLabel.setText(hours + ":" + minutes +":"+ seconds);
+                            System.out.println(timeLeftLabel.getText());
                         }
-
-
                     });
-
-
                 }
-
             };
             timer.schedule(timerTask, 50, 50); //lastone is time, milli second
 
