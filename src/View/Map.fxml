@@ -5,11 +5,8 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<<<<<<< HEAD
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MapController">
-=======
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MapController">
->>>>>>> 86f605f8087f6c523566f980cbd4f7a5ba4b7978
    <children>
       <GridPane fx:id="map" layoutX="5.0" layoutY="5.0" prefHeight="380.0" prefWidth="684.0" style="-fx-background-color: GREEN;">
         <columnConstraints>
