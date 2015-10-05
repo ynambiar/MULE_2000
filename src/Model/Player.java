@@ -17,11 +17,11 @@ public class Player {
     //These fields DO require setters
     private int money;
 
-    public Player(String human, String race, String name) {
+    public Player(String human, String race, String name, String color) {
         this.name = name;
         this.human = human;
         this.race = race;
-        this.color = "purple"; //TODO chnage this to correct color
+        this.color = color;
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {

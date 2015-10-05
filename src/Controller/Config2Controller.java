@@ -53,16 +53,16 @@ public class Config2Controller {
         boolean verified = false;
 
         if (combo1human.getValue() != "Not Playing" && combo1race.getValue() != null && p1Name.getText() != null) {
-            playersList.add(new Player(combo1human.getValue(), combo1race.getValue(), p1Name.getText()));
+            playersList.add(new Player(combo1human.getValue(), combo1race.getValue(), p1Name.getText(), "blue"));
         }
         if (combo2human.getValue() != "Not Playing" && combo2race.getValue() != null && p2Name.getText() != null) {
-            playersList.add(new Player(combo2human.getValue(), combo2race.getValue(), p2Name.getText()));
+            playersList.add(new Player(combo2human.getValue(), combo2race.getValue(), p2Name.getText(), "red"));
         }
         if (combo3human.getValue() != "Not Playing" && combo3race.getValue() != null && p3Name.getText() != null) {
-            playersList.add(new Player(combo3human.getValue(), combo3race.getValue(), p3Name.getText()));
+            playersList.add(new Player(combo3human.getValue(), combo3race.getValue(), p3Name.getText(), "purple"));
         }
         if (combo4human.getValue() != "Not Playing" && combo4race.getValue() != null && p4Name.getText() != null) {
-            playersList.add(new Player(combo4human.getValue(), combo4race.getValue(), p4Name.getText()));
+            playersList.add(new Player(combo4human.getValue(), combo4race.getValue(), p4Name.getText(), "orange"));
         }
 
         if (playersList.size() > 1) {
