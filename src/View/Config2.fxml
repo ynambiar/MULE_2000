@@ -13,16 +13,16 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="backBtn" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
-      <Button fx:id="startGameBtn" layoutX="506.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#startGame" text="Start Game" />
-      <ComboBox fx:id="combo1human" layoutX="88.0" layoutY="137.0" prefWidth="150.0" promptText="Choose Player" />
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#setBackBtn" text="Back" />
+      <Button fx:id="startGameBtn" layoutX="506.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#setStartGameBtn" text="Start Game" />
+      <ComboBox fx:id="combo1human" layoutX="88.0" layoutY="137.0" prefWidth="150.0" promptText="Not Playing" />
       <ComboBox fx:id="combo1race" layoutX="88.0" layoutY="174.0" prefWidth="150.0" promptText="Choose Race" />
-      <ComboBox fx:id="combo2human" layoutX="374.0" layoutY="137.0" prefWidth="150.0" promptText="Choose Player" />
-      <ComboBox fx:id="combo4human" layoutX="374.0" layoutY="281.0" prefWidth="150.0" promptText="Choose Player" />
-      <ComboBox fx:id="combo3human" layoutX="88.0" layoutY="281.0" prefWidth="150.0" promptText="Choose Player" />
-      <ComboBox fx:id="combo4race" layoutX="374.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo2human" layoutX="374.0" layoutY="137.0" prefWidth="150.0" promptText="Not Playing" />
       <ComboBox fx:id="combo2race" layoutX="374.0" layoutY="174.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo3human" layoutX="88.0" layoutY="281.0" prefWidth="150.0" promptText="Not Playing" />
       <ComboBox fx:id="combo3race" layoutX="88.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo4human" layoutX="374.0" layoutY="281.0" prefWidth="150.0" promptText="Not Playing" />
+      <ComboBox fx:id="combo4race" layoutX="374.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
       <Label fx:id="errorLabel" layoutX="181.0" layoutY="55.0" text="Must select players and races" textFill="RED" visible="false">
          <font>
             <Font size="18.0" />

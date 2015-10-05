@@ -37,7 +37,6 @@ public class MapController {
         if (Main.myGame.getMap().purchase(row, col)) {
             System.out.println("change me");
             ImageView select = new ImageView("/View/Resources/p1Selector");
-            tile.
         }
     }
 }

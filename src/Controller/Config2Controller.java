@@ -1,6 +1,7 @@
 package Controller;
 
-import Model.Main;
+
+import Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Config2Controller {
 
@@ -19,7 +21,7 @@ public class Config2Controller {
 //    private Button nextBtn, backBtn;
 
     @FXML
-    private Button startGame, back;
+    private Button startGame, backBtn;
     @FXML
     private ComboBox<String> combo1human, combo2human, combo3human, combo4human;
     @FXML
@@ -32,24 +34,58 @@ public class Config2Controller {
     ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite");
 
     @FXML
-    private void startGame() {
-            if (!combo1human.getValue().equals("Not playing")) {
-                System.out.println(p1Name.getText());
-                System.out.println(combo1human.getValue());
-                System.out.println(combo1race.getValue());
+    public void setBackBtn() {
+        MasterController.getInstance().loadConfig1Scene();
+    }
 
-                //This kept giving me null pointer exceptions. Originally my plan for this method was
-                //to have every text field and combo box from the screen be a parameter for this method and then
-                //let addPlayer() handle putting the information into the ArrayList<Player> players field of myGame
-                //which is the object of the Game class that is instantiated at the very beginning of the game
-                //by the Main class which contains our main method.  - Tucker
-                Main.myGame.addPlayer(p1Name.getText(), combo1human.getValue(), combo1race.getValue());
-                //MasterController.getInstance().changeTo__()
-
-            } else {
-                errorLabel.setVisible(true);
+    @FXML
+    private void setStartGameBtn() {
+        if (comboBoxesAreVerififed()) {
+            MasterController.getInstance().loadMapScene();
+        } else {
+            errorLabel.setVisible(true);
         }
     }
+
+
+    private boolean comboBoxesAreVerififed() {
+        boolean[] players = {false, false, false, false};
+        ArrayList<Player> playersList = Main.myGame.getPlayers();
+        if (combo1human.getValue() == "Not playing") {
+            players[0] = true;
+        } else if (combo1human.getValue() != null && combo1race.getValue() != null) {
+            players[0] = true;
+            playersList.add(new Player(p1Name.getText(), combo1human.getValue(), combo1race.getValue()));
+            //after names are added, add name parameter to game.Player ctor
+        }
+        if (combo2human.getValue() == "Not playing") {
+            players[1] = true;
+        } else if (combo2human.getValue() != null && combo2race.getValue() != null) {
+            players[1] = true;
+           playersList.add(new Player(p2Name.getText(), combo1human.getValue(), combo1race.getValue()));
+        }
+        if (combo3human.getValue() == "Not playing") {
+            players[2] = true;
+        } else if (combo3human.getValue() != null && combo3race.getValue() != null) {
+            players[2] = true;
+            playersList.add(new Player(p3Name.getText(), combo1human.getValue(), combo1race.getValue()));
+        }
+        if (combo4human.getValue() == "Not playing") {
+            players[3] = true;
+        } else if (combo4human.getValue() != null && combo4race.getValue() != null) {
+            players[3] = true;
+            playersList.add(new Player(p4Name.getText(), combo1human.getValue(), combo1race.getValue()));
+        }
+        if (players[0] && players[1] && players[2] && players[3]) {
+            return true;
+        } else {
+            return false;
+        }
+
+
+
+    }
+
 
 
     public void initialize() throws IOException {
