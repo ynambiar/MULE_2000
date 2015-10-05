@@ -21,7 +21,7 @@
       <ComboBox fx:id="combo2race" layoutX="374.0" layoutY="174.0" prefWidth="150.0" promptText="Choose Race" />
       <ComboBox fx:id="combo3human" layoutX="88.0" layoutY="281.0" prefWidth="150.0" promptText="Not Playing" />
       <ComboBox fx:id="combo3race" layoutX="88.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
-      <ComboBox fx:id="combo4human" layoutX="374.0" layoutY="281.0" prefWidth="150.0" promptText="Not Playing" />
+      <ComboBox fx:id="combo4human" layoutX="374.0" layoutY="281.0" prefWidth="150.0" promptText="Choose Player" />
       <ComboBox fx:id="combo4race" layoutX="374.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
       <Label fx:id="errorLabel" layoutX="181.0" layoutY="55.0" text="Must select players and races" textFill="RED" visible="false">
          <font>
