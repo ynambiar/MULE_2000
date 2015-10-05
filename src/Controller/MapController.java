@@ -31,8 +31,12 @@ public class MapController {
     }
 
     public void tileChosen(MouseEvent event) {
+
+
         System.out.println("I'm chosen");
         BorderPane tile = (BorderPane) event.getSource();
+        System.out.println(tile.toString());
+        System.out.println(map.toString());
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
         if (Main.myGame.getMap().purchase(row, col)) {

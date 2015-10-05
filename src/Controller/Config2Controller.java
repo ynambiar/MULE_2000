@@ -49,40 +49,29 @@ public class Config2Controller {
 
 
     private boolean comboBoxesAreVerififed() {
-        boolean[] players = {false, false, false, false};
         ArrayList<Player> playersList = Main.myGame.getPlayers();
-        if (combo1human.getValue() == "Not playing") {
-            players[0] = true;
-        } else if (combo1human.getValue() != null && combo1race.getValue() != null) {
-            players[0] = true;
-            playersList.add(new Player(p1Name.getText(), combo1human.getValue(), combo1race.getValue()));
-            //after names are added, add name parameter to game.Player ctor
+        boolean verified = false;
+
+        if (combo1human.getValue() != "Not Playing" && combo1race.getValue() != null && p1Name.getText() != null) {
+            playersList.add(new Player(combo1human.getValue(), combo1race.getValue(), p1Name.getText()));
         }
-        if (combo2human.getValue() == "Not playing") {
-            players[1] = true;
-        } else if (combo2human.getValue() != null && combo2race.getValue() != null) {
-            players[1] = true;
-           playersList.add(new Player(p2Name.getText(), combo1human.getValue(), combo1race.getValue()));
+        if (combo2human.getValue() != "Not Playing" && combo2race.getValue() != null && p2Name.getText() != null) {
+            playersList.add(new Player(combo2human.getValue(), combo2race.getValue(), p2Name.getText()));
         }
-        if (combo3human.getValue() == "Not playing") {
-            players[2] = true;
-        } else if (combo3human.getValue() != null && combo3race.getValue() != null) {
-            players[2] = true;
-            playersList.add(new Player(p3Name.getText(), combo1human.getValue(), combo1race.getValue()));
+        if (combo3human.getValue() != "Not Playing" && combo3race.getValue() != null && p3Name.getText() != null) {
+            playersList.add(new Player(combo3human.getValue(), combo3race.getValue(), p3Name.getText()));
         }
-        if (combo4human.getValue() == "Not playing") {
-            players[3] = true;
-        } else if (combo4human.getValue() != null && combo4race.getValue() != null) {
-            players[3] = true;
-            playersList.add(new Player(p4Name.getText(), combo1human.getValue(), combo1race.getValue()));
-        }
-        if (players[0] && players[1] && players[2] && players[3]) {
-            return true;
-        } else {
-            return false;
+        if (combo4human.getValue() != "Not Playing" && combo4race.getValue() != null && p4Name.getText() != null) {
+            playersList.add(new Player(combo4human.getValue(), combo4race.getValue(), p4Name.getText()));
         }
 
-
+        if (playersList.size() > 1) {
+            verified = true;
+        }
+        for (Player p: playersList) {
+            System.out.println(p.toString());
+        }
+        return verified;
 
     }
 

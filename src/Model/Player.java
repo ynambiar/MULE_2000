@@ -17,7 +17,7 @@ public class Player {
     //These fields DO require setters
     private int money;
 
-    public Player(String name, String human, String race) {
+    public Player(String human, String race, String name) {
         this.name = name;
         this.human = human;
         this.race = race;
@@ -51,5 +51,9 @@ public class Player {
 
     public void setTileOwned(int row, int col) {
         tilesOwned[row][col] = true;
+    }
+
+    public String toString() {
+        return  human + " player " + name + " is a " + race;
     }
 }
