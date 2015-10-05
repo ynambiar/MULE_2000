@@ -54,8 +54,6 @@ public class MapController {
         }
     }
 
-<<<<<<< HEAD
-
     boolean timerStats;
     Timer timer;
     int timersec;
@@ -125,11 +123,10 @@ public class MapController {
 
     }
 
-=======
     public void townClicked(MouseEvent event) {
         if (Main.myGame.getRoundNumber() != 0) {
             MasterController.getInstance().loadTownScene();
         }
     }
->>>>>>> 86f605f8087f6c523566f980cbd4f7a5ba4b7978
+
 }
