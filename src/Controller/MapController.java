@@ -24,9 +24,8 @@ public class MapController {
 
 
     public void initialize() {
-        System.out.println("hey");
-
         //Creates the standard map
+        //TODO create a random map
         Map myMap = new Map();
         for (int i = 0; i < myMap.getHeight(); i++) {
             for (int j = 0; j < myMap.getWidth(); j++) {

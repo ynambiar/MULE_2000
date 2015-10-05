@@ -47,6 +47,19 @@ public class Game {
         }
     }
 
+    public void endTurn() {
+        if (currentPlayer == players.get(players.size() - 1)) {
+            endRound();
+        } else {
+            currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
+            //TODO Deal with timer stuff
+        }
+    }
+
+    public void endRound() {
+
+    }
+
     public void addPlayer(Player player) { players.add(player);}
     public ArrayList<Player> getPlayers() { return players;}
     public Difficulty getDifficulty() { return difficulty;}

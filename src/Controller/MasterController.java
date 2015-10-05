@@ -38,14 +38,17 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
             config2Scene = new Scene(root);
 
-//            root = FXMLLoader.load(getClass().getResource("/View/InsidePub.fxml"));
-//            insidePubScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
+            insidePubScene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/InsideTown.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
             insideTownScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Map.fxml"));
             mapScene = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
+            gamblingResultsScene = new Scene(root);
 
 //            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
 //            rulesScene = new Scene(root);
@@ -69,6 +72,7 @@ public class MasterController {
         stage.setScene(config2Scene);
     }
     public void loadPubScene() { stage.setScene(insidePubScene);}
+    public void loadGamblingResultsScene() { stage.setScene(gamblingResultsScene);}
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
