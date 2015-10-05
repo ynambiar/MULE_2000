@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Driver;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

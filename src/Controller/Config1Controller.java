@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Driver;
+import Model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -36,15 +36,15 @@ public class Config1Controller {
         for (Toggle t : difficultyToggle.getToggles()) {
             if (t.isSelected()) {
                 toggles[0] = true;
-                Driver.myGame.setDifficulty(t.toString());
-                System.out.println(Driver.myGame.getDifficulty());
+                Main.myGame.setDifficulty(t.toString());
+                System.out.println(Main.myGame.getDifficulty());
             }
         }
         for (Toggle t : mapToggle.getToggles()) {
             if (t.isSelected()) {
                 toggles[1] = true;
-                Driver.myGame.setMapType(t.toString());
-                System.out.println(Driver.myGame.getMapType());
+                Main.myGame.setMapType(t.toString());
+                System.out.println(Main.myGame.getMapType());
             }
         }
         if (toggles[0] && toggles[1]) {
@@ -53,7 +53,7 @@ public class Config1Controller {
 
         if (configsAreSet) {
             MasterController.getInstance().loadPlaceHolderScene();
-            //Driver.mygame.createMap()
+            //Main.mygame.createMap()
         } else {
             errorLabel.setVisible(true);
         }

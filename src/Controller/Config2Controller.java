@@ -1,23 +1,15 @@
 package Controller;
 
-import Model.Driver;
-import Model.Player;
+import Model.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Config2Controller {
 
@@ -50,8 +42,8 @@ public class Config2Controller {
                 //to have every text field and combo box from the screen be a parameter for this method and then
                 //let addPlayer() handle putting the information into the ArrayList<Player> players field of myGame
                 //which is the object of the Game class that is instantiated at the very beginning of the game
-                //by the Driver class which contains our main method.  - Tucker
-                Driver.myGame.addPlayer(p1Name.getText(), combo1human.getValue(), combo1race.getValue());
+                //by the Main class which contains our main method.  - Tucker
+                Main.myGame.addPlayer(p1Name.getText(), combo1human.getValue(), combo1race.getValue());
                 //MasterController.getInstance().changeTo__()
 
             } else {

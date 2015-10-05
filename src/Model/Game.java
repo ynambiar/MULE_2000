@@ -14,24 +14,33 @@ public class Game {
     ArrayList<Player> players;
     String difficulty;
     String mapType;
+    Map map;
+    int roundNumber;
+    int turnNumber;
 
 
 
+    public Game() {
+        map = new Map();
+    }
 
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
     public void addPlayer(String name, String human, String race) {
-            Player p = new Player(name, human, race);
-            players.add(p);
-            System.out.println(players);
+        Player p = new Player(name, human, race);
+        players.add(p);
+        System.out.println(players);
     }
 
     public String getDifficulty() { return difficulty;}
     public void setDifficulty(String difficulty) { this.difficulty = difficulty;}
     public String getMapType() { return mapType;}
-    public void setMapType(String mapType) { this.mapType = mapType; }
+    public void setMapType(String mapType) { this.mapType = mapType;}
+    public Map getMap() { return map;}
+    public int getRoundNumber() { return roundNumber;}
+    public int getTurnNumber() { return turnNumber;}
 
 
 

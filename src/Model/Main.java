@@ -7,7 +7,7 @@ import Controller.MasterController;
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
-public class Driver extends Application {
+public class Main extends Application {
 
     public static Game myGame;
 

@@ -1,4 +1,5 @@
 package Controller;
+import Model.Main;
 import javafx.scene.layout.GridPane;
 import Model.Map;
 import javafx.fxml.FXML;
@@ -10,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 /**
  * Created by yamininambiar on 10/3/15.
  */
-public class MapController extends MasterController {
+public class mapController {
 
     @FXML
     private GridPane map;
@@ -19,7 +20,7 @@ public class MapController extends MasterController {
         System.out.println("hey");
 
         //Creates the standard map
-        Map myMap = new Map(); //TODO implement random map
+        Map myMap = new Map();
         for (int i = 0; i < myMap.getHeight(); i++) {
             for (int j = 0; j < myMap.getWidth(); j++) {
                 ImageView tile = new ImageView(myMap.getTile(i, j).imagePath());
@@ -31,8 +32,11 @@ public class MapController extends MasterController {
         }
     }
 
-    public void tileChosen(MouseEvent e) {
+    public void tileChosen(MouseEvent event) {
+        BorderPane tile = (BorderPane) event.getSource();
+        if (Main.myGame.getRoundNumber() == 0) {
+            //land selection phase
 
-
+        }
     }
 }
