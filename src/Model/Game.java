@@ -31,6 +31,10 @@ public class Game {
         return players;
     }
 
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
+
     public boolean addProperty(int row, int col) {
         if (roundNumber == 0) {
             //currentPlayer.setTileOwned(row, col);
