@@ -7,6 +7,7 @@ public class Map {
 
     private int height, width;
     private MapTile[][] board;
+    private boolean[][] tilesOwned;
 
     private final MapTile[][] standardMap =
             {{MapTile.P,  MapTile.P,  MapTile.M1, MapTile.P,  MapTile.R,    MapTile.P,  MapTile.M3, MapTile.P,  MapTile.P},
@@ -37,6 +38,15 @@ public class Map {
         } else {
             board = new MapTile[height][width];
         }
+        tilesOwned = new boolean[height][width];
+    }
+
+    public boolean purchase(int row, int col) {
+        if (!tilesOwned[row][col]) {
+            return Main.myGame.addProperty(row, col);
+        } else {
+            return false;
+        }
     }
 
     public MapTile[][] getBoard() {
@@ -58,5 +68,7 @@ public class Map {
     public int getWidth() {
         return width;
     }
+
+
 
 }

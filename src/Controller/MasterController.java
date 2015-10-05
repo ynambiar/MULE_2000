@@ -46,8 +46,8 @@ public class MasterController {
 //            root = FXMLLoader.load(getClass().getResource("/View/InsideTown.fxml"));
 //            insideTownScene = new Scene(root);
 //
-//            root = FXMLLoader.load(getClass().getResource("/View/Map.fxml"));
-//            mapScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/Map.fxml"));
+            mapScene = new Scene(root);
 
 
             root = FXMLLoader.load(getClass().getResource("/View/PlaceHolder.fxml"));

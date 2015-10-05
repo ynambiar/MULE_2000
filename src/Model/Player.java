@@ -10,6 +10,7 @@ public class Player {
     private String name;
     private String human;
     private String race;
+    private boolean[][] tilesOwned;
 
     //These fields DO require setters
     private int money;
@@ -41,5 +42,9 @@ public class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    public void setTileOwned(int row, int col) {
+        tilesOwned[row][col] = true;
     }
 }

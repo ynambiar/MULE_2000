@@ -8,10 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 
 
-/**
- * Created by yamininambiar on 10/3/15.
- */
-public class mapController {
+public class MapController {
 
     @FXML
     private GridPane map;
@@ -33,10 +30,14 @@ public class mapController {
     }
 
     public void tileChosen(MouseEvent event) {
+        System.out.println("I'm chosen");
         BorderPane tile = (BorderPane) event.getSource();
-        if (Main.myGame.getRoundNumber() == 0) {
-            //land selection phase
-
+        int row = map.getRowIndex(tile);
+        int col = map.getColumnIndex(tile);
+        if (Main.myGame.getMap().purchase(row, col)) {
+            System.out.println("change me");
+            ImageView select = new ImageView("/View/Resources/p1Selector");
+            tile.
         }
     }
 }

@@ -12,6 +12,7 @@ public class Game {
 
     String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
     ArrayList<Player> players;
+    Player currentPlayer;
     String difficulty;
     String mapType;
     Map map;
@@ -32,6 +33,16 @@ public class Game {
         Player p = new Player(name, human, race);
         players.add(p);
         System.out.println(players);
+    }
+
+    public boolean addProperty(int row, int col) {
+        if (roundNumber == 0) {
+            //currentPlayer.setTileOwned(row, col);
+            return true;
+        } else {
+            //TODO check if player can afford the spot.
+            return true;
+        }
     }
 
     public String getDifficulty() { return difficulty;}

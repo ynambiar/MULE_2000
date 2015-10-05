@@ -15,8 +15,8 @@ public class Main extends Application {
         myGame = new Game(); //TODO Fill in all the fields in Game, make a default ctor
         MasterController controller = MasterController.getInstance();
         controller.setStage(stage);
-        controller.loadStartScene();
-//        controller.loadMapScene();
+//        controller.loadStartScene();
+        controller.loadMapScene();
 
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
