@@ -35,9 +35,9 @@ public class MasterController {
         try {
             root = FXMLLoader.load(getClass().getResource("/View/Config1.fxml"));
             config1Scene = new Scene(root);
-//
-//            root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
-//            config2Scene = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
+            config2Scene = new Scene(root);
 //
 //
 //            root = FXMLLoader.load(getClass().getResource("/View/InsidePub.fxml"));
