@@ -7,12 +7,21 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
+import javafx.application.Platform;
+
+import java.awt.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MapController {
 
     @FXML
+    private Label time;
+    @FXML
     private GridPane map;
+
+
 
     public void initialize() {
         System.out.println("hey");
@@ -39,4 +48,75 @@ public class MapController {
             tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
         }
     }
+
+
+    boolean timerStats;
+    Timer timer;
+    int timersec;
+    int timermin;
+    int timerhr;
+
+    @FXML
+    private void startTime(){
+        if(timerStats==false)
+        {
+            timerStats = true;
+            timer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+
+                @Override
+                public void run() {
+
+                    System.out.println("working");
+
+                    timersec ++;
+
+                    Platform.runLater(new Runnable(){
+                        public void run(){
+
+                            if (timersec == 60)
+                            {
+                                timersec = 0;
+                                timermin++;
+                            }
+                            if (timermin == 60)
+                            {
+                                timermin = 0;
+                                timerhr++;
+                            }
+
+                            String seconds = Integer.toString(timersec);
+                            String minutes = Integer.toString(timermin);
+                            String hours = Integer.toString(timerhr);
+
+                            if (timersec <= 9)
+                            {
+                                seconds = "0" + Integer.toString(timersec);
+                            }
+                            if (timermin <= 9)
+                            {
+                                minutes = "0" + Integer.toString(timermin);
+                            }
+                            if (timerhr <= 9)
+                            {
+                                hours = "0" + Integer.toString(timerhr);
+                            }
+
+                            time.setText(hours + ":" + minutes +":"+ seconds);
+                            System.out.println(time.getText());
+                        }
+
+
+                    });
+
+
+                }
+
+            };
+            timer.schedule(timerTask, 50, 50); //lastone is time, milli second
+
+        }
+
+    }
+
 }

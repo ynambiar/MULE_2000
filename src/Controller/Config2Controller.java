@@ -40,40 +40,40 @@ public class Config2Controller {
 
     @FXML
     private void setStartGameBtn() {
-        if (comboBoxesAreVerififed()) {
-            MasterController.getInstance().loadMapScene();
-        } else {
-            errorLabel.setVisible(true);
+        try {
+            if (comboBoxesAreVerififed()) {
+                MasterController.getInstance().loadMapScene();
+            } else {
+                errorLabel.setVisible(true);
+            }
+            Main.myGame.startGame();
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        Main.myGame.startGame();
     }
-
 
     private boolean comboBoxesAreVerififed() {
         Game game = Main.myGame;
         boolean verified = false;
-
         if (combo1human.getValue() != "Not Playing" && combo1race.getValue() != null && p1Name.getText() != null) {
-            game.addPlayer(new Player(combo1human.getValue(), combo1race.getValue(), p1Name.getText(), "blue"));
+            game.addPlayer(new Player(combo1human.getValue(), combo1race.getValue(), p1Name.getText(), "DODGERBLUE"));
         }
         if (combo2human.getValue() != "Not Playing" && combo2race.getValue() != null && p2Name.getText() != null) {
-            game.addPlayer(new Player(combo2human.getValue(), combo2race.getValue(), p2Name.getText(), "red"));
+            game.addPlayer(new Player(combo2human.getValue(), combo2race.getValue(), p2Name.getText(), "#ff321f"));
         }
         if (combo3human.getValue() != "Not Playing" && combo3race.getValue() != null && p3Name.getText() != null) {
-            game.addPlayer(new Player(combo3human.getValue(), combo3race.getValue(), p3Name.getText(), "purple"));
+            game.addPlayer(new Player(combo3human.getValue(), combo3race.getValue(), p3Name.getText(), "#dd02cf"));
         }
         if (combo4human.getValue() != "Not Playing" && combo4race.getValue() != null && p4Name.getText() != null) {
-            game.addPlayer(new Player(combo4human.getValue(), combo4race.getValue(), p4Name.getText(), "orange"));
+            game.addPlayer(new Player(combo4human.getValue(), combo4race.getValue(), p4Name.getText(), "#ffa639"));
         }
-
         if (game.getPlayers().size() > 1) {
             verified = true;
         }
-        for (Player p: game.getPlayers()) {
+        for (Player p : game.getPlayers()) {
             System.out.println(p.toString());
         }
         return verified;
-
     }
 
 

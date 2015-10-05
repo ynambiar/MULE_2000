@@ -18,6 +18,7 @@ public class Game {
     MapType mapType;
     Map map;
     int roundNumber;
+    int timeLeft;
 
 
 
@@ -56,7 +57,9 @@ public class Game {
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
 
-
-
+    /* Timer methods */
+    public void decrementTimeLeft() { timeLeft--; }
+    public void setTimeLeft(int time) { timeLeft = time; }
+    public int getTimeLeft() { return timeLeft; }
 
 }
