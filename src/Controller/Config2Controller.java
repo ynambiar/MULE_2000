@@ -17,9 +17,6 @@ public class Config2Controller {
 
     @FXML
     private ComboBox<String> combo1race, combo2race, combo3race, combo4race;
-//    @FXML
-//    private Button nextBtn, backBtn;
-
     @FXML
     private Button startGame, backBtn;
     @FXML

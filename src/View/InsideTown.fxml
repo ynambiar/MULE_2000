@@ -7,11 +7,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.insideTownController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.insideTownController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="612.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@graphics/insideTownBackground.png" />
+            <Image url="@Resources/insideTownBackground.png" />
          </image>
       </ImageView>
       <Label layoutX="245.0" layoutY="109.0" prefHeight="15.0" prefWidth="37.0" text="LAND" textFill="WHITE">
@@ -36,26 +36,25 @@
       </Label>
       <ImageView fitHeight="23.0" fitWidth="24.0" layoutX="541.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@graphics/pubMug.png" />
+            <Image url="@Resources/pubMug.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="17.0" fitWidth="28.0" layoutX="500.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@graphics/storeBag.png" />
+            <Image url="@Resources/storeBag.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="17.0" fitWidth="28.0" layoutX="224.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@graphics/landMountain.png" />
+            <Image url="@Resources/landMountain.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="15.0" fitWidth="17.0" layoutX="266.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@graphics/assayCrystite.png" />
+            <Image url="@Resources/assayCrystite.png" />
          </image>
       </ImageView>
-      <Button fx:id="leaveTownBtn" layoutY="374.0" mnemonicParsing="false" onAction="#buttonHandler" text="Leave Town" />
-      <Button fx:id="pubBtn" layoutX="322.0" layoutY="258.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="163.0" visible="false" />
-      <Button fx:id="pubBtn" layoutX="506.0" layoutY="373.0" mnemonicParsing="false" onAction="#buttonHandler" text="Go to Pub" />
+      <Button fx:id="leaveTownBtn" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" text="Leave Town" />
+      <Button fx:id="pubBtn" layoutX="319.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" prefHeight="122.0" prefWidth="256.0" visible="false" />
    </children>
 </AnchorPane>

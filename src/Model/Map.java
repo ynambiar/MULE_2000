@@ -39,12 +39,14 @@ public class Map {
             board = new MapTile[height][width];
         }
         tilesOwned = new boolean[height][width];
+        tilesOwned[2][4] = true;
     }
 
     public Player purchase(int row, int col) {
         if (!tilesOwned[row][col]) {
             Player p = Main.myGame.getCurrentPlayer();
             if (Main.myGame.addProperty(row, col)) {
+                tilesOwned[row][col] = true;
                 return p;
             } else {
                 return null;
