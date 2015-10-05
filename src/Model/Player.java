@@ -12,6 +12,7 @@ public class Player {
     private String race;
     private String color;
     private boolean[][] tilesOwned;
+    private int numTilesOwned;
 
 
     //These fields DO require setters
@@ -22,6 +23,7 @@ public class Player {
         this.human = human;
         this.race = race;
         this.color = color;
+        tilesOwned = new boolean[Main.myGame.getMap().getHeight()][Main.myGame.getMap().getWidth()];
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {
@@ -31,29 +33,20 @@ public class Player {
         }
     }
 
-    public String getName() {
-        return name;
+    public int getNumTilesOwned() {
+        int owned = 0;
+        for (int i = 0; i < tilesOwned.length; i++) {
+            for (int j = 0; j < tilesOwned[i].length; j++) {
+                if (tilesOwned[i][j]) { owned++;}
+            }
+        }
+        return owned;
     }
-
-    public String getHuman() {
-        return human;
-    }
-
-    public String getRace() {
-        return race;
-    }
-
-    public int getMoney() {
-        return money;
-    }
-
+    public String getName() { return name;}
+    public String getHuman() { return human;}
+    public String getRace() { return race;}
+    public int getMoney() { return money;}
     public String getColor() { return color; }
-
-    public void setTileOwned(int row, int col) {
-        tilesOwned[row][col] = true;
-    }
-
-    public String toString() {
-        return  human + " player " + name + " is a " + race;
-    }
+    public void setTileOwned(int row, int col) {tilesOwned[row][col] = true;}
+    public String toString() { return  human + " player " + name + " is a " + race;}
 }

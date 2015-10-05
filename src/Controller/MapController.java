@@ -31,17 +31,12 @@ public class MapController {
     }
 
     public void tileChosen(MouseEvent event) {
-
-
-        System.out.println("I'm chosen");
         BorderPane tile = (BorderPane) event.getSource();
-        System.out.println(tile.toString());
-        System.out.println(map.toString());
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
-        if (Main.myGame.getMap().purchase(row, col)) {
-            System.out.println("change me");
-            tile.setStyle("-fx-border-color: " + Main.myGame.getCurrentPlayer().getColor() + ";");
+        Player p = Main.myGame.getMap().purchase(row, col);
+        if (p != null) {
+            tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
         }
     }
 }

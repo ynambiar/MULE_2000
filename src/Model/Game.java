@@ -18,7 +18,6 @@ public class Game {
     MapType mapType;
     Map map;
     int roundNumber;
-    int turnNumber;
 
 
 
@@ -27,17 +26,19 @@ public class Game {
         players = new ArrayList<Player>();
     }
 
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-
-    public void addPlayer(Player player) {
-        players.add(player);
+    public void startGame() {
+        currentPlayer = players.get(0);
+        roundNumber = 0; //round 0 is land selection
     }
 
     public boolean addProperty(int row, int col) {
         if (roundNumber == 0) {
-            //currentPlayer.setTileOwned(row, col);
+            currentPlayer.setTileOwned(row, col);
+            currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size()); //gets next player
+            if (currentPlayer == players.get(0) && currentPlayer.getNumTilesOwned() == 2) {
+                roundNumber = 1;
+                System.out.println("Real game starts boi");
+            }
             return true;
         } else {
             //TODO check if player can afford the spot.
@@ -45,13 +46,14 @@ public class Game {
         }
     }
 
+    public void addPlayer(Player player) { players.add(player);}
+    public ArrayList<Player> getPlayers() { return players;}
     public Difficulty getDifficulty() { return difficulty;}
     public void setDifficulty(Difficulty difficulty) { this.difficulty = difficulty;}
     public MapType getMapType() { return mapType;}
     public void setMapType(MapType mapType) { this.mapType = mapType;}
     public Map getMap() { return map;}
     public int getRoundNumber() { return roundNumber;}
-    public int getTurnNumber() { return turnNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
 
 

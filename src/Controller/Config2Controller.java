@@ -45,6 +45,7 @@ public class Config2Controller {
         } else {
             errorLabel.setVisible(true);
         }
+        Main.myGame.startGame();
     }
 
 

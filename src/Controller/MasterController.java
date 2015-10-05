@@ -30,7 +30,6 @@ public class MasterController {
 
     //ctor! loads all the scene upon initialization
     public MasterController() {
-        System.out.println("heyy");
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("/View/Config1.fxml"));
