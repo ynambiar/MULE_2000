@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Config2Controller">
+   <children>
+      <Label layoutX="135.0" layoutY="14.0" text="Player Configuration" textFill="#19a69b">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#back" text="Back" />
+      <Button fx:id="startGameBtn" layoutX="506.0" layoutY="361.0" mnemonicParsing="false" onMouseClicked="#startGame" text="Start Game" />
+      <ComboBox fx:id="combo1human" layoutX="88.0" layoutY="137.0" prefWidth="150.0" promptText="Choose Player" />
+      <ComboBox fx:id="combo1race" layoutX="88.0" layoutY="174.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo2human" layoutX="374.0" layoutY="137.0" prefWidth="150.0" promptText="Choose Player" />
+      <ComboBox fx:id="combo4human" layoutX="374.0" layoutY="281.0" prefWidth="150.0" promptText="Choose Player" />
+      <ComboBox fx:id="combo3human" layoutX="88.0" layoutY="281.0" prefWidth="150.0" promptText="Choose Player" />
+      <ComboBox fx:id="combo4race" layoutX="374.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo2race" layoutX="374.0" layoutY="174.0" prefWidth="150.0" promptText="Choose Race" />
+      <ComboBox fx:id="combo3race" layoutX="88.0" layoutY="318.0" prefWidth="150.0" promptText="Choose Race" />
+      <Label fx:id="errorLabel" layoutX="181.0" layoutY="55.0" text="Must select players and races" textFill="RED" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="DODGERBLUE" layoutX="105.0" layoutY="103.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#ff321f" layoutX="391.0" layoutY="103.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#dd02cf" layoutX="105.0" layoutY="251.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#ffa639" layoutX="391.0" layoutY="250.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="p1Name" layoutX="131.0" layoutY="91.0" prefHeight="25.0" prefWidth="129.0" promptText="P1 Name" />
+      <TextField fx:id="p2Name" layoutX="417.0" layoutY="91.0" prefHeight="25.0" prefWidth="129.0" promptText="P2 Name" />
+      <TextField fx:id="p3Name" layoutX="131.0" layoutY="239.0" prefHeight="25.0" prefWidth="129.0" promptText="P3 Name" />
+      <TextField fx:id="p4Name" layoutX="417.0" layoutY="238.0" prefHeight="25.0" prefWidth="129.0" promptText="P4 Name" />
+   </children>
+</AnchorPane>

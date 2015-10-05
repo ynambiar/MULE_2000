@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Config1Controller">
+   <children>
+      <Label layoutX="164.0" layoutY="35.0" text="Choose Your Difficulty" textFill="#19a69b">
+         <font>
+            <Font name="Georgia" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="191.0" layoutY="167.0" text="Choose Your Map" textFill="#19a69b">
+         <font>
+            <Font name="Georgia" size="28.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="128.0" fitWidth="116.0" layoutX="137.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/map-clipart-travel-map2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#setBackBtn" text="Back" />
+      <Button fx:id="nextBtn" layoutX="529.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#setNextBtn" text="Next" />
+      <RadioButton fx:id="easyRadio" layoutX="182.0" layoutY="87.0" mnemonicParsing="false" text="Easy" />
+      <RadioButton fx:id="mediumRadio" layoutX="267.0" layoutY="87.0" mnemonicParsing="false" text="Medium" />
+      <RadioButton fx:id="hardRadio" layoutX="373.0" layoutY="87.0" mnemonicParsing="false" text="Hard" />
+      <RadioButton fx:id="standardMapRadio" layoutX="156.0" layoutY="330.0" mnemonicParsing="false" text="Standard" />
+      <RadioButton fx:id="randomMapRadio" layoutX="388.0" layoutY="330.0" mnemonicParsing="false" text="Randomized" />
+      <Label fx:id="errorLabel" layoutX="181.0" layoutY="126.0" text="Must select difficulty and map" textFill="RED" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="110.0" fitWidth="116.0" layoutX="400.0" layoutY="202.0">
+         <image>
+            <Image url="@Resources/diceAnimation.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

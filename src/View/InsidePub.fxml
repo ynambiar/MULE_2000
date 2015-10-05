@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.insidePubController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@graphics/insidePub.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="344.0" layoutY="21.0" prefHeight="44.0" prefWidth="189.0" text="Greetings traveler! Would&#10;you like to gamble?&#10;" textAlignment="CENTER">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="yesGambleBtn" layoutX="448.0" layoutY="69.0" mnemonicParsing="false" onAction="#buttonHandler" text="Yes">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="noGambleBtn" layoutX="391.0" layoutY="69.0" mnemonicParsing="false" onAction="#buttonHandler" prefHeight="25.0" prefWidth="38.0" text="No">
+         <font>
+            <Font name="Georgia" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

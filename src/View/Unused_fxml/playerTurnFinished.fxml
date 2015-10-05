@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="363.0" style="-fx-background-color: FFFF66; -fx-border-color: 330066;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="99.0" layoutY="45.0" text="Rules">
+         <font>
+            <Font name="Georgia" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="89.0" layoutY="81.0" text="..">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="okayButton" layoutX="124.0" layoutY="123.0" mnemonicParsing="false" onAction="#okayButtonAction" text="Close and Continue" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

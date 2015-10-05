@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="194.0" prefWidth="363.0" style="-fx-background-color: FFFF66; -fx-border-color: 330066;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.PurchasePropertyController">
+   <children>
+      <Label layoutX="21.0" layoutY="37.0" text="It's time to purchase property!">
+         <font>
+            <Font name="Georgia" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="81.0" text="Select two tiles of land to buy.">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="okayButton" layoutX="163.0" layoutY="124.0" mnemonicParsing="false" text="OK" />
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
