@@ -10,7 +10,9 @@ public class Player {
     private String name;
     private String human;
     private String race;
+    private String color;
     private boolean[][] tilesOwned;
+
 
     //These fields DO require setters
     private int money;
@@ -19,6 +21,7 @@ public class Player {
         this.name = name;
         this.human = human;
         this.race = race;
+        this.color = "purple"; //TODO chnage this to correct color
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {
@@ -43,6 +46,8 @@ public class Player {
     public int getMoney() {
         return money;
     }
+
+    public String getColor() { return color; }
 
     public void setTileOwned(int row, int col) {
         tilesOwned[row][col] = true;

@@ -23,6 +23,6 @@ public enum MapTile {
     }
 
     public String imagePath() {
-        return imagePath.getOrDefault(this.name(), imagePath.get("Plains"));
+        return imagePath.getOrDefault(this.name(), imagePath.get("P"));
     }
 }
