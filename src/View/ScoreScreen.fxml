@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <LineChart layoutX="10.0" layoutY="250.0" prefHeight="275.0" prefWidth="674.0" title="Score Across Rounds">
+        <xAxis>
+          <CategoryAxis label="Round" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="Score" minorTickLength="3.0" side="LEFT" tickLength="5.0" tickUnit="3.0" upperBound="900.0" />
+        </yAxis>
+      </LineChart>
+      <VBox layoutX="10.0" prefHeight="250.0" prefWidth="674.0">
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="34.0" prefWidth="692.0" text="CURRENT SCORE">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="205.0" prefWidth="674.0">
+               <children>
+                  <Pane prefHeight="204.0" prefWidth="168.0" style="-fx-background-color: blue;" />
+                  <Pane prefHeight="204.0" prefWidth="169.0" style="-fx-background-color: red;" />
+                  <Pane prefHeight="204.0" prefWidth="169.0" style="-fx-background-color: purple;" />
+                  <Pane prefHeight="204.0" prefWidth="168.0" style="-fx-background-color: orange;" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

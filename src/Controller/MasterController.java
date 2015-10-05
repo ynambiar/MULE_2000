@@ -37,24 +37,19 @@ public class MasterController {
 
             root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
             config2Scene = new Scene(root);
-//
-//
-//            root = FXMLLoader.load(getClass().getResource("/View/InsidePub.fxml"));
-//            insidePubScene = new Scene(root);
-//
-//            root = FXMLLoader.load(getClass().getResource("/View/InsideTown.fxml"));
-//            insideTownScene = new Scene(root);
-//
+
+            root = FXMLLoader.load(getClass().getResource("/View/InsidePub.fxml"));
+            insidePubScene = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/InsideTown.fxml"));
+            insideTownScene = new Scene(root);
+
             root = FXMLLoader.load(getClass().getResource("/View/Map.fxml"));
             mapScene = new Scene(root);
 
+            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
+            rulesScene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/PlaceHolder.fxml"));
-            placeHolderScreen = new Scene(root);
-
-//            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
-//            rulesScene = new Scene(root);
-//
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
 
