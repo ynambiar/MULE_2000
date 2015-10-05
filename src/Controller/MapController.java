@@ -24,10 +24,15 @@ public class MapController {
                 ImageView tile = new ImageView(myMap.getTile(i, j).imagePath());
                 BorderPane tileContainer = new BorderPane();
                 tileContainer.setCenter(tile);
-                tileContainer.setOnMouseClicked(this::tileChosen);
+                if (i == 2 && j == 4) {
+                    tileContainer.setOnMouseClicked(this::townClicked);
+                } else {
+                    tileContainer.setOnMouseClicked(this::tileChosen);
+                }
                 map.add(tileContainer, j, i);
             }
         }
+
     }
 
     public void tileChosen(MouseEvent event) {
@@ -37,6 +42,12 @@ public class MapController {
         Player p = Main.myGame.getMap().purchase(row, col);
         if (p != null) {
             tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+        }
+    }
+
+    public void townClicked(MouseEvent event) {
+        if (Main.myGame.getRoundNumber() != 0) {
+            MasterController.getInstance().loadTownScene();
         }
     }
 }
