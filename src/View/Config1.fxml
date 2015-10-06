@@ -35,9 +35,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="110.0" fitWidth="116.0" layoutX="400.0" layoutY="202.0">
+      <ImageView fitHeight="116.0" fitWidth="145.0" layoutX="365.0" layoutY="199.0">
          <image>
-            <Image url="@Resources/diceAnimation.gif" />
+            <Image url="@Resources/dice_anim.gif" />
          </image>
       </ImageView>
    </children>
