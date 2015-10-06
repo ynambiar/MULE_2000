@@ -13,6 +13,9 @@ import javafx.util.Duration;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MapController {
 
@@ -56,29 +59,21 @@ public class MapController {
         }
     }
 
-//    public void startTimer() {
-//        new Timeline(new KeyFrame(
-//                Duration.millis(2500),
-////                ae -> Main.myGame.decrementTimeLeft()))
-//                ae -> System.out.println("decrementing time")))
-//                .play();
-//    }
+    public void startTimer() {
+        Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        timeLeftLabel.setText(((Integer)Main.myGame.getTimeLeft()).toString());
+                        Main.myGame.decrementTimeLeft();
+                        System.out.println("tick tock");
+                    }
+                });
+            }
+        }, 0 , 1000);
+    }
 
-//        Timer timer = new java.util.Timer();
-//
-//        timer.schedule(new TimerTask() {
-//            public void run() {
-//                Platform.runLater(new Runnable() {
-//                    public void run() {
-//                        label.update();
-//                        javafxcomponent.doSomething();
-//                    }
-//                });
-//            }
-//        }, delay, period);
-
-
-//    https://stackoverflow.com/questions/16764549/timers-and-javafx?rq=1
 
     public void townClicked(MouseEvent event) {
         if (Main.myGame.getRoundNumber() != 0) {

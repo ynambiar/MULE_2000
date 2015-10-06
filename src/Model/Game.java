@@ -56,6 +56,10 @@ public class Game {
         }
     }
 
+    public void startRound() {
+
+    }
+
     public void endRound() {
 
     }
