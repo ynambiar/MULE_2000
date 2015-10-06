@@ -29,6 +29,7 @@ public class MasterController {
     public static MasterController getInstance() { return masterController; }
 
     //ctor! loads all the scene upon initialization
+    //TODO Ask Yamini if we can kill this ctor
     public MasterController() {
         Parent root;
         try {

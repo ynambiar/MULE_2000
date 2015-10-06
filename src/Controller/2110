@@ -1,34 +1,63 @@
-main    ADD R6, R6, -4      ;Allocate part of stack fram (RV, RA, OLD FP, X)
-        str r7, r6, 2       ;Save R7 to RA
-        str r5, r6, 1       ; save old fp
-        add r5, r6, 0       ; Estableish FP
-        add r6, r6, -2      ; Make room for y and z
-        add r6, r6, -1      ; Make space to save r0
-        str r0, r6, 0       ; save r0
+main    ADD R6, R6, -4          ; Allocate part of stack fram (RV, RA, OLD FP, X)
+        str r7, r6, 2           ; Save R7 to RA
+        str r5, r6, 1           ; save old fp
+        add r5, r6, 0           ; Estableish FP
+        add r6, r6, -2          ; Make room for y and z
+        add r6, r6, -1          ; Make space to save r0
+        str r0, r6, 0           ; save r0
         ld r0, five
-        str r0, r5, 0       ; initialize x
+        str r0, r5, 0           ; initialize x
         ld r0, seven
-        str r0, r5, -1      ; initialze y
-        add r6, r6, -2      ; create space for args
-        ldr r0, r5, -1      ; get y
-        str r0, r6, 1       ; put it on stack
-        ldr r0, r5, 0       ; get x
-        str r0, r6, 0       ; put it on stack
+        str r0, r5, -1          ; initialze y
+        add r6, r6, -2          ; create space for args
+        ldr r0, r5, -1          ; get y
+        str r0, r6, 1           ; put it on stack
+        ldr r0, r5, 0           ; get x
+        str r0, r6, 0           ; put it on stack
         jsr mult
-        ldr r0, r6, 0       ; get answer
-        str r0, r5, -2      ; store in z
-        and r0, r0, 0       ; make a zero
-        str r0, r5, 3       ; store in RV
-        ldr r0, r5, -3      ; restore r0
-        add r6, r5, 1       ; point sp at old fp
-        ldr r5, r6, 0       ; restore old FP
-        ldr r7, r6, 1       ; restore RA
-        add r6, r6, 2       ; point SP at RV
+        ldr r0, r6, 0           ; get answer
+        str r0, r5, -2          ; store in z
+        and r0, r0, 0           ; make a zero
+        str r0, r5, 3           ; store in RV
+        ldr r0, r5, -3          ; restore r0
+        add r6, r5, 1           ; point sp at old fp
+        ldr r5, r6, 0           ; restore old FP
+        ldr r7, r6, 1           ; restore RA
+        add r6, r6, 2           ; point SP at RV
         ret
 
 five    .fill 5
 seven   .fill 7
 
-mult    add r6, r6, -4      ; make first part of frame
-        str r7, r6, 2       ; store RA
-        str r5, r6, 1       ; store old FP
+mult    add r6, r6, -4          ; make first part of frame
+        str r7, r6, 2           ; store RA
+        str r5, r6, 1           ; store old FP
+        add r5, r6, 0           ; copy sp int fp (establish fp)
+        add r6, r6, -2          ; space for saved regs
+        str r0, r6, 1           ; save r0
+        str r1, r6, 0           ; save r1
+        ldr r0, r5, 5           ; get b
+        brp recurse
+        brn error
+        str r0, r5, 0           ; temp = 0
+reentry ldr r0, r5, 0           ; get temp
+        str r0, r5, 3           ; put it in RV
+        ldr r0, r5, -1          ; restore r0
+        ldr r1, r5, -2          ; restore r1
+        add r6, r5, 1           ; point sp at old fp
+        ldr r5, r6, 0           ; restore old fp
+        ldr r7, r6, 1           ; restore RA
+        add r6, r6, 2           ; point sp at RV
+        ret
+recurse ldr r0, r5, 5           ; get b
+        add r0, r0, -1          ; b - 1
+        add r6, r6, -2          ; make space for args
+        str r0, r6, 1           ; put b - 1 on stack
+        ldr r0, r5, 4           ; get a
+        str r0, r6, 0           ; put on stack
+        jsr mult
+        ldr r0, r6, 0           ; mult
+        ldr r1, r5, 4           ; get a
+        add r0, r0, r1          ; add em together
+        str r0, r5, 0           ; store in temp
+        br reentry
