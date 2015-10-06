@@ -5,16 +5,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StoreController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Resources/insideTown.png" />
+            <Image url="@Resources/insideStore.png" />
          </image>
       </ImageView>
-      <Button layoutX="481.0" layoutY="179.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Food" />
-      <Button layoutX="57.0" layoutY="97.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Smithore" />
-      <Button layoutX="65.0" layoutY="179.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Energy" />
-      <Button layoutX="481.0" layoutY="97.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Mule" />
+      <Button fx:id="buyFood" layoutX="481.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setBuyFood" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Food" />
+      <Button fx:id="buySmithore" layoutX="57.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#setBuySmithore" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Smithore" />
+      <Button fx:id="buyEnergy" layoutX="65.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setBuyEnergy" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Energy" />
+      <Button fx:id="buyMule" layoutX="481.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#setBuyMule" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Mule" />
+      <Button fx:id="leaveStore" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#setLeaveStore" text="Leave Store" />
    </children>
 </AnchorPane>

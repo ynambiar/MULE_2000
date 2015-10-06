@@ -28,4 +28,9 @@ public class TownController {
             MasterController.getInstance().loadPubScene();
         }
     }
+
+    @FXML
+    private void setStoreBtn() {
+        MasterController.getInstance().loadStoreScene();
+    }
 }

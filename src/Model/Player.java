@@ -16,7 +16,24 @@ public class Player {
 
 
     //These fields DO require setters
-    private int money;
+    private int money, food, smithore, energy, mules;
+
+    public void addMoney(int m) {
+        money = money + m;
+    }
+
+    public void addFood(int f) {
+        food = food + f;
+    }
+
+    public void addSmithore(int s) {
+        smithore = smithore + s;
+
+    }
+
+    public void addEnergy(int e) {
+        energy = energy + e;
+    }
 
     public Player(String human, String race, String name, String color) {
         this.name = name;
@@ -46,7 +63,10 @@ public class Player {
     public String getHuman() { return human;}
     public String getRace() { return race;}
     public int getMoney() { return money;}
-    public String getColor() { return color; }
+    public String getColor() { return color;}
+    public int getFood() {return food;}
+    public int getSmithore() {return smithore;}
+    public int getEnergy() {return energy;}
     public void setTileOwned(int row, int col) {tilesOwned[row][col] = true;}
     public String toString() { return  human + " player " + name + " is a " + race;}
 }

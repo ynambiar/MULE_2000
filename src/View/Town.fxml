@@ -56,5 +56,6 @@
       </ImageView>
       <Button fx:id="leaveTownBtn" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" text="Leave Town" />
       <Label fx:id="pubLabel" layoutX="324.0" layoutY="258.0" onMouseClicked="#townHandler" prefHeight="115.0" prefWidth="244.0" />
+      <Button fx:id="storeBtn" layoutX="316.0" layoutY="29.0" mnemonicParsing="false" onMouseClicked="#setStoreBtn" opacity="0.0" prefHeight="122.0" prefWidth="270.0" text="Button" />
    </children>
 </AnchorPane>

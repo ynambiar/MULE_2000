@@ -13,10 +13,16 @@ public class Game {
 
     String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
     ArrayList<Player> players;
+
+    public Store getStore() {
+        return store;
+    }
+
     Player currentPlayer;
     Difficulty difficulty;
     MapType mapType;
     Map map;
+    Store store;
     int roundNumber;
     int timeLeft;
 
@@ -25,6 +31,7 @@ public class Game {
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
+        store = new Store();
     }
 
     public void startGame() {
@@ -44,6 +51,46 @@ public class Game {
         } else {
             //TODO check if player can afford the spot.
             return true;
+        }
+    }
+
+    public void doStoreTransaction(String item) {
+        if (item.equals("Food")) {
+            if (currentPlayer.getMoney() >= 30 && store.getFoodStock() >= 1) {
+                System.out.println("You bought a Food unit for $30");
+                currentPlayer.addMoney(-30);
+                currentPlayer.addFood(1);
+                store.addFoodStock(-1);
+                System.out.println("Your wallet has $" + currentPlayer.getMoney() + " in it, and you have " + currentPlayer.getFood() + " food units.");
+            } else if (store.getFoodStock() < 1) {
+                System.out.println("Bazaar says: Sorry, but we're all out of Food!");
+            } else {
+                System.out.println("You only have $" + currentPlayer.getMoney() + ". That's not enough!");
+            }
+        } else if (item.equals("Energy")) {
+            if (currentPlayer.getMoney() >= 25 && store.getEnergyStock() >= 1) {
+                System.out.println("You bought a Energy unit for $25");
+                currentPlayer.addMoney(-25);
+                currentPlayer.addEnergy(1);
+                store.addEnergyStock(-1);
+                System.out.println("Your wallet has $" + currentPlayer.getMoney() + " in it, and you have " + currentPlayer.getEnergy() + " energy units.");
+            } else if (store.getEnergyStock() < 1) {
+                System.out.println("Bazaar says: Sorry, but we're all out of Energy!");
+            } else {
+                System.out.println("You only have $" + currentPlayer.getMoney() + ". That's not enough!");
+            }
+        } else if (item.equals("Smithore")) {
+            if (currentPlayer.getMoney() >= 50 && store.getSmithoreStock() >= 1) {
+                System.out.println("You bought a Smithore unit for $50");
+                currentPlayer.addMoney(-50);
+                currentPlayer.addSmithore(1);
+                store.addEnergyStock(-1);
+                System.out.println("Your wallet has $" + currentPlayer.getMoney() + " in it, and you have " + currentPlayer.getSmithore() + " energy units.");
+            } else if (store.getSmithoreStock() < 1) {
+                System.out.println("Bazaar says: Sorry, but we're all out of Energy!");
+            } else {
+                System.out.println("You only have $" + currentPlayer.getMoney() + ". That's not enough!");
+            }
         }
     }
 
