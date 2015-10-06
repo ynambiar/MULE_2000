@@ -5,6 +5,7 @@ import Model.Main;
 import Model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
@@ -16,28 +17,19 @@ public class StoreController {
     @FXML
     private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore;
 
-    @FXML
-    private void setLeaveStore() {
-        MasterController.getInstance().loadTownScene();
-    }
-
-    @FXML
-    private void setBuyFood() {
-        Main.myGame.doStoreTransaction("Food");
-    }
-
-    @FXML
-    private void setBuyEnergy() {
-        Main.myGame.doStoreTransaction("Energy");
-    }
-
-    @FXML
-    private void setBuySmithore() {
-        Main.myGame.doStoreTransaction("Smithore");
-    }
-
-    @FXML
-    private void setBuyMule() {
+    public void buttonHandler(MouseEvent event) {
+        Button source = (Button) event.getSource();
+        if (source == leaveStore) {
+            MasterController.getInstance().loadTownScene();
+        } else if (source == buyFood) {
+            Main.myGame.doStoreTransaction("food", true, 1);
+        } else if (source == buyEnergy) {
+            Main.myGame.doStoreTransaction("energy", true, 1);
+        } else if (source == buySmithore) {
+            Main.myGame.doStoreTransaction("smithore", true, 1);
+        } else if (source == buyMule) {
+            Main.myGame.doStoreTransaction("mule", true, 1);
+        }
     }
 
 }
