@@ -35,6 +35,10 @@ public class Game {
         roundNumber = 0; //round 0 is land selection
     }
 
+    public void endLandSelection() {
+
+    }
+
     public boolean addProperty(int row, int col) {
         if (roundNumber == 0) {
             currentPlayer.setTileOwned(row, col);

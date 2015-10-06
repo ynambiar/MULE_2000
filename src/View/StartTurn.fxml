@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MapController">
+   <children>
+      <Label fx:id="startTurnLabel" alignment="CENTER" layoutY="159.0" prefHeight="134.0" prefWidth="694.0" text="Round #: PlayerName's Turn!" wrapText="true">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="289.0" layoutY="363.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="116.0" text="Start!">
+         <font>
+            <Font name="Georgia" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

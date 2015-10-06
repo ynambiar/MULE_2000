@@ -27,6 +27,8 @@ public class MapController {
     private Label currentPlayerLabel;
     @FXML
     private Label timeLeftLabel;
+    @FXML
+    private Label startTurnLabel;
 
 
     public void initialize() {
@@ -79,6 +81,10 @@ public class MapController {
         if (Main.myGame.getRoundNumber() != 0) {
             MasterController.getInstance().loadTownScene();
         }
+    }
+
+    public void setStartTurnLabel(int roundNumber, String playerName) {
+        startTurnLabel.setText("Round " + roundNumber + ": " + playerName + "'s turn!");
     }
 
 }
