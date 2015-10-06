@@ -46,7 +46,7 @@ public class Store {
             }
         } else if (item.equals("Energy")) {
             if (p.getMoney() >= getEnergyPrice() && getEnergyStock() >= 1) {
-                System.out.println("You bought a Energy unit for $25");
+                System.out.println("You bought an Energy unit for $25");
                 p.addMoney(-25);
                 p.addEnergy(1);
                 addEnergyStock(-1);
