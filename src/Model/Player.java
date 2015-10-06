@@ -14,6 +14,10 @@ public class Player {
     private boolean[][] tilesOwned;
     private int numTilesOwned;
 
+    private int roundNumber;
+    private int playerTime;
+
+
 
     //These fields DO require setters
     private int money, food, smithore, energy, mules;
@@ -77,4 +81,62 @@ public class Player {
     public int getEnergy() {return energy;}
     public void setTileOwned(int row, int col) {tilesOwned[row][col] = true;}
     public String toString() { return  human + " player " + name + " is a " + race;}
+    public void setPlayerTime(int i) {
+        playerTime = i;
+    }
+
+    public int getPlayerTime() {
+        return playerTime;
+    }
+
+    public void setRoundNumber(int r) {
+        roundNumber = r;
+    }
+
+    public int getRoundNumber() {
+        return roundNumber;
+    }
+
+        public int calculatePlayerTime(Player p) {
+        if(roundNumber == 1) /**&& p.getFood() < 3 && p.getFood() > 0)**/ {
+            p.setPlayerTime(50);
+            return 50;
+        } else if(roundNumber == 2 && p.getFood() < 3 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 3 && p.getFood() < 3 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 4 && p.getFood() < 3 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 5 && p.getFood() < 4 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 6 && p.getFood() < 4 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 7 && p.getFood() < 4 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 8 && p.getFood() < 4 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 9 && p.getFood() < 5 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 10 && p.getFood() < 5 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 11 && p.getFood() < 5 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else if(roundNumber == 12 && p.getFood() < 5 && p.getFood() > 0) {
+            p.setPlayerTime(30);
+            return 30;
+        } else {
+            p.setPlayerTime(5);
+            return 5;
+        }
+    }
 }
