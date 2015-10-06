@@ -19,7 +19,7 @@ public class MasterController {
     private Stage currentStage;
 //    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
-        insideStoreScene, insideTownScene, rulesScene, mapScene, startScene, startTurnScene;
+        insideStoreScene, storeTransactionScene, insideTownScene, rulesScene, mapScene, startScene, startTurnScene;
 
 
     //create a singleton
@@ -41,8 +41,11 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
             insidePubScene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/insideStore.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/View/Store.fxml"));
             insideStoreScene = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreen.fxml"));
+            storeTransactionScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
             insideTownScene = new Scene(root);
@@ -79,6 +82,7 @@ public class MasterController {
     }
     public void loadPubScene() { stage.setScene(insidePubScene);}
     public void loadStoreScene() {stage.setScene(insideStoreScene);}
+    public void loadStoreTransactionScene() {stage.setScene(storeTransactionScene);}
     public void loadGamblingResultsScene() { stage.setScene(gamblingResultsScene);}
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}

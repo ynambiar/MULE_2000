@@ -5,6 +5,8 @@ import Model.Main;
 import Model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -15,21 +17,49 @@ import java.io.IOException;
 public class StoreController {
 
     @FXML
-    private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore;
+    private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore, confirmBtn;
 
-    public void buttonHandler(MouseEvent event) {
-        Button source = (Button) event.getSource();
-        if (source == leaveStore) {
-            MasterController.getInstance().loadTownScene();
-        } else if (source == buyFood) {
-            Main.myGame.doStoreTransaction("food", true, 1);
-        } else if (source == buyEnergy) {
-            Main.myGame.doStoreTransaction("energy", true, 1);
-        } else if (source == buySmithore) {
-            Main.myGame.doStoreTransaction("smithore", true, 1);
-        } else if (source == buyMule) {
-            Main.myGame.doStoreTransaction("mule", true, 1);
-        }
+    @FXML
+    private Label titleLbl;
+
+    @FXML
+    private TextField buyTxt, sellTxt;
+
+
+
+    @FXML
+    private void setBuyFood() {
+//        titleLbl.setText("Food Transaction Screen");
+//        MasterController.getInstance().loadStoreTransactionScene();
+        Main.myGame.doStoreTransaction("Food", true, 1);
     }
 
+    @FXML
+    private void setBuyEnergy() {
+//        titleLbl.setText("Energy Transaction Screen");
+//        MasterController.getInstance().loadStoreTransactionScene();
+        Main.myGame.doStoreTransaction("Energy", true, 1);
+    }
+
+    @FXML
+    private void setBuySmithore() {
+//        titleLbl.setText("Smithore Transaction Screen");
+//        MasterController.getInstance().loadStoreTransactionScene();
+        Main.myGame.doStoreTransaction("Smithore", true, 1);
+    }
+
+    @FXML
+    private void setBuyMule() {
+        Main.myGame.doStoreTransaction("Mule", true, 1);
+    }
+
+    @FXML
+    private void setConfirmBtn() {
+
+    }
+
+    @FXML
+    private void setLeaveStore() {
+        MasterController.getInstance().loadTownScene();
+    }
 }
