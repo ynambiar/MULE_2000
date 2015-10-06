@@ -9,9 +9,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import javafx.util.Duration;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 
 
 public class MapController {
@@ -56,69 +56,29 @@ public class MapController {
         }
     }
 
-    boolean timerStats;
-    Timer timer;
-    int timersec;
-    int timermin;
-    int timerhr;
+//    public void startTimer() {
+//        new Timeline(new KeyFrame(
+//                Duration.millis(2500),
+////                ae -> Main.myGame.decrementTimeLeft()))
+//                ae -> System.out.println("decrementing time")))
+//                .play();
+//    }
 
-    @FXML
-    private void startTime(){
-        if(timerStats==false)
-        {
-            timerStats = true;
-            timer = new Timer();
-            TimerTask timerTask = new TimerTask() {
+//        Timer timer = new java.util.Timer();
+//
+//        timer.schedule(new TimerTask() {
+//            public void run() {
+//                Platform.runLater(new Runnable() {
+//                    public void run() {
+//                        label.update();
+//                        javafxcomponent.doSomething();
+//                    }
+//                });
+//            }
+//        }, delay, period);
 
-                @Override
-                public void run() {
 
-                    System.out.println("working");
-
-                    timersec ++;
-
-                    Platform.runLater(new Runnable(){
-                        public void run(){
-
-                            if (timersec == 60)
-                            {
-                                timersec = 0;
-                                timermin++;
-                            }
-                            if (timermin == 60)
-                            {
-                                timermin = 0;
-                                timerhr++;
-                            }
-
-                            String seconds = Integer.toString(timersec);
-                            String minutes = Integer.toString(timermin);
-                            String hours = Integer.toString(timerhr);
-
-                            if (timersec <= 9)
-                            {
-                                seconds = "0" + Integer.toString(timersec);
-                            }
-                            if (timermin <= 9)
-                            {
-                                minutes = "0" + Integer.toString(timermin);
-                            }
-                            if (timerhr <= 9)
-                            {
-                                hours = "0" + Integer.toString(timerhr);
-                            }
-
-                            timeLeftLabel.setText(hours + ":" + minutes +":"+ seconds);
-                            System.out.println(timeLeftLabel.getText());
-                        }
-                    });
-                }
-            };
-            timer.schedule(timerTask, 50, 50); //lastone is time, milli second
-
-        }
-
-    }
+//    https://stackoverflow.com/questions/16764549/timers-and-javafx?rq=1
 
     public void townClicked(MouseEvent event) {
         if (Main.myGame.getRoundNumber() != 0) {
