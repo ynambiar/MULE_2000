@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/insideTown.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="481.0" layoutY="179.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Food" />
+      <Button layoutX="57.0" layoutY="97.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Smithore" />
+      <Button layoutX="65.0" layoutY="179.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Energy" />
+      <Button layoutX="481.0" layoutY="97.0" mnemonicParsing="false" opacity="0.19" prefHeight="74.0" prefWidth="94.0" text="Buy Mule" />
+   </children>
+</AnchorPane>
