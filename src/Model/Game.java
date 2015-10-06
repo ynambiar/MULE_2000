@@ -1,6 +1,9 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+
+import Controller.MasterController;
 import Model.Map.*;
 
 
@@ -32,26 +35,43 @@ public class Game {
 
     public void startGame() {
         currentPlayer = players.get(0);
-        roundNumber = 0; //round 0 is land selection
+        roundNumber = -1; //round -1 and 0 are land selection
+        MasterController.getInstance().loadStartTurnScene();
     }
 
-    public void endLandSelection() {
+    public void endTurn() {
+        if (currentPlayer == players.get(players.size() - 1)) {
+            endRound();
+        } else {
+            currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
+            MasterController.getInstance().loadStartTurnScene();
+        }
+    }
 
+    public void endRound() {
+        roundNumber++;
+        players.sort(new PlayerComparator<>());
+        currentPlayer = players.get(0);
+        MasterController.getInstance().loadStartTurnScene();
+
+    }
+
+    public static class PlayerComparator<Object> implements Comparator<Player> {
+        @Override
+        public int compare(Player a, Player b) {
+            return  a.getScore() - b.getScore();
+        }
     }
 
     public boolean addProperty(int row, int col) {
-        if (roundNumber == 0) {
+        if (roundNumber < 1) {
             currentPlayer.setTileOwned(row, col);
-            currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size()); //gets next player
-            if (currentPlayer == players.get(0) && currentPlayer.getNumTilesOwned() == 2) {
-                roundNumber = 1;
-                System.out.println("Real game starts boi");
-            }
             return true;
-        } else {
+        } else if (roundNumber >= 1){
             //TODO check if player can afford the spot.
-            return true;
+            return false;
         }
+        return false;
     }
 
     public boolean doStoreTransaction(String item, boolean buying) {
@@ -64,23 +84,6 @@ public class Game {
         } else {
             return store.sellTransaction(item, amnt);
         }
-    }
-
-    public void endTurn() {
-        if (currentPlayer == players.get(players.size() - 1)) {
-            endRound();
-        } else {
-            currentPlayer = players.get(players.indexOf(currentPlayer) + 1);
-            //TODO Deal with timer stuff
-        }
-    }
-
-    public void startRound() {
-
-    }
-
-    public void endRound() {
-
     }
 
     public void addPlayer(Player player) { players.add(player);}

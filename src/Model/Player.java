@@ -28,7 +28,6 @@ public class Player {
 
     public void addSmithore(int s) {
         smithore = smithore + s;
-
     }
 
     public void addEnergy(int e) {
@@ -48,6 +47,15 @@ public class Player {
         } else {
             this.money = 1000;
         }
+    }
+
+    public int getScore() {
+        Store store = Main.myGame.getStore();
+        int foodCost = store.getFoodPrice() * (2/3);
+        int energyCost = store.getEnergyPrice() * (2/3);
+        int smithoreCost = store.getSmithorePrice() * (2/3);
+        int propertyCost = getNumTilesOwned() * 1000;
+        return money + foodCost + energyCost + smithoreCost + propertyCost;
     }
 
     public int getNumTilesOwned() {

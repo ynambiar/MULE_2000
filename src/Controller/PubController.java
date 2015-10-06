@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,8 +33,7 @@ public class PubController {
             System.out.println("going to the town");
             MasterController.getInstance().loadTownScene();
         } else if (source == okBtn){
-            //TODO tell game that the turn is over
-            MasterController.getInstance().loadMapScene();
+            Main.myGame.endTurn();
         }
 //                //int time = driver.getTimeLeft();
 //                //int time = 100;

@@ -39,7 +39,7 @@ public class Config2Controller {
     private void setStartGameBtn() {
         try {
             if (comboBoxesAreVerififed()) {
-                MasterController.getInstance().loadMapScene();
+                Main.myGame.startGame();
             } else {
                 errorLabel.setVisible(true);
             }

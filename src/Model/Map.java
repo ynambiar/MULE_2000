@@ -42,17 +42,19 @@ public class Map {
         tilesOwned[2][4] = true;
     }
 
-    public Player purchase(int row, int col) {
+    public boolean purchase(int row, int col) {
+        System.out.println("Map purchase");
         if (!tilesOwned[row][col]) {
-            Player p = Main.myGame.getCurrentPlayer();
+            System.out.println("Map tile not owned");
             if (Main.myGame.addProperty(row, col)) {
+                System.out.println("Map add property is true");
                 tilesOwned[row][col] = true;
-                return p;
+                return true;
             } else {
-                return null;
+                return false;
             }
         } else {
-            return null;
+            return false;
         }
     }
 

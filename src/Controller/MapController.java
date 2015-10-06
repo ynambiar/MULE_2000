@@ -52,12 +52,14 @@ public class MapController {
     }
 
     public void tileChosen(MouseEvent event) {
+        System.out.println("MapController tileChosen");
         BorderPane tile = (BorderPane) event.getSource();
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
-        Player p = Main.myGame.getMap().purchase(row, col);
-        if (p != null) {
+        Player p = Main.myGame.getCurrentPlayer();
+        if (Main.myGame.getMap().purchase(row, col)) {
             tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+            Main.myGame.endTurn();
         }
     }
 
@@ -83,8 +85,5 @@ public class MapController {
         }
     }
 
-    public void setStartTurnLabel(int roundNumber, String playerName) {
-        startTurnLabel.setText("Round " + roundNumber + ": " + playerName + "'s turn!");
-    }
 
 }

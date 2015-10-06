@@ -59,8 +59,8 @@ public class MasterController {
 //            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
 //            rulesScene = new Scene(root);
 
-//            root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
-//            startTurnScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
+            startTurnScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
@@ -74,7 +74,7 @@ public class MasterController {
 
 
     //methods to allow other Controller classes to change scenes remotely
-    public void loadConfig1Scene() {
+    public void loadConfig1Scene()  {
         stage.setScene(config1Scene);
     }
     public void loadConfig2Scene() {
@@ -89,7 +89,14 @@ public class MasterController {
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
     public void loadRulesScene() { stage.setScene(rulesScene);}
     public void loadStartScene() { stage.setScene(startScene);}
-    public void loadStartTurnScene() { stage.setScene(startTurnScene);}
+    public void loadStartTurnScene() {
+        try{
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
+        } catch (IOException e) {
+            System.out.println("shit's broke");
+            System.out.println("MasterController(): " + e);
+        }
+    }
 
 
     //called once
