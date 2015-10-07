@@ -1,11 +1,14 @@
 package Model;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 
 import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 /**
@@ -33,6 +36,12 @@ public class Game {
         players = new ArrayList<Player>();
         store = new Store();
         purchasingLand = false;
+        //Code for the music
+        final URL resource = getClass().getResource("/View/Resources/music.mp3");
+        final Media media = new Media(resource.toString());
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+
     }
 
     public void startGame() {

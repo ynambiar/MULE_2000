@@ -22,12 +22,6 @@ public class Main extends Application {
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
 
-        //Code for the music
-        final URL resource = getClass().getResource("/View/Resources/music.mp3");
-        final Media media = new Media(resource.toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-
         stage.show();
     }
 
