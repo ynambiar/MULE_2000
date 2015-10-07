@@ -45,30 +45,4 @@ public class PubController {
     private void setOkBtn() {
         Main.myGame.endTurn();
     }
-//                //int time = driver.getTimeLeft();
-//                //int time = 100;
-//                int time = driver.getCountDown();
-//                if (time >= 37) {
-//                    time = 200;
-//                } else if (37 > time && time >= 25) {
-//                    time = 150;
-//                } else if (25 > time && time >= 12) {
-//                    time = 100;
-//                } else {
-//                    time = 50;
-//                }
-//                int round = driver.getRoundNumber();
-//                int[] roundBonuses = {50, 50, 50, 100, 100, 100, 100, 150, 150, 150, 150, 200};
-//                /* Hey, I made this change to bonus because there was an ArrayIndexOutOfBoundsException.
-//                    It might not make logical sense but I just wanted to get it to run.
-//                    Feel free to change it! - Yamini
-//                int bonus = new Random().nextInt(time) + roundBonuses[round - 1]; */
-//                int bonus = new Random().nextInt(time) + roundBonuses[round + 2];
-//                driver.getPlayer().addMoney(bonus);
-//                //Display money earned screen
-//                root = FXMLLoader.load(getClass().getResource("Pub.fxml"));
-//                Scene scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.show();
-//                moneyLabel.setText(Integer.toString(bonus));
 }
