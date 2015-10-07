@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,6 +33,8 @@ public class MapController {
     private Label smithoreLbl;
     @FXML
     private Label moneyLbl;
+    @FXML
+    private Button endTurnBtn;
 
 
     public void initialize() {
@@ -88,6 +91,11 @@ public class MapController {
             MasterController.getInstance().loadTownScene();
             Main.myGame.setPurchasingLand(false);
         }
+    }
+
+    @FXML
+    public void setEndTurnBtn() {
+        Main.myGame.endTurn();
     }
 
     public void setCurrentPhaseLabel(String s) {
