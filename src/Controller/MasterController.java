@@ -104,12 +104,8 @@ public class MasterController {
     public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
     public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
     public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
-<<<<<<< HEAD
     public void loadMuleTransactionScene() {stage.setScene(muleTransactionScene);}
     public void loadGamblingResultsScene() { stage.setScene(gamblingResultsScene);}
-=======
-
->>>>>>> origin/master
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
