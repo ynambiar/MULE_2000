@@ -10,6 +10,7 @@ import Model.Map.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.util.Random;
 
 
 /**
@@ -78,7 +79,6 @@ public class Game {
         System.out.println("players: " + players);
         System.out.println("current: " + currentPlayer);
         MasterController.getInstance().loadStartTurnScene();
-
     }
 
     public void refreshLabels() {
@@ -108,7 +108,10 @@ public class Game {
             }
         } else if (roundNumber >= 1){
             if (purchasingLand) {
-                int cost = 500;
+                //int cost = 500;
+                /*300 + round * random(0-100).*/
+                Random r = new Random();
+                int cost = 300 + roundNumber * r.nextInt(200);
                 if (map.tileUnowned(row, col)) {
                     if (currentPlayer.getMoney() >= cost) {
                         currentPlayer.setTileOwned(row, col);
