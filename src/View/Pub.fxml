@@ -18,12 +18,12 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="yesGambleBtn" layoutX="448.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" text="Yes">
+      <Button layoutX="448.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#setYesGambleBtn" text="Yes">
          <font>
             <Font name="Georgia" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="noGambleBtn" layoutX="391.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" prefHeight="25.0" prefWidth="38.0" text="No">
+      <Button layoutX="391.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#setNoGambleBtn" prefHeight="25.0" prefWidth="38.0" text="No">
          <font>
             <Font name="Georgia" size="13.0" />
          </font>

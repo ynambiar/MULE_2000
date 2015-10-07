@@ -17,11 +17,14 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="99.0" layoutY="157.0" prefHeight="41.0" prefWidth="404.0" text="\$$$" textAlignment="CENTER">
+      <Label fx:id="moneyLabel" alignment="CENTER" layoutX="99.0" layoutY="157.0" prefHeight="41.0" prefWidth="404.0" text="\$$$" textAlignment="CENTER">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="okBtn" layoutX="251.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#buttonHandler" prefHeight="75.0" prefWidth="99.0" text="Button" />
+      <Button layoutX="251.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#setOkBtn" prefHeight="75.0" prefWidth="99.0" text="OK">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

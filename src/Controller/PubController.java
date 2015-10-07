@@ -2,39 +2,49 @@ package Controller;
 
 import Model.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+
+import java.util.Random;
 
 public class PubController {
 
-    //pub screen
+    //results Screen
     @FXML
-    private Button yesGambleBtn, noGambleBtn;
-
-    //results screen
-    @FXML
-    private Button okBtn;
-    @FXML
-    private Label resultsLabel;
+    private Label moneyLabel;
 
     @FXML
-    private void buttonHandler(MouseEvent event) {
-        Button source = (Button) event.getSource(); //yesGambleBtn, noGambleBtn, okBtn
-        if (source == yesGambleBtn) {
-            /*
-            TODO
-            must calculate bonus based on time
-            set resultsLabel equal to the bonus
-            show the results screen
-             */
-            MasterController.getInstance().loadGamblingResultsScene();
-        } else if (source == noGambleBtn) {
-            System.out.println("going to the town");
-            MasterController.getInstance().loadTownScene();
-        } else if (source == okBtn){
-            Main.myGame.endTurn();
+    private void setYesGambleBtn() {
+        System.out.println("moneyLabel: " + moneyLabel);
+        int bonus = 0;
+        int[] roundBonus = {50, 50, 50, 100, 100, 100, 100, 150, 150, 150, 150, 200};
+        bonus = roundBonus[Main.myGame.getRoundNumber() - 1];
+        int[] timeBonus = {200, 150, 100, 50};
+        int time = Main.myGame.getTimeLeft();
+        if (time >= 37) {
+            bonus *= new Random().nextInt(timeBonus[0]);
+        } else if (time >= 25) {
+            bonus *= new Random().nextInt(timeBonus[1]);
+        } else if (time >= 12) {
+            bonus *= new Random().nextInt(timeBonus[2]);
+        } else if (time >= 0) {
+            bonus *= new Random().nextInt(timeBonus[3]);
+        } else {
+            bonus = 0;
         }
+        Main.myGame.getCurrentPlayer().addMoney(bonus);
+        MasterController.getInstance().loadGamblingResultsScene();
+        moneyLabel.setText(Integer.toString(bonus));
+    }
+
+    @FXML
+    private void setNoGambleBtn() {
+        MasterController.getInstance().loadTownScene();
+    }
+
+    @FXML
+    private void setOkBtn() {
+        Main.myGame.endTurn();
+    }
 //                //int time = driver.getTimeLeft();
 //                //int time = 100;
 //                int time = driver.getCountDown();
@@ -60,6 +70,5 @@ public class PubController {
 //                Scene scene = new Scene(root);
 //                stage.setScene(scene);
 //                stage.show();
-//                resultsLabel.setText(Integer.toString(bonus));
-    }
+//                moneyLabel.setText(Integer.toString(bonus));
 }
