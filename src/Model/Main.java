@@ -3,10 +3,6 @@ package Model;
 import Controller.MasterController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import java.net.URL;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
