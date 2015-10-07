@@ -1,15 +1,10 @@
 package Controller;
 
-import Model.Game;
 import Model.Main;
-import Model.Player;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
 
 /**
  * Created by tuckerlocicero on 10/6/15.
