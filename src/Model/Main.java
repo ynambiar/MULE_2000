@@ -47,10 +47,10 @@ public class Main extends Application {
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
         stage.show();
-        final URL resource = getClass().getResource("music.mp3");
-        final Media media = new Media(resource.toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
+//        final URL resource = getClass().getResource("music.mp3");
+//        final Media media = new Media(resource.toString());
+//        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+//        mediaPlayer.play();
 
 
         stage.show();

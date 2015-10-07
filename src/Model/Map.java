@@ -42,17 +42,8 @@ public class Map {
         tilesOwned[2][4] = true;
     }
 
-    public boolean purchase(int row, int col) {
-        if (!tilesOwned[row][col]) {
-            if (Main.myGame.addProperty(row, col)) {
-                tilesOwned[row][col] = true;
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+    public boolean tileUnowned(int row, int col) {
+        return !tilesOwned[row][col];
     }
 
     public MapTile[][] getBoard() {

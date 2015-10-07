@@ -25,12 +25,14 @@ public class Game {
     Store store;
     int roundNumber;
     int timeLeft;
+    boolean purchasingLand;
 
 
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
         store = new Store();
+        purchasingLand = false;
     }
 
     public void startGame() {
@@ -74,13 +76,25 @@ public class Game {
         }
     }
 
-    public boolean addProperty(int row, int col) {
+    public boolean tileClicked(int row, int col) {
         if (roundNumber < 1) {
-            currentPlayer.setTileOwned(row, col);
-            return true;
+            if (map.tileUnowned(row, col)) {
+                currentPlayer.setTileOwned(row, col);
+                return true;
+            } else {
+                return false;
+            }
         } else if (roundNumber >= 1){
-            //TODO check if player can afford the spot.
-            return false;
+            if (purchasingLand) {
+                int cost = 500;
+                if (currentPlayer.getMoney() >= cost) {
+                    currentPlayer.setTileOwned(row, col);
+                    currentPlayer.addMoney(cost * -1);
+                    return true;
+                }
+            } else {
+                return false;
+            }
         }
         return false;
     }
@@ -97,6 +111,14 @@ public class Game {
         }
     }
 
+    public boolean buyLand() {
+        MapController mapCtor = MasterController.getInstance().getMapController();
+        MasterController.getInstance().loadMapScene();
+        mapCtor.setCurrentPhaseLabel("CURRENT PHASE: Purchasing Land");
+
+        return false;
+    }
+
     public String getPhase() {
         if (roundNumber < 1) {
             return "Land Selection";
@@ -108,6 +130,9 @@ public class Game {
     public int getTimeAfterFoodCheck() {
         int[] foodRq = {0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5};
         int food = currentPlayer.getFood();
+        if (roundNumber == 1) {
+            return 50;
+        }
         if (food >= foodRq[roundNumber]) {
             currentPlayer.addFood(foodRq[roundNumber - 1]);
             return 50;
@@ -129,6 +154,7 @@ public class Game {
     public Map getMap() { return map;}
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
+    public void setPurchasingLand(boolean p) {purchasingLand = p;}
 
     /* Timer methods */
     public void decrementTimeLeft() { timeLeft--; }

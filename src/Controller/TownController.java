@@ -9,28 +9,13 @@ import javafx.scene.control.Label;
 public class TownController {
 
     @FXML
-    private Button leaveTownBtn;
+    private void setLeaveTownBtn() { MasterController.getInstance().loadMapScene();}
     @FXML
-    private Label pubLabel;
-
-    @FXML
-    private void buttonHandler(MouseEvent event) {
-        Button source = (Button) event.getSource();
-        if (source == leaveTownBtn) {
-            MasterController.getInstance().loadMapScene();
-        }
-    }
-
-    @FXML
-    private void townHandler(MouseEvent event) {
-        Label source = (Label) event.getSource();
-        if (source == pubLabel) {
-            MasterController.getInstance().loadPubScene();
-        }
-    }
-
+    private void setPubBtn() { MasterController.getInstance().loadPubScene();}
     @FXML
     private void setStoreBtn() {
         MasterController.getInstance().loadStoreScene();
     }
+    @FXML
+    private void setLandBtn() { MasterController.getInstance().loadLandOfficeScene();}
 }

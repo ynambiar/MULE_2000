@@ -9,9 +9,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,7 +38,7 @@ public class MapController {
                 if (i == 2 && j == 4) {
                     tileContainer.setOnMouseClicked(this::townClicked);
                 } else {
-                    tileContainer.setOnMouseClicked(this::tileChosen);
+                    tileContainer.setOnMouseClicked(this::tileClicked);
                 }
                 map.add(tileContainer, j, i);
             }
@@ -49,16 +46,17 @@ public class MapController {
 
     }
 
-    public void tileChosen(MouseEvent event) {
+    public void tileClicked(MouseEvent event) {
         BorderPane tile = (BorderPane) event.getSource();
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
         Player p = Main.myGame.getCurrentPlayer();
-        if (Main.myGame.getMap().purchase(row, col)) {
+        if (Main.myGame.tileClicked(row, col)) {
             tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
-            Main.myGame.endTurn();
+            if (Main.myGame.getRoundNumber() < 1) {
+                Main.myGame.endTurn();
+            }
         }
-        System.out.println(this);
     }
 
     public void startTimer() {
@@ -78,8 +76,9 @@ public class MapController {
 
 
     public void townClicked(MouseEvent event) {
-        if (Main.myGame.getRoundNumber() != 0) {
+        if (Main.myGame.getRoundNumber() >= 1) {
             MasterController.getInstance().loadTownScene();
+            Main.myGame.setPurchasingLand(false);
         }
     }
 
