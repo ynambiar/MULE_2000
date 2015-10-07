@@ -24,6 +24,13 @@ import javafx.application.Platform;
 import sun.misc.IOUtils;
 import java.awt.event.WindowEvent;
 import java.io.File;
+
+import java.net.URL;
+
+import javafx.application.Application;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
@@ -40,27 +47,35 @@ public class Main extends Application {
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
         stage.show();
+        final URL resource = getClass().getResource("music.mp3");
+        final Media media = new Media(resource.toString());
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+
+
+        stage.show();
 //        try {
 //            startMusic();
 //        } catch (Exception e) {
 //            System.out.println("Error with music!");
 //        }
     }
-//    public void startMusic() throws Exception {
-//        try {
-//            Path path = Paths.get("/Users/AshikaGanesh/Documents/Final_Github/MULE_2000/src/View/Resources/music.wav");
+    public void startMusic() throws Exception {
+        try {
+            Path path = Paths.get("");
     //  NEED TO FIND A WAY TO ACCESS THAT MUSIC FILE!!
     // also need a way to break and stop music if system quits.
-//            String soundFile = path.toString();
-//
-//            InputStream in = new FileInputStream(soundFile);
-//            AudioStream audioStream = new AudioStream(in);
-//            AudioPlayer.player.start(audioStream);
-//            } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//
-//    }
+            String soundFile = path.toString();
+
+            InputStream in = new FileInputStream(soundFile);
+            AudioStream audioStream = new AudioStream(in);
+            AudioPlayer.player.start(audioStream);
+            } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
 
 
 
