@@ -106,7 +106,7 @@ public class StoreController {
     }
 
     @FXML
-    private void setCancelBtn() {
+    private void setCancel() {
         MasterController.getInstance().loadStoreScene();
     }
 
