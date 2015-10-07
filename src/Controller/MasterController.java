@@ -19,8 +19,8 @@ public class MasterController {
     private Stage currentStage;
 //    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
-        insideStoreScene, storeTransactionScene, insideTownScene, rulesScene, mapScene, startScene, startTurnScene,
-        insideLandOfficeScene;
+        insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
+        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -50,8 +50,14 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/Store.fxml"));
             insideStoreScene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreen.fxml"));
-            storeTransactionScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreenFood.fxml"));
+            storeTransactionSceneFood = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreenEnergy.fxml"));
+            storeTransactionSceneEnergy = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreenSmithore.fxml"));
+            storeTransactionSceneSmithore = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
             insideTownScene = new Scene(root);
@@ -65,8 +71,8 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
             gamblingResultsScene = new Scene(root);
 
-//            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
-//            rulesScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
+            rulesScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
             startTurnScene = new Scene(root);
@@ -92,7 +98,9 @@ public class MasterController {
     public void loadPubScene() { stage.setScene(insidePubScene);}
     public void loadStoreScene() {stage.setScene(insideStoreScene);}
     public void loadLandOfficeScene() {stage.setScene(insideLandOfficeScene);}
-    public void loadStoreTransactionScene() {stage.setScene(storeTransactionScene);}
+    public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
+    public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
+    public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
     public void loadGamblingResultsScene() { stage.setScene(gamblingResultsScene);}
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}

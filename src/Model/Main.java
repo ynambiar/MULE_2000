@@ -3,10 +3,6 @@ package Model;
 import Controller.MasterController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import java.net.URL;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
@@ -21,12 +17,6 @@ public class Main extends Application {
         controller.loadStartScene();
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
-
-        //Code for the music
-        final URL resource = getClass().getResource("/View/Resources/music.mp3");
-        final Media media = new Media(resource.toString());
-        final MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
 
         stage.show();
     }
