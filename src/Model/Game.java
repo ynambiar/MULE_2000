@@ -45,7 +45,7 @@ public class Game {
         m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
         m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
         if (roundNumber > 0) {
-            timeLeft = 50;
+            timeLeft = getTimeAfterFoodCheck();
             m.startTimer();
         }
     }
@@ -102,6 +102,20 @@ public class Game {
             return "Land Selection";
         } else {
             return "Regular Turn";
+        }
+    }
+
+    public int getTimeAfterFoodCheck() {
+        int[] foodRq = {0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5};
+        int food = currentPlayer.getFood();
+        if (food >= foodRq[roundNumber]) {
+            currentPlayer.addFood(foodRq[roundNumber - 1]);
+            return 50;
+        } else if (food == 0) {
+            return 5;
+        } else {
+            currentPlayer.addFood(food * -1);
+            return 30;
         }
     }
 
