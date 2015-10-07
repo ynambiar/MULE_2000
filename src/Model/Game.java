@@ -43,12 +43,10 @@ public class Game {
     }
 
     public void startTurn() {
-        MapController m = MasterController.getInstance().getMapController();
-        m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
-        m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
+        refreshLabels();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
-            m.startTimer();
+            MasterController.getInstance().getMapController().startTimer();
         }
     }
 
@@ -67,6 +65,16 @@ public class Game {
         currentPlayer = players.get(0);
         MasterController.getInstance().loadStartTurnScene();
 
+    }
+
+    public void refreshLabels() {
+        MapController m = MasterController.getInstance().getMapController();
+        m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
+        m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
+        m.setFoodLabel("Food: " + currentPlayer.getFood());
+        m.setEnergyLabel("Energy: " + currentPlayer.getEnergy());
+        m.setSmithoreLabel("Smithore: " + currentPlayer.getSmithore());
+        m.setMoneyLabel("Money: " + currentPlayer.getMoney());
     }
 
     public static class PlayerComparator<Object> implements Comparator<Player> {
@@ -90,6 +98,7 @@ public class Game {
                 if (currentPlayer.getMoney() >= cost) {
                     currentPlayer.setTileOwned(row, col);
                     currentPlayer.addMoney(cost * -1);
+                    refreshLabels();
                     return true;
                 }
             } else {
@@ -114,7 +123,7 @@ public class Game {
     public boolean buyLand() {
         MapController mapCtor = MasterController.getInstance().getMapController();
         MasterController.getInstance().loadMapScene();
-        mapCtor.setCurrentPhaseLabel("CURRENT PHASE: Purchasing Land");
+        refreshLabels();
 
         return false;
     }
@@ -122,6 +131,8 @@ public class Game {
     public String getPhase() {
         if (roundNumber < 1) {
             return "Land Selection";
+        } else if (purchasingLand) {
+            return "Purchasing Land";
         } else {
             return "Regular Turn";
         }

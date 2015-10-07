@@ -24,6 +24,14 @@ public class MapController {
     private Label currentPlayerLabel;
     @FXML
     private Label timeLeftLabel;
+    @FXML
+    private Label foodLbl;
+    @FXML
+    private Label energyLbl;
+    @FXML
+    private Label smithoreLbl;
+    @FXML
+    private Label moneyLbl;
 
 
     public void initialize() {
@@ -91,5 +99,16 @@ public class MapController {
     public void setTimeLeftLabel(String s) {
         timeLeftLabel.setText(s);
     }
+    public void setFoodLabel(String s) {
+        foodLbl.setText(s);
+    }
+    public void setEnergyLabel(String s) {
+        energyLbl.setText(s);
+    }
+    public void setSmithoreLabel(String s) {
+        smithoreLbl.setText(s);
+    }
+    public void setMoneyLabel(String s) { moneyLbl.setText(s);}
+
 
 }

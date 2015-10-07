@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -27,7 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="684.0" style="-fx-background-color: grey;">
+      <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="245.0" style="-fx-background-color: grey;">
          <children>
             <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
             <Label fx:id="currentPhaseLabel" prefHeight="40.0" prefWidth="240.0" text="CURRENT PHASE:">
@@ -45,7 +46,32 @@
                   <Font name="Georgia" size="12.0" />
                </font>
             </Label>
-            <Label prefHeight="40.0" prefWidth="240.0" text="RESOURCES">
+         </children>
+      </FlowPane>
+      <FlowPane layoutX="260.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="428.0" style="-fx-background-color: orange;">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
+            <Label prefHeight="40.0" prefWidth="193.0" text="RESOURCES:">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="foodLbl" prefHeight="30.0" prefWidth="100.0" text="Food">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="energyLbl" prefHeight="30.0" prefWidth="101.0" text="Energy">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="smithoreLbl" prefHeight="30.0" prefWidth="100.0" text="Smithore">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="moneyLbl" prefHeight="40.0" prefWidth="100.0" text="Money">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font>
