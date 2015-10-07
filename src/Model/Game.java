@@ -6,6 +6,7 @@ import java.util.Comparator;
 import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 
 /**
@@ -61,10 +62,13 @@ public class Game {
     public void endRound() {
         roundNumber++;
         if (roundNumber == 1) {
+            setTimeLeft(100);
             MasterController.getInstance().getMapController().startTimer();
         }
         players.sort(new PlayerComparator<>());
         currentPlayer = players.get(0);
+        System.out.println("players: " + players);
+        System.out.println("current: " + currentPlayer);
         MasterController.getInstance().loadStartTurnScene();
 
     }
@@ -170,7 +174,12 @@ public class Game {
     public void setPurchasingLand(boolean p) {purchasingLand = p;}
 
     /* Timer methods */
-    public void decrementTimeLeft() { timeLeft--; }
+    public void decrementTimeLeft() {
+        if (timeLeft == 0) {
+            endTurn();
+        }
+        timeLeft--;
+    }
     public void setTimeLeft(int time) { timeLeft = time; }
     public int getTimeLeft() { return timeLeft; }
 
