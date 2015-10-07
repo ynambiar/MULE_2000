@@ -10,6 +10,7 @@ import Model.Map.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.util.Random;
 
 
 /**
@@ -30,6 +31,8 @@ public class Game {
     int roundNumber;
     int timeLeft;
     boolean purchasingLand;
+    int gamble;
+
 
 
     public Game() {
@@ -192,6 +195,7 @@ public class Game {
     }
     public void setTimeLeft(int time) { timeLeft = time; }
     public int getTimeLeft() { return timeLeft; }
-
+    public void setGamble(int n) { gamble = n;}
+    public int getGamble() { return gamble;}
 
 }
