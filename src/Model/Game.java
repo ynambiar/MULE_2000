@@ -57,6 +57,9 @@ public class Game {
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
+        if (roundNumber == 1 && currentPlayer == players.get(0)) {
+            MasterController.getInstance().getMapController().startTimer();
+        }
     }
 
     public void endTurn() {
@@ -70,10 +73,6 @@ public class Game {
 
     public void endRound() {
         roundNumber++;
-        if (roundNumber == 1) {
-            setTimeLeft(100);
-            MasterController.getInstance().getMapController().startTimer();
-        }
         players.sort(new PlayerComparator<>());
         currentPlayer = players.get(0);
         System.out.println("players: " + players);
