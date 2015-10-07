@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.net.URL;
 
 import java.io.IOException;
 
@@ -25,12 +28,19 @@ public class StoreController {
     @FXML
     private TextField buyTxt, sellTxt;
 
+    private void chaChing() {
+        final URL resource = getClass().getResource("/View/Resources/money.mp3");
+        final Media media = new Media(resource.toString());
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
 
 
     @FXML
     private void setBuyFood() {
 //        titleLbl.setText("Food Transaction Screen");
 //        MasterController.getInstance().loadStoreTransactionScene();
+        chaChing();
         Main.myGame.doStoreTransaction("Food", true, 1);
     }
 
@@ -38,6 +48,7 @@ public class StoreController {
     private void setBuyEnergy() {
 //        titleLbl.setText("Energy Transaction Screen");
 //        MasterController.getInstance().loadStoreTransactionScene();
+        chaChing();
         Main.myGame.doStoreTransaction("Energy", true, 1);
     }
 
@@ -45,11 +56,14 @@ public class StoreController {
     private void setBuySmithore() {
 //        titleLbl.setText("Smithore Transaction Screen");
 //        MasterController.getInstance().loadStoreTransactionScene();
+        chaChing();
         Main.myGame.doStoreTransaction("Smithore", true, 1);
     }
 
     @FXML
     private void setBuyMule() {
+
+        chaChing();
         Main.myGame.doStoreTransaction("Mule", true, 1);
     }
 

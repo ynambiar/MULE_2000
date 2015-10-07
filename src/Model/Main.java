@@ -17,7 +17,6 @@ public class Main extends Application {
         controller.loadStartScene();
         stage.setTitle("M.U.L.E. - Deep Thought");
         stage.setResizable(false);
-
         stage.show();
     }
 
