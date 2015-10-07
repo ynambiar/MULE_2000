@@ -10,7 +10,6 @@ import Model.Map.*;
 import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import java.util.Random;
 
 
 /**
@@ -31,8 +30,7 @@ public class Game {
     int roundNumber;
     int timeLeft;
     boolean purchasingLand;
-    boolean sellingLand;
-    int gamble;
+
 
     public Game() {
         map = new Map();
@@ -55,13 +53,13 @@ public class Game {
     }
 
     public void startTurn() {
+        refreshLabels();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
-        refreshLabels();
     }
 
     public void endTurn() {
@@ -80,6 +78,7 @@ public class Game {
         System.out.println("players: " + players);
         System.out.println("current: " + currentPlayer);
         MasterController.getInstance().loadStartTurnScene();
+
     }
 
     public void refreshLabels() {
@@ -109,10 +108,7 @@ public class Game {
             }
         } else if (roundNumber >= 1){
             if (purchasingLand) {
-                //int cost = 500;
-                /*300 + round * random(0-100).*/
-                Random r = new Random();
-                int cost = 300 + roundNumber * r.nextInt(200);
+                int cost = 500;
                 if (map.tileUnowned(row, col)) {
                     if (currentPlayer.getMoney() >= cost) {
                         currentPlayer.setTileOwned(row, col);
@@ -153,8 +149,6 @@ public class Game {
             return "Land Selection";
         } else if (purchasingLand) {
             return "Purchasing Land";
-        } else if (sellingLand) {
-            return "Selling Land";
         } else {
             return "Regular Turn";
         }
@@ -188,7 +182,6 @@ public class Game {
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
     public void setPurchasingLand(boolean p) {purchasingLand = p;}
-    public void setSellingLand(boolean s) {sellingLand = s;}
 
     /* Timer methods */
     public void decrementTimeLeft() {
@@ -199,8 +192,6 @@ public class Game {
     }
     public void setTimeLeft(int time) { timeLeft = time; }
     public int getTimeLeft() { return timeLeft; }
-    public void setGamble(int n) { gamble = n;}
-    public int getGamble() { return gamble;}
 
 
 }
