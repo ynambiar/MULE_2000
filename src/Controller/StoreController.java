@@ -37,11 +37,17 @@ public class StoreController {
 
     @FXML
     private void setBuyFood() {
+<<<<<<< Updated upstream:src/Controller/StoreController.java
 //        titleLbl.setText("Food Transaction Screen");
 //        MasterController.getInstance().loadStoreTransactionScene();
         chaChing();
         Main.myGame.doStoreTransaction("Food", true, 1);
 
+=======
+        titleLbl.setText("Food Transaction Screen");
+        MasterController.getInstance().loadStoreTransactionScene();
+//        Main.myGame.doStoreTransaction("Food", true, 1);
+>>>>>>> Stashed changes:src/Controller/storeController.java
     }
 
     @FXML

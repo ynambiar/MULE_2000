@@ -30,15 +30,15 @@ public class Store {
         Game game = Main.myGame;
         Player p = game.getCurrentPlayer();
         if (item.equals("Food")) {
-            if (p.getMoney() >= getFoodPrice() && getFoodStock() >= 1) {
-                System.out.println("You bought a Food unit for $30");
+            if (p.getMoney() >= getFoodPrice() && getFoodStock() >= amnt) {
+                System.out.println("You bought " + amnt + " Food units for $30");
                 p.addMoney(-30);
-                p.addFood(1);
-                addFoodStock(-1);
+                p.addFood(amnt);
+                addFoodStock(-amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getFood() + " food units.");
                 return true;
-            } else if (getFoodStock() < 1) {
-                System.out.println("Bazaar says: Sorry, but we're all out of Food!");
+            } else if (getFoodStock() < amnt) {
+                System.out.println("Bazaar says: Sorry, but we dont have that much Food!");
                 return false;
             } else {
                 System.out.println("You only have $" + p.getMoney() + ". That's not enough!");
