@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StoreController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/energyMule.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/foodMule.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="403.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/smithoreMule.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="73.0" layoutY="263.0" text="Food Mule">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="262.0" layoutY="263.0" text="Energy Mule">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="263.0" text="Smithore Mule">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="167.0" layoutY="45.0" text="Mule Configuration">
+         <font>
+            <Font name="Georgia" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="286.0" text="\$125">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="290.0" layoutY="286.0" text="\$150">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="286.0" text="\$175">
+         <font>
+            <Font name="Georgia" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="foodMuleBtn" layoutX="22.0" layoutY="103.0" mnemonicParsing="false" onMouseClicked="#setFoodMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Food Mule" />
+      <Button fx:id="energyMuleBtn" layoutX="209.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#setEnergyMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Energy Mule" />
+      <Button fx:id="smithoreMuleBtn" layoutX="397.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#setSmithoreMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Smithore Mule" />
+      <Button fx:id="confirmMuleBuy" layoutX="224.0" layoutY="350.0" mnemonicParsing="false" text="Buy" />
+      <Button fx:id="confirmMuleSell" layoutX="296.0" layoutY="350.0" mnemonicParsing="false" text="Sell" />
+      <Line endX="100.0" layoutX="311.0" layoutY="328.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="116.0" layoutY="328.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="509.0" layoutY="328.0" startX="-100.0" />
+      <Line endX="100.0" layoutX="89.0" layoutY="328.0" startX="-100.0" />
+      <Rectangle fx:id="foodMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="11.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
+      <Rectangle fx:id="energyMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="203.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
+      <Rectangle fx:id="smithoreMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="396.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
+      <Button fx:id="cancelBtn" layoutX="362.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setCancel" text="Cancel" />
+   </children>
+</AnchorPane>
