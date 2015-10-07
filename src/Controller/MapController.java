@@ -3,6 +3,7 @@ import Model.Main;
 import Model.Player;
 import javafx.scene.layout.GridPane;
 import Model.Map;
+import Model.Map.MapType;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -36,13 +37,15 @@ public class MapController {
     @FXML
     private Button endTurnBtn;
 
-
-    public void initialize() {
-        //Creates the standard map
-        //TODO create a random map
-        Map myMap = new Map();
-        for (int i = 0; i < myMap.getHeight(); i++) {
-            for (int j = 0; j < myMap.getWidth(); j++) {
+    public void createMap(MapType type) {
+        Map myMap;
+        if (type == MapType.RANDOM) {
+            myMap = new Map(5, 9, MapType.RANDOM);
+        } else {
+            myMap = new Map();
+        }
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
                 ImageView tile = new ImageView(myMap.getTile(i, j).imagePath());
                 BorderPane tileContainer = new BorderPane();
                 tileContainer.setCenter(tile);
@@ -54,7 +57,6 @@ public class MapController {
                 map.add(tileContainer, j, i);
             }
         }
-
     }
 
     public void tileClicked(MouseEvent event) {
