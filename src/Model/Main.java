@@ -24,7 +24,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
         //Code for the music
-        final URL resource = getClass().getResource("/View/Resources/music.wav");
+        final URL resource = getClass().getResource("/View/Resources/music.mp3");
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
