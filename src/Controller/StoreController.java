@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.net.URL;
 /**
  * Created by tuckerlocicero on 10/6/15.
  */
@@ -21,24 +23,35 @@ public class StoreController {
     private TextField buyTxtFood, sellTxtFood, buyTxtEnergy, sellTxtEnergy, buyTxtSmithore, sellTxtSmithore;
 
 
+    private void chaChing() {
+        final URL resource = getClass().getResource("/View/Resources/money.mp3");
+        final Media media = new Media(resource.toString());
+        final MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
+    }
+
 
     @FXML
     private void setBuyFood() {
+        chaChing();
         MasterController.getInstance().loadStoreTransactionSceneFood();
     }
 
     @FXML
     private void setBuyEnergy() {
+        chaChing();
         MasterController.getInstance().loadStoreTransactionSceneEnergy();
     }
 
     @FXML
     private void setBuySmithore() {
+        chaChing();
         MasterController.getInstance().loadStoreTransactionSceneSmithore();
     }
 
     @FXML
     private void setBuyMule() {
+        chaChing();
         Main.myGame.doStoreTransaction("Mule", true, 1);
     }
 
