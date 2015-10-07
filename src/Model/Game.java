@@ -109,11 +109,13 @@ public class Game {
         } else if (roundNumber >= 1){
             if (purchasingLand) {
                 int cost = 500;
-                if (currentPlayer.getMoney() >= cost) {
-                    currentPlayer.setTileOwned(row, col);
-                    currentPlayer.addMoney(cost * -1);
-                    refreshLabels();
-                    return true;
+                if (map.tileUnowned(row, col)) {
+                    if (currentPlayer.getMoney() >= cost) {
+                        currentPlayer.setTileOwned(row, col);
+                        currentPlayer.addMoney(cost * -1);
+                        refreshLabels();
+                        return true;
+                    }
                 }
             } else {
                 return false;
