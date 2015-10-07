@@ -30,7 +30,7 @@ public class Game {
     int roundNumber;
     int timeLeft;
     boolean purchasingLand;
-
+    int gamble;
 
     public Game() {
         map = new Map();
@@ -53,13 +53,13 @@ public class Game {
     }
 
     public void startTurn() {
-        refreshLabels();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
+        refreshLabels();
     }
 
     public void endTurn() {
@@ -192,6 +192,8 @@ public class Game {
     }
     public void setTimeLeft(int time) { timeLeft = time; }
     public int getTimeLeft() { return timeLeft; }
+    public void setGamble(int n) { gamble = n;}
+    public int getGamble() { return gamble;}
 
 
 }

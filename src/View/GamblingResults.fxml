@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PubController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.GambleController">
    <children>
       <Label layoutX="231.0" layoutY="99.0" text="You won">
          <font>
@@ -17,7 +17,7 @@
             <Font name="Georgia" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="moneyLabel" alignment="CENTER" layoutX="99.0" layoutY="157.0" prefHeight="41.0" prefWidth="404.0" text="\$$$" textAlignment="CENTER">
+      <Label fx:id="resultsLabel" alignment="CENTER" layoutX="99.0" layoutY="157.0" prefHeight="41.0" prefWidth="404.0" text="\$$$" textAlignment="CENTER">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>

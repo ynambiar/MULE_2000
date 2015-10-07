@@ -31,20 +31,15 @@ public class PubController {
         } else {
             bonus = 0;
         }
+        System.out.println("Currentplayer: " + Main.myGame.getCurrentPlayer() + " bonus: " + bonus);
         Main.myGame.getCurrentPlayer().addMoney(bonus);
+        Main.myGame.setGamble(bonus);
         MasterController.getInstance().loadGamblingResultsScene();
-        moneyLabel.setText(Integer.toString(bonus));
     }
 
     @FXML
     private void setNoGambleBtn() {
         MasterController.getInstance().loadTownScene();
     }
-
-    @FXML
-    private void setOkBtn() {
-        Main.myGame.endTurn();
-    }
-
 
 }
