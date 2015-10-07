@@ -20,7 +20,59 @@ public class RandomEvent {
         ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, PLAGUE, FLOOD;
     }
 
-    public RandomEvent() {
-        Random r = new Random();
+    private Random random;
+    private EventType eventType;
+    private Game game;
+    private double chanceOfHappening;
+
+    public RandomEvent(EventType e) {
+        random = new Random();
+        eventType = e;
+        game = Main.myGame;
+        chanceOfHappening = 0.27;
+    }
+
+    public void setChanceOfHappening(double c) {
+        chanceOfHappening = c;
+    }
+
+
+
+    public void runRandomEvent() {
+        if (eventType == EventType.ONE) {
+            game.getCurrentPlayer().addFood(3);
+            game.getCurrentPlayer().addEnergy(2);
+        }
+        if (eventType == EventType.TWO) {
+            game.getCurrentPlayer().addSmithore(2);
+        }
+        if (eventType == EventType.THREE) {
+            int m = game.getRoundNumber();
+            game.getCurrentPlayer().addMoney(8 * m);
+        }
+        if (eventType == EventType.FOUR) {
+            int m = game.getRoundNumber();
+            game.getCurrentPlayer().addMoney(2 * m);
+        }
+        if (eventType == EventType.FIVE) {
+            int m = game.getRoundNumber();
+            game.getCurrentPlayer().addMoney(-4 * m);
+        }
+        if (eventType == EventType.SIX) {
+            int halfFood = game.getCurrentPlayer().getFood() / 2;
+            game.getCurrentPlayer().addFood(-halfFood);
+        }
+        if (eventType == EventType.SEVEN) {
+            int m = game.getRoundNumber();
+            game.getCurrentPlayer().addMoney(-6 * m);
+        }
+        if (eventType == EventType.FLOOD) {
+            //TODO define this event
+        }
+        if (eventType == EventType.PLAGUE) {
+            int m = game.getRoundNumber();
+            game.getCurrentPlayer().addEnergy(-5 * m);
+        }
+
     }
 }
