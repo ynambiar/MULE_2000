@@ -6,23 +6,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="configScreens.RulesScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RulesScreenController">
    <children>
-      <Label layoutX="242.0" layoutY="32.0" text="Rules of Mule" textFill="#19a69b">
+      <Label layoutX="265.0" layoutY="38.0" text="Rules" textFill="#19a69b">
          <font>
             <Font name="Georgia" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="config3BackBtn" layoutY="374.0" mnemonicParsing="false" onAction="#config3ButtonAction" text="Back" />
-      <Label fx:id="errorLabel" layoutX="181.0" layoutY="126.0" text="Must select difficulty and map" textFill="RED" visible="false">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="235.0" layoutY="122.0" text="Rules TBA" textFill="#235450">
-         <font>
-            <Font name="Georgia" size="28.0" />
-         </font>
-      </Label>
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#setBackBtn" text="Back" />
    </children>
 </AnchorPane>

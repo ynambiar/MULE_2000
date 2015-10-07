@@ -71,8 +71,8 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
             gamblingResultsScene = new Scene(root);
 
-//            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
-//            rulesScene = new Scene(root);
+            root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
+            rulesScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
             startTurnScene = new Scene(root);
