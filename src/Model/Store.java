@@ -29,10 +29,10 @@ public class Store {
     public boolean purchaseTransaction(String item, int amnt) {
         Game game = Main.myGame;
         Player p = game.getCurrentPlayer();
-        if (item.equals("Food")) {
+        if (item.equals("Food") && amnt > 0) {
             if (p.getMoney() >= getFoodPrice() && getFoodStock() >= amnt) {
-                System.out.println("You bought " + amnt + " Food units for $30");
-                p.addMoney(-30);
+                System.out.println("You bought " + amnt + " Food units for $" + amnt*getFoodPrice());
+                p.addMoney(-1 * getFoodPrice() * amnt);
                 p.addFood(amnt);
                 addFoodStock(-amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getFood() + " food units.");
@@ -44,34 +44,72 @@ public class Store {
                 System.out.println("You only have $" + p.getMoney() + ". That's not enough!");
                 return false;
             }
-        } else if (item.equals("Energy")) {
-            if (p.getMoney() >= getEnergyPrice() && getEnergyStock() >= 1) {
-                System.out.println("You bought an Energy unit for $25");
-                p.addMoney(-25);
-                p.addEnergy(1);
-                addEnergyStock(-1);
-                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getEnergy() + " energy units.");
+        } else if (item.equals("Food") && amnt < 0) {
+            if (p.getFood() >= -1*amnt) {
+                System.out.println("You bought " + -1*amnt + " Food units for $" + -1*amnt * getFoodPrice());
+                p.addMoney((getFoodPrice() - 10) * amnt);
+                p.addFood(amnt);
+                addFoodStock(-amnt);
+                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getFood() + " Food units.");
                 return true;
-            } else if (getEnergyStock() < 1) {
-                System.out.println("Bazaar says: Sorry, but we're all out of Energy!");
+            } else {
+                System.out.println("You don't have that much Food to sell!");
+                return false;
+            }
+
+        } else if (item.equals("Energy") && amnt > 0) {
+            if (p.getMoney() >= getEnergyPrice() && getEnergyStock() >= amnt) {
+                System.out.println("You bought " + amnt + " Energy units for $" + amnt*getEnergyPrice());
+                p.addMoney(-1 * getEnergyPrice() * amnt);
+                p.addEnergy(amnt);
+                addEnergyStock(-amnt);
+                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getEnergy() + " Energy units.");
+                return true;
+            } else if (getFoodStock() < amnt) {
+                System.out.println("Bazaar says: Sorry, but we dont have that much Energy!");
                 return false;
             } else {
                 System.out.println("You only have $" + p.getMoney() + ". That's not enough!");
                 return false;
             }
-        } else if (item.equals("Smithore")) {
-            if (p.getMoney() >= getSmithorePrice() && getSmithoreStock() >= 1) {
-                System.out.println("You bought a Smithore unit for $50");
-                p.addMoney(-50);
-                p.addSmithore(1);
-                addEnergyStock(-1);
-                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getSmithore() + " energy units.");
+        } else if (item.equals("Energy") && amnt < 0) {
+            if (p.getEnergy() >= -1*amnt) {
+                System.out.println("You sold " + -1*amnt + " Energy units for $" + -1*amnt * getEnergyPrice());
+                p.addMoney((getEnergyPrice() - 10) * amnt);
+                p.addEnergy(amnt);
+                addEnergyStock(-amnt);
+                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getEnergy() + " Energy units.");
                 return true;
-            } else if (getSmithoreStock() < 1) {
-                System.out.println("Bazaar says: Sorry, but we're all out of Energy!");
+            } else {
+                System.out.println("You don't have that much Energy to sell!");
+                return false;
+            }
+
+        } else if (item.equals("Smithore") && amnt > 0) {
+            if (p.getMoney() >= getSmithorePrice() && getSmithoreStock() >= amnt) {
+                System.out.println("You bought " + amnt + " Smithore units for $" + amnt * getSmithorePrice());
+                p.addMoney(-1 * getEnergyPrice() * amnt);
+                p.addSmithore(amnt);
+                addSmithoreStock(-amnt);
+                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getSmithore() + " Smithore units.");
+                return true;
+            } else if (getSmithoreStock() < amnt) {
+                System.out.println("Bazaar says: Sorry, but we dont have that much Smithore!");
                 return false;
             } else {
                 System.out.println("You only have $" + p.getMoney() + ". That's not enough!");
+                return false;
+            }
+        } else if (item.equals("Smithore") && amnt < 0) {
+            if (p.getSmithore() >= -1*amnt) {
+                System.out.println("You sold " + -1*amnt + " Smithore units for $" + -1*amnt * getSmithorePrice());
+                p.addMoney((getSmithorePrice() - 10) * amnt);
+                p.addSmithore(amnt);
+                addSmithoreStock(-amnt);
+                System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getSmithore() + " Smithore units.");
+                return true;
+            } else {
+                System.out.println("You don't have that much Smithore to sell!");
                 return false;
             }
         }

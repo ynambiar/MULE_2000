@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StoreController">
    <children>
-      <Label fx:id="titleLbl" layoutX="102.0" layoutY="23.0" text="Item Transaction Screen">
+      <Label fx:id="titleLbl" layoutX="102.0" layoutY="23.0" text="Food Transaction Screen">
          <font>
             <Font name="Georgia" size="36.0" />
          </font>
@@ -22,9 +22,9 @@
             <Font name="Georgia" size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="sellTxt" layoutX="248.0" layoutY="135.0" promptText="Enter a quantity" text="0" />
-      <TextField fx:id="buyTxt" layoutX="248.0" layoutY="200.0" promptText="Enter a quantity" text="0" />
-      <Button fx:id="confirmBtn" layoutX="271.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#setConfirmBtn" text="Confirm" />
+      <TextField fx:id="sellTxtFood" layoutX="248.0" layoutY="135.0" promptText="Enter a quantity" text="0" />
+      <TextField fx:id="buyTxtFood" layoutX="248.0" layoutY="200.0" promptText="Enter a quantity" text="0" />
+      <Button fx:id="confirmBtnFood" layoutX="271.0" layoutY="291.0" mnemonicParsing="false" onMouseClicked="#setConfirmBtnFood" text="Confirm" />
       <Label layoutX="250.0" layoutY="153.0" prefHeight="25.0" prefWidth="138.0" text="enter a quantity">
          <font>
             <Font name="Georgia" size="11.0" />
