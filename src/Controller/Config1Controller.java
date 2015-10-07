@@ -67,6 +67,7 @@ public class Config1Controller {
             configsAreSet = true;
         }
         if (configsAreSet) {
+            MasterController.getInstance().getMapController().createMap(game.getMapType());
             MasterController.getInstance().loadConfig2Scene();
             //Driver.mygame.createMap();
         } else {
