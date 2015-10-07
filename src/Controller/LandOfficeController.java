@@ -29,5 +29,7 @@ public class LandOfficeController {
     }
 
     @FXML
-    private void setYesSellLandBtn() {}
+    private void setYesSellLandBtn() {
+        //Main.myGame.sellLand()
+    }
 }

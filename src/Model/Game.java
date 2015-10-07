@@ -33,6 +33,8 @@ public class Game {
     boolean purchasingLand;
     int gamble;
 
+
+
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
@@ -66,13 +68,13 @@ public class Game {
     }
 
     public void startTurn() {
+        refreshLabels();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
-        refreshLabels();
     }
 
     public void endTurn() {
@@ -91,6 +93,7 @@ public class Game {
         System.out.println("players: " + players);
         System.out.println("current: " + currentPlayer);
         MasterController.getInstance().loadStartTurnScene();
+
     }
 
     public void refreshLabels() {
@@ -120,10 +123,7 @@ public class Game {
             }
         } else if (roundNumber >= 1){
             if (purchasingLand) {
-                //int cost = 500;
-                /*300 + round * random(0-100).*/
-                Random r = new Random();
-                int cost = 300 + roundNumber * r.nextInt(200);
+                int cost = 500;
                 if (map.tileUnowned(row, col)) {
                     if (currentPlayer.getMoney() >= cost) {
                         currentPlayer.setTileOwned(row, col);
@@ -209,6 +209,5 @@ public class Game {
     public int getTimeLeft() { return timeLeft; }
     public void setGamble(int n) { gamble = n;}
     public int getGamble() { return gamble;}
-
 
 }
