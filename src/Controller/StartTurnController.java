@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Game;
 import Model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,12 +18,13 @@ public class StartTurnController {
     private Button startBtn;
 
     public void initialize() {
-        if (Main.myGame.getCurrentPlayer() != null) {
-
-            System.out.println("start screen");
-            System.out.println("player: " + Main.myGame.getCurrentPlayer());
-
-            startTurnLabel.setText("Round " + Main.myGame.getRoundNumber() + ": " + Main.myGame.getCurrentPlayer().getName() + "'s turn!");
+        Game game = Main.myGame;
+        if (game.getCurrentPlayer() != null) {
+            if (game.getRoundNumber() > 0) {
+                startTurnLabel.setText("Round " + game.getRoundNumber() + ": " + game.getCurrentPlayer().getName() + "'s turn!");
+            } else {
+                startTurnLabel.setText("Land Selection Phase: " + game.getCurrentPlayer().getName() + "'s turn!");
+            }
         }
     }
 

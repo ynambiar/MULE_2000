@@ -44,7 +44,10 @@ public class Game {
         MapController m = MasterController.getInstance().getMapController();
         m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
         m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
-        m.startTimer();
+        if (roundNumber > 0) {
+            timeLeft = 50;
+            m.startTimer();
+        }
     }
 
     public void endTurn() {
