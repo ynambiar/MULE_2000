@@ -12,8 +12,8 @@
             <Image url="@Resources/landOffice.png" />
          </image>
       </ImageView>
-      <Button fx:id="yesBuyLandBtn" layoutX="415.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setYesBuyLandBtn" text="Yes" />
-      <Button fx:id="noBuyLandBtn" layoutX="346.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setNoBuyLandBtn" text="No" />
-      <Button fx:id="yesSellLandBtn" layoutX="328.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#setYesSellLandBtn" text="Actually, I wanna sell" />
+      <Button fx:id="yesBuyLand" layoutX="415.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setYesBuyLand" text="Yes" />
+      <Button fx:id="noBuyLand" layoutX="346.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setNoBuyLand" text="No" />
+      <Button fx:id="sellLandBtn" layoutX="328.0" layoutY="152.0" mnemonicParsing="false" text="Actually, I wanna sell" />
    </children>
 </AnchorPane>

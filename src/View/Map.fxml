@@ -76,7 +76,6 @@
                   <Font name="Georgia" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="endTurnBtn" mnemonicParsing="false" onMouseClicked="#setEndTurnBtn" text="End Turn" />
          </children>
       </FlowPane>
    </children>

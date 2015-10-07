@@ -104,12 +104,8 @@ public class MasterController {
     public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
     public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
     public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
-<<<<<<< HEAD
     public void loadMuleTransactionScene() {stage.setScene(muleTransactionScene);}
     public void loadGamblingResultsScene() { stage.setScene(gamblingResultsScene);}
-=======
-
->>>>>>> origin/master
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
@@ -119,12 +115,10 @@ public class MasterController {
         try{
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
         } catch (IOException e) {
+            System.out.println("shit's broke");
+            System.out.println("MasterController(): " + e);
         }
     }
-    public void loadGamblingResultsScene() { try{
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"))));
-    } catch (IOException e) {
-    }}
 
     public MapController getMapController() { return mapController;}
 

@@ -11,25 +11,18 @@ import javafx.scene.input.MouseEvent;
 public class LandOfficeController {
 
     @FXML
-    private Button yesBuyLandBtn;
+    private Button yesBuyLand;
     @FXML
-    private Button noBuyLandBtn;
-    @FXML
-    private Button yesSellLandBtn;
+    private Button noBuyLand;
 
     @FXML
-    private void setYesBuyLandBtn() {
+    private void setYesBuyLand() {
         Main.myGame.setPurchasingLand(true);
         Main.myGame.buyLand();
     }
 
     @FXML
-    private void setNoBuyLandBtn() {
+    private void setNoBuyLand() {
         MasterController.getInstance().loadTownScene();
-    }
-
-    @FXML
-    private void setYesSellLandBtn() {
-        //Main.myGame.sellLand()
     }
 }

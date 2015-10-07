@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.Random;
-
 /**
  * Created by yamininambiar on 10/3/15.
  */
@@ -38,26 +36,7 @@ public class Map {
         if (type == MapType.STANDARD) {
             board = standardMap;
         } else {
-            board = new MapTile[5][9];
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 9; j++) {
-                    int r = new Random().nextInt(40);
-                    if (r <= 30) {
-                        board[i][j] = MapTile.P;
-                    } else if (r <= 33) {
-                        board[i][j] = MapTile.M1;
-                    } else if (r <= 36) {
-                        board[i][j] = MapTile.M2;
-                    } else {
-                        board[i][j] = MapTile.M3;
-                    }
-                }
-            }
-            board[0][4] = MapTile.R;
-            board[1][4] = MapTile.R;
-            board[2][4] = MapTile.Town;
-            board[3][4] = MapTile.R;
-            board[4][4] = MapTile.R;
+            board = new MapTile[height][width];
         }
         tilesOwned = new boolean[height][width];
         tilesOwned[2][4] = true;
