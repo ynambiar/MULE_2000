@@ -40,7 +40,7 @@ public class MapController {
     public void createMap(MapType type) {
         Map myMap;
         if (type == MapType.RANDOM) {
-            myMap = new Map(5, 9, MapType.RANDOM);
+            myMap = new Map(MapType.RANDOM);
         } else {
             myMap = new Map();
         }

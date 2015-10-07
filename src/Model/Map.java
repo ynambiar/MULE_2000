@@ -10,7 +10,6 @@ public class Map {
     private int height, width;
     private MapTile[][] board;
     private boolean[][] tilesOwned;
-
     private final MapTile[][] standardMap =
             {{MapTile.P,  MapTile.P,  MapTile.M1, MapTile.P,  MapTile.R,    MapTile.P,  MapTile.M3, MapTile.P,  MapTile.P},
                     {MapTile.P,  MapTile.M1, MapTile.P,  MapTile.P,  MapTile.R,    MapTile.P,  MapTile.P,  MapTile.P,  MapTile.M3},
@@ -29,12 +28,12 @@ public class Map {
     private MapType mapType;
 
     public Map() {
-        this(5, 9, MapType.STANDARD);
+        this(MapType.STANDARD);
     }
 
-    public Map(int height, int width, MapType type) {
-        this.height = height;
-        this.width = width;
+    public Map(MapType type) {
+        this.height = 5;
+        this.width = 9;
         if (type == MapType.STANDARD) {
             board = standardMap;
         } else {

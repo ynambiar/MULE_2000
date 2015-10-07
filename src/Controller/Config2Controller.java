@@ -43,7 +43,6 @@ public class Config2Controller {
             } else {
                 errorLabel.setVisible(true);
             }
-            Main.myGame.startGame();
         } catch (Exception e) {
             System.out.println(e);
         }

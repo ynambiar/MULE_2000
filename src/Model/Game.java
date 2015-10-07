@@ -47,6 +47,18 @@ public class Game {
     }
 
     public void startGame() {
+        if (difficulty == Difficulty.MEDIUM) {
+            System.out.println("This is medium");
+            for (Player p : players) {
+                p.addMoney( (int) (p.getMoney() * (-.25)));
+            }
+        } else if (difficulty == Difficulty.HARD) {
+            System.out.println("This is hard");
+            for (Player p : players) {
+                System.out.println(p.getMoney());
+                p.addMoney((int) (p.getMoney() * (-.5)));
+            }
+        }
         currentPlayer = players.get(0);
         roundNumber = -1; //round -1 and 0 are land selection
         MasterController.getInstance().loadStartTurnScene();

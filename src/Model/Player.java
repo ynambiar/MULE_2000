@@ -43,7 +43,7 @@ public class Player {
         this.human = human;
         this.race = race;
         this.color = color;
-        tilesOwned = new boolean[Main.myGame.getMap().getHeight()][Main.myGame.getMap().getWidth()];
+        tilesOwned = new boolean[5][9];
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {
