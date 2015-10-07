@@ -43,11 +43,8 @@ public class Map {
     }
 
     public boolean purchase(int row, int col) {
-        System.out.println("Map purchase");
         if (!tilesOwned[row][col]) {
-            System.out.println("Map tile not owned");
             if (Main.myGame.addProperty(row, col)) {
-                System.out.println("Map add property is true");
                 tilesOwned[row][col] = true;
                 return true;
             } else {

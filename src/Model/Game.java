@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
 
@@ -26,7 +27,6 @@ public class Game {
     int timeLeft;
 
 
-
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
@@ -37,6 +37,14 @@ public class Game {
         currentPlayer = players.get(0);
         roundNumber = -1; //round -1 and 0 are land selection
         MasterController.getInstance().loadStartTurnScene();
+
+    }
+
+    public void startTurn() {
+        MapController m = MasterController.getInstance().getMapController();
+        m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
+        m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
+        m.startTimer();
     }
 
     public void endTurn() {
@@ -86,6 +94,14 @@ public class Game {
         }
     }
 
+    public String getPhase() {
+        if (roundNumber < 1) {
+            return "Land Selection";
+        } else {
+            return "Regular Turn";
+        }
+    }
+
     public void addPlayer(Player player) { players.add(player);}
     public ArrayList<Player> getPlayers() { return players;}
     public Difficulty getDifficulty() { return difficulty;}
@@ -101,5 +117,6 @@ public class Game {
     public void decrementTimeLeft() { timeLeft--; }
     public void setTimeLeft(int time) { timeLeft = time; }
     public int getTimeLeft() { return timeLeft; }
+
 
 }

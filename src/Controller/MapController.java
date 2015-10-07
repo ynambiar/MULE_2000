@@ -27,8 +27,6 @@ public class MapController {
     private Label currentPlayerLabel;
     @FXML
     private Label timeLeftLabel;
-    @FXML
-    private Label startTurnLabel;
 
 
     public void initialize() {
@@ -52,7 +50,6 @@ public class MapController {
     }
 
     public void tileChosen(MouseEvent event) {
-        System.out.println("MapController tileChosen");
         BorderPane tile = (BorderPane) event.getSource();
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
@@ -61,6 +58,7 @@ public class MapController {
             tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
             Main.myGame.endTurn();
         }
+        System.out.println(this);
     }
 
     public void startTimer() {
@@ -85,5 +83,14 @@ public class MapController {
         }
     }
 
+    public void setCurrentPhaseLabel(String s) {
+        currentPhaseLabel.setText(s);
+    }
+    public void setCurrentPlayerLabel(String s) {
+        currentPlayerLabel.setText(s);
+    }
+    public void setTimeLeftLabel(String s) {
+        timeLeftLabel.setText(s);
+    }
 
 }

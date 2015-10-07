@@ -1,7 +1,7 @@
-main    ADD R6, R6, -4          ; Allocate part of stack fram (RV, RA, OLD FP, X)
+main    ADD R6, R6, -4          ; Allocate part of stack frame (RV, RA, OLD FP, X)
         str r7, r6, 2           ; Save R7 to RA
         str r5, r6, 1           ; save old fp
-        add r5, r6, 0           ; Estableish FP
+        add r5, r6, 0           ; Establish FP
         add r6, r6, -2          ; Make room for y and z
         add r6, r6, -1          ; Make space to save r0
         str r0, r6, 0           ; save r0
