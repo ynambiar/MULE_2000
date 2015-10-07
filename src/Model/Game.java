@@ -31,6 +31,7 @@ public class Game {
     int roundNumber;
     int timeLeft;
     boolean purchasingLand;
+    boolean sellingLand;
     int gamble;
 
     public Game() {
@@ -152,6 +153,8 @@ public class Game {
             return "Land Selection";
         } else if (purchasingLand) {
             return "Purchasing Land";
+        } else if (sellingLand) {
+            return "Selling Land";
         } else {
             return "Regular Turn";
         }
@@ -185,6 +188,7 @@ public class Game {
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
     public void setPurchasingLand(boolean p) {purchasingLand = p;}
+    public void setSellingLand(boolean s) {sellingLand = s;}
 
     /* Timer methods */
     public void decrementTimeLeft() {
