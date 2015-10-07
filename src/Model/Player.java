@@ -1,5 +1,11 @@
 package Model;
 
+import Controller.MasterController;
+import com.sun.org.apache.xerces.internal.xs.StringList;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
@@ -20,7 +26,9 @@ public class Player {
 
 
     //These fields DO require setters
-    private int money, food, smithore, energy, mules;
+    private int money, food, smithore, energy;
+
+    private ArrayList<String> mules;
 
     public void addMoney(int m) {
         money = money + m;
@@ -38,11 +46,16 @@ public class Player {
         energy = energy + e;
     }
 
+    public void addMule(String m) {
+        mules.add(m);
+    }
+
     public Player(String human, String race, String name, String color) {
         this.name = name;
         this.human = human;
         this.race = race;
         this.color = color;
+        this.mules = null;
         tilesOwned = new boolean[Main.myGame.getMap().getHeight()][Main.myGame.getMap().getWidth()];
         if (race.equals("Flapper")) {
             this.money = 1600;
@@ -50,6 +63,35 @@ public class Player {
             this.money = 600;
         } else {
             this.money = 1000;
+        }
+    }
+
+    public ArrayList<String> getMules() {
+        return mules;
+    }
+
+    public int getMulePrice(String s) {
+        if (s.equals("Food Mule")) {
+            return 125;
+        } else if (s.equals("Energy Mule")) {
+            return 150;
+        } else if (s.equals("Smithore Mule")) {
+            return 175;
+        }
+        return 0;
+    }
+
+    /**
+     * not sure if this works properly
+     * @param s
+     */
+    public void sellThatMule(String s) {
+        if (mules.contains(s)) {
+            mules.remove(s);
+            System.out.println("You sold a " + s + " for $" + getMulePrice(s) + ".");
+            MasterController.getInstance().loadStoreScene();
+        } else {
+            System.out.println("Sorry, but you don't have a mule like that to sell.");
         }
     }
 

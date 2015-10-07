@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Rectangle;
 
 /**
  * Created by tuckerlocicero on 10/6/15.
@@ -12,10 +13,14 @@ import javafx.scene.control.TextField;
 public class StoreController {
 
     @FXML
-    private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore, confirmBtnFood;
+    private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore, confirmBtnFood, foodMuleBtn, energyMuleBtn, smithoreMuleBtn
+            , confirmMuleSell, confirmMuleBuy, cancelBtn;
 
     @FXML
     private Label titleLbl;
+
+    @FXML
+    private Rectangle foodMuleSelected, energyMuleSelected, smithoreMuleSelected;
 
     @FXML
     private TextField buyTxtFood, sellTxtFood, buyTxtEnergy, sellTxtEnergy, buyTxtSmithore, sellTxtSmithore;
@@ -39,7 +44,7 @@ public class StoreController {
 
     @FXML
     private void setBuyMule() {
-        Main.myGame.doStoreTransaction("Mule", true, 1);
+        MasterController.getInstance().loadMuleTransactionScene();
     }
 
     @FXML
@@ -60,6 +65,51 @@ public class StoreController {
         Main.myGame.doStoreTransaction("Energy", true, -1 * Integer.parseInt(sellTxtSmithore.getText()));
         MasterController.getInstance().loadStoreScene();
     }
+
+    private String selectedMule;
+
+    @FXML
+    private void setFoodMuleBtn() {
+        foodMuleSelected.setVisible(true);
+        energyMuleSelected.setVisible(false);
+        smithoreMuleSelected.setVisible(false);
+        selectedMule = "Food Mule";
+    }
+
+    @FXML
+    private void setEnergyMuleBtn() {
+        foodMuleSelected.setVisible(false);
+        energyMuleSelected.setVisible(true);
+        smithoreMuleSelected.setVisible(false);
+        selectedMule = "Energy Mule";
+    }
+
+    @FXML
+    private void setSmithoreMuleBtn() {
+        foodMuleSelected.setVisible(false);
+        energyMuleSelected.setVisible(false);
+        smithoreMuleSelected.setVisible(true);
+        selectedMule = "Smithore Mule";
+    }
+
+    /**
+     * TODO go to map and let the player choose wehere to place their mule
+     */
+    @FXML
+    private void setConfirmMuleBuy() {
+
+    }
+
+    @FXML
+    private void setConfirmMuleSell() {
+        Main.myGame.getCurrentPlayer().sellThatMule(selectedMule);
+    }
+
+    @FXML
+    private void setCancelBtn() {
+        MasterController.getInstance().loadStoreScene();
+    }
+
 
     @FXML
     private void setLeaveStore() {
