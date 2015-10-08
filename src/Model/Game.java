@@ -91,15 +91,15 @@ public class Game {
         players.sort(new PlayerComparator<>());
         currentPlayer = players.get(0);
         System.out.println("players: " + players);
-        System.out.println("current: " + currentPlayer);
+        System.out.println("current: " + currentPlayer.getName());
         MasterController.getInstance().loadStartTurnScene();
 
     }
 
     public void refreshLabels() {
         MapController m = MasterController.getInstance().getMapController();
-        m.setCurrentPhaseLabel("CURRENT PHASE: " + getPhase());
-        m.setCurrentPlayerLabel("CURRENT PLAYER: " + currentPlayer.getName());
+        m.setCurrentPhaseLabel(getPhase());
+        m.setCurrentPlayerLabel(currentPlayer.getName());
         m.setFoodLabel("Food: " + currentPlayer.getFood());
         m.setEnergyLabel("Energy: " + currentPlayer.getEnergy());
         m.setSmithoreLabel("Smithore: " + currentPlayer.getSmithore());

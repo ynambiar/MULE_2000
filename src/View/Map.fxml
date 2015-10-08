@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -24,7 +26,6 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -37,14 +38,15 @@
       <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="308.0" style="-fx-background-color: lightgrey;">
          <children>
             <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
-            <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="59.0" prefWidth="290.0" text="CURRENT PLAYER:">
+            <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="62.0" prefWidth="290.0" text="PLAYER" textAlignment="CENTER">
                <font>
-                  <Font name="Georgia" size="18.0" />
+                  <Font name="Georgia" size="40.0" />
                </font>
             </Label>
-            <Label fx:id="currentPhaseLabel" alignment="CENTER" prefHeight="68.0" prefWidth="288.0" text="CURRENT PHASE:">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
+            <Label fx:id="currentPhaseLabel" alignment="CENTER" prefHeight="41.0" prefWidth="288.0" style="-fx-alignment: center;" text="PHASE" textAlignment="CENTER">
                <font>
-                  <Font name="Georgia" size="18.0" />
+                  <Font name="Georgia" size="34.0" />
                </font>
             </Label>
          </children>
@@ -74,8 +76,12 @@
             </Label>
          </children>
       </FlowPane>
-      <Button fx:id="endTurnBtn" layoutX="570.0" layoutY="406.0" mnemonicParsing="false" onMouseClicked="#setEndTurnBtn" style="-fx-background-color: orange; -fx-border-color: darkorange; -fx-border-width: 6;" text="End Turn" />
-      <Label fx:id="timeLeftLabel" alignment="CENTER" layoutX="538.0" layoutY="455.0" prefHeight="50.0" prefWidth="141.0" text="TIME">
+      <Button fx:id="endTurnBtn" layoutX="555.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#setEndTurnBtn" prefHeight="46.0" prefWidth="107.0" style="-fx-background-color: dodgerblue; -fx-border-color: black; -fx-border-width: 1;" text="End Turn">
+         <font>
+            <Font name="Georgia" size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="timeLeftLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="455.0" prefHeight="50.0" prefWidth="141.0" style="-fx-border-style: DASHED;" text="--">
          <font>
             <Font name="Georgia" size="40.0" />
          </font>
