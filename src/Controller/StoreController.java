@@ -23,48 +23,14 @@ public class StoreController {
     @FXML
     private TextField buyTxtFood, sellTxtFood, buyTxtEnergy, sellTxtEnergy, buyTxtSmithore, sellTxtSmithore;
 
-    @FXML
-    private ImageView foodAnim, energyAnim, muleAnim, cAnim;
-
-    @FXML
-    private void foodmouseEnter () {
-        foodAnim.setVisible(true);
-    }
-    @FXML
-    private void foodmouseLeave () {
-        foodAnim.setVisible(false);
-    }
-    @FXML
-    private void energymouseEnter () {
-        energyAnim.setVisible(true);
-    }
-    @FXML
-    private void energymouseLeave () {
-        energyAnim.setVisible(false);
-    }
-    @FXML
-    private void mulemouseEnter () {
-        muleAnim.setVisible(true);
-    }
-    @FXML
-    private void mulemouseLeave () {
-        muleAnim.setVisible(false);
-    }
-    @FXML
-    private void cmouseEnter () {
-        cAnim.setVisible(true);
-    }
-    @FXML
-    private void cmouseLeave () {
-        cAnim.setVisible(false);
-    }
-
+    //sound code
     private void chaChing() {
         final URL resource = getClass().getResource("/View/Resources/money.mp3");
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
+    //end of sound code here
 
     @FXML
     private void setBuyFood() {
@@ -113,4 +79,45 @@ public class StoreController {
     private void setLeaveStore() {
         MasterController.getInstance().loadTownScene();
     }
+
+
+
+    //  THIS PART OF CODE IS FOR ANIMATION:
+    @FXML
+    private ImageView foodAnim, energyAnim, muleAnim, cAnim;
+
+    @FXML
+    private void foodmouseEnter () {
+        foodAnim.setVisible(true);
+    }
+    @FXML
+    private void foodmouseLeave () {
+        foodAnim.setVisible(false);
+    }
+    @FXML
+    private void energymouseEnter () {
+        energyAnim.setVisible(true);
+    }
+    @FXML
+    private void energymouseLeave () {
+        energyAnim.setVisible(false);
+    }
+    @FXML
+    private void mulemouseEnter () {
+        muleAnim.setVisible(true);
+    }
+    @FXML
+    private void mulemouseLeave () {
+        muleAnim.setVisible(false);
+    }
+    @FXML
+    private void cmouseEnter () {
+        cAnim.setVisible(true);
+    }
+    @FXML
+    private void cmouseLeave () {
+        cAnim.setVisible(false);
+    }
+//  END OF ANIMATION HERE
+
 }
