@@ -12,7 +12,7 @@
             <Image url="@Resources/insideStore.png" />
          </image>
       </ImageView>
-      <Button fx:id="buyFood" layoutX="481.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setBuyFood" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Food" />
+      <Button fx:id="buyFood" layoutX="481.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setBuyFood" onMouseEntered="#foodmouseEnter" onMouseExited="#foodmouseLeave" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Food" />
       <Button fx:id="buySmithore" layoutX="57.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#setBuySmithore" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Smithore" />
       <Button fx:id="buyEnergy" layoutX="65.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#setBuyEnergy" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Energy" />
       <Button fx:id="buyMule" layoutX="481.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#setBuyMule" opacity="0.0" prefHeight="74.0" prefWidth="94.0" text="Buy Mule" />
@@ -20,6 +20,11 @@
       <ImageView fitHeight="152.0" fitWidth="121.0" layoutX="255.0" layoutY="36.0">
          <image>
             <Image url="@Resources/store-man.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="foodAnim" fitHeight="52.0" fitWidth="49.0" layoutX="500.0" layoutY="180.0" visible="false">
+         <image>
+            <Image url="@Resources/food-anim.gif" />
          </image>
       </ImageView>
    </children>

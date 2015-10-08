@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.net.URL;
@@ -21,6 +22,42 @@ public class StoreController {
 
     @FXML
     private TextField buyTxtFood, sellTxtFood, buyTxtEnergy, sellTxtEnergy, buyTxtSmithore, sellTxtSmithore;
+
+    @FXML
+    private ImageView foodAnim, energyAnim, muleAnim, cAnim;
+
+    @FXML
+    private void foodmouseEnter () {
+        foodAnim.setVisible(true);
+    }
+    @FXML
+    private void foodmouseLeave () {
+        foodAnim.setVisible(false);
+    }
+    @FXML
+    private void energymouseEnter () {
+        energyAnim.setVisible(true);
+    }
+    @FXML
+    private void energymouseLeave () {
+        energyAnim.setVisible(false);
+    }
+    @FXML
+    private void mulemouseEnter () {
+        muleAnim.setVisible(true);
+    }
+    @FXML
+    private void mulemouseLeave () {
+        muleAnim.setVisible(false);
+    }
+    @FXML
+    private void cmouseEnter () {
+        cAnim.setVisible(true);
+    }
+    @FXML
+    private void cmouseLeave () {
+        cAnim.setVisible(false);
+    }
 
     private void chaChing() {
         final URL resource = getClass().getResource("/View/Resources/money.mp3");
