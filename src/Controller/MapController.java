@@ -80,7 +80,7 @@ public class MapController {
                     public void run() {
                         timeLeftLabel.setText(((Integer)Main.myGame.getTimeLeft()).toString());
                         Main.myGame.decrementTimeLeft();
-                        System.out.println("tick tock");
+                        System.out.println(Main.myGame.getTimeLeft());
                     }
                 });
             }
