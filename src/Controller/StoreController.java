@@ -84,16 +84,12 @@ public class StoreController {
 
     //  THIS PART OF CODE IS FOR ANIMATION:
     @FXML
-    private ImageView foodAnim, energyAnim, muleAnim, cAnim;
+    private ImageView foodAnim, energyAnim, muleAnim, cAnim, oreAnim;
 
     @FXML
-    private void foodmouseEnter () {
-        foodAnim.setVisible(true);
-    }
+    private void foodmouseEnter () {foodAnim.setVisible(true);}
     @FXML
-    private void foodmouseLeave () {
-        foodAnim.setVisible(false);
-    }
+    private void foodmouseLeave () { foodAnim.setVisible(false);}
     @FXML
     private void energymouseEnter () {
         energyAnim.setVisible(true);
@@ -115,8 +111,15 @@ public class StoreController {
         cAnim.setVisible(true);
     }
     @FXML
-    private void cmouseLeave () {
-        cAnim.setVisible(false);
+    private void cmouseLeave () { cAnim.setVisible(false);
+    }
+    @FXML
+    private void oremouseEnter () {
+        oreAnim.setVisible(true);
+    }
+    @FXML
+    private void oremouseLeave () {
+        oreAnim.setVisible(false);
     }
 //  END OF ANIMATION HERE
 

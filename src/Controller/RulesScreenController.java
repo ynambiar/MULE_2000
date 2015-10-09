@@ -17,7 +17,6 @@ public class RulesScreenController {
 
     public void initialize() {
 
-
     }
 
 
