@@ -111,8 +111,7 @@ public class StoreController {
         cAnim.setVisible(true);
     }
     @FXML
-    private void cmouseLeave () { cAnim.setVisible(false);
-    }
+    private void cmouseLeave () { cAnim.setVisible(false); }
     @FXML
     private void oremouseEnter () {
         oreAnim.setVisible(true);
