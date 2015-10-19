@@ -41,9 +41,6 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
             config2Scene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"));
-            insideLandOfficeScene = new Scene(root);
-
             root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
             insidePubScene = new Scene(root);
 
@@ -100,7 +97,6 @@ public class MasterController {
     }
     public void loadPubScene() { stage.setScene(insidePubScene);}
     public void loadStoreScene() {stage.setScene(insideStoreScene);}
-    public void loadLandOfficeScene() {stage.setScene(insideLandOfficeScene);}
     public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
     public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
     public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
@@ -110,6 +106,13 @@ public class MasterController {
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
     public void loadRulesScene() { stage.setScene(rulesScene);}
     public void loadStartScene() { stage.setScene(startScene);}
+    public void loadLandOfficeScene() {
+        try {
+            System.out.println("loading land office");
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"))));
+        } catch (IOException e) {
+            System.out.println("errors " + e);}
+    }
     public void loadStartTurnScene() {
         try{
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));

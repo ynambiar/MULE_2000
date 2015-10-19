@@ -33,6 +33,7 @@ public class Game {
     int gamble;
     String phase;
     Mule muleType;
+    int landCost;
 
 
     public Game() {
@@ -122,20 +123,18 @@ public class Game {
             }
         } else {
             if (phase.equals("Purchasing Land")) {
-                int cost = 500;
                 if (map.tileUnowned(row, col)) {
-                    if (currentPlayer.getMoney() >= cost) {
+                    if (currentPlayer.getMoney() >= landCost) {
                         currentPlayer.setTileOwned(row, col, true);
                         map.setTileOwned(row, col, true);
-                        currentPlayer.addMoney(cost * -1);
+                        currentPlayer.addMoney(landCost * -1);
                         refreshLabels();
                         return true;
                     }
                 }
             } else if (phase.equals("Selling Land")){
-                int cost = 500;
                 if (currentPlayer.getTileOwned(row, col)) {
-                    currentPlayer.addMoney(cost);
+                    currentPlayer.addMoney(landCost);
                     currentPlayer.setTileOwned(row, col, false);
                     map.setTileOwned(row, col, false);
                     refreshLabels();
@@ -222,6 +221,7 @@ public class Game {
     public Player getCurrentPlayer() { return currentPlayer;}
     public void setMuleType(Mule t) { muleType = t;}
     public Mule getMuleType() {return muleType;}
+    public void setLandCost(int c) { landCost = c;}
 
     /* Timer methods */
     public void decrementTimeLeft() {

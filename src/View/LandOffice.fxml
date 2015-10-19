@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -15,5 +16,15 @@
       <Button fx:id="yesBuyLandBtn" layoutX="415.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setYesBuyLandBtn" text="Yes" />
       <Button fx:id="noBuyLandBtn" layoutX="346.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#setNoBuyLandBtn" text="No" />
       <Button fx:id="yesSellLandBtn" layoutX="328.0" layoutY="152.0" mnemonicParsing="false" onMouseClicked="#setYesSellLandBtn" text="Actually, I wanna sell" />
+      <Label fx:id="buyPrice" layoutX="106.0" layoutY="240.0" text="Buying Price: ">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="sellPrice" layoutX="106.0" layoutY="300.0" text="Selling Price: ">
+         <font>
+            <Font name="Georgia" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
