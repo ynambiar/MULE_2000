@@ -222,7 +222,6 @@ public class Game {
     public void setMuleType(Mule t) { muleType = t;}
     public Mule getMuleType() {return muleType;}
     public void setLandCost(int c) { landCost = c;}
-
     /* Timer methods */
     public void decrementTimeLeft() {
         if (timeLeft == 0) {

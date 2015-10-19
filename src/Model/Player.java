@@ -98,10 +98,10 @@ public class Player {
 
     public int getScore() {
         Store store = Main.myGame.getStore();
-        int foodCost = store.getFoodPrice() * (2/3);
-        int energyCost = store.getEnergyPrice() * (2/3);
-        int smithoreCost = store.getSmithorePrice() * (2/3);
-        int propertyCost = getNumTilesOwned() * 1000;
+        int foodCost = store.getFoodPrice();
+        int energyCost = store.getEnergyPrice();
+        int smithoreCost = store.getSmithorePrice();
+        int propertyCost = getNumTilesOwned() * 500;
         return money + foodCost + energyCost + smithoreCost + propertyCost;
     }
 

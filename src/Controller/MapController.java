@@ -109,6 +109,7 @@ public class MapController {
         if (Main.myGame.getRoundNumber() >= 1) {
             MasterController.getInstance().loadTownScene();
             Main.myGame.setPhase("Normal Play");
+            Main.myGame.refreshLabels();
         }
     }
 
