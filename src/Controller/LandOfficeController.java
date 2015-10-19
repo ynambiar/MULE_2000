@@ -49,7 +49,6 @@ public class LandOfficeController {
     }
 
     public void initialize() {
-        System.out.println("Initialization of land office");
         Game g = Main.myGame;
         Random random = new Random(g.getRoundNumber() + g.getCurrentPlayer().hashCode() + g.hashCode());
         buyingPrice = 300 + Main.myGame.getRoundNumber() * random.nextInt(100);

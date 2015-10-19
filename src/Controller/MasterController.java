@@ -106,26 +106,19 @@ public class MasterController {
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
     public void loadRulesScene() { stage.setScene(rulesScene);}
     public void loadStartScene() { stage.setScene(startScene);}
-    public void loadLandOfficeScene() {
-        try {
-            System.out.println("loading land office");
+    public void loadLandOfficeScene() { try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"))));
-        } catch (IOException e) {
-            System.out.println("errors " + e);}
-    }
-    public void loadStartTurnScene() {
-        try{
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
-        } catch (IOException e) {
-        }
-    }
-    public void loadGamblingResultsScene() { try{
+    } catch (IOException e) {
+    }}
+    public void loadStartTurnScene() { try {
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
+    } catch (IOException e) {
+    }}
+    public void loadGamblingResultsScene() { try {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"))));
     } catch (IOException e) {
     }}
-
     public MapController getMapController() { return mapController;}
-
     //called once
     public void setStage(Stage stage) {
         this.stage = stage;
