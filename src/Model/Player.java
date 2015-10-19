@@ -19,7 +19,7 @@ public class Player {
     private String color;
     private boolean[][] tilesOwned;
     private int numTilesOwned;
-
+    private boolean[][] muleEmplaced;
     private int roundNumber;
     private int playerTime;
 
@@ -57,6 +57,7 @@ public class Player {
         this.color = color;
         this.mules = null;
         tilesOwned = new boolean[5][9];
+        muleEmplaced = new boolean[5][9];
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {
@@ -123,6 +124,8 @@ public class Player {
     public int getEnergy() {return energy;}
     public void setTileOwned(int row, int col, boolean b) {tilesOwned[row][col] = b;}
     public boolean getTileOwned(int row, int col) {return tilesOwned[row][col];}
+    public void setMuleEmplaced(int row, int col, boolean b) {muleEmplaced[row][col] = b;}
+    public boolean getMuleEmplaced(int row, int col) {return muleEmplaced[row][col];}
     public String toString() { return  human + " player " + name + " is a " + race;}
     public void setPlayerTime(int i) {
         playerTime = i;

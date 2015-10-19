@@ -53,7 +53,7 @@ public class StoreController {
     @FXML
     private void setBuyMule() {
         chaChing();
-        Main.myGame.doStoreTransaction("Mule", true, 1);
+        MasterController.getInstance().loadMuleTransactionScene();
     }
 
     @FXML

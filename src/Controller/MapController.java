@@ -1,8 +1,6 @@
 package Controller;
-import Model.Main;
-import Model.Player;
+import Model.*;
 import javafx.scene.layout.GridPane;
-import Model.Map;
 import Model.Map.MapType;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -13,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
+import java.awt.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -61,21 +60,31 @@ public class MapController {
     }
 
     public void tileClicked(MouseEvent event) {
+        Game g = Main.myGame;
         StackPane tile = (StackPane) event.getSource();
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
-        Player p = Main.myGame.getCurrentPlayer();
-        if (Main.myGame.tileClicked(row, col)) {
-            if (Main.myGame.getPhase().equals("Selling Land")) {
+        Player p = g.getCurrentPlayer();
+        if (g.tileClicked(row, col)) {
+            if (g.getPhase().equals("Selling Land")) {
                 tile.setStyle("-fx-border-color: GREEN;");
-            } else if (Main.myGame.getPhase().equals("Emplacing Mule")) {
-                ImageView mule = new ImageView("/View/Resources/tinyFoodMule.png");
+            } else if (g.getPhase().equals("Emplacing Mule")) {
+                ImageView mule;
+                if (g.getMuleType() == Mule.FOOD) {
+                    mule = new ImageView("/View/Resources/tinyFoodMule.png");
+                } else if (g.getMuleType() == Mule.ENERGY) {
+                    mule = new ImageView("/View/Resources/tinyEnergyMule.png");
+                } else {
+                    mule = new ImageView("/View/Resources/tinySmithoreMule.png");
+                }
                 tile.getChildren().add(mule);
+            } else if (g.getPhase().equals("Selling Mules")) {
+                tile.getChildren().remove(1);
             } else {
                 tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
             }
-            if (Main.myGame.getRoundNumber() < 1) {
-                Main.myGame.endTurn();
+            if (g.getRoundNumber() < 1) {
+                g.endTurn();
             }
         }
     }

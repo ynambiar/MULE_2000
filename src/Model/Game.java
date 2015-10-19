@@ -32,7 +32,7 @@ public class Game {
     int timeLeft;
     int gamble;
     String phase;
-
+    Mule muleType;
 
 
     public Game() {
@@ -142,12 +142,31 @@ public class Game {
                     return true;
                 }
             } else if (phase.equals("Emplacing Mule")) {
+                int cost;
+                if (muleType == Mule.FOOD) {
+                    cost = 125;
+                } else if (muleType == Mule.ENERGY) {
+                    cost = 150;
+                } else {
+                    cost = 175;
+                }
                 if (currentPlayer.getTileOwned(row, col)) {
-                    return true;
+                    if (currentPlayer.getMoney() >= cost) {
+                        currentPlayer.setMuleEmplaced(row, col, true);
+                        currentPlayer.addMoney(cost * -1);
+                        refreshLabels();
+                        return true;
+                    }
                 } else {
                     return false;
                 }
-            } else {
+            } else if (phase.equals("Selling Mules")) {
+                if (currentPlayer.getTileOwned(row, col) && currentPlayer.getMuleEmplaced(row, col)) {
+                    int cost = 100;
+                    currentPlayer.addMoney(cost);
+                    currentPlayer.setMuleEmplaced(row, col, false);
+                    return true;
+                }
                 return false;
             }
         }
@@ -201,6 +220,8 @@ public class Game {
     public Map getMap() { return map;}
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
+    public void setMuleType(Mule t) { muleType = t;}
+    public Mule getMuleType() {return muleType;}
 
     /* Timer methods */
     public void decrementTimeLeft() {

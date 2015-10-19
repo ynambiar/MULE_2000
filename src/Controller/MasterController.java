@@ -20,7 +20,7 @@ public class MasterController {
 //    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
         insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
-        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene;
+        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -58,6 +58,9 @@ public class MasterController {
 
             root = FXMLLoader.load(getClass().getResource("/View/StoreTransactionScreenSmithore.fxml"));
             storeTransactionSceneSmithore = new Scene(root);
+
+            root = FXMLLoader.load(getClass().getResource("/View/MuleTransactionScreen.fxml"));
+            muleTransactionScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
             insideTownScene = new Scene(root);
@@ -101,7 +104,7 @@ public class MasterController {
     public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
     public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
     public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
-
+    public void loadMuleTransactionScene() {stage.setScene(muleTransactionScene);}
     public void loadTownScene() { stage.setScene(insideTownScene);}
     public void loadMapScene() { stage.setScene(mapScene);}
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}

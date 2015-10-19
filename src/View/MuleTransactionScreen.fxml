@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StoreController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MuleTransactionController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="224.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -60,18 +60,15 @@
             <Font name="Georgia" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="foodMuleBtn" layoutX="22.0" layoutY="103.0" mnemonicParsing="false" onMouseClicked="#setFoodMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Food Mule" />
-      <Button fx:id="energyMuleBtn" layoutX="209.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#setEnergyMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Energy Mule" />
-      <Button fx:id="smithoreMuleBtn" layoutX="397.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#setSmithoreMuleBtn" opacity="0.0" prefHeight="225.0" prefWidth="188.0" text="Smithore Mule" />
-      <Button fx:id="confirmMuleBuy" layoutX="224.0" layoutY="350.0" mnemonicParsing="false" text="Buy" />
-      <Button fx:id="confirmMuleSell" layoutX="296.0" layoutY="350.0" mnemonicParsing="false" text="Sell" />
+      <Button fx:id="buyBtn" layoutX="224.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setBuyBtn" text="Buy" />
+      <Button fx:id="sellBtn" layoutX="296.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setSellBtn" text="Sell" />
       <Line endX="100.0" layoutX="311.0" layoutY="328.0" startX="-100.0" />
       <Line endX="100.0" layoutX="116.0" layoutY="328.0" startX="-100.0" />
       <Line endX="100.0" layoutX="509.0" layoutY="328.0" startX="-100.0" />
       <Line endX="100.0" layoutX="89.0" layoutY="328.0" startX="-100.0" />
-      <Rectangle fx:id="foodMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="11.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
-      <Rectangle fx:id="energyMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="203.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
-      <Rectangle fx:id="smithoreMuleSelected" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="396.0" layoutY="116.0" opacity="0.15" stroke="BLACK" strokeType="INSIDE" visible="false" width="194.0" />
-      <Button fx:id="cancelBtn" layoutX="362.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setCancel" text="Cancel" />
+      <Button fx:id="cancelBtn" layoutX="362.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#setCancelBtn" text="Cancel" />
+      <Rectangle fx:id="energyMule" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="217.0" layoutY="124.0" onMouseClicked="#setEnergyMule" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
+      <Rectangle fx:id="smithoreMule" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="407.0" layoutY="124.0" onMouseClicked="#setSmithoreMule" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
+      <Rectangle fx:id="foodMule" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="25.0" layoutY="124.0" onMouseClicked="#setFoodMule" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="187.0" />
    </children>
 </AnchorPane>
