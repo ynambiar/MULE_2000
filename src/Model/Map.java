@@ -10,6 +10,7 @@ public class Map {
     private int height, width;
     private MapTile[][] board;
     private boolean[][] tilesOwned;
+    private boolean[][] hasMule;
     private final MapTile[][] standardMap =
             {{MapTile.P,  MapTile.P,  MapTile.M1, MapTile.P,  MapTile.R,    MapTile.P,  MapTile.M3, MapTile.P,  MapTile.P},
                     {MapTile.P,  MapTile.M1, MapTile.P,  MapTile.P,  MapTile.R,    MapTile.P,  MapTile.P,  MapTile.P,  MapTile.M3},
@@ -59,12 +60,18 @@ public class Map {
             board[4][4] = MapTile.R;
         }
         tilesOwned = new boolean[height][width];
+        hasMule = new boolean[5][9];
         tilesOwned[2][4] = true;
+        hasMule[2][4] = true;
     }
 
     public boolean tileUnowned(int row, int col) {
         return !tilesOwned[row][col];
     }
+
+    public void setTileOwned(int row, int col, boolean b) { tilesOwned[row][col] = b;}
+
+    public boolean tileHasMule(int row, int col) { return hasMule[row][col];}
 
     public MapTile[][] getBoard() {
         return board;

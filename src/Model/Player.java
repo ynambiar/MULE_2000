@@ -121,7 +121,8 @@ public class Player {
     public int getFood() {return food;}
     public int getSmithore() {return smithore;}
     public int getEnergy() {return energy;}
-    public void setTileOwned(int row, int col) {tilesOwned[row][col] = true;}
+    public void setTileOwned(int row, int col, boolean b) {tilesOwned[row][col] = b;}
+    public boolean getTileOwned(int row, int col) {return tilesOwned[row][col];}
     public String toString() { return  human + " player " + name + " is a " + race;}
     public void setPlayerTime(int i) {
         playerTime = i;

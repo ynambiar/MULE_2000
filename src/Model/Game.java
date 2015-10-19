@@ -30,8 +30,8 @@ public class Game {
     Store store;
     int roundNumber;
     int timeLeft;
-    boolean purchasingLand;
     int gamble;
+    String phase;
 
 
 
@@ -39,7 +39,6 @@ public class Game {
         map = new Map();
         players = new ArrayList<Player>();
         store = new Store();
-        purchasingLand = false;
         //Code for the music
         final URL resource = getClass().getResource("/View/Resources/music.mp3");
         final Media media = new Media(resource.toString());
@@ -50,12 +49,10 @@ public class Game {
 
     public void startGame() {
         if (difficulty == Difficulty.MEDIUM) {
-            System.out.println("This is medium");
             for (Player p : players) {
                 p.addMoney( (int) (p.getMoney() * (-.25)));
             }
         } else if (difficulty == Difficulty.HARD) {
-            System.out.println("This is hard");
             for (Player p : players) {
                 System.out.println(p.getMoney());
                 p.addMoney((int) (p.getMoney() * (-.5)));
@@ -63,8 +60,9 @@ public class Game {
         }
         currentPlayer = players.get(0);
         roundNumber = -1; //round -1 and 0 are land selection
+        setPhase("Land Selection");
         MasterController.getInstance().loadStartTurnScene();
-
+        refreshLabels();
     }
 
     public void startTurn() {
@@ -88,17 +86,17 @@ public class Game {
 
     public void endRound() {
         roundNumber++;
-        players.sort(new PlayerComparator<>());
+        if (roundNumber >= 1) {
+            players.sort(new PlayerComparator<>());
+        }
         currentPlayer = players.get(0);
-        System.out.println("players: " + players);
-        System.out.println("current: " + currentPlayer.getName());
         MasterController.getInstance().loadStartTurnScene();
 
     }
 
     public void refreshLabels() {
         MapController m = MasterController.getInstance().getMapController();
-        m.setCurrentPhaseLabel(getPhase());
+        m.setCurrentPhaseLabel(phase);
         m.setCurrentPlayerLabel(currentPlayer.getName());
         m.setFoodLabel("Food: " + currentPlayer.getFood());
         m.setEnergyLabel("Energy: " + currentPlayer.getEnergy());
@@ -116,21 +114,38 @@ public class Game {
     public boolean tileClicked(int row, int col) {
         if (roundNumber < 1) {
             if (map.tileUnowned(row, col)) {
-                currentPlayer.setTileOwned(row, col);
+                currentPlayer.setTileOwned(row, col, true);
+                map.setTileOwned(row, col, true);
                 return true;
             } else {
                 return false;
             }
-        } else if (roundNumber >= 1){
-            if (purchasingLand) {
+        } else {
+            if (phase.equals("Purchasing Land")) {
                 int cost = 500;
                 if (map.tileUnowned(row, col)) {
                     if (currentPlayer.getMoney() >= cost) {
-                        currentPlayer.setTileOwned(row, col);
+                        currentPlayer.setTileOwned(row, col, true);
+                        map.setTileOwned(row, col, true);
                         currentPlayer.addMoney(cost * -1);
                         refreshLabels();
                         return true;
                     }
+                }
+            } else if (phase.equals("Selling Land")){
+                int cost = 500;
+                if (currentPlayer.getTileOwned(row, col)) {
+                    currentPlayer.addMoney(cost);
+                    currentPlayer.setTileOwned(row, col, false);
+                    map.setTileOwned(row, col, false);
+                    refreshLabels();
+                    return true;
+                }
+            } else if (phase.equals("Emplacing Mule")) {
+                if (currentPlayer.getTileOwned(row, col)) {
+                    return true;
+                } else {
+                    return false;
                 }
             } else {
                 return false;
@@ -151,22 +166,12 @@ public class Game {
         }
     }
 
-    public boolean buyLand() {
-        MapController mapCtor = MasterController.getInstance().getMapController();
-        MasterController.getInstance().loadMapScene();
-        refreshLabels();
-
-        return false;
+    public String getPhase() {
+        return phase;
     }
 
-    public String getPhase() {
-        if (roundNumber < 1) {
-            return "Land Selection";
-        } else if (purchasingLand) {
-            return "Purchasing Land";
-        } else {
-            return "Regular Turn";
-        }
+    public void setPhase(String s) {
+        phase = s;
     }
 
     public int getTimeAfterFoodCheck() {
@@ -196,7 +201,6 @@ public class Game {
     public Map getMap() { return map;}
     public int getRoundNumber() { return roundNumber;}
     public Player getCurrentPlayer() { return currentPlayer;}
-    public void setPurchasingLand(boolean p) {purchasingLand = p;}
 
     /* Timer methods */
     public void decrementTimeLeft() {

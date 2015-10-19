@@ -19,8 +19,9 @@ public class LandOfficeController {
 
     @FXML
     private void setYesBuyLandBtn() {
-        Main.myGame.setPurchasingLand(true);
-        Main.myGame.buyLand();
+        Main.myGame.setPhase("Purchasing Land");
+        MasterController.getInstance().loadMapScene();
+        Main.myGame.refreshLabels();
     }
 
     @FXML
@@ -30,6 +31,8 @@ public class LandOfficeController {
 
     @FXML
     private void setYesSellLandBtn() {
-        //Main.myGame.sellLand()
+        Main.myGame.setPhase("Selling Land");
+        MasterController.getInstance().loadMapScene();
+        Main.myGame.refreshLabels();
     }
 }

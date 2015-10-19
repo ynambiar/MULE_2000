@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -47,8 +48,8 @@ public class MapController {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 ImageView tile = new ImageView(myMap.getTile(i, j).imagePath());
-                BorderPane tileContainer = new BorderPane();
-                tileContainer.setCenter(tile);
+                StackPane tileContainer = new StackPane();
+                tileContainer.getChildren().add(tile);
                 if (i == 2 && j == 4) {
                     tileContainer.setOnMouseClicked(this::townClicked);
                 } else {
@@ -60,12 +61,19 @@ public class MapController {
     }
 
     public void tileClicked(MouseEvent event) {
-        BorderPane tile = (BorderPane) event.getSource();
+        StackPane tile = (StackPane) event.getSource();
         int row = map.getRowIndex(tile);
         int col = map.getColumnIndex(tile);
         Player p = Main.myGame.getCurrentPlayer();
         if (Main.myGame.tileClicked(row, col)) {
-            tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+            if (Main.myGame.getPhase().equals("Selling Land")) {
+                tile.setStyle("-fx-border-color: GREEN;");
+            } else if (Main.myGame.getPhase().equals("Emplacing Mule")) {
+                ImageView mule = new ImageView("/View/Resources/tinyFoodMule.png");
+                tile.getChildren().add(mule);
+            } else {
+                tile.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+            }
             if (Main.myGame.getRoundNumber() < 1) {
                 Main.myGame.endTurn();
             }
@@ -91,7 +99,7 @@ public class MapController {
     public void townClicked(MouseEvent event) {
         if (Main.myGame.getRoundNumber() >= 1) {
             MasterController.getInstance().loadTownScene();
-            Main.myGame.setPurchasingLand(false);
+            Main.myGame.setPhase("Normal Play");
         }
     }
 
