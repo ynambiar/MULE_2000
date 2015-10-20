@@ -88,6 +88,7 @@ public class Game {
     }
 
     public void endTurn() {
+        setPhase("Regular Turn");
         if (currentPlayer == players.get(players.size() - 1)) {
             endRound();
         } else {
