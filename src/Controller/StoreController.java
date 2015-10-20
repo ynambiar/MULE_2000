@@ -60,18 +60,24 @@ public class StoreController {
     private void setConfirmBtnFood() {
         Main.myGame.doStoreTransaction("Food", true, Integer.parseInt(buyTxtFood.getText()));
         Main.myGame.doStoreTransaction("Food", true, -1 * Integer.parseInt(sellTxtFood.getText()));
+        buyTxtFood.setText("0");
+        sellTxtFood.setText("0");
         MasterController.getInstance().loadStoreScene();
     }
     @FXML
     private void setConfirmBtnEnergy() {
         Main.myGame.doStoreTransaction("Energy", true, Integer.parseInt(buyTxtEnergy.getText()));
         Main.myGame.doStoreTransaction("Energy", true, -1 * Integer.parseInt(sellTxtEnergy.getText()));
+        buyTxtEnergy.setText("0");
+        sellTxtEnergy.setText("0");
         MasterController.getInstance().loadStoreScene();
     }
     @FXML
     private void setConfirmBtnSmithore() {
         Main.myGame.doStoreTransaction("Energy", true, Integer.parseInt(buyTxtSmithore.getText()));
         Main.myGame.doStoreTransaction("Energy", true, -1 * Integer.parseInt(sellTxtSmithore.getText()));
+        buyTxtSmithore.setText("0");
+        sellTxtSmithore.setText("0");
         MasterController.getInstance().loadStoreScene();
     }
 
