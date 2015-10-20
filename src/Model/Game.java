@@ -7,6 +7,7 @@ import java.util.Comparator;
 import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -77,13 +78,13 @@ public class Game {
     }
 
     public void startTurn() {
+        checkProduction();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
-        checkProduction();
         refreshLabels();
     }
 
@@ -201,7 +202,7 @@ public class Game {
             return 50;
         }
         if (food >= foodRq[roundNumber]) {
-            currentPlayer.addFood(foodRq[roundNumber - 1]);
+            currentPlayer.addFood(foodRq[roundNumber - 1] * -1);
             return 50;
         } else if (food == 0) {
             return 5;
@@ -213,6 +214,7 @@ public class Game {
 
     public void checkProduction() {
         int numMules = currentPlayer.getNumMules();
+        System.out.println("numMules: " + numMules);
         if (currentPlayer.getEnergy() >= numMules) {
             currentPlayer.addEnergy(numMules * -1);
             currentPlayer.doProduction();
