@@ -46,10 +46,10 @@ public class Store {
             }
         } else if (item.equals("Food") && amnt < 0) {
             if (p.getFood() >= -1*amnt) {
-                System.out.println("You bought " + -1*amnt + " Food units for $" + -1*amnt * getFoodPrice());
+                System.out.println("You sold " + -1*amnt + " Food units for $" + -1*amnt * (getFoodPrice() - 10));
                 p.addMoney((getFoodPrice() - 10) * amnt);
-                p.addFood(amnt);
-                addFoodStock(-amnt);
+                p.addFood(-amnt);
+                addFoodStock(amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getFood() + " Food units.");
                 return true;
             } else {
@@ -74,10 +74,10 @@ public class Store {
             }
         } else if (item.equals("Energy") && amnt < 0) {
             if (p.getEnergy() >= -1*amnt) {
-                System.out.println("You sold " + -1*amnt + " Energy units for $" + -1*amnt * getEnergyPrice());
+                System.out.println("You sold " + -1*amnt + " Energy units for $" + -1*amnt * (getEnergyPrice() - 10));
                 p.addMoney((getEnergyPrice() - 10) * amnt);
-                p.addEnergy(amnt);
-                addEnergyStock(-amnt);
+                p.addEnergy(-amnt);
+                addEnergyStock(amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getEnergy() + " Energy units.");
                 return true;
             } else {
@@ -102,10 +102,10 @@ public class Store {
             }
         } else if (item.equals("Smithore") && amnt < 0) {
             if (p.getSmithore() >= -1*amnt) {
-                System.out.println("You sold " + -1*amnt + " Smithore units for $" + -1*amnt * getSmithorePrice());
+                System.out.println("You sold " + -1*amnt + " Smithore units for $" + -1*amnt * (getSmithorePrice() - 10));
                 p.addMoney((getSmithorePrice() - 10) * amnt);
-                p.addSmithore(amnt);
-                addSmithoreStock(-amnt);
+                p.addSmithore(-amnt);
+                addSmithoreStock(amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getSmithore() + " Smithore units.");
                 return true;
             } else {
