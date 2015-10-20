@@ -11,6 +11,7 @@ public class TownController {
 
     @FXML
     private void setLeaveTownBtn() {
+        Main.myGame.setPhase("Regular Turn");
         Main.myGame.refreshLabels();
         MasterController.getInstance().loadMapScene();
     }
