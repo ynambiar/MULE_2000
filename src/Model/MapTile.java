@@ -7,12 +7,16 @@ import java.util.HashMap;
  * Created by yamininambiar on 10/3/15.
  */
 public enum MapTile {
-    P, R, M1, M2, M3, Town;
+    P(4,2,0), R(2,3,1), M1(1,1,2), M2(1,1,3), M3(1,1,4), Town(0,0,0);
 
 
     private Map<String, String> imagePath;
+    private int foodProduction, energyProduction, smithoreProduction;
 
-    MapTile() {
+    MapTile(int f, int e, int s) {
+        foodProduction = f;
+        energyProduction = e;
+        smithoreProduction = s;
         imagePath = new HashMap<String, String>();
         imagePath.put("P", "/View/Resources/TilePlain.png");
         imagePath.put("R", "/View/Resources/TileRiver.png");
@@ -20,6 +24,18 @@ public enum MapTile {
         imagePath.put("M2", "/View/Resources/TileMountain2.png");
         imagePath.put("M3", "/View/Resources/TileMountain3.png");
         imagePath.put("Town", "/View/Resources/TileTown.png");
+    }
+
+    public int getFoodProduction() {
+        return foodProduction;
+    }
+
+    public int getEnergyProduction() {
+        return energyProduction;
+    }
+
+    public int getSmithoreProduction() {
+        return smithoreProduction;
     }
 
     public String imagePath() {

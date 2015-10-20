@@ -14,12 +14,11 @@ public class Player {
     //These three fields DO NOT require setters, because they should not change
     //after being instantiated with the constructor
     private String name;
-    private String human;
     private String race;
     private String color;
+    private String human;
     private boolean[][] tilesOwned;
-    private int numTilesOwned;
-    private boolean[][] muleEmplaced;
+    private Mule[][] muleEmplaced;
     private int roundNumber;
     private int playerTime;
 
@@ -27,8 +26,6 @@ public class Player {
 
     //These fields DO require setters
     private int money, food, smithore, energy;
-
-    private ArrayList<String> mules;
 
     public void addMoney(int m) {
         money = money + m;
@@ -46,53 +43,19 @@ public class Player {
         energy = energy + e;
     }
 
-    public void addMule(String m) {
-        mules.add(m);
-    }
-
     public Player(String human, String race, String name, String color) {
         this.name = name;
         this.human = human;
         this.race = race;
         this.color = color;
-        this.mules = null;
         tilesOwned = new boolean[5][9];
-        muleEmplaced = new boolean[5][9];
+        muleEmplaced = new Mule[5][9];
         if (race.equals("Flapper")) {
             this.money = 1600;
         } else if (race.equals("Human")) {
             this.money = 600;
         } else {
             this.money = 1000;
-        }
-    }
-
-    public ArrayList<String> getMules() {
-        return mules;
-    }
-
-    public int getMulePrice(String s) {
-        if (s.equals("Food Mule")) {
-            return 125;
-        } else if (s.equals("Energy Mule")) {
-            return 150;
-        } else if (s.equals("Smithore Mule")) {
-            return 175;
-        }
-        return 0;
-    }
-
-    /**
-     * not sure if this works properly
-     * @param s
-     */
-    public void sellThatMule(String s) {
-        if (mules.contains(s)) {
-            mules.remove(s);
-            System.out.println("You sold a " + s + " for $" + getMulePrice(s) + ".");
-            MasterController.getInstance().loadStoreScene();
-        } else {
-            System.out.println("Sorry, but you don't have a mule like that to sell.");
         }
     }
 
@@ -114,6 +77,35 @@ public class Player {
         }
         return owned;
     }
+
+    public int getNumMules() {
+        int emplaced = 0;
+        for (int i = 0; i < muleEmplaced.length; i++) {
+            for (int j = 0; j < muleEmplaced[i].length; j++) {
+                if (muleEmplaced[i][j] != null) { emplaced++;}
+            }
+        }
+        return emplaced;
+    }
+
+    public void doProduction() {
+        Map map = Main.myGame.getMap();
+        for (int i = 0; i < muleEmplaced.length; i++) {
+            for (int j = 0; j < muleEmplaced[i].length; j++) {
+                Mule m = muleEmplaced[i][j];
+                if (m != null) {
+                    if (m == Mule.FOOD) {
+                        food += map.getTile(i, j).getFoodProduction();
+                    } else if (m == Mule.ENERGY) {
+                        energy += map.getTile(i, j).getEnergyProduction();
+                    } else if (m == Mule.SMITHORE) {
+                        smithore += map.getTile(i, j).getSmithoreProduction();
+                    }
+                }
+            }
+        }
+    }
+
     public String getName() { return name;}
     public String getHuman() { return human;}
     public String getRace() { return race;}
@@ -124,8 +116,8 @@ public class Player {
     public int getEnergy() {return energy;}
     public void setTileOwned(int row, int col, boolean b) {tilesOwned[row][col] = b;}
     public boolean getTileOwned(int row, int col) {return tilesOwned[row][col];}
-    public void setMuleEmplaced(int row, int col, boolean b) {muleEmplaced[row][col] = b;}
-    public boolean getMuleEmplaced(int row, int col) {return muleEmplaced[row][col];}
+    public void setMuleEmplaced(int row, int col, Mule m) {muleEmplaced[row][col] = m;}
+    public Mule getMuleEmplaced(int row, int col) {return muleEmplaced[row][col];}
     public String toString() { return  human + " player " + name + " is a " + race;}
     public void setPlayerTime(int i) {
         playerTime = i;

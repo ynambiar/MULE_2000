@@ -7,10 +7,8 @@ import java.util.Comparator;
 import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import java.util.Random;
 
 
 /**
@@ -67,13 +65,14 @@ public class Game {
     }
 
     public void startTurn() {
-        refreshLabels();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
         }
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
+        checkProduction();
+        refreshLabels();
     }
 
     public void endTurn() {
@@ -151,7 +150,7 @@ public class Game {
                 }
                 if (currentPlayer.getTileOwned(row, col)) {
                     if (currentPlayer.getMoney() >= cost) {
-                        currentPlayer.setMuleEmplaced(row, col, true);
+                        currentPlayer.setMuleEmplaced(row, col, muleType);
                         currentPlayer.addMoney(cost * -1);
                         refreshLabels();
                         return true;
@@ -160,10 +159,10 @@ public class Game {
                     return false;
                 }
             } else if (phase.equals("Selling Mules")) {
-                if (currentPlayer.getTileOwned(row, col) && currentPlayer.getMuleEmplaced(row, col)) {
+                if (currentPlayer.getTileOwned(row, col) && currentPlayer.getMuleEmplaced(row, col) != null) {
                     int cost = 100;
                     currentPlayer.addMoney(cost);
-                    currentPlayer.setMuleEmplaced(row, col, false);
+                    currentPlayer.setMuleEmplaced(row, col, null);
                     return true;
                 }
                 return false;
@@ -206,6 +205,14 @@ public class Game {
         } else {
             currentPlayer.addFood(food * -1);
             return 30;
+        }
+    }
+
+    public void checkProduction() {
+        int numMules = currentPlayer.getNumMules();
+        if (currentPlayer.getEnergy() >= numMules) {
+            currentPlayer.addEnergy(numMules * -1);
+            currentPlayer.doProduction();
         }
     }
 
