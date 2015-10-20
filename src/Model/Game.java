@@ -33,6 +33,18 @@ public class Game {
     Mule muleType;
     int landCost;
 
+    /*
+    Phase phase;
+
+    public enum Phase {
+        REGULARTURN, LANDSELECTION, SELLINGLAND, BUYINGLAND, EMPLACINGMULES, SELLINGMULES;
+    }
+
+    public Phase getPhase() { return phase; }
+    public void setPhase(Phase p) { phase = p; }
+
+    */
+
 
     public Game() {
         map = new Map();
@@ -229,6 +241,7 @@ public class Game {
     public void setMuleType(Mule t) { muleType = t;}
     public Mule getMuleType() {return muleType;}
     public void setLandCost(int c) { landCost = c;}
+
     /* Timer methods */
     public void decrementTimeLeft() {
         if (timeLeft == 0) {
