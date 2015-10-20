@@ -153,22 +153,12 @@ public class Game {
                     return true;
                 }
             } else if (phase.equals("Emplacing Mule")) {
-                int cost;
-                if (muleType == Mule.FOOD) {
-                    cost = 125;
-                } else if (muleType == Mule.ENERGY) {
-                    cost = 150;
-                } else {
-                    cost = 175;
-                }
                 if (currentPlayer.getTileOwned(row, col)) {
-                    if (currentPlayer.getMoney() >= cost) {
-                        currentPlayer.setMuleEmplaced(row, col, muleType);
-                        currentPlayer.addMoney(cost * -1);
-                        refreshLabels();
-                        return true;
-                    }
+                    currentPlayer.setMuleEmplaced(row, col, muleType);
+                    MasterController.getInstance().loadStoreScene();
+                    return true;
                 } else {
+                    MasterController.getInstance().loadStoreScene();
                     return false;
                 }
             } else if (phase.equals("Selling Mules")) {

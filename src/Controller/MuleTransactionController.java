@@ -36,22 +36,31 @@ public class MuleTransactionController {
     private void setBuyBtn() {
         Game g = Main.myGame;
         if (foodSelected || energySelected || smithoreSelected) {
+            int cost;
             if (foodSelected) {
                 g.setMuleType(Mule.FOOD);
+                cost = 125;
             } else if (energySelected) {
                 g.setMuleType(Mule.ENERGY);
+                cost = 150;
             } else {
                 g.setMuleType(Mule.SMITHORE);
+                cost = 175;
             }
-            g.setPhase("Emplacing Mule");
-            g.refreshLabels();
-            MasterController.getInstance().loadMapScene();
-            foodSelected = false;
-            energySelected = false;
-            smithoreSelected = false;
-            smithoreMule.setOpacity(0);
-            energyMule.setOpacity(0);
-            foodMule.setOpacity(0);
+            if (g.getCurrentPlayer().getMoney() >= cost) {
+                g.setPhase("Emplacing Mule");
+                g.getCurrentPlayer().addMoney(cost * -1);
+                g.refreshLabels();
+                MasterController.getInstance().loadMapScene();
+                foodSelected = false;
+                energySelected = false;
+                smithoreSelected = false;
+                smithoreMule.setOpacity(0);
+                energyMule.setOpacity(0);
+                foodMule.setOpacity(0);
+            } else {
+                System.out.println("You can't afford this mule");
+            }
         }
     }
 
