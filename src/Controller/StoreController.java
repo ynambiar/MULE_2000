@@ -74,8 +74,8 @@ public class StoreController {
     }
     @FXML
     private void setConfirmBtnSmithore() {
-        Main.myGame.doStoreTransaction("Energy", true, Integer.parseInt(buyTxtSmithore.getText()));
-        Main.myGame.doStoreTransaction("Energy", true, -1 * Integer.parseInt(sellTxtSmithore.getText()));
+        Main.myGame.doStoreTransaction("Smithore", true, Integer.parseInt(buyTxtSmithore.getText()));
+        Main.myGame.doStoreTransaction("Smithore", true, -1 * Integer.parseInt(sellTxtSmithore.getText()));
         buyTxtSmithore.setText("0");
         sellTxtSmithore.setText("0");
         MasterController.getInstance().loadStoreScene();

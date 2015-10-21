@@ -88,7 +88,7 @@ public class Store {
         } else if (item.equals("Smithore") && amnt > 0) {
             if (p.getMoney() >= getSmithorePrice() && getSmithoreStock() >= amnt) {
                 System.out.println("You bought " + amnt + " Smithore units for $" + amnt * getSmithorePrice());
-                p.addMoney(-1 * getEnergyPrice() * amnt);
+                p.addMoney(-1 * getSmithorePrice() * amnt);
                 p.addSmithore(amnt);
                 addSmithoreStock(-amnt);
                 System.out.println("Your wallet has $" + p.getMoney() + " in it, and you have " + p.getSmithore() + " Smithore units.");
