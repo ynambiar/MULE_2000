@@ -30,7 +30,6 @@ public class StartTurnController {
 
     @FXML
     public void setStartBtn(MouseEvent event) {
-        MasterController.getInstance().loadMapScene();
         Main.myGame.startTurn();
     }
 }

@@ -20,7 +20,8 @@ public class MasterController {
 //    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
         insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
-        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene;
+        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
+        eventScene;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -106,6 +107,10 @@ public class MasterController {
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
     public void loadRulesScene() { stage.setScene(rulesScene);}
     public void loadStartScene() { stage.setScene(startScene);}
+    public void loadEventScene() { try {
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EventScreen.fxml"))));
+    } catch (IOException e) {
+    }}
     public void loadLandOfficeScene() { try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"))));
     } catch (IOException e) {

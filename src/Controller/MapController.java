@@ -97,7 +97,6 @@ public class MapController {
                     public void run() {
                         timeLeftLabel.setText(((Integer)Main.myGame.getTimeLeft()).toString());
                         Main.myGame.decrementTimeLeft();
-                        System.out.println(Main.myGame.getTimeLeft());
                     }
                 });
             }
@@ -117,7 +116,6 @@ public class MapController {
     public void setEndTurnBtn() {
         Main.myGame.endTurn();
     }
-
     public void setCurrentPhaseLabel(String s) {
         currentPhaseLabel.setText(s);
     }

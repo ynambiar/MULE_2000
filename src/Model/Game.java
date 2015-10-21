@@ -3,6 +3,7 @@ package Model;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Random;
 
 import Controller.MapController;
 import Controller.MasterController;
@@ -21,7 +22,6 @@ public class Game {
 
     String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
     ArrayList<Player> players;
-
     Player currentPlayer;
     Difficulty difficulty;
     MapType mapType;
@@ -32,6 +32,8 @@ public class Game {
     int gamble;
     String phase;
     Mule muleType;
+    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
+    Event currentEvent;
     int landCost;
 
     /*
@@ -78,6 +80,23 @@ public class Game {
     }
 
     public void startTurn() {
+        Random random = new Random();
+        int r = random.nextInt(100);
+        if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
+            r = random.nextInt(7);
+            currentEvent = events[r];
+            int[] modifier = currentEvent.getEffects();
+            currentPlayer.addMoney(modifier[0]);
+            currentPlayer.addFood(modifier[1]);
+            currentPlayer.addEnergy(modifier[2]);
+            currentPlayer.addSmithore(modifier[3]);
+            MasterController.getInstance().loadEventScene();
+        } else {
+            finishEvent();
+        }
+    }
+
+    public void finishEvent() {
         checkProduction();
         if (roundNumber > 0) {
             timeLeft = getTimeAfterFoodCheck();
@@ -85,8 +104,10 @@ public class Game {
         if (roundNumber == 1 && currentPlayer == players.get(0)) {
             MasterController.getInstance().getMapController().startTimer();
         }
+        MasterController.getInstance().loadMapScene();
         refreshLabels();
     }
+
 
     public void endTurn() {
         setPhase("Regular Turn");
@@ -108,6 +129,13 @@ public class Game {
 
     }
 
+    public static class PlayerComparator<Object> implements Comparator<Player> {
+        @Override
+        public int compare(Player a, Player b) {
+            return  a.getScore() - b.getScore();
+        }
+    }
+
     public void refreshLabels() {
         MapController m = MasterController.getInstance().getMapController();
         m.setCurrentPhaseLabel(phase);
@@ -116,13 +144,6 @@ public class Game {
         m.setEnergyLabel("Energy: " + currentPlayer.getEnergy());
         m.setSmithoreLabel("Smithore: " + currentPlayer.getSmithore());
         m.setMoneyLabel("Money: " + currentPlayer.getMoney());
-    }
-
-    public static class PlayerComparator<Object> implements Comparator<Player> {
-        @Override
-        public int compare(Player a, Player b) {
-            return  a.getScore() - b.getScore();
-        }
     }
 
     public boolean tileClicked(int row, int col) {
@@ -233,6 +254,7 @@ public class Game {
     public Player getCurrentPlayer() { return currentPlayer;}
     public void setMuleType(Mule t) { muleType = t;}
     public Mule getMuleType() {return muleType;}
+    public Event getCurrentEvent() { return currentEvent;}
     public void setLandCost(int c) { landCost = c;}
 
     /* Timer methods */
