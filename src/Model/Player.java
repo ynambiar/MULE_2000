@@ -54,6 +54,15 @@ public class Player {
             this.money = 1600;
         } else if (race.equals("Human")) {
             this.money = 600;
+        } else if (race.equals("Pegasite")) {
+            this.money = 550;
+            this.food = 10;
+        } else if (race.equals("Techoid")) {
+            this.money = 2000;
+            this.energy = 15;
+        } else if (race.equals("Strandoid")) {
+            this.money = 200;
+            this.smithore = 10;
         } else {
             this.money = 1000;
         }
