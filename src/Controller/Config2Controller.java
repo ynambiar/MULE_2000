@@ -28,7 +28,7 @@ public class Config2Controller {
     @FXML
     ObservableList<String> humanBox = FXCollections.observableArrayList("Human", "AI", "Not playing");
     @FXML
-    ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite");
+    ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite", "Techoid");
 
     @FXML
     public void setBackBtn() {
