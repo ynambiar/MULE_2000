@@ -21,7 +21,7 @@ public class MasterController {
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
         insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
         insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
-        eventScene;
+        eventScene, loadGameScreen;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -81,6 +81,9 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
 
+            root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
+            startScene = new Scene(root);
+
         } catch (IOException e) {
             System.out.println("shit's broke");
             System.out.println("MasterController(): " + e);
@@ -107,6 +110,7 @@ public class MasterController {
     public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
     public void loadRulesScene() { stage.setScene(rulesScene);}
     public void loadStartScene() { stage.setScene(startScene);}
+    public void loadLoadScreenScene() { stage.setScene(loadGameScreen);}
     public void loadEventScene() { try {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EventScreen.fxml"))));
     } catch (IOException e) {

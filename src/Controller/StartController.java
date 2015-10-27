@@ -9,6 +9,8 @@ public class StartController {
     private Button ruleBtn;
     @FXML
     private Button playBtn;
+    @FXML
+    private Button loadBtn;
 
     @FXML
     private void setRuleBtn() {
@@ -19,4 +21,7 @@ public class StartController {
     private void setPlayBtn() {
         MasterController.getInstance().loadConfig1Scene();
     }
+
+    @FXML
+    private void setLoadBtn() { MasterController.getInstance().loadLoadScreenScene();}
 }

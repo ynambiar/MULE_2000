@@ -25,6 +25,6 @@
             <Glow />
          </effect>
       </ImageView>
-      <Button layoutX="257.0" layoutY="345.0" mnemonicParsing="false" text="Load" />
+      <Button fx:id="loadBtn" layoutX="257.0" layoutY="345.0" mnemonicParsing="false" text="Load" />
    </children>
 </AnchorPane>
