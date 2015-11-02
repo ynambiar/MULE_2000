@@ -2,8 +2,10 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.Serializable;
 
-public class RulesScreenController {
+
+public class RulesScreenController implements Serializable {
 
     @FXML
     private Button backBtn;

@@ -6,8 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Label;
 
+import java.io.Serializable;
 
-public class TownController {
+
+public class TownController implements Serializable {
 
     @FXML
     private void setLeaveTownBtn() {

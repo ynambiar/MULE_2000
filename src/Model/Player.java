@@ -3,13 +3,14 @@ package Model;
 import Controller.MasterController;
 import com.sun.org.apache.xerces.internal.xs.StringList;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
-public class Player {
+public class Player implements Serializable {
 
     //These three fields DO NOT require setters, because they should not change
     //after being instantiated with the constructor

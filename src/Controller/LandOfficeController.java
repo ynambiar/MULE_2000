@@ -7,12 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by William on 10/6/2015.
  */
-public class LandOfficeController {
+public class LandOfficeController implements Serializable {
 
     @FXML
     private Button yesBuyLandBtn;
