@@ -78,11 +78,13 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
             startTurnScene = new Scene(root);
 
+            root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
+            startScene = new Scene(root);
+
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
 
-            root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
-            startScene = new Scene(root);
+
 
         } catch (IOException e) {
             System.out.println("shit's broke");
