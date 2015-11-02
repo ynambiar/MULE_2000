@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.Scanner;
 
 import Controller.MapController;
 import Controller.MasterController;
@@ -36,7 +37,11 @@ public class Game implements Serializable {
     Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
     Event currentEvent;
     int landCost;
-    private File f = new File("SavedData.txt");
+    private File f1 = new File("Player1.ser");
+    private File f2 = new File("Player2.ser");
+    private File f3 = new File("Player3.ser");
+    private File f4 = new File("Player4.ser");
+    private int counter = 0;
 
     /*
     Phase phase;
@@ -274,27 +279,78 @@ public class Game implements Serializable {
 
     public void saveData(ArrayList<Player> p) throws IOException {
 
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        for(int i = 0; i < p.size(); i++) {
-            if(p.get(i) != null) {
-                oos.writeObject(p.get(i));
-                oos.writeObject("\n");
+        try {
+            FileOutputStream fileOut = new FileOutputStream(f1);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(p.get(0));
+            out.writeObject("\n");
+            out.close();
+        } catch (IOException i) {
+            System.out.println("save doesn't work");
+        }
+
+        if(p.size() > 1) {
+            try {
+                FileOutputStream fileOut = new FileOutputStream(f2);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(p.get(1));
+                out.writeObject("\n");
+                out.close();
+            } catch (IOException i) {
+                System.out.println("save doesn't work");
+            }
+        }
+
+        if(p.size() > 2) {
+            try {
+                FileOutputStream fileOut = new FileOutputStream(f3);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(p.get(2));
+                out.writeObject("\n");
+                out.close();
+            } catch (IOException i) {
+                System.out.println("save doesn't work");
+            }
+        }
+
+        if(p.size() > 3) {
+            try {
+                FileOutputStream fileOut = new FileOutputStream(f4);
+                ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                out.writeObject(p.get(3));
+                out.writeObject("\n");
+                out.close();
+            } catch (IOException i) {
+                System.out.println("save doesn't work");
             }
         }
     }
 
-    public void loadData() throws IOException, ClassNotFoundException {
+    public void loadData() throws IOException {
 
-        ArrayList<Player> loadlist= new ArrayList<Player>();
-        FileInputStream fis = new FileInputStream("SavedData.txt");
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        ArrayList<Player> loadList = (ArrayList) ois.readObject();
-        for(Player p: loadList) {
-            System.out.println(p);
+        Player g = null;
+        Player h = null;
+        Player i = null;
+        Player j = null;
+
+
+        try {
+            FileInputStream fileIn = new FileInputStream(f1);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            g = (Player) in.readObject();
+            in.read();
+            in.close();
+            fileIn.close();
+        } catch(IOException i) {
+            System.out.print("load doesn't work");
+        } catch(ClassNotFoundException c) {
+            System.out.print("load doesn't work");
         }
+
+        System.out.println(g.getName());
+        System.out.println(g.getNumTilesOwned());
+        System.out.println(g.getColor());
 
 
     }
-
 }
