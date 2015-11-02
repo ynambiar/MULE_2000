@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
+import java.io.Serializable;
+
 /**
  * Created by William on 10/6/2015.
  */
-public class StartTurnController {
+public class StartTurnController implements Serializable {
 
     @FXML
     private Label startTurnLabel;

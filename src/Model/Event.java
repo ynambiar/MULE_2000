@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Created by William on 10/20/2015.
  */
-public enum Event {
+public enum Event implements Serializable {
     ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN;
 
     private int m;

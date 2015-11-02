@@ -11,9 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Config2Controller {
+public class Config2Controller implements Serializable {
 
     @FXML
     private ComboBox<String> combo1race, combo2race, combo3race, combo4race;

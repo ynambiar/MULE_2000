@@ -6,12 +6,13 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by yamininambiar on 10/3/15.
  */
-public class MasterController {
+public class MasterController implements Serializable {
 
 
     private ArrayList<String> scenes = new ArrayList<String>();
@@ -79,7 +80,7 @@ public class MasterController {
             startTurnScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
-            startScene = new Scene(root);
+            loadGameScreen = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);

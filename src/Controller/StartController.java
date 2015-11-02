@@ -3,7 +3,9 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class StartController {
+import java.io.Serializable;
+
+public class StartController implements Serializable {
 
     @FXML
     private Button ruleBtn;

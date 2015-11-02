@@ -12,7 +12,9 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.layout.AnchorPane;
 
-public class Config1Controller {
+import java.io.Serializable;
+
+public class Config1Controller implements Serializable {
 
     @FXML
     private AnchorPane pane;

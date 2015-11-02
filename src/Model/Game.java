@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,7 +19,7 @@ import javafx.scene.media.MediaPlayer;
  *
  * This class should hold game logic.
  */
-public class Game {
+public class Game implements Serializable {
 
     String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
     ArrayList<Player> players;
@@ -35,6 +36,7 @@ public class Game {
     Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
     Event currentEvent;
     int landCost;
+    private File f;
 
     /*
     Phase phase;
@@ -268,5 +270,28 @@ public class Game {
     public int getTimeLeft() { return timeLeft; }
     public void setGamble(int n) { gamble = n;}
     public int getGamble() { return gamble;}
+
+
+    public void saveData(ArrayList<Player> p) throws IOException {
+
+
+        f = new File("SavedData.txt");
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        for(int i = 0; i < p.size(); i++) {
+            if(p.get(i) != null) {
+                oos.writeObject(p.get(i));
+            }
+        }
+    }
+
+    public void loadData() throws IOException {
+
+        FileInputStream fis = new FileInputStream("SavedData.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        
+
+
+    }
 
 }

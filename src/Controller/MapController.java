@@ -12,11 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
 import java.awt.*;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MapController {
+public class MapController implements Serializable {
 
     @FXML
     private GridPane map;
@@ -36,6 +38,8 @@ public class MapController {
     private Label moneyLbl;
     @FXML
     private Button endTurnBtn;
+    @FXML
+    private Button saveGameBtn;
 
     public void createMap(MapType type) {
         Map myMap;
@@ -135,6 +139,7 @@ public class MapController {
         smithoreLbl.setText(s);
     }
     public void setMoneyLabel(String s) { moneyLbl.setText(s);}
+    public void setSaveGameBtn() throws IOException {Main.myGame.saveData(Main.myGame.getPlayers());}
 
 
 }

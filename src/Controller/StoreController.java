@@ -8,11 +8,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
+import java.io.Serializable;
 import java.net.URL;
 /**
  * Created by tuckerlocicero on 10/6/15.
  */
-public class StoreController {
+public class StoreController implements Serializable {
 
     @FXML
     private Button buyFood, buyEnergy, buySmithore, buyMule, leaveStore, confirmBtnFood;

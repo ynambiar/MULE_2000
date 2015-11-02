@@ -1,11 +1,12 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by yamininambiar on 10/3/15.
  */
-public class Map {
+public class Map implements Serializable {
 
     private int height, width;
     private MapTile[][] board;
