@@ -353,7 +353,7 @@ public class Game implements Serializable {
             in.read();
             in.close();
             fileIn.close();
-        } catch(IOException i) {
+        } catch(IOException x) {
             System.out.print("load doesn't work");
         } catch(ClassNotFoundException c) {
             System.out.print("load doesn't work");
@@ -364,5 +364,59 @@ public class Game implements Serializable {
         System.out.println(g.getColor());
 
 
+        try {
+            FileInputStream fileIn2 = new FileInputStream(f2);
+            ObjectInputStream in2 = new ObjectInputStream(fileIn2);
+            h = (Player) in2.readObject();
+            in2.read();
+            in2.close();
+            fileIn2.close();
+        } catch (IOException x) {
+            System.out.print("load doesn't work");
+        } catch (ClassNotFoundException c) {
+            System.out.print("load doesn't work");
+        }
+
+        System.out.println(h.getName());
+        System.out.println(h.getNumTilesOwned());
+        System.out.println(h.getColor());
+
+
+
+        try {
+            FileInputStream fileIn3 = new FileInputStream(f3);
+            ObjectInputStream in3 = new ObjectInputStream(fileIn3);
+            i = (Player) in3.readObject();
+            in3.read();
+            in3.close();
+            fileIn3.close();
+        } catch (IOException x) {
+            System.out.print("load doesn't work");
+        } catch (ClassNotFoundException c) {
+            System.out.print("load doesn't work");
+        }
+
+        System.out.println(i.getName());
+        System.out.println(i.getNumTilesOwned());
+        System.out.println(i.getColor());
+
+
+        try {
+            FileInputStream fileIn4 = new FileInputStream(f4);
+            ObjectInputStream in4 = new ObjectInputStream(fileIn4);
+            if(in4.readObject() != null) {
+                j = (Player) in4.readObject();
+                in4.read();
+                in4.close();
+                fileIn4.close();
+                System.out.println(j.getName());
+                System.out.println(j.getNumTilesOwned());
+                System.out.println(j.getColor());
+            }
+        } catch (IOException x) {
+            return;
+        } catch (ClassNotFoundException c) {
+            System.out.print("load doesn't work");
+        }
     }
 }
