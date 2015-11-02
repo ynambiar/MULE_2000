@@ -34,7 +34,8 @@ public class Game implements Serializable {
     int gamble;
     String phase;
     Mule muleType;
-    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
+    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN,
+            Event.EIGHT, Event.NINE, Event.TEN};
     Event currentEvent;
     int landCost;
     private File f1 = new File("Player1.ser");
@@ -90,7 +91,7 @@ public class Game implements Serializable {
         Random random = new Random();
         int r = random.nextInt(100);
         if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
-            r = random.nextInt(7);
+            r = random.nextInt(10);
             currentEvent = events[r];
             int[] modifier = currentEvent.getEffects();
             currentPlayer.addMoney(modifier[0]);
