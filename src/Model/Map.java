@@ -42,8 +42,10 @@ public class Map {
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 9; j++) {
                     int r = new Random().nextInt(40);
-                    if (r <= 30) {
+                    if (r <= 29) {
                         board[i][j] = MapTile.P;
+                    } else if (r<=30) {
+                        board[i][j] = MapTile.F;
                     } else if (r <= 33) {
                         board[i][j] = MapTile.M1;
                     } else if (r <= 36) {
