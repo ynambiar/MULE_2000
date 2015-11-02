@@ -36,7 +36,7 @@ public class Game implements Serializable {
     Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
     Event currentEvent;
     int landCost;
-    private File f;
+    private File f = new File("SavedData.txt");
 
     /*
     Phase phase;
@@ -274,22 +274,25 @@ public class Game implements Serializable {
 
     public void saveData(ArrayList<Player> p) throws IOException {
 
-
-        f = new File("SavedData.txt");
         FileOutputStream fos = new FileOutputStream(f);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         for(int i = 0; i < p.size(); i++) {
             if(p.get(i) != null) {
                 oos.writeObject(p.get(i));
+                oos.writeObject("\n");
             }
         }
     }
 
-    public void loadData() throws IOException {
+    public void loadData() throws IOException, ClassNotFoundException {
 
+        ArrayList<Player> loadlist= new ArrayList<Player>();
         FileInputStream fis = new FileInputStream("SavedData.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        
+        ArrayList<Player> loadList = (ArrayList) ois.readObject();
+        for(Player p: loadList) {
+            System.out.println(p);
+        }
 
 
     }

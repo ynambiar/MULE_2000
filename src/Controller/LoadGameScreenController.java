@@ -23,9 +23,8 @@ public class LoadGameScreenController implements Serializable {
     }
 
     @FXML
-    private void setYesButton() throws IOException {
+    private void setYesButton() throws IOException, ClassNotFoundException {
         Main.myGame.loadData();
-        MasterController.getInstance().loadMapScene();
     }
 
 
