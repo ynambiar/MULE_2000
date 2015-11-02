@@ -6,7 +6,8 @@ import java.io.Serializable;
  * Created by William on 10/20/2015.
  */
 public enum Event implements Serializable {
-    ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN;
+    ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, //affects single player
+    ELEVEN, TWELVE; //affects all players
 
     private int m;
     int[] mVals = new int[] {25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100};
@@ -36,6 +37,10 @@ public enum Event implements Serializable {
                 return new int[] {0, -2, 0, 0};
             case TEN:
                 return new int[] {0, m / 10, 0, 0};
+            case ELEVEN:
+                return new int[] {m * 4, 0, 0, 0};
+            case TWELVE:
+                return new int[] {0, -m, 0, 0};
         }
         return null;
     }
@@ -63,6 +68,11 @@ public enum Event implements Serializable {
                 return "It started to rain and you lost 2 energy units wandering through the mountains.";
             case TEN:
                 return "You happened upon a field of daisies and took a nap. You gained " + (m / 10) + " units of energy.";
+            case ELEVEN:
+                return "Production went up and the market's doing well! Everyone gains $" + (m * 4) + ".";
+            case TWELVE:
+                return "There is rampant crop damage and recent food units have been contaminated. Everyone loses "
+                        + m + " units of food.";
         }
         return "";
     }
