@@ -12,9 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.Serializable;
 import java.net.URL;
 
-/**
- * Created by tuckerlocicero on 10/6/15.
- */
+
 public class StoreController implements Serializable {
 
     @FXML

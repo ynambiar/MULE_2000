@@ -7,9 +7,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.Serializable;
 
-/**
- * Created by William on 10/20/2015.
- */
 public class EventScreenController implements Serializable {
 
     @FXML

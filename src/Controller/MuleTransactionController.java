@@ -9,9 +9,6 @@ import javafx.scene.shape.Rectangle;
 
 import java.io.Serializable;
 
-/**
- * Created by William on 10/19/2015.
- */
 public class MuleTransactionController implements Serializable {
 
     @FXML

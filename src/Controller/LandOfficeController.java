@@ -10,9 +10,6 @@ import javafx.scene.input.MouseEvent;
 import java.io.Serializable;
 import java.util.Random;
 
-/**
- * Created by William on 10/6/2015.
- */
 public class LandOfficeController implements Serializable {
 
     @FXML

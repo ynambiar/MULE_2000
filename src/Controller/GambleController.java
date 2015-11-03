@@ -6,9 +6,6 @@ import javafx.scene.control.Label;
 
 import java.io.Serializable;
 
-/**
- * Created by William on 10/7/2015.
- */
 public class GambleController implements Serializable {
 
     @FXML

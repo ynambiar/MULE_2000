@@ -7,9 +7,6 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.io.Serializable;
 
-/**
- * Created by SaqlainGolandaz on 10/27/15.
- */
 public class LoadGameScreenController implements Serializable {
 
     @FXML

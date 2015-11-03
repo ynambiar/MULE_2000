@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by yamininambiar on 10/3/15.
- */
+
 public class MasterController implements Serializable {
 
     private Stage stage;
