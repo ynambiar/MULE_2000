@@ -339,7 +339,11 @@ public class Game implements Serializable {
     }
 
 
-
+    /**
+     * Saves data.
+     * @param p
+     * @throws IOException
+     */
     public void saveData(ArrayList<Player> p) throws IOException {
 
         try {

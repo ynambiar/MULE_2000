@@ -27,6 +27,10 @@ public class RandomEvent implements Serializable {
     private Game game;
     private double chanceOfHappening;
 
+    /**
+     * Constructor for RandomEvent
+     * @param e
+     */
     public RandomEvent(EventType e) {
         random = new Random();
         eventType = e;
@@ -34,11 +38,17 @@ public class RandomEvent implements Serializable {
         chanceOfHappening = 0.27;
     }
 
+    /**
+     * Setter for chance.
+     * @param c
+     */
     public void setChanceOfHappening(double c) {
         chanceOfHappening = c;
     }
 
-
+    /**
+     * Runs random event.
+     */
     public void runRandomEvent() {
         if (eventType == EventType.ONE) {
             game.getCurrentPlayer().addFood(3);
