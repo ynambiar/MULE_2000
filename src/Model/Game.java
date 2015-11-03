@@ -261,6 +261,11 @@ public class Game implements Serializable {
         }
     }
 
+    public void saveData() throws IOException {
+        Save s = new Save();
+        s.saveData(players, map, store);
+    }
+
     /**
      * Getter that returns the current phase.
      * @return
