@@ -1,4 +1,5 @@
 package Controller;
+
 import Model.*;
 import javafx.scene.layout.GridPane;
 import Model.Map.MapType;
@@ -12,11 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
 import java.awt.*;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MapController {
+public class MapController implements Serializable {
 
     @FXML
     private GridPane map;
@@ -36,6 +39,8 @@ public class MapController {
     private Label moneyLbl;
     @FXML
     private Button endTurnBtn;
+    @FXML
+    private Button saveGameBtn;
 
     public void createMap(MapType type) {
         Map myMap;
@@ -95,12 +100,12 @@ public class MapController {
             public void run() {
                 Platform.runLater(new Runnable() {
                     public void run() {
-                        timeLeftLabel.setText(((Integer)Main.myGame.getTimeLeft()).toString());
+                        timeLeftLabel.setText(((Integer) Main.myGame.getTimeLeft()).toString());
                         Main.myGame.decrementTimeLeft();
                     }
                 });
             }
-        }, 0 , 1000);
+        }, 0, 1000);
     }
 
 
@@ -116,25 +121,38 @@ public class MapController {
     public void setEndTurnBtn() {
         Main.myGame.endTurn();
     }
+
     public void setCurrentPhaseLabel(String s) {
         currentPhaseLabel.setText(s);
     }
+
     public void setCurrentPlayerLabel(String s) {
         currentPlayerLabel.setText(s);
     }
+
     public void setTimeLeftLabel(String s) {
         timeLeftLabel.setText(s);
     }
+
     public void setFoodLabel(String s) {
         foodLbl.setText(s);
     }
+
     public void setEnergyLabel(String s) {
         energyLbl.setText(s);
     }
+
     public void setSmithoreLabel(String s) {
         smithoreLbl.setText(s);
     }
-    public void setMoneyLabel(String s) { moneyLbl.setText(s);}
+
+    public void setMoneyLabel(String s) {
+        moneyLbl.setText(s);
+    }
+
+    public void setSaveGameBtn() throws IOException {
+        Main.myGame.saveData(Main.myGame.getPlayers());
+    }
 
 
 }

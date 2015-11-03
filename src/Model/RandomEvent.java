@@ -1,10 +1,12 @@
 package Model;
+
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by yamininambiar on 10/7/15.
  */
-public class RandomEvent {
+public class RandomEvent implements Serializable {
     /*
     1. YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.
     2. A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING TWO BARS OF ORE.
@@ -35,7 +37,6 @@ public class RandomEvent {
     public void setChanceOfHappening(double c) {
         chanceOfHappening = c;
     }
-
 
 
     public void runRandomEvent() {

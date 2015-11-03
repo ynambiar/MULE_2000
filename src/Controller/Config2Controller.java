@@ -11,9 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Config2Controller {
+public class Config2Controller implements Serializable {
 
     @FXML
     private ComboBox<String> combo1race, combo2race, combo3race, combo4race;
@@ -28,7 +29,7 @@ public class Config2Controller {
     @FXML
     ObservableList<String> humanBox = FXCollections.observableArrayList("Human", "AI", "Not playing");
     @FXML
-    ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite");
+    ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite", "Techoid");
 
     @FXML
     public void setBackBtn() {
@@ -71,7 +72,6 @@ public class Config2Controller {
         }
         return verified;
     }
-
 
 
     public void initialize() throws IOException {

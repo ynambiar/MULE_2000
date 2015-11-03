@@ -4,9 +4,10 @@ import Model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class PubController {
+public class PubController implements Serializable {
 
     //results Screen
     @FXML

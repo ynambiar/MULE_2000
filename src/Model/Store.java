@@ -1,9 +1,11 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * Created by tuckerlocicero on 10/6/15.
  */
-public class Store {
+public class Store implements Serializable {
     private int muleStock, foodStock, energyStock, smithoreStock;
     private int mulePrice, foodPrice, energyPrice, smithorePrice;
 
@@ -31,7 +33,7 @@ public class Store {
         Player p = game.getCurrentPlayer();
         if (item.equals("Food") && amnt > 0) {
             if (p.getMoney() >= getFoodPrice() && getFoodStock() >= amnt) {
-                System.out.println("You bought " + amnt + " Food units for $" + amnt*getFoodPrice());
+                System.out.println("You bought " + amnt + " Food units for $" + amnt * getFoodPrice());
                 p.addMoney(-1 * getFoodPrice() * amnt);
                 p.addFood(amnt);
                 addFoodStock(-amnt);
@@ -45,8 +47,8 @@ public class Store {
                 return false;
             }
         } else if (item.equals("Food") && amnt < 0) {
-            if (p.getFood() >= -1*amnt) {
-                System.out.println("You sold " + -1*amnt + " Food units for $" + -1*amnt * (getFoodPrice() - 10));
+            if (p.getFood() >= -1 * amnt) {
+                System.out.println("You sold " + -1 * amnt + " Food units for $" + -1 * amnt * (getFoodPrice() - 10));
                 p.addMoney((getFoodPrice() - 10) * -amnt);
                 p.addFood(amnt);
                 addFoodStock(-amnt);
@@ -59,7 +61,7 @@ public class Store {
 
         } else if (item.equals("Energy") && amnt > 0) {
             if (p.getMoney() >= getEnergyPrice() && getEnergyStock() >= amnt) {
-                System.out.println("You bought " + amnt + " Energy units for $" + amnt*getEnergyPrice());
+                System.out.println("You bought " + amnt + " Energy units for $" + amnt * getEnergyPrice());
                 p.addMoney(-1 * getEnergyPrice() * amnt);
                 p.addEnergy(amnt);
                 addEnergyStock(-amnt);
@@ -73,8 +75,8 @@ public class Store {
                 return false;
             }
         } else if (item.equals("Energy") && amnt < 0) {
-            if (p.getEnergy() >= -1*amnt) {
-                System.out.println("You sold " + -1*amnt + " Energy units for $" + -1*amnt * (getEnergyPrice() - 10));
+            if (p.getEnergy() >= -1 * amnt) {
+                System.out.println("You sold " + -1 * amnt + " Energy units for $" + -1 * amnt * (getEnergyPrice() - 10));
                 p.addMoney((getEnergyPrice() - 10) * -amnt);
                 p.addEnergy(amnt);
                 addEnergyStock(-amnt);
@@ -101,8 +103,8 @@ public class Store {
                 return false;
             }
         } else if (item.equals("Smithore") && amnt < 0) {
-            if (p.getSmithore() >= -1*amnt) {
-                System.out.println("You sold " + -1*amnt + " Smithore units for $" + -1*amnt * (getSmithorePrice() - 10));
+            if (p.getSmithore() >= -1 * amnt) {
+                System.out.println("You sold " + -1 * amnt + " Smithore units for $" + -1 * amnt * (getSmithorePrice() - 10));
                 p.addMoney((getSmithorePrice() - 10) * -amnt);
                 p.addSmithore(amnt);
                 addSmithoreStock(-amnt);

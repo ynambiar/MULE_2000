@@ -3,10 +3,13 @@ package Model;
 import Controller.MasterController;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.io.Serializable;
+
 /**
  * Created by tuckerlocicero on 10/2/15.
  */
-public class Main extends Application {
+public class Main extends Application implements Serializable {
 
     public static Game myGame;
 

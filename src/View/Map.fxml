@@ -8,83 +8,105 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MapController">
-   <children>
-      <Label layoutX="527.0" layoutY="390.0" prefHeight="130.0" prefWidth="162.0" style="-fx-background-color: lightgrey;">
-         <font>
-            <Font name="Georgia" size="12.0" />
-         </font>
-      </Label>
-      <GridPane fx:id="map" layoutX="5.0" layoutY="5.0" prefHeight="380.0" prefWidth="684.0" style="-fx-background-color: GREEN;">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="308.0" style="-fx-background-color: lightgrey;">
-         <children>
-            <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
-            <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="62.0" prefWidth="290.0" text="PLAYER" textAlignment="CENTER">
-               <font>
-                  <Font name="Georgia" size="40.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
-            <Label fx:id="currentPhaseLabel" alignment="CENTER" prefHeight="41.0" prefWidth="288.0" style="-fx-alignment: center;" text="PHASE" textAlignment="CENTER">
-               <font>
-                  <Font name="Georgia" size="34.0" />
-               </font>
-            </Label>
-         </children>
-      </FlowPane>
-      <FlowPane layoutX="319.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: orange;">
-         <children>
-            <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0" style="-fx-background-color: grey;" visible="false" />
-            <Label fx:id="foodLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="152.0" text="Food:">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="energyLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="172.0" text="Energy:">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="smithoreLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="188.0" text="Smithore:">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="moneyLbl" alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="162.0" text="Money:">
-               <font>
-                  <Font name="Georgia" size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </FlowPane>
-      <Button fx:id="endTurnBtn" layoutX="555.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#setEndTurnBtn" prefHeight="46.0" prefWidth="107.0" style="-fx-background-color: dodgerblue; -fx-border-color: black; -fx-border-width: 1;" text="End Turn">
-         <font>
-            <Font name="Georgia" size="17.0" />
-         </font>
-      </Button>
-      <Label fx:id="timeLeftLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="455.0" prefHeight="50.0" prefWidth="141.0" style="-fx-border-style: DASHED;" text="--">
-         <font>
-            <Font name="Georgia" size="40.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0"
+            prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.MapController">
+    <children>
+        <Label layoutX="527.0" layoutY="390.0" prefHeight="130.0" prefWidth="162.0"
+               style="-fx-background-color: lightgrey;">
+            <font>
+                <Font name="Georgia" size="12.0"/>
+            </font>
+        </Label>
+        <GridPane fx:id="map" layoutX="5.0" layoutY="5.0" prefHeight="380.0" prefWidth="684.0"
+                  style="-fx-background-color: GREEN;">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+        </GridPane>
+        <FlowPane layoutX="5.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="308.0"
+                  style="-fx-background-color: lightgrey;">
+            <children>
+                <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0"
+                           style="-fx-background-color: grey;" visible="false"/>
+                <Label fx:id="currentPlayerLabel" alignment="CENTER" prefHeight="62.0" prefWidth="290.0" text="PLAYER"
+                       textAlignment="CENTER">
+                    <font>
+                        <Font name="Georgia" size="40.0"/>
+                    </font>
+                </Label>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" stroke="BLACK"
+                           strokeType="INSIDE" width="289.0"/>
+                <Label fx:id="currentPhaseLabel" alignment="CENTER" prefHeight="41.0" prefWidth="288.0"
+                       style="-fx-alignment: center;" text="PHASE" textAlignment="CENTER">
+                    <font>
+                        <Font name="Georgia" size="34.0"/>
+                    </font>
+                </Label>
+            </children>
+        </FlowPane>
+        <FlowPane layoutX="319.0" layoutY="390.0" orientation="VERTICAL" prefHeight="130.0" prefWidth="200.0"
+                  style="-fx-background-color: orange;">
+            <children>
+                <Separator orientation="VERTICAL" prefHeight="127.0" prefWidth="10.0"
+                           style="-fx-background-color: grey;" visible="false"/>
+                <Label fx:id="foodLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="152.0" text="Food:">
+                    <font>
+                        <Font name="Georgia" size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="energyLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="172.0" text="Energy:">
+                    <font>
+                        <Font name="Georgia" size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="smithoreLbl" alignment="BOTTOM_LEFT" prefHeight="30.0" prefWidth="188.0" text="Smithore:">
+                    <font>
+                        <Font name="Georgia" size="18.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="moneyLbl" alignment="BOTTOM_LEFT" prefHeight="27.0" prefWidth="162.0" text="Money:">
+                    <font>
+                        <Font name="Georgia" size="18.0"/>
+                    </font>
+                </Label>
+            </children>
+        </FlowPane>
+        <Button fx:id="endTurnBtn" layoutX="555.0" layoutY="399.0" mnemonicParsing="false"
+                onMouseClicked="#setEndTurnBtn" prefHeight="9.0" prefWidth="104.0"
+                style="-fx-background-color: dodgerblue; -fx-border-color: black; -fx-border-width: 1;" text="End Turn">
+            <font>
+                <Font name="Georgia" size="12.0"/>
+            </font>
+        </Button>
+        <Label fx:id="timeLeftLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="538.0" layoutY="430.0"
+               prefHeight="50.0" prefWidth="141.0" style="-fx-border-style: DASHED;" text="--">
+            <font>
+                <Font name="Georgia" size="40.0"/>
+            </font>
+        </Label>
+        <Button fx:id="saveGameBtn" layoutX="555.0" layoutY="486.0" mnemonicParsing="false"
+                onMouseClicked="#setSaveGameBtn" prefHeight="16.0" prefWidth="104.0"
+                style="-fx-background-color: dodgerblue; -fx-border-color: black; -fx-border-width: 1;"
+                text="Save Game">
+            <font>
+                <Font name="Georgia" size="12.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>
