@@ -6,20 +6,23 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by yamininambiar on 10/3/15.
  */
-public class MasterController {
+public class MasterController implements Serializable {
 
 
     private ArrayList<String> scenes = new ArrayList<String>();
     private Stage stage;
+    private Stage currentStage;
+    //    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
-        insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
-        insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
-        eventScene, asteroidScene;
+            insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
+            insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
+            eventScene, loadGameScreen;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -27,7 +30,9 @@ public class MasterController {
     private static MasterController masterController = new MasterController();
 
     //returns the single instance of MasterController within the entire scope of the project
-    public static MasterController getInstance() { return masterController; }
+    public static MasterController getInstance() {
+        return masterController;
+    }
 
     //ctor! loads all the scene upon initialization
     //TODO Ask Yamini if we can kill this ctor
@@ -39,10 +44,6 @@ public class MasterController {
 
             root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
             config2Scene = new Scene(root);
-
-            System.out.println("About to load Asteroid.fxml");
-            root = FXMLLoader.load(getClass().getResource("/View/Asteroid.fxml"));
-            asteroidScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
             insidePubScene = new Scene(root);
@@ -69,6 +70,7 @@ public class MasterController {
             root = (Parent) loader.load();
             mapScene = new Scene(root);
             mapController = (MapController) loader.getController();
+            System.out.println("master controller" + mapController);
 
             root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
             gamblingResultsScene = new Scene(root);
@@ -79,50 +81,110 @@ public class MasterController {
             root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
             startTurnScene = new Scene(root);
 
+            root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
+            loadGameScreen = new Scene(root);
+
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
 
+
         } catch (IOException e) {
             System.out.println("shit's broke");
-            System.out.println("MasterController(): " + e.getCause());
+            System.out.println("MasterController(): " + e);
         }
 
     }
 
-    public Scene getAsteroidScene() { return asteroidScene;}
 
     //methods to allow other Controller classes to change scenes remotely
-    public void loadConfig1Scene()  { stage.setScene(config1Scene);}
-    public void loadConfig2Scene() { stage.setScene(config2Scene);}
-    public void loadAsteroidScene() {stage.setScene(asteroidScene);}
-    public void loadPubScene() { stage.setScene(insidePubScene);}
-    public void loadStoreScene() {stage.setScene(insideStoreScene);}
-    public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}
-    public void loadStoreTransactionSceneEnergy() {stage.setScene(storeTransactionSceneEnergy);}
-    public void loadStoreTransactionSceneSmithore() {stage.setScene(storeTransactionSceneSmithore);}
-    public void loadMuleTransactionScene() {stage.setScene(muleTransactionScene);}
-    public void loadTownScene() { stage.setScene(insideTownScene);}
-    public void loadMapScene() { stage.setScene(mapScene);}
-    public void loadPlaceHolderScene() {stage.setScene(placeHolderScreen);}
-    public void loadRulesScene() { stage.setScene(rulesScene);}
-    public void loadStartScene() { stage.setScene(startScene);}
-    public void loadEventScene() { try {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EventScreen.fxml"))));
-    } catch (IOException e) {
-    }}
-    public void loadLandOfficeScene() { try {
+    public void loadConfig1Scene() {
+        stage.setScene(config1Scene);
+    }
+
+    public void loadConfig2Scene() {
+        stage.setScene(config2Scene);
+    }
+
+    public void loadPubScene() {
+        stage.setScene(insidePubScene);
+    }
+
+    public void loadStoreScene() {
+        stage.setScene(insideStoreScene);
+    }
+
+    public void loadStoreTransactionSceneFood() {
+        stage.setScene(storeTransactionSceneFood);
+    }
+
+    public void loadStoreTransactionSceneEnergy() {
+        stage.setScene(storeTransactionSceneEnergy);
+    }
+
+    public void loadStoreTransactionSceneSmithore() {
+        stage.setScene(storeTransactionSceneSmithore);
+    }
+
+    public void loadMuleTransactionScene() {
+        stage.setScene(muleTransactionScene);
+    }
+
+    public void loadTownScene() {
+        stage.setScene(insideTownScene);
+    }
+
+    public void loadMapScene() {
+        stage.setScene(mapScene);
+    }
+
+    public void loadPlaceHolderScene() {
+        stage.setScene(placeHolderScreen);
+    }
+
+    public void loadRulesScene() {
+        stage.setScene(rulesScene);
+    }
+
+    public void loadStartScene() {
+        stage.setScene(startScene);
+    }
+
+    public void loadLoadScreenScene() {
+        stage.setScene(loadGameScreen);
+    }
+
+    public void loadEventScene() {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EventScreen.fxml"))));
+        } catch (IOException e) {
+        }
+    }
+
+    public void loadLandOfficeScene() {
+        try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"))));
-    } catch (IOException e) {
-    }}
-    public void loadStartTurnScene() { try {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
-    } catch (IOException e) {
-    }}
-    public void loadGamblingResultsScene() { try {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"))));
-    } catch (IOException e) {
-    }}
-    public MapController getMapController() { return mapController;}
+        } catch (IOException e) {
+        }
+    }
+
+    public void loadStartTurnScene() {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
+        } catch (IOException e) {
+        }
+    }
+
+    public void loadGamblingResultsScene() {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"))));
+        } catch (IOException e) {
+        }
+    }
+
+    public MapController getMapController() {
+        return mapController;
+    }
+
     //called once
     public void setStage(Stage stage) {
         this.stage = stage;
