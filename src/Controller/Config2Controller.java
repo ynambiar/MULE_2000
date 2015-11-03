@@ -32,11 +32,17 @@ public class Config2Controller implements Serializable {
     ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite", "Techoid");
 
     @FXML
+    /**
+     * Sets Back button function.
+     */
     public void setBackBtn() {
         MasterController.getInstance().loadConfig1Scene();
     }
 
     @FXML
+    /**
+     * Sets Start Game button function.
+     */
     private void setStartGameBtn() {
         try {
             if (comboBoxesAreVerififed()) {
@@ -49,6 +55,10 @@ public class Config2Controller implements Serializable {
         }
     }
 
+    /**
+     * Verifies combo boxes and adds players accordingly.
+     * @return verified
+     */
     private boolean comboBoxesAreVerififed() {
         Game game = Main.myGame;
         boolean verified = false;
@@ -74,7 +84,10 @@ public class Config2Controller implements Serializable {
     }
 
 
-
+    /**
+     * Initializes Configuration screen 2.
+     * @throws IOException
+     */
     public void initialize() throws IOException {
         combo1human.setItems(humanBox);
         combo2human.setItems(humanBox);

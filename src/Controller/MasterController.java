@@ -14,28 +14,27 @@ import java.util.ArrayList;
  */
 public class MasterController implements Serializable {
 
-
-    private ArrayList<String> scenes = new ArrayList<String>();
     private Stage stage;
-    private Stage currentStage;
-    //    private Scene currentScene;
-    private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
+    private Scene config1Scene, config2Scene, insidePubScene,
             insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
-            insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
-            eventScene, loadGameScreen;
+            insideTownScene, rulesScene, mapScene, startScene, muleTransactionScene, loadGameScreen;
     private FXMLLoader loader;
     private MapController mapController;
 
     //create a singleton
     private static MasterController masterController = new MasterController();
 
-    //returns the single instance of MasterController within the entire scope of the project
+    /**
+     * Returns the single instance of MasterController within the entire scope of the project.
+     * @return
+     */
     public static MasterController getInstance() {
         return masterController;
     }
 
-    //ctor! loads all the scene upon initialization
-    //TODO Ask Yamini if we can kill this ctor
+    /**
+     * Constructor for Master Controller. Loads all the scenes.
+     */
     public MasterController() {
         Parent root;
         try {
@@ -72,14 +71,8 @@ public class MasterController implements Serializable {
             mapController = (MapController) loader.getController();
             System.out.println("master controller" + mapController);
 
-            root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
-            gamblingResultsScene = new Scene(root);
-
             root = FXMLLoader.load(getClass().getResource("/View/RulesScreen.fxml"));
             rulesScene = new Scene(root);
-
-            root = FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"));
-            startTurnScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/loadGameScreen.fxml"));
             loadGameScreen = new Scene(root);
@@ -87,72 +80,106 @@ public class MasterController implements Serializable {
             root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
             startScene = new Scene(root);
 
-
         } catch (IOException e) {
-            System.out.println("shit's broke");
             System.out.println("MasterController(): " + e);
         }
 
     }
 
-
-    //methods to allow other Controller classes to change scenes remotely
+    /**
+     * Load Config1 scene.
+     */
     public void loadConfig1Scene() {
         stage.setScene(config1Scene);
     }
 
+    /**
+     * Load Config 2 scene.
+     */
     public void loadConfig2Scene() {
         stage.setScene(config2Scene);
     }
 
+    /**
+     *  Load Pub scene.
+     */
     public void loadPubScene() {
         stage.setScene(insidePubScene);
     }
 
+    /**
+     * Load Store scene.
+     */
     public void loadStoreScene() {
         stage.setScene(insideStoreScene);
     }
 
+    /**
+     * Load food Store Transaction Scene.
+     */
     public void loadStoreTransactionSceneFood() {
         stage.setScene(storeTransactionSceneFood);
     }
 
+    /**
+     * Load energy Store Transaction Scene.
+     */
     public void loadStoreTransactionSceneEnergy() {
         stage.setScene(storeTransactionSceneEnergy);
     }
 
+    /**
+     * Load smithore Store Transaction Scene.
+     */
     public void loadStoreTransactionSceneSmithore() {
         stage.setScene(storeTransactionSceneSmithore);
     }
 
+    /**
+     * Load mule Transaction Scene.
+     */
     public void loadMuleTransactionScene() {
         stage.setScene(muleTransactionScene);
     }
 
+    /**
+     * Load town Scene.
+     */
     public void loadTownScene() {
         stage.setScene(insideTownScene);
     }
 
+    /**
+     * Load Map Scene.
+     */
     public void loadMapScene() {
         stage.setScene(mapScene);
     }
 
-    public void loadPlaceHolderScene() {
-        stage.setScene(placeHolderScreen);
-    }
-
+    /**
+     * Load Rules Scene.
+     */
     public void loadRulesScene() {
         stage.setScene(rulesScene);
     }
 
+    /**
+     * Load Start Scene.
+     */
     public void loadStartScene() {
         stage.setScene(startScene);
     }
 
+    /**
+     * Load Load Screen.
+     */
     public void loadLoadScreenScene() {
         stage.setScene(loadGameScreen);
     }
 
+    /**
+     * Load Event Scene.
+     */
     public void loadEventScene() {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/EventScreen.fxml"))));
@@ -160,6 +187,9 @@ public class MasterController implements Serializable {
         }
     }
 
+    /**
+     * Load Land Office Scene.
+     */
     public void loadLandOfficeScene() {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/LandOffice.fxml"))));
@@ -167,6 +197,9 @@ public class MasterController implements Serializable {
         }
     }
 
+    /**
+     * Load Start Turn Scene.
+     */
     public void loadStartTurnScene() {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/StartTurn.fxml"))));
@@ -174,6 +207,9 @@ public class MasterController implements Serializable {
         }
     }
 
+    /**
+     * Load Gambling Results Scene.
+     */
     public void loadGamblingResultsScene() {
         try {
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"))));
@@ -181,11 +217,18 @@ public class MasterController implements Serializable {
         }
     }
 
+    /**
+     * Return MapController.
+     * @return
+     */
     public MapController getMapController() {
         return mapController;
     }
 
-    //called once
+    /**
+     * Sets stage to given Stage.
+      * @param stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }

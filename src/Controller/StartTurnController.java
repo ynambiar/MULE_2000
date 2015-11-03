@@ -9,9 +9,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.Serializable;
 
-/**
- * Created by William on 10/6/2015.
- */
 public class StartTurnController implements Serializable {
 
     @FXML
@@ -19,6 +16,9 @@ public class StartTurnController implements Serializable {
     @FXML
     private Button startBtn;
 
+    /**
+     * Sets labels for the scene.
+     */
     public void initialize() {
         Game game = Main.myGame;
         if (game.getCurrentPlayer() != null) {
@@ -31,6 +31,9 @@ public class StartTurnController implements Serializable {
     }
 
     @FXML
+    /**
+     * Sets Start button function.
+     */
     public void setStartBtn(MouseEvent event) {
         Main.myGame.startTurn();
     }

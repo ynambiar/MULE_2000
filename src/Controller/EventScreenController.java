@@ -16,10 +16,17 @@ public class EventScreenController implements Serializable {
     Label eventLabel;
 
     @FXML
+    /**
+     * Sets OK button action.
+     */
     public void setOkBtn(MouseEvent event) {
         Main.myGame.finishEvent();
     }
 
+
+    /**
+     * Initialize Event screen.
+     */
     public void initialize() {
         eventLabel.setText(Main.myGame.getCurrentEvent().toString());
     }

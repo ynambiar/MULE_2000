@@ -30,11 +30,17 @@ public class MuleTransactionController implements Serializable {
     boolean foodSelected, energySelected, smithoreSelected;
 
     @FXML
+    /**
+     * Set Cancel button to load store scene.
+     */
     private void setCancelBtn() {
         MasterController.getInstance().loadStoreScene();
     }
 
     @FXML
+    /**
+     * Set Buy button function to update current player.
+     */
     private void setBuyBtn() {
         Game g = Main.myGame;
         if (foodSelected || energySelected || smithoreSelected) {
@@ -67,6 +73,9 @@ public class MuleTransactionController implements Serializable {
     }
 
     @FXML
+    /**
+     * Set Sell button to load Map scene.
+     */
     private void setSellBtn() {
         Main.myGame.setPhase("Selling Mules");
         Main.myGame.refreshLabels();
@@ -74,6 +83,9 @@ public class MuleTransactionController implements Serializable {
     }
 
     @FXML
+    /**
+     * Sets properties for food mule.
+     */
     private void setFoodMule() {
         if (foodSelected) {
             foodMule.setOpacity(0);
@@ -89,6 +101,9 @@ public class MuleTransactionController implements Serializable {
     }
 
     @FXML
+    /**
+     * Sets properties for energy mule.
+     */
     private void setEnergyMule() {
         if (energySelected) {
             energyMule.setOpacity(0);
@@ -104,6 +119,9 @@ public class MuleTransactionController implements Serializable {
     }
 
     @FXML
+    /**
+     * Sets properts of smithore mule.
+     */
     private void setSmithoreMule() {
         if (smithoreSelected) {
             smithoreMule.setOpacity(0);

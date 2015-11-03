@@ -14,6 +14,9 @@ public class PubController implements Serializable {
     private Label moneyLabel;
 
     @FXML
+    /**
+     * Set Yes Gamble button to add bonus money to current player.
+     */
     private void setYesGambleBtn() {
         System.out.println("moneyLabel: " + moneyLabel);
         int bonus = 0;
@@ -42,6 +45,9 @@ public class PubController implements Serializable {
     }
 
     @FXML
+    /**
+     * Set No Gamble button to load town scene.
+     */
     private void setNoGambleBtn() {
         MasterController.getInstance().loadTownScene();
     }

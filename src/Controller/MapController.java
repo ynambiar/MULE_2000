@@ -118,35 +118,71 @@ public class MapController implements Serializable {
     }
 
     @FXML
+    /**
+     * Set End Turn button to end turn.
+     */
     public void setEndTurnBtn() {
         Main.myGame.endTurn();
     }
 
+    /**
+     * Sets current phase label to given String.
+     * @param s
+     */
     public void setCurrentPhaseLabel(String s) {
         currentPhaseLabel.setText(s);
     }
 
+    /**
+     * Sets current player label to given String.
+     * @param s
+     */
     public void setCurrentPlayerLabel(String s) {
         currentPlayerLabel.setText(s);
     }
 
+    /**
+     * Sets time left label to given String.
+     * @param s
+     */
     public void setTimeLeftLabel(String s) {
         timeLeftLabel.setText(s);
     }
 
+    /**
+     * Sets food label to given String.
+     * @param s
+     */
     public void setFoodLabel(String s) {
         foodLbl.setText(s);
     }
 
+    /**
+     * Sets energy label to given String.
+     * @param s
+     */
     public void setEnergyLabel(String s) {
         energyLbl.setText(s);
     }
 
+    /**
+     * Sets smithore label to given String.
+     * @param s
+     */
     public void setSmithoreLabel(String s) {
         smithoreLbl.setText(s);
     }
 
+    /**
+     * Sets money label to given String.
+     * @param s
+     */
     public void setMoneyLabel(String s) { moneyLbl.setText(s);}
+
+    /**
+     * Sets Save Game button to save data.
+     * @throws IOException
+     */
     public void setSaveGameBtn() throws IOException {
         Main.myGame.saveData(Main.myGame.getPlayers());
         System.out.println("Game Saved.");

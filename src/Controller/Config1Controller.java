@@ -36,7 +36,7 @@ public class Config1Controller implements Serializable {
 
     @FXML
     /**
-     *
+     * Sets action for the next button.
      */
     private void setNextBtn() {
         boolean toggles[] = {false, false};
@@ -80,7 +80,9 @@ public class Config1Controller implements Serializable {
         }
     }
 
-
+    /**
+     * Intilializes toggle groups.
+     */
     public void initialize() {
         mapToggle = new ToggleGroup();
         difficultyToggle = new ToggleGroup();
