@@ -1,4 +1,5 @@
 package Controller;
+
 import Model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -26,8 +27,6 @@ public class LoadGameScreenController implements Serializable {
     private void setYesButton() throws IOException, ClassNotFoundException {
         Main.myGame.loadData();
     }
-
-
 
 
 }

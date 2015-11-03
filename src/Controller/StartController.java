@@ -16,7 +16,7 @@ public class StartController implements Serializable {
 
     @FXML
     private void setRuleBtn() {
-        MasterController.getInstance().loadRulesScene();
+        MasterController.getInstance().loadAsteroidScene();
     }
 
     @FXML
@@ -25,5 +25,7 @@ public class StartController implements Serializable {
     }
 
     @FXML
-    private void setLoadBtn() { MasterController.getInstance().loadLoadScreenScene();}
+    private void setLoadBtn() {
+        MasterController.getInstance().loadLoadScreenScene();
+    }
 }

@@ -10,43 +10,43 @@ public enum Event implements Serializable {
     ELEVEN, TWELVE; //affects all players
 
     private int m;
-    int[] mVals = new int[] {25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100};
+    int[] mVals = new int[]{25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100};
 
 
     //returns int[money, food, energy, smithore]
     public int[] getEffects() {
-        m = mVals[Main.myGame.getRoundNumber()-1];
+        m = mVals[Main.myGame.getRoundNumber() - 1];
         switch (this) {
             case ONE:
-                return new int[] {0, 3, 2, 0};
+                return new int[]{0, 3, 2, 0};
             case TWO:
-                return new int[] {0, 0, 0, 2};
+                return new int[]{0, 0, 0, 2};
             case THREE:
-                return new int[] {m * 8, 0, 0, 0};
+                return new int[]{m * 8, 0, 0, 0};
             case FOUR:
-                return new int[] {m * 2, 0, 0, 0};
+                return new int[]{m * 2, 0, 0, 0};
             case FIVE:
-                return new int[] {-m * 4, 0, 0, 0};
+                return new int[]{-m * 4, 0, 0, 0};
             case SIX:
-                return new int[] {0, (int) (Main.myGame.getCurrentPlayer().getFood() * -.5), 0, 0};
+                return new int[]{0, (int) (Main.myGame.getCurrentPlayer().getFood() * -.5), 0, 0};
             case SEVEN:
-                return new int[] {-m * 6, 0, 0, 0};
+                return new int[]{-m * 6, 0, 0, 0};
             case EIGHT:
-                return new int[] {0, 0, 0, m / 10};
+                return new int[]{0, 0, 0, m / 10};
             case NINE:
-                return new int[] {0, -2, 0, 0};
+                return new int[]{0, -2, 0, 0};
             case TEN:
-                return new int[] {0, m / 10, 0, 0};
+                return new int[]{0, m / 10, 0, 0};
             case ELEVEN:
-                return new int[] {m * 4, 0, 0, 0};
+                return new int[]{m * 4, 0, 0, 0};
             case TWELVE:
-                return new int[] {0, -m, 0, 0};
+                return new int[]{0, -m, 0, 0};
         }
         return null;
     }
 
     public String toString() {
-        m = mVals[Main.myGame.getRoundNumber()-1];
+        m = mVals[Main.myGame.getRoundNumber() - 1];
         switch (this) {
             case ONE:
                 return "You just received a package from the GT alumni containing 3 food and 2 energy units!";

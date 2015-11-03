@@ -13,11 +13,11 @@ public class Map implements Serializable {
     private boolean[][] tilesOwned;
     private boolean[][] hasMule;
     private final MapTile[][] standardMap =
-            {{MapTile.P,  MapTile.P,  MapTile.M1, MapTile.P,  MapTile.R,    MapTile.P,  MapTile.M3, MapTile.P,  MapTile.P},
-                    {MapTile.P,  MapTile.M1, MapTile.P,  MapTile.P,  MapTile.R,    MapTile.P,  MapTile.P,  MapTile.P,  MapTile.M3},
-                    {MapTile.M3, MapTile.P,  MapTile.P,  MapTile.P,  MapTile.Town, MapTile.P,  MapTile.P,  MapTile.P,  MapTile.M1},
-                    {MapTile.P,  MapTile.M2, MapTile.P,  MapTile.P,  MapTile.R,    MapTile.P,  MapTile.M2, MapTile.P,  MapTile.P},
-                    {MapTile.P,  MapTile.P,  MapTile.M2, MapTile.P,  MapTile.R,    MapTile.P,  MapTile.P,  MapTile.P,  MapTile.M2}};
+            {{MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R, MapTile.P, MapTile.M3, MapTile.P, MapTile.P},
+                    {MapTile.P, MapTile.M1, MapTile.P, MapTile.P, MapTile.R, MapTile.P, MapTile.P, MapTile.P, MapTile.M3},
+                    {MapTile.M3, MapTile.P, MapTile.P, MapTile.P, MapTile.Town, MapTile.P, MapTile.P, MapTile.P, MapTile.M1},
+                    {MapTile.P, MapTile.M2, MapTile.P, MapTile.P, MapTile.R, MapTile.P, MapTile.M2, MapTile.P, MapTile.P},
+                    {MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R, MapTile.P, MapTile.P, MapTile.P, MapTile.M2}};
 
     public enum MapType {
         RANDOM, STANDARD;
@@ -45,7 +45,7 @@ public class Map implements Serializable {
                     int r = new Random().nextInt(40);
                     if (r <= 29) {
                         board[i][j] = MapTile.P;
-                    } else if (r<=30) {
+                    } else if (r <= 30) {
                         board[i][j] = MapTile.F;
                     } else if (r <= 33) {
                         board[i][j] = MapTile.M1;
@@ -72,9 +72,13 @@ public class Map implements Serializable {
         return !tilesOwned[row][col];
     }
 
-    public void setTileOwned(int row, int col, boolean b) { tilesOwned[row][col] = b;}
+    public void setTileOwned(int row, int col, boolean b) {
+        tilesOwned[row][col] = b;
+    }
 
-    public boolean tileHasMule(int row, int col) { return hasMule[row][col];}
+    public boolean tileHasMule(int row, int col) {
+        return hasMule[row][col];
+    }
 
     public MapTile[][] getBoard() {
         return board;
@@ -95,7 +99,6 @@ public class Map implements Serializable {
     public int getWidth() {
         return width;
     }
-
 
 
 }

@@ -1,11 +1,9 @@
 package Model;
 
-import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
-import java.util.Scanner;
 
 import Controller.MapController;
 import Controller.MasterController;
@@ -20,7 +18,7 @@ import javafx.scene.media.MediaPlayer;
  *
  * This class should hold game logic.
  */
-public class Game implements Serializable {
+public class Game {
 
     String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
     ArrayList<Player> players;
@@ -34,15 +32,9 @@ public class Game implements Serializable {
     int gamble;
     String phase;
     Mule muleType;
-    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN,
-            Event.EIGHT, Event.NINE, Event.TEN};
+    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN};
     Event currentEvent;
     int landCost;
-    private File f1 = new File("Player1.ser");
-    private File f2 = new File("Player2.ser");
-    private File f3 = new File("Player3.ser");
-    private File f4 = new File("Player4.ser");
-    private int counter = 0;
 
     /*
     Phase phase;
@@ -90,25 +82,18 @@ public class Game implements Serializable {
     public void startTurn() {
         Random random = new Random();
         int r = random.nextInt(100);
-        if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
-            r = random.nextInt(12);
-            if (r > 10) { //event affects all players
-                for (Player p: players) {
-                    currentEvent = events[r];
-                    int[] modifier = currentEvent.getEffects();
-                    p.addMoney(modifier[0]);
-                    p.addFood(modifier[1]);
-                    p.addEnergy(modifier[2]);
-                    p.addSmithore(modifier[3]);
-                }
-            } else { //event only affects the current player
-                currentEvent = events[r];
-                int[] modifier = currentEvent.getEffects();
-                currentPlayer.addMoney(modifier[0]);
-                currentPlayer.addFood(modifier[1]);
-                currentPlayer.addEnergy(modifier[2]);
-                currentPlayer.addSmithore(modifier[3]);
+        if (r < 100 && roundNumber > 0) {
+            if (currentPlayer != players.get(0)) {
+                r = random.nextInt(7);
+            } else {
+                r = random.nextInt(4);
             }
+            currentEvent = events[r];
+            int[] modifier = currentEvent.getEffects();
+            currentPlayer.addMoney(modifier[0]);
+            currentPlayer.addFood(modifier[1]);
+            currentPlayer.addEnergy(modifier[2]);
+            currentPlayer.addSmithore(modifier[3]);
             MasterController.getInstance().loadEventScene();
         } else {
             finishEvent();
@@ -288,6 +273,7 @@ public class Game implements Serializable {
     public void setGamble(int n) { gamble = n;}
     public int getGamble() { return gamble;}
 
+<<<<<<< HEAD
 
     public void saveData(ArrayList<Player> p) throws IOException {
 
@@ -439,4 +425,6 @@ public class Game implements Serializable {
         }
 
     }
+=======
+>>>>>>> origin/master
 }
