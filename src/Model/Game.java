@@ -557,6 +557,23 @@ public class Game implements Serializable {
         Player i = null;
         Player j = null;
 
+        Map z = null;
+
+        try {
+            FileInputStream fileInMap = new FileInputStream(m1);
+            ObjectInputStream inMap = new ObjectInputStream(fileInMap);
+            z = (Map) inMap.readObject();
+            inMap.read();
+            inMap.close();
+            fileInMap.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Loading map doesn't work. shit");
+        } catch (IOException x) {
+            System.out.println("Loading map doesn't work b/c map doesn't exist?");
+        }
+
+        System.out.println(z.getBoard());
+
         try {
             FileInputStream fileIn = new FileInputStream(f1);
             ObjectInputStream in = new ObjectInputStream(fileIn);
