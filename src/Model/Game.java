@@ -34,6 +34,7 @@ public class Game implements Serializable {
     private File f2 = new File("Player2.ser");
     private File f3 = new File("Player3.ser");
     private File f4 = new File("Player4.ser");
+    private File m1 = new File("MapSave.ser");
 
     /**
      * Constructor for the Game object.
@@ -471,7 +472,16 @@ public class Game implements Serializable {
      * @param p
      * @throws IOException
      */
-    public void saveData(ArrayList<Player> p) throws IOException {
+    public void saveData(ArrayList<Player> p, Map map) throws IOException {
+
+        try {
+            FileOutputStream fileOutMap = new FileOutputStream(m1);
+            ObjectOutputStream outMap = new ObjectOutputStream(fileOutMap);
+            outMap.writeObject(map);
+            outMap.close();
+        } catch (IOException i) {
+            System.out.println("saving map doesn't work");
+        }
 
         try {
             FileOutputStream fileOut = new FileOutputStream(f1);
