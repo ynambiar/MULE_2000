@@ -17,12 +17,19 @@ public class TownController implements Serializable {
         Main.myGame.refreshLabels();
         MasterController.getInstance().loadMapScene();
     }
+
     @FXML
-    private void setPubBtn() { MasterController.getInstance().loadPubScene();}
+    private void setPubBtn() {
+        MasterController.getInstance().loadPubScene();
+    }
+
     @FXML
     private void setStoreBtn() {
         MasterController.getInstance().loadStoreScene();
     }
+
     @FXML
-    private void setLandBtn() { MasterController.getInstance().loadLandOfficeScene();}
+    private void setLandBtn() {
+        MasterController.getInstance().loadLandOfficeScene();
+    }
 }

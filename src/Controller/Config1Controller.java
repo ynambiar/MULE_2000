@@ -78,7 +78,6 @@ public class Config1Controller implements Serializable {
     }
 
 
-
     public void initialize() {
         mapToggle = new ToggleGroup();
         difficultyToggle = new ToggleGroup();
