@@ -12,12 +12,17 @@ public class Map implements Serializable {
     private MapTile[][] board;
     private boolean[][] tilesOwned;
     private boolean[][] hasMule;
-    private final MapTile[][] standardMap =
-            {{MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R, MapTile.P, MapTile.M3, MapTile.P, MapTile.P},
-                    {MapTile.P, MapTile.M1, MapTile.P, MapTile.P, MapTile.R, MapTile.P, MapTile.P, MapTile.P, MapTile.M3},
-                    {MapTile.M3, MapTile.P, MapTile.P, MapTile.P, MapTile.Town, MapTile.P, MapTile.P, MapTile.P, MapTile.M1},
-                    {MapTile.P, MapTile.M2, MapTile.P, MapTile.P, MapTile.R, MapTile.P, MapTile.M2, MapTile.P, MapTile.P},
-                    {MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R, MapTile.P, MapTile.P, MapTile.P, MapTile.M2}};
+    private final MapTile[][] standardMap = {
+            { MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.M3, MapTile.P, MapTile.P },
+            { MapTile.P, MapTile.M1, MapTile.P, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M3 },
+            { MapTile.M3, MapTile.P, MapTile.P, MapTile.P, MapTile.Town,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M1 },
+            { MapTile.P, MapTile.M2, MapTile.P, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.M2, MapTile.P, MapTile.P },
+            { MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M2 } };
 
     public enum MapType {
         RANDOM, STANDARD;
@@ -99,6 +104,5 @@ public class Map implements Serializable {
     public int getWidth() {
         return width;
     }
-
 
 }

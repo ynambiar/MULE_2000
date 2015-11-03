@@ -8,8 +8,8 @@ import java.util.HashMap;
  * Created by yamininambiar on 10/3/15.
  */
 public enum MapTile implements Serializable {
-    P(4, 2, 0), R(2, 3, 1), M1(1, 1, 2), M2(1, 1, 3), M3(1, 1, 4), Town(0, 0, 0), F(5, 5, 5);
-
+    P(4, 2, 0), R(2, 3, 1), M1(1, 1, 2), M2(1, 1, 3), M3(1, 1, 4), Town(0, 0, 0), F(
+            5, 5, 5);
 
     private Map<String, String> imagePath;
     private int foodProduction, energyProduction, smithoreProduction;

@@ -15,7 +15,7 @@ public class Main extends Application implements Serializable {
 
 	public void start(Stage stage) {
 		myGame = new Game(); // TODO Fill in all the fields in Game, make a
-								// default ctor
+		// default ctor
 		MasterController controller = MasterController.getInstance();
 		controller.setStage(stage);
 		controller.loadStartScene();
