@@ -145,21 +145,11 @@ public class MapController implements Serializable {
     public void setSmithoreLabel(String s) {
         smithoreLbl.setText(s);
     }
-<<<<<<< HEAD
+
     public void setMoneyLabel(String s) { moneyLbl.setText(s);}
     public void setSaveGameBtn() throws IOException {
         Main.myGame.saveData(Main.myGame.getPlayers());
         System.out.println("Game Saved.");
-=======
-
-    public void setMoneyLabel(String s) {
-        moneyLbl.setText(s);
     }
-
-    public void setSaveGameBtn() throws IOException {
-        Main.myGame.saveData(Main.myGame.getPlayers());
->>>>>>> origin/master
-    }
-
 
 }

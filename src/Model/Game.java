@@ -471,8 +471,8 @@ public class Game implements Serializable {
         try {
             FileInputStream fileIn4 = new FileInputStream(f4);
             ObjectInputStream in4 = new ObjectInputStream(fileIn4);
-            i = (Player) in4.readObject();
-            if (i == null) {
+            j = (Player) in4.readObject();
+            if (j == null) {
                 return;
             } else {
                 in4.read();
