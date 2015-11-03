@@ -20,6 +20,7 @@ public class Game implements Serializable {
     MapType mapType;
     Map map;
     Store store;
+    Save save;
     int roundNumber;
     int timeLeft;
     int gamble;
@@ -41,6 +42,7 @@ public class Game implements Serializable {
         map = new Map();
         players = new ArrayList<Player>();
         store = new Store();
+        save = new Save();
         // Code for the music
         final URL resource = getClass()
                 .getResource("/View/Resources/music.mp3");
@@ -262,8 +264,11 @@ public class Game implements Serializable {
     }
 
     public void saveData() throws IOException {
-        Save s = new Save();
-        s.saveData(players, map, store);
+        save.saveData(players, map, store);
+    }
+
+    public void loadData() throws IOException {
+        save.loadData();
     }
 
     /**
