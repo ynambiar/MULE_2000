@@ -139,7 +139,10 @@ public class MapController implements Serializable {
         smithoreLbl.setText(s);
     }
     public void setMoneyLabel(String s) { moneyLbl.setText(s);}
-    public void setSaveGameBtn() throws IOException {Main.myGame.saveData(Main.myGame.getPlayers());}
+    public void setSaveGameBtn() throws IOException {
+        Main.myGame.saveData(Main.myGame.getPlayers());
+        System.out.println("Game Saved.");
+    }
 
 
 }

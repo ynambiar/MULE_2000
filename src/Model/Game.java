@@ -311,6 +311,11 @@ public class Game implements Serializable {
             } catch (IOException i) {
                 System.out.println("save doesn't work");
             }
+        } else {
+            FileOutputStream fileOut = new FileOutputStream(f2);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(null);
+            out.close();
         }
 
         if(p.size() > 2) {
@@ -323,6 +328,11 @@ public class Game implements Serializable {
             } catch (IOException i) {
                 System.out.println("save doesn't work");
             }
+        } else {
+            FileOutputStream fileOut = new FileOutputStream(f3);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(null);
+            out.close();
         }
 
         if(p.size() > 3) {
@@ -335,6 +345,11 @@ public class Game implements Serializable {
             } catch (IOException i) {
                 System.out.println("save doesn't work");
             }
+        } else {
+            FileOutputStream fileOut = new FileOutputStream(f4);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(null);
+            out.close();
         }
     }
 
@@ -353,9 +368,9 @@ public class Game implements Serializable {
             in.read();
             in.close();
             fileIn.close();
-        } catch(IOException x) {
+        } catch (IOException x) {
             System.out.print("load doesn't work");
-        } catch(ClassNotFoundException c) {
+        } catch (ClassNotFoundException c) {
             System.out.print("load doesn't work");
         }
 
@@ -382,11 +397,13 @@ public class Game implements Serializable {
         System.out.println(h.getColor());
 
 
-
         try {
             FileInputStream fileIn3 = new FileInputStream(f3);
             ObjectInputStream in3 = new ObjectInputStream(fileIn3);
             i = (Player) in3.readObject();
+            if (i == null) {
+                return;
+            }
             in3.read();
             in3.close();
             fileIn3.close();
@@ -404,8 +421,10 @@ public class Game implements Serializable {
         try {
             FileInputStream fileIn4 = new FileInputStream(f4);
             ObjectInputStream in4 = new ObjectInputStream(fileIn4);
-            if(in4.readObject() != null) {
-                j = (Player) in4.readObject();
+            i = (Player) in4.readObject();
+            if (i == null) {
+                return;
+            } else {
                 in4.read();
                 in4.close();
                 fileIn4.close();
@@ -414,9 +433,10 @@ public class Game implements Serializable {
                 System.out.println(j.getColor());
             }
         } catch (IOException x) {
-            return;
+            System.out.print("load doesn't work");
         } catch (ClassNotFoundException c) {
             System.out.print("load doesn't work");
         }
+
     }
 }
