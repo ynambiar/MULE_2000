@@ -12,7 +12,7 @@ public class StartController {
 
     @FXML
     private void setRuleBtn() {
-        MasterController.getInstance().loadRulesScene();
+        MasterController.getInstance().loadAsteroidScene();
     }
 
     @FXML

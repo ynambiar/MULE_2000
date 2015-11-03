@@ -16,12 +16,10 @@ public class MasterController {
 
     private ArrayList<String> scenes = new ArrayList<String>();
     private Stage stage;
-    private Stage currentStage;
-//    private Scene currentScene;
     private Scene config1Scene, config2Scene, gamblingResultsScene, placeHolderScreen, insidePubScene,
         insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
         insideTownScene, rulesScene, mapScene, startScene, startTurnScene, insideLandOfficeScene, muleTransactionScene,
-        eventScene;
+        eventScene, asteroidScene;
     private FXMLLoader loader;
     private MapController mapController;
 
@@ -41,6 +39,10 @@ public class MasterController {
 
             root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
             config2Scene = new Scene(root);
+
+            System.out.println("About to load Asteroid.fxml");
+            root = FXMLLoader.load(getClass().getResource("/View/Asteroid.fxml"));
+            asteroidScene = new Scene(root);
 
             root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
             insidePubScene = new Scene(root);
@@ -67,7 +69,6 @@ public class MasterController {
             root = (Parent) loader.load();
             mapScene = new Scene(root);
             mapController = (MapController) loader.getController();
-            System.out.println("master controller" + mapController);
 
             root = FXMLLoader.load(getClass().getResource("/View/GamblingResults.fxml"));
             gamblingResultsScene = new Scene(root);
@@ -83,19 +84,17 @@ public class MasterController {
 
         } catch (IOException e) {
             System.out.println("shit's broke");
-            System.out.println("MasterController(): " + e);
+            System.out.println("MasterController(): " + e.getCause());
         }
 
     }
 
+    public Scene getAsteroidScene() { return asteroidScene;}
 
     //methods to allow other Controller classes to change scenes remotely
-    public void loadConfig1Scene()  {
-        stage.setScene(config1Scene);
-    }
-    public void loadConfig2Scene() {
-        stage.setScene(config2Scene);
-    }
+    public void loadConfig1Scene()  { stage.setScene(config1Scene);}
+    public void loadConfig2Scene() { stage.setScene(config2Scene);}
+    public void loadAsteroidScene() {stage.setScene(asteroidScene);}
     public void loadPubScene() { stage.setScene(insidePubScene);}
     public void loadStoreScene() {stage.setScene(insideStoreScene);}
     public void loadStoreTransactionSceneFood() {stage.setScene(storeTransactionSceneFood);}

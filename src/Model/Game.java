@@ -82,8 +82,12 @@ public class Game {
     public void startTurn() {
         Random random = new Random();
         int r = random.nextInt(100);
-        if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
-            r = random.nextInt(7);
+        if (r < 100 && roundNumber > 0) {
+            if (currentPlayer != players.get(0)) {
+                r = random.nextInt(7);
+            } else {
+                r = random.nextInt(4);
+            }
             currentEvent = events[r];
             int[] modifier = currentEvent.getEffects();
             currentPlayer.addMoney(modifier[0]);
