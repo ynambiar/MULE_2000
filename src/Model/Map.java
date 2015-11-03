@@ -36,7 +36,9 @@ public class Map implements Serializable {
      * Constructs Map based on map type.
      */
     public Map() {
-        this(Main.myGame.getMapType());
+        //this(Main.myGame.getMapType());
+        this(MapType.STANDARD);
+        //TODO implement this such that the Map is created based on MapType
     }
 
     /**
