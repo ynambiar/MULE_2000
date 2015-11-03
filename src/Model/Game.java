@@ -35,6 +35,7 @@ public class Game implements Serializable {
     private File f3 = new File("Player3.ser");
     private File f4 = new File("Player4.ser");
     private File m1 = new File("MapSave.ser");
+    private File s1 = new File("StoreSave.ser");
 
     /**
      * Constructor for the Game object.
@@ -472,7 +473,7 @@ public class Game implements Serializable {
      * @param p
      * @throws IOException
      */
-    public void saveData(ArrayList<Player> p, Map map) throws IOException {
+    public void saveData(ArrayList<Player> p, Map map, Store store) throws IOException {
 
         try {
             FileOutputStream fileOutMap = new FileOutputStream(m1);
@@ -481,6 +482,15 @@ public class Game implements Serializable {
             outMap.close();
         } catch (IOException i) {
             System.out.println("saving map doesn't work");
+        }
+
+        try {
+            FileOutputStream fileOutStore = new FileOutputStream(s1);
+            ObjectOutputStream outStore = new ObjectOutputStream(fileOutStore);
+            outStore.writeObject(store);
+            outStore.close();
+        } catch (IOException i) {
+            System.out.println("saving store doesn't work");
         }
 
         try {
@@ -558,6 +568,7 @@ public class Game implements Serializable {
         Player j = null;
 
         Map z = null;
+        Store y = null;
 
         try {
             FileInputStream fileInMap = new FileInputStream(m1);
@@ -573,6 +584,22 @@ public class Game implements Serializable {
         }
 
         System.out.println(z.getBoard());
+
+
+        try {
+            FileInputStream fileInStore = new FileInputStream(s1);
+            ObjectInputStream inStore = new ObjectInputStream(fileInStore);
+            y = (Store) inStore.readObject();
+            inStore.read();
+            inStore.close();
+            fileInStore.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Loading store doesn't work. shit");
+        } catch (IOException x) {
+            System.out.println("Loading store doesn't work b/c store doesn't exist?");
+        }
+
+        System.out.println(y.getEnergyStock());
 
         try {
             FileInputStream fileIn = new FileInputStream(f1);

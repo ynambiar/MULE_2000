@@ -184,7 +184,7 @@ public class MapController implements Serializable {
      * @throws IOException
      */
     public void setSaveGameBtn() throws IOException {
-        Main.myGame.saveData(Main.myGame.getPlayers(), Main.myGame.getMap());
+        Main.myGame.saveData(Main.myGame.getPlayers(), Main.myGame.getMap(), Main.myGame.getStore());
         System.out.println("Game Saved.");
     }
 
