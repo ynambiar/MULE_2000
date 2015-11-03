@@ -14,6 +14,8 @@ public class Save implements Serializable {
     private File f4 = new File("Player4.ser");
     private File m1 = new File("MapSave.ser");
     private File s1 = new File("StoreSave.ser");
+    private File g1 = new File("GameSave.ser");
+    private File main1 = new File("MainSave.ser");
 
     /**
      * Saves data.
@@ -21,7 +23,7 @@ public class Save implements Serializable {
      * @param p
      * @throws IOException
      */
-    public void saveData(ArrayList<Player> p, Map map, Store store) throws IOException {
+    public void saveData(ArrayList<Player> p, Map map, Store store, Game game, Main main) throws IOException {
 
         try {
             FileOutputStream fileOutMap = new FileOutputStream(m1);
@@ -39,6 +41,24 @@ public class Save implements Serializable {
             outStore.close();
         } catch (IOException i) {
             System.out.println("saving store doesn't work");
+        }
+
+        try {
+            FileOutputStream fileOutGame = new FileOutputStream(g1);
+            ObjectOutputStream outGame = new ObjectOutputStream(fileOutGame);
+            outGame.writeObject(game);
+            outGame.close();
+        } catch (IOException i) {
+            System.out.println("saving game doesn't work");
+        }
+
+        try {
+            FileOutputStream fileOutMain = new FileOutputStream(main1);
+            ObjectOutputStream outMain = new ObjectOutputStream(fileOutMain);
+            outMain.writeObject(main);
+            outMain.close();
+        } catch (IOException i) {
+            System.out.println("saving main doesn't work");
         }
 
         try {
@@ -117,6 +137,8 @@ public class Save implements Serializable {
 
         Map z = null;
         Store y = null;
+        Game w = null;
+        Main main = null;
 
         try {
             FileInputStream fileInMap = new FileInputStream(m1);
@@ -148,6 +170,35 @@ public class Save implements Serializable {
         }
 
         System.out.println(y.getEnergyStock());
+
+        try {
+            FileInputStream fileInGame = new FileInputStream(g1);
+            ObjectInputStream inGame = new ObjectInputStream(fileInGame);
+            w = (Game) inGame.readObject();
+            inGame.read();
+            inGame.close();
+            fileInGame.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Loading game doesn't work. shit");
+        } catch (IOException x) {
+            System.out.println("Loading game doesn't work b/c game doesn't exist?");
+        }
+
+        System.out.println(w.difficulty);
+
+        try {
+            FileInputStream fileInMain = new FileInputStream(main1);
+            ObjectInputStream inMain = new ObjectInputStream(fileInMain);
+            main = (Main) inMain.readObject();
+            inMain.read();
+            inMain.close();
+            fileInMain.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Loading main doesn't work. shit");
+        } catch (IOException x) {
+            System.out.println("Loading main doesn't work b/c main doesn't exist?");
+        }
+        
 
         try {
             FileInputStream fileIn = new FileInputStream(f1);

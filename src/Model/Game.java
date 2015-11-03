@@ -31,6 +31,7 @@ public class Game implements Serializable {
             Event.NINE, Event.TEN };
     Event currentEvent;
     int landCost;
+    Main main;
 
 
     /**
@@ -264,7 +265,7 @@ public class Game implements Serializable {
     }
 
     public void saveData() throws IOException {
-        save.saveData(players, map, store);
+        save.saveData(players, map, store, this, main);
     }
 
     public void loadData() throws IOException {
