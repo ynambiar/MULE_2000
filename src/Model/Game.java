@@ -14,7 +14,6 @@ import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-
 /**
  * Created by tuckerlocicero on 10/2/15.
  * <p>
@@ -22,7 +21,9 @@ import javafx.scene.media.MediaPlayer;
  */
 public class Game implements Serializable {
 
-    String currentPhase; //lets everyone know what the current phase of the game is (i.e. land selection, mule emplacing, etc)
+    String currentPhase; // lets everyone know what the current phase of the
+    // game is (i.e. land selection, mule emplacing,
+    // etc)
     ArrayList<Player> players;
     Player currentPlayer;
     Difficulty difficulty;
@@ -34,8 +35,9 @@ public class Game implements Serializable {
     int gamble;
     String phase;
     Mule muleType;
-    Event[] events = new Event[]{Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN,
-            Event.EIGHT, Event.NINE, Event.TEN};
+    Event[] events = new Event[] { Event.ONE, Event.TWO, Event.THREE,
+            Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN, Event.EIGHT,
+            Event.NINE, Event.TEN };
     Event currentEvent;
     int landCost;
     private File f1 = new File("Player1.ser");
@@ -44,22 +46,19 @@ public class Game implements Serializable {
     private File f4 = new File("Player4.ser");
     private int counter = 0;
 
-    /*
-    Phase phase;
-    public enum Phase {
-        REGULARTURN, LANDSELECTION, SELLINGLAND, BUYINGLAND, EMPLACINGMULES, SELLINGMULES;
-    }
-    public Phase getPhase() { return phase; }
-    public void setPhase(Phase p) { phase = p; }
-    */
-
+	/*
+	 * Phase phase; public enum Phase { REGULARTURN, LANDSELECTION, SELLINGLAND,
+	 * BUYINGLAND, EMPLACINGMULES, SELLINGMULES; } public Phase getPhase() {
+	 * return phase; } public void setPhase(Phase p) { phase = p; }
+	 */
 
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
         store = new Store();
-        //Code for the music
-        final URL resource = getClass().getResource("/View/Resources/music.mp3");
+        // Code for the music
+        final URL resource = getClass()
+                .getResource("/View/Resources/music.mp3");
         final Media media = new Media(resource.toString());
         final MediaPlayer mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
@@ -78,7 +77,7 @@ public class Game implements Serializable {
             }
         }
         currentPlayer = players.get(0);
-        roundNumber = -1; //round -1 and 0 are land selection
+        roundNumber = -1; // round -1 and 0 are land selection
         setPhase("Land Selection");
         MasterController.getInstance().loadStartTurnScene();
         refreshLabels();
@@ -89,7 +88,7 @@ public class Game implements Serializable {
         int r = random.nextInt(100);
         if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
             r = random.nextInt(12);
-            if (r > 10) { //event affects all players
+            if (r > 10) { // event affects all players
                 for (Player p : players) {
                     currentEvent = events[r];
                     int[] modifier = currentEvent.getEffects();
@@ -98,7 +97,7 @@ public class Game implements Serializable {
                     p.addEnergy(modifier[2]);
                     p.addSmithore(modifier[3]);
                 }
-            } else { //event only affects the current player
+            } else { // event only affects the current player
                 currentEvent = events[r];
                 int[] modifier = currentEvent.getEffects();
                 currentPlayer.addMoney(modifier[0]);
@@ -123,7 +122,6 @@ public class Game implements Serializable {
         MasterController.getInstance().loadMapScene();
         refreshLabels();
     }
-
 
     public void endTurn() {
         setPhase("Regular Turn");
@@ -200,7 +198,8 @@ public class Game implements Serializable {
                     return false;
                 }
             } else if (phase.equals("Selling Mules")) {
-                if (currentPlayer.getTileOwned(row, col) && currentPlayer.getMuleEmplaced(row, col) != null) {
+                if (currentPlayer.getTileOwned(row, col)
+                        && currentPlayer.getMuleEmplaced(row, col) != null) {
                     int cost = 100;
                     currentPlayer.addMoney(cost);
                     currentPlayer.setMuleEmplaced(row, col, null);
@@ -233,7 +232,7 @@ public class Game implements Serializable {
     }
 
     public int getTimeAfterFoodCheck() {
-        int[] foodRq = {0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5};
+        int[] foodRq = { 0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5 };
         int food = currentPlayer.getFood();
         if (roundNumber == 1) {
             return 50;
@@ -321,7 +320,7 @@ public class Game implements Serializable {
         }
         timeLeft--;
     }
-    
+
     public void setTimeLeft(int time) {
         timeLeft = time;
     }
@@ -338,9 +337,9 @@ public class Game implements Serializable {
         return gamble;
     }
 
-
     /**
      * Saves data.
+     *
      * @param p
      * @throws IOException
      */
@@ -356,7 +355,7 @@ public class Game implements Serializable {
             System.out.println("save doesn't work");
         }
 
-        if(p.size() > 1) {
+        if (p.size() > 1) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f2);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -373,7 +372,7 @@ public class Game implements Serializable {
             out.close();
         }
 
-        if(p.size() > 2) {
+        if (p.size() > 2) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f3);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -390,7 +389,7 @@ public class Game implements Serializable {
             out.close();
         }
 
-        if(p.size() > 3) {
+        if (p.size() > 3) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f4);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -415,7 +414,6 @@ public class Game implements Serializable {
         Player i = null;
         Player j = null;
 
-
         try {
             FileInputStream fileIn = new FileInputStream(f1);
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -433,7 +431,6 @@ public class Game implements Serializable {
         System.out.println(g.getNumTilesOwned());
         System.out.println(g.getColor());
 
-
         try {
             FileInputStream fileIn2 = new FileInputStream(f2);
             ObjectInputStream in2 = new ObjectInputStream(fileIn2);
@@ -450,7 +447,6 @@ public class Game implements Serializable {
         System.out.println(h.getName());
         System.out.println(h.getNumTilesOwned());
         System.out.println(h.getColor());
-
 
         try {
             FileInputStream fileIn3 = new FileInputStream(f3);
@@ -471,7 +467,6 @@ public class Game implements Serializable {
         System.out.println(i.getName());
         System.out.println(i.getNumTilesOwned());
         System.out.println(i.getColor());
-
 
         try {
             FileInputStream fileIn4 = new FileInputStream(f4);
