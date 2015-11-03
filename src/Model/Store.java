@@ -6,10 +6,26 @@ public class Store implements Serializable {
 	private int muleStock, foodStock, energyStock, smithoreStock;
 	private int mulePrice, foodPrice, energyPrice, smithorePrice;
 
+	/**
+	 * Constructor for Store. Sets default values ofr
+	 * Store's stock.
+	 */
 	public Store() {
 		this(14, 8, 8, 8, 100, 25, 30, 50);
 	}
 
+	/**
+	 * Constructs a Store based on the the given stock
+	 * parameters and stock price values.
+	 * @param m
+	 * @param f
+	 * @param e
+	 * @param s
+	 * @param mp
+	 * @param fp
+	 * @param ep
+	 * @param sp
+	 */
 	public Store(int m, int f, int e, int s, int mp, int fp, int ep, int sp) {
 		muleStock = m;
 		foodStock = f;
@@ -21,10 +37,22 @@ public class Store implements Serializable {
 		smithorePrice = sp;
 	}
 
+	/**
+	 * Completes a purchase transaction for 1 of the given item.
+	 * @param item
+	 * @return
+	 */
 	public boolean purchaseTransaction(String item) {
 		return purchaseTransaction(item, 1);
 	}
 
+	/**
+	 * Completes a purchase transaction of amnt amount of
+	 * given item.
+	 * @param item
+	 * @param amnt
+	 * @return
+	 */
 	public boolean purchaseTransaction(String item, int amnt) {
 		Game game = Main.myGame;
 		Player p = game.getCurrentPlayer();
@@ -144,91 +172,87 @@ public class Store implements Serializable {
 		return false;
 	}
 
-	public boolean sellTransaction(String item) {
-		return sellTransaction(item, 1);
-	}
-
+	/**
+	 *
+	 * @param item
+	 * @param amnt
+	 * @return
+	 */
+	//TODO Needs to be implemented lol
 	public boolean sellTransaction(String item, int amnt) {
 		return false;
 	}
 
-	public void addMuleStock(int m) {
-		muleStock = muleStock + m;
-	}
-
+	/**
+	 * Adds f number of food units to the Store's food stock.
+	 * @param f
+	 */
 	public void addFoodStock(int f) {
 		foodStock = foodStock + f;
 	}
 
+	/**
+	 * Adds e number of energy units to the Store's energy stock.
+	 * @param e
+	 */
 	public void addEnergyStock(int e) {
 		energyStock = energyStock + e;
 	}
 
+	/**
+	 * Adds s number of smithore units to the Store's stock.
+	 * @param s
+	 */
 	public void addSmithoreStock(int s) {
 		smithoreStock = smithoreStock + s;
 	}
 
-	public void setMuleStock(int muleStock) {
-		this.muleStock = muleStock;
-	}
-
-	public void setFoodStock(int foodStock) {
-		this.foodStock = foodStock;
-	}
-
-	public void setEnergyStock(int energyStock) {
-		this.energyStock = energyStock;
-	}
-
-	public void setSmithoreStock(int smithoreStock) {
-		this.smithoreStock = smithoreStock;
-	}
-
-	public int getMuleStock() {
-		return muleStock;
-	}
-
+	/**
+	 * Returns Store's food stock.
+	 * @return
+	 */
 	public int getFoodStock() {
 		return foodStock;
 	}
 
+	/**
+	 * Returns Store's energy stock.
+	 * @return
+	 */
 	public int getEnergyStock() {
 		return energyStock;
 	}
 
+	/**
+	 * Returns Store's smithore stock.
+	 * @return
+	 */
 	public int getSmithoreStock() {
 		return smithoreStock;
 	}
 
-	public int getMulePrice() {
-		return mulePrice;
-	}
-
+	/**
+	 * Returns price of a food unit.
+	 * @return
+	 */
 	public int getFoodPrice() {
 		return foodPrice;
 	}
 
+	/**
+	 * Returns price of a energy unit.
+	 * @return
+	 */
 	public int getEnergyPrice() {
 		return energyPrice;
 	}
 
+	/**
+	 * Returns price of a smithore unit.
+	 * @return
+	 */
 	public int getSmithorePrice() {
 		return smithorePrice;
 	}
 
-	public void setMulePrice(int mulePrice) {
-		this.mulePrice = mulePrice;
-	}
-
-	public void setFoodPrice(int foodPrice) {
-		this.foodPrice = foodPrice;
-	}
-
-	public void setEnergyPrice(int energyPrice) {
-		this.energyPrice = energyPrice;
-	}
-
-	public void setSmithorePrice(int smithorePrice) {
-		this.smithorePrice = smithorePrice;
-	}
 }
