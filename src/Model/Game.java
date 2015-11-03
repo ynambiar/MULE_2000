@@ -17,7 +17,7 @@ import javafx.scene.media.MediaPlayer;
 
 /**
  * Created by tuckerlocicero on 10/2/15.
- *
+ * <p>
  * This class should hold game logic.
  */
 public class Game implements Serializable {
@@ -34,7 +34,7 @@ public class Game implements Serializable {
     int gamble;
     String phase;
     Mule muleType;
-    Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN,
+    Event[] events = new Event[]{Event.ONE, Event.TWO, Event.THREE, Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN,
             Event.EIGHT, Event.NINE, Event.TEN};
     Event currentEvent;
     int landCost;
@@ -72,7 +72,7 @@ public class Game implements Serializable {
     public void startGame() {
         if (difficulty == Difficulty.MEDIUM) {
             for (Player p : players) {
-                p.addMoney( (int) (p.getMoney() * (-.25)));
+                p.addMoney((int) (p.getMoney() * (-.25)));
             }
         } else if (difficulty == Difficulty.HARD) {
             for (Player p : players) {
@@ -93,7 +93,7 @@ public class Game implements Serializable {
         if (r < 27 && currentPlayer != players.get(0) && roundNumber > 0) {
             r = random.nextInt(12);
             if (r > 10) { //event affects all players
-                for (Player p: players) {
+                for (Player p : players) {
                     currentEvent = events[r];
                     int[] modifier = currentEvent.getEffects();
                     p.addMoney(modifier[0]);
@@ -151,7 +151,7 @@ public class Game implements Serializable {
     public static class PlayerComparator<Object> implements Comparator<Player> {
         @Override
         public int compare(Player a, Player b) {
-            return  a.getScore() - b.getScore();
+            return a.getScore() - b.getScore();
         }
     }
 
@@ -185,7 +185,7 @@ public class Game implements Serializable {
                         return true;
                     }
                 }
-            } else if (phase.equals("Selling Land")){
+            } else if (phase.equals("Selling Land")) {
                 if (currentPlayer.getTileOwned(row, col)) {
                     currentPlayer.addMoney(landCost);
                     currentPlayer.setTileOwned(row, col, false);
@@ -261,20 +261,61 @@ public class Game implements Serializable {
         }
     }
 
-    public void addPlayer(Player player) { players.add(player);}
-    public ArrayList<Player> getPlayers() { return players;}
-    public Difficulty getDifficulty() { return difficulty;}
-    public void setDifficulty(Difficulty difficulty) { this.difficulty = difficulty;}
-    public MapType getMapType() { return mapType;}
-    public Store getStore() { return store;}
-    public void setMapType(MapType mapType) { this.mapType = mapType;}
-    public Map getMap() { return map;}
-    public int getRoundNumber() { return roundNumber;}
-    public Player getCurrentPlayer() { return currentPlayer;}
-    public void setMuleType(Mule t) { muleType = t;}
-    public Mule getMuleType() {return muleType;}
-    public Event getCurrentEvent() { return currentEvent;}
-    public void setLandCost(int c) { landCost = c;}
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public MapType getMapType() {
+        return mapType;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setMapType(MapType mapType) {
+        this.mapType = mapType;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public int getRoundNumber() {
+        return roundNumber;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setMuleType(Mule t) {
+        muleType = t;
+    }
+
+    public Mule getMuleType() {
+        return muleType;
+    }
+
+    public Event getCurrentEvent() {
+        return currentEvent;
+    }
+
+    public void setLandCost(int c) {
+        landCost = c;
+    }
 
     /* Timer methods */
     public void decrementTimeLeft() {
@@ -283,10 +324,22 @@ public class Game implements Serializable {
         }
         timeLeft--;
     }
-    public void setTimeLeft(int time) { timeLeft = time; }
-    public int getTimeLeft() { return timeLeft; }
-    public void setGamble(int n) { gamble = n;}
-    public int getGamble() { return gamble;}
+
+    public void setTimeLeft(int time) {
+        timeLeft = time;
+    }
+
+    public int getTimeLeft() {
+        return timeLeft;
+    }
+
+    public void setGamble(int n) {
+        gamble = n;
+    }
+
+    public int getGamble() {
+        return gamble;
+    }
 
 
     public void saveData(ArrayList<Player> p) throws IOException {
@@ -301,7 +354,7 @@ public class Game implements Serializable {
             System.out.println("save doesn't work");
         }
 
-        if(p.size() > 1) {
+        if (p.size() > 1) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f2);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -313,7 +366,7 @@ public class Game implements Serializable {
             }
         }
 
-        if(p.size() > 2) {
+        if (p.size() > 2) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f3);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -325,7 +378,7 @@ public class Game implements Serializable {
             }
         }
 
-        if(p.size() > 3) {
+        if (p.size() > 3) {
             try {
                 FileOutputStream fileOut = new FileOutputStream(f4);
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -353,9 +406,9 @@ public class Game implements Serializable {
             in.read();
             in.close();
             fileIn.close();
-        } catch(IOException x) {
+        } catch (IOException x) {
             System.out.print("load doesn't work");
-        } catch(ClassNotFoundException c) {
+        } catch (ClassNotFoundException c) {
             System.out.print("load doesn't work");
         }
 
@@ -382,7 +435,6 @@ public class Game implements Serializable {
         System.out.println(h.getColor());
 
 
-
         try {
             FileInputStream fileIn3 = new FileInputStream(f3);
             ObjectInputStream in3 = new ObjectInputStream(fileIn3);
@@ -404,7 +456,7 @@ public class Game implements Serializable {
         try {
             FileInputStream fileIn4 = new FileInputStream(f4);
             ObjectInputStream in4 = new ObjectInputStream(fileIn4);
-            if(in4.readObject() != null) {
+            if (in4.readObject() != null) {
                 j = (Player) in4.readObject();
                 in4.read();
                 in4.close();
