@@ -5,25 +5,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
-import java.util.Scanner;
 
 import Controller.MapController;
 import Controller.MasterController;
 import Model.Map.*;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-/**
- * Created by tuckerlocicero on 10/2/15.
- * <p>
- * This class should hold game logic.
- */
 public class Game implements Serializable {
 
-    String currentPhase; // lets everyone know what the current phase of the
-    // game is (i.e. land selection, mule emplacing,
-    // etc)
     ArrayList<Player> players;
     Player currentPlayer;
     Difficulty difficulty;
@@ -44,14 +34,12 @@ public class Game implements Serializable {
     private File f2 = new File("Player2.ser");
     private File f3 = new File("Player3.ser");
     private File f4 = new File("Player4.ser");
-    private int counter = 0;
 
-	/*
-	 * Phase phase; public enum Phase { REGULARTURN, LANDSELECTION, SELLINGLAND,
-	 * BUYINGLAND, EMPLACINGMULES, SELLINGMULES; } public Phase getPhase() {
-	 * return phase; } public void setPhase(Phase p) { phase = p; }
-	 */
-
+    /**
+     * Constructor for the Game object.
+     * Creates Map, Players list, and Store.
+     * Initializes media and plays music.
+     */
     public Game() {
         map = new Map();
         players = new ArrayList<Player>();
@@ -65,6 +53,10 @@ public class Game implements Serializable {
 
     }
 
+    /**
+     * Starts the game. Sets difficulty, current player, round number,
+     * and loads Start Turn scene.
+     */
     public void startGame() {
         if (difficulty == Difficulty.MEDIUM) {
             for (Player p : players) {
@@ -83,6 +75,10 @@ public class Game implements Serializable {
         refreshLabels();
     }
 
+    /**
+     * Starts turn for a player.
+     * Randomly generates an event that will happen for this turn.
+     */
     public void startTurn() {
         Random random = new Random();
         int r = random.nextInt(100);
@@ -111,6 +107,10 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Finishes event by resetting the time left for the player.
+     * Loads Map scene.
+     */
     public void finishEvent() {
         checkProduction();
         if (roundNumber > 0) {
@@ -123,6 +123,10 @@ public class Game implements Serializable {
         refreshLabels();
     }
 
+    /**
+     * Ends the turn and sets current player to the next player.
+     * If all players have had their turn, ends round.
+     */
     public void endTurn() {
         setPhase("Regular Turn");
         if (currentPlayer == players.get(players.size() - 1)) {
@@ -132,6 +136,12 @@ public class Game implements Serializable {
             MasterController.getInstance().loadStartTurnScene();
         }
     }
+
+    /**
+     * Ends round and sets up for the next round.
+     * Sorts the players in terms of score, sets current player,
+     * and loads Start Turn scene.
+     */
 
     public void endRound() {
         roundNumber++;
@@ -143,6 +153,11 @@ public class Game implements Serializable {
 
     }
 
+    /**
+     * Implementation of the Comparator class.
+     * Compares Players based on their scores.
+     * @param <Object>
+     */
     public static class PlayerComparator<Object> implements Comparator<Player> {
         @Override
         public int compare(Player a, Player b) {
@@ -150,6 +165,9 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Refreshes Labels to current Player's stats and properties.
+     */
     public void refreshLabels() {
         MapController m = MasterController.getInstance().getMapController();
         m.setCurrentPhaseLabel(phase);
@@ -160,6 +178,14 @@ public class Game implements Serializable {
         m.setMoneyLabel("Money: " + currentPlayer.getMoney());
     }
 
+    /**
+     * Checks if the operation at tile at location [row][col] is valid
+     * and sets properties for that tile.
+     * If the current player's operation on tile is valid, returns true.
+     * @param row
+     * @param col
+     * @return
+     */
     public boolean tileClicked(int row, int col) {
         if (roundNumber < 1) {
             if (map.tileUnowned(row, col)) {
@@ -211,10 +237,25 @@ public class Game implements Serializable {
         return false;
     }
 
+    /**
+     * Does Store transaction for 1 of given item.
+     * Buys or sells based on second boolean parameter, buying.
+     * @param item
+     * @param buying
+     * @return
+     */
     public boolean doStoreTransaction(String item, boolean buying) {
         return doStoreTransaction(item, buying, 1);
     }
 
+    /**
+     * Does Store transaction for given amnt of given item.
+     * Buys or sells based on second boolean parameter, buying.
+     * @param item
+     * @param buying
+     * @param amnt
+     * @return
+     */
     public boolean doStoreTransaction(String item, boolean buying, int amnt) {
         if (buying) {
             return store.purchaseTransaction(item, amnt);
@@ -223,14 +264,27 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Getter that returns the current phase.
+     * @return
+     */
     public String getPhase() {
         return phase;
     }
 
+    /**
+     * Setter that sets the current phase to the given String.
+     * @param s
+     */
     public void setPhase(String s) {
         phase = s;
     }
 
+    /**
+     * Returns number of seconds left based on the
+     * current player's food stock.
+     * @return
+     */
     public int getTimeAfterFoodCheck() {
         int[] foodRq = { 0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5 };
         int food = currentPlayer.getFood();
@@ -248,6 +302,10 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Based on a player's stock of mules,
+     * updates player's energy and continues production.
+     */
     public void checkProduction() {
         int numMules = currentPlayer.getNumMules();
         System.out.println("numMules: " + numMules);
@@ -257,63 +315,125 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Adds player to list of Player.
+     * @param player
+     */
     public void addPlayer(Player player) {
         players.add(player);
     }
 
+    /**
+     * Returns list of Players.
+     * @return
+     */
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
+    /**
+     * Returns Difficulty enum of the game.
+     * @return
+     */
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
+    /**
+     * Sets Difficult enum of the game.
+     * @param difficulty
+     */
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
 
+    /**
+     * Return the MapType enum of the game.
+     * @return
+     */
     public MapType getMapType() {
         return mapType;
     }
 
+    /**
+     * Returns the Store of the game.
+     * @return
+     */
     public Store getStore() {
         return store;
     }
 
+    /**
+     * Sets MapType enum of the game.
+     * @param mapType
+     */
     public void setMapType(MapType mapType) {
         this.mapType = mapType;
     }
 
+
+    /**
+     * Returns Map.
+     * @return
+     */
     public Map getMap() {
         return map;
     }
 
+    /**
+     * Returns round number.
+     * @return
+     */
     public int getRoundNumber() {
         return roundNumber;
     }
 
+    /**
+     * Returns current player.
+     * @return
+     */
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * Sets the mule type for given Mule t.
+     * @param t
+     */
     public void setMuleType(Mule t) {
         muleType = t;
     }
 
+    /**
+     * Gets the mule type for given Mule t.
+     * @return
+     */
     public Mule getMuleType() {
         return muleType;
     }
 
+    /**
+     * Gets the current event going on.
+     * @return
+     */
     public Event getCurrentEvent() {
         return currentEvent;
     }
 
+    /**
+     * Sets the cost of land to c.
+     * @param c
+     */
     public void setLandCost(int c) {
         landCost = c;
     }
 
     /* Timer methods */
+
+    /**
+     * Decrements the time left by one.
+     * If time is 0, ends turn.
+     */
     public void decrementTimeLeft() {
         if (timeLeft == 0) {
             endTurn();
@@ -321,18 +441,26 @@ public class Game implements Serializable {
         timeLeft--;
     }
 
-    public void setTimeLeft(int time) {
-        timeLeft = time;
-    }
-
+    /**
+     * Gets time left for the current player's turn.
+     * @return
+     */
     public int getTimeLeft() {
         return timeLeft;
     }
 
+    /**
+     * Sets gamble amount to n.
+     * @param n
+     */
     public void setGamble(int n) {
         gamble = n;
     }
 
+    /**
+     * Gets gamble amount.
+     * @return
+     */
     public int getGamble() {
         return gamble;
     }
@@ -407,6 +535,11 @@ public class Game implements Serializable {
         }
     }
 
+    /**
+     * Loads data.
+     *
+     * @throws IOException
+     */
     public void loadData() throws IOException {
 
         Player g = null;

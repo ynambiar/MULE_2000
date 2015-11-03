@@ -32,12 +32,18 @@ public class Map implements Serializable {
         EASY, MEDIUM, HARD;
     }
 
-    private MapType mapType;
-
+    /**
+     * Constructs Map based on map type.
+     */
     public Map() {
-        this(MapType.STANDARD);
+        this(Main.myGame.getMapType());
     }
 
+    /**
+     * Generate map of the game.
+     * Sets tiles based on random or standard map.
+     * @param type
+     */
     public Map(MapType type) {
         this.height = 5;
         this.width = 9;
@@ -73,36 +79,65 @@ public class Map implements Serializable {
         hasMule[2][4] = true;
     }
 
+    /**
+     * Returns if the tile at [row][col] is owned.
+     * @param row
+     * @param col
+     * @return
+     */
     public boolean tileUnowned(int row, int col) {
         return !tilesOwned[row][col];
     }
 
+    /**
+     * Sets if the tile at [row][col] is owned based on boolean b.
+     * @param row
+     * @param col
+     * @param b
+     */
     public void setTileOwned(int row, int col, boolean b) {
         tilesOwned[row][col] = b;
     }
 
+
+    /**
+     * Returns if the tile at [row][col] has a mule on it.
+     * @param row
+     * @param col
+     * @return
+     */
     public boolean tileHasMule(int row, int col) {
         return hasMule[row][col];
     }
 
+    /**
+     * Returns the 2D array of the board.
+     * @return
+     */
     public MapTile[][] getBoard() {
         return board;
     }
 
+    /**
+     * Gets tile at location [x][y].
+     * @param x
+     * @param y
+     * @return
+     */
     public MapTile getTile(int x, int y) {
         return board[x][y];
     }
 
+    /**
+     * Sets tile to the give tile, newTile, at location
+     * [x][y].
+     * @param x
+     * @param y
+     * @param newTile
+     */
     public void setTile(int x, int y, MapTile newTile) {
         this.board[x][y] = newTile;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
-    }
 
 }

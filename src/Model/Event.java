@@ -2,18 +2,21 @@ package Model;
 
 import java.io.Serializable;
 
-/**
- * Created by William on 10/20/2015.
- */
+
 public enum Event implements Serializable {
-    ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, // affects single
-    // player
+    ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, // affects 1 player
+
     ELEVEN, TWELVE; // affects all players
 
     private int m;
     int[] mVals = new int[] { 25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100 };
 
-    // returns int[money, food, energy, smithore]
+
+    /**
+     * * Determines random event and then return results in an int[] where
+     * int[] = int[money, food, energy, smithore]
+     * @return
+     */
     public int[] getEffects() {
         m = mVals[Main.myGame.getRoundNumber() - 1];
         switch (this) {
@@ -47,6 +50,10 @@ public enum Event implements Serializable {
         return null;
     }
 
+    /**
+     * toString() for Event such that it prints to console.
+     * @return
+     */
     public String toString() {
         m = mVals[Main.myGame.getRoundNumber() - 1];
         switch (this) {

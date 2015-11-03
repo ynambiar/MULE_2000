@@ -2,9 +2,6 @@ package Model;
 
 import java.io.Serializable;
 
-/**
- * Created by tuckerlocicero on 10/6/15.
- */
 public class Store implements Serializable {
 	private int muleStock, foodStock, energyStock, smithoreStock;
 	private int mulePrice, foodPrice, energyPrice, smithorePrice;

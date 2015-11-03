@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.HashMap;
 
-/**
- * Created by yamininambiar on 10/3/15.
- */
 public enum MapTile implements Serializable {
     P(4, 2, 0), R(2, 3, 1), M1(1, 1, 2), M2(1, 1, 3), M3(1, 1, 4), Town(0, 0, 0), F(
             5, 5, 5);
@@ -14,6 +11,13 @@ public enum MapTile implements Serializable {
     private Map<String, String> imagePath;
     private int foodProduction, energyProduction, smithoreProduction;
 
+    /**
+     * Constructor for a MapTile. Adds the appropriate images and sets
+     * food, energy, and smithore production on it.
+     * @param f
+     * @param e
+     * @param s
+     */
     MapTile(int f, int e, int s) {
         foodProduction = f;
         energyProduction = e;
@@ -28,18 +32,34 @@ public enum MapTile implements Serializable {
         imagePath.put("F", "/View/Resources/TileFlowers.png");
     }
 
+    /**
+     * Gets food production of the tile.
+     * @return
+     */
     public int getFoodProduction() {
         return foodProduction;
     }
 
+    /**
+     * Gets energy production of the tile.
+     * @return
+     */
     public int getEnergyProduction() {
         return energyProduction;
     }
 
+    /**
+     * Gets smithore production of the tile.
+     * @return
+     */
     public int getSmithoreProduction() {
         return smithoreProduction;
     }
 
+    /**
+     * Gets image path of the tile.
+     * @return
+     */
     public String imagePath() {
         return imagePath.getOrDefault(this.name(), imagePath.get("P"));
     }

@@ -6,16 +6,17 @@ import javafx.stage.Stage;
 
 import java.io.Serializable;
 
-/**
- * Created by tuckerlocicero on 10/2/15.
- */
 public class Main extends Application implements Serializable {
 
 	public static Game myGame;
 
+	/**
+	 * Required start() method for extension of Application class.
+	 * Sets the Stage and loads the Start Scene.
+	 * @param stage
+	 */
 	public void start(Stage stage) {
-		myGame = new Game(); // TODO Fill in all the fields in Game, make a
-		// default ctor
+		myGame = new Game();
 		MasterController controller = MasterController.getInstance();
 		controller.setStage(stage);
 		controller.loadStartScene();
@@ -24,6 +25,10 @@ public class Main extends Application implements Serializable {
 		stage.show();
 	}
 
+	/**
+	 * Launches the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
