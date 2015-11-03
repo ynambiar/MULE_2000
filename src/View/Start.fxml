@@ -8,23 +8,28 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
-   <children>
-      <Label layoutX="120.0" layoutY="27.0" text="M.U.L.E" textFill="#19a69b">
-         <font>
-            <Font name="Georgia" size="96.0" />
-         </font>
-      </Label>
-      <Button fx:id="playBtn" layoutX="157.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setPlayBtn" text="Play" />
-      <Button fx:id="ruleBtn" layoutX="367.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setRuleBtn" text="Rules" />
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="187.0" layoutY="126.0">
-         <image>
-            <Image url="@Resources/muleAnimation.gif" />
-         </image>
-         <effect>
-            <Glow />
-         </effect>
-      </ImageView>
-      <Button fx:id="loadBtn" layoutX="257.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setLoadBtn" text="Load" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.StartController">
+    <children>
+        <Label layoutX="120.0" layoutY="27.0" text="M.U.L.E" textFill="#19a69b">
+            <font>
+                <Font name="Georgia" size="96.0"/>
+            </font>
+        </Label>
+        <Button fx:id="playBtn" layoutX="157.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setPlayBtn"
+                text="Play"/>
+        <Button fx:id="ruleBtn" layoutX="367.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setRuleBtn"
+                text="Rules"/>
+        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="187.0" layoutY="126.0">
+            <image>
+                <Image url="@Resources/muleAnimation.gif"/>
+            </image>
+            <effect>
+                <Glow/>
+            </effect>
+        </ImageView>
+        <Button fx:id="loadBtn" layoutX="257.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#setLoadBtn"
+                text="Load"/>
+    </children>
 </AnchorPane>
