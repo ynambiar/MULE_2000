@@ -35,6 +35,9 @@ public class Config1Controller implements Serializable {
     }
 
     @FXML
+    /**
+     *
+     */
     private void setNextBtn() {
         boolean toggles[] = {false, false};
         Model.Game game = Main.myGame;

@@ -74,6 +74,7 @@ public class Config2Controller implements Serializable {
     }
 
 
+
     public void initialize() throws IOException {
         combo1human.setItems(humanBox);
         combo2human.setItems(humanBox);
