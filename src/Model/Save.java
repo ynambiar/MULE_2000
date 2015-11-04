@@ -53,67 +53,6 @@ public class Save implements Serializable {
         } catch (IOException i) {
             System.out.println("saving game doesn't work");
         }
-        /*
-        try {
-            FileOutputStream fileOut = new FileOutputStream(f1);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(p.get(0));
-            out.writeObject("\n");
-            out.close();
-        } catch (IOException i) {
-            System.out.println("save doesn't work");
-        }
-
-        if (p.size() > 1) {
-            try {
-                FileOutputStream fileOut = new FileOutputStream(f2);
-                ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                out.writeObject(p.get(1));
-                out.writeObject("\n");
-                out.close();
-            } catch (IOException i) {
-                System.out.println("save doesn't work");
-            }
-        } else {
-            FileOutputStream fileOut = new FileOutputStream(f2);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(null);
-            out.close();
-        }
-
-        if (p.size() > 2) {
-            try {
-                FileOutputStream fileOut = new FileOutputStream(f3);
-                ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                out.writeObject(p.get(2));
-                out.writeObject("\n");
-                out.close();
-            } catch (IOException i) {
-                System.out.println("save doesn't work");
-            }
-        } else {
-            FileOutputStream fileOut = new FileOutputStream(f3);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(null);
-            out.close();
-        }
-
-        if (p.size() > 3) {
-            try {
-                FileOutputStream fileOut = new FileOutputStream(f4);
-                ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                out.writeObject(p.get(3));
-                out.writeObject("\n");
-                out.close();
-            } catch (IOException i) {
-                System.out.println("save doesn't work");
-            }
-        } else {
-            FileOutputStream fileOut = new FileOutputStream(f4);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(null);
-            out.close();
-        } */
     }
 
     /**
@@ -122,11 +61,6 @@ public class Save implements Serializable {
      * @throws IOException
      */
     public void loadData() throws IOException {
-
-//        Player g = null;
-//        Player h = null;
-//        Player i = null;
-//        Player j = null;
 
         Map z = null;
         Store y = null;
@@ -145,8 +79,6 @@ public class Save implements Serializable {
             System.out.println("Loading map doesn't work b/c map doesn't exist?");
         }
 
-        System.out.println(z);
-
         try {
             FileInputStream fileInStore = new FileInputStream(s1);
             ObjectInputStream inStore = new ObjectInputStream(fileInStore);
@@ -159,8 +91,6 @@ public class Save implements Serializable {
         } catch (IOException x) {
             System.out.println("Loading store doesn't work b/c store doesn't exist?");
         }
-
-        System.out.println(y);
 
         try {
             FileInputStream fileInGame = new FileInputStream(g1);
@@ -175,92 +105,10 @@ public class Save implements Serializable {
             System.out.println("Loading game doesn't work b/c game doesn't exist?");
         }
 
-        System.out.println(w);
-
-        /*
-        try {
-            FileInputStream fileIn = new FileInputStream(f1);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            g = (Player) in.readObject();
-            in.read();
-            in.close();
-            fileIn.close();
-        } catch (IOException x) {
-            System.out.print("load doesn't work");
-        } catch (ClassNotFoundException c) {
-            System.out.print("load doesn't work");
-        }
-
-        System.out.println(g);
-
-        try {
-            FileInputStream fileIn2 = new FileInputStream(f2);
-            ObjectInputStream in2 = new ObjectInputStream(fileIn2);
-            h = (Player) in2.readObject();
-            in2.read();
-            in2.close();
-            fileIn2.close();
-        } catch (IOException x) {
-            System.out.print("load doesn't work");
-        } catch (ClassNotFoundException c) {
-            System.out.print("load doesn't work");
-        }
-
-        System.out.println(h);
-
-        try {
-            FileInputStream fileIn3 = new FileInputStream(f3);
-            ObjectInputStream in3 = new ObjectInputStream(fileIn3);
-            i = (Player) in3.readObject();
-            if (i == null) {
-                return;
-            }
-            in3.read();
-            in3.close();
-            fileIn3.close();
-        } catch (IOException x) {
-            System.out.print("load doesn't work");
-        } catch (ClassNotFoundException c) {
-            System.out.print("load doesn't work");
-        }
-
-        System.out.println(i);
-
-        try {
-            FileInputStream fileIn4 = new FileInputStream(f4);
-            ObjectInputStream in4 = new ObjectInputStream(fileIn4);
-            j = (Player) in4.readObject();
-            if (j == null) {
-                return;
-            } else {
-                in4.read();
-                in4.close();
-                fileIn4.close();
-                System.out.println(j.getName());
-                System.out.println(j.getNumTilesOwned());
-                System.out.println(j.getColor());
-            }
-        } catch (IOException x) {
-            System.out.print("load doesn't work");
-        } catch (ClassNotFoundException c) {
-            System.out.print("load doesn't work");
-        }
-
-        System.out.println(j);
-        */
-        System.out.println("setting game");
         Main.setMyGame(w);
-        System.out.println("setting store");
         w.setStore(y);
-        System.out.println("setting map");
         w.setMap(z);
-//        w.addPlayer(g);
-//        w.addPlayer(h);
-//        w.addPlayer(i);
-//        w.addPlayer(j);
-        System.out.println("setting master controller");
         MasterController.getInstance().getMapController().setMap(z);
-        System.out.println("Starting turn");
         w.startTurn();
     }
 }
