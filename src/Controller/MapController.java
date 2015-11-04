@@ -79,6 +79,19 @@ public class MapController implements Serializable {
                 for (Player p : Main.myGame.getPlayers()) {
                     if (p.getTileOwned(i, j)) {
                         tileContainer.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+                        Mule mule = p.getMuleEmplaced(i, j);
+                        if (mule != null) {
+                            ImageView muleImg;
+                            if (mule == Mule.FOOD) {
+                                muleImg = new ImageView("/View/Resources/tinyFoodMule.png");
+                            } else if (mule == Mule.ENERGY) {
+                                muleImg = new ImageView("/View/Resources/tinyEnergyMule.png");
+                            } else {
+                                muleImg = new ImageView("/View/Resources/tinySmithoreMule.png");
+                            }
+                            tileContainer.getChildren().add(muleImg);
+                        }
+
                     }
                 }
             }
