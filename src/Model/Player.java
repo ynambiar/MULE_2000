@@ -101,7 +101,7 @@ public class Player implements Serializable {
 
 	/**
 	 * Returns number of tiles the player owns.
-	 * @return
+	 * @return int
 	 */
 	public int getNumTilesOwned() {
 		int owned = 0;
@@ -117,7 +117,7 @@ public class Player implements Serializable {
 
 	/**
 	 * Returns the number of mules a player has emplaced.
-	 * @return
+	 * @return int
 	 */
 	public int getNumMules() {
 		int emplaced = 0;
