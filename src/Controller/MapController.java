@@ -64,6 +64,27 @@ public class MapController implements Serializable {
         }
     }
 
+    public void setMap(Map myMap) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                ImageView tile = new ImageView(myMap.getTile(i, j).imagePath());
+                StackPane tileContainer = new StackPane();
+                tileContainer.getChildren().add(tile);
+                if (i == 2 && j == 4) {
+                    tileContainer.setOnMouseClicked(this::townClicked);
+                } else {
+                    tileContainer.setOnMouseClicked(this::tileClicked);
+                }
+                map.add(tileContainer, j, i);
+                for (Player p : Main.myGame.getPlayers()) {
+                    if (p.getTileOwned(i, j)) {
+                        tileContainer.setStyle("-fx-border-color: " + p.getColor() + "; -fx-border-width: 6px;");
+                    }
+                }
+            }
+        }
+    }
+
     public void tileClicked(MouseEvent event) {
         Game g = Main.myGame;
         StackPane tile = (StackPane) event.getSource();

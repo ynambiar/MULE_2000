@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.MasterController;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -23,7 +25,7 @@ public class Save implements Serializable {
      * @param p
      * @throws IOException
      */
-    public void saveData(ArrayList<Player> p, Map map, Store store, Game game, Main main) throws IOException {
+    public void saveData(ArrayList<Player> p, Map map, Store store, Game game) throws IOException {
 
         try {
             FileOutputStream fileOutMap = new FileOutputStream(m1);
@@ -51,16 +53,7 @@ public class Save implements Serializable {
         } catch (IOException i) {
             System.out.println("saving game doesn't work");
         }
-
-        try {
-            FileOutputStream fileOutMain = new FileOutputStream(main1);
-            ObjectOutputStream outMain = new ObjectOutputStream(fileOutMain);
-            outMain.writeObject(main);
-            outMain.close();
-        } catch (IOException i) {
-            System.out.println("saving main doesn't work");
-        }
-
+        /*
         try {
             FileOutputStream fileOut = new FileOutputStream(f1);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -120,7 +113,7 @@ public class Save implements Serializable {
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(null);
             out.close();
-        }
+        } */
     }
 
     /**
@@ -130,15 +123,14 @@ public class Save implements Serializable {
      */
     public void loadData() throws IOException {
 
-        Player g = null;
-        Player h = null;
-        Player i = null;
-        Player j = null;
+//        Player g = null;
+//        Player h = null;
+//        Player i = null;
+//        Player j = null;
 
         Map z = null;
         Store y = null;
         Game w = null;
-        Main main = null;
 
         try {
             FileInputStream fileInMap = new FileInputStream(m1);
@@ -153,8 +145,7 @@ public class Save implements Serializable {
             System.out.println("Loading map doesn't work b/c map doesn't exist?");
         }
 
-        System.out.println(z.getBoard());
-
+        System.out.println(z);
 
         try {
             FileInputStream fileInStore = new FileInputStream(s1);
@@ -169,7 +160,7 @@ public class Save implements Serializable {
             System.out.println("Loading store doesn't work b/c store doesn't exist?");
         }
 
-        System.out.println(y.getEnergyStock());
+        System.out.println(y);
 
         try {
             FileInputStream fileInGame = new FileInputStream(g1);
@@ -184,22 +175,9 @@ public class Save implements Serializable {
             System.out.println("Loading game doesn't work b/c game doesn't exist?");
         }
 
-        System.out.println(w.difficulty);
+        System.out.println(w);
 
-        try {
-            FileInputStream fileInMain = new FileInputStream(main1);
-            ObjectInputStream inMain = new ObjectInputStream(fileInMain);
-            main = (Main) inMain.readObject();
-            inMain.read();
-            inMain.close();
-            fileInMain.close();
-        } catch (ClassNotFoundException e) {
-            System.out.println("Loading main doesn't work. shit");
-        } catch (IOException x) {
-            System.out.println("Loading main doesn't work b/c main doesn't exist?");
-        }
-        
-
+        /*
         try {
             FileInputStream fileIn = new FileInputStream(f1);
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -213,9 +191,7 @@ public class Save implements Serializable {
             System.out.print("load doesn't work");
         }
 
-        System.out.println(g.getName());
-        System.out.println(g.getNumTilesOwned());
-        System.out.println(g.getColor());
+        System.out.println(g);
 
         try {
             FileInputStream fileIn2 = new FileInputStream(f2);
@@ -230,9 +206,7 @@ public class Save implements Serializable {
             System.out.print("load doesn't work");
         }
 
-        System.out.println(h.getName());
-        System.out.println(h.getNumTilesOwned());
-        System.out.println(h.getColor());
+        System.out.println(h);
 
         try {
             FileInputStream fileIn3 = new FileInputStream(f3);
@@ -250,9 +224,7 @@ public class Save implements Serializable {
             System.out.print("load doesn't work");
         }
 
-        System.out.println(i.getName());
-        System.out.println(i.getNumTilesOwned());
-        System.out.println(i.getColor());
+        System.out.println(i);
 
         try {
             FileInputStream fileIn4 = new FileInputStream(f4);
@@ -274,5 +246,21 @@ public class Save implements Serializable {
             System.out.print("load doesn't work");
         }
 
+        System.out.println(j);
+        */
+        System.out.println("setting game");
+        Main.setMyGame(w);
+        System.out.println("setting store");
+        w.setStore(y);
+        System.out.println("setting map");
+        w.setMap(z);
+//        w.addPlayer(g);
+//        w.addPlayer(h);
+//        w.addPlayer(i);
+//        w.addPlayer(j);
+        System.out.println("setting master controller");
+        MasterController.getInstance().getMapController().setMap(z);
+        System.out.println("Starting turn");
+        w.startTurn();
     }
 }

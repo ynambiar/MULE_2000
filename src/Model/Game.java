@@ -265,7 +265,7 @@ public class Game implements Serializable {
     }
 
     public void saveData() throws IOException {
-        save.saveData(players, map, store, this, main);
+        save.saveData(players, map, store, this);
     }
 
     public void loadData() throws IOException {
@@ -372,6 +372,13 @@ public class Game implements Serializable {
     }
 
     /**
+     * Sets the Store of the game.
+     */
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    /**
      * Sets MapType enum of the game.
      * @param mapType
      */
@@ -379,6 +386,13 @@ public class Game implements Serializable {
         this.mapType = mapType;
     }
 
+
+    /**
+     * Sets the Map.
+     */
+    public void setMap(Map map) {
+        this.map = map;
+    }
 
     /**
      * Returns Map.
