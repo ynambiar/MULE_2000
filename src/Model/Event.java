@@ -47,7 +47,7 @@ public enum Event implements Serializable {
                 };
             case SIX:
                 return new int[] {
-                        0, (int)(Main.myGame
+                        0, (int) (Main.myGame
                                 .getCurrentPlayer().getFood() * -.5),
                         0,
                         0
