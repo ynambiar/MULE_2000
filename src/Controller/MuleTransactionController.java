@@ -23,8 +23,10 @@ public class MuleTransactionController implements Serializable {
     Rectangle energyMule;
     @FXML
     Rectangle smithoreMule;
+    @FXML
+    Rectangle flowerMule;
 
-    boolean foodSelected, energySelected, smithoreSelected;
+    boolean foodSelected, energySelected, smithoreSelected, flowerSelected;
 
     @FXML
     /**
@@ -40,19 +42,23 @@ public class MuleTransactionController implements Serializable {
      */
     private void setBuyBtn() {
         Game g = Main.myGame;
-        if (foodSelected || energySelected || smithoreSelected) {
-            int cost;
+        int cost = 0;
+        if (foodSelected || energySelected || smithoreSelected || flowerSelected) {
             if (foodSelected) {
                 g.setMuleType(Mule.FOOD);
                 cost = 125;
             } else if (energySelected) {
                 g.setMuleType(Mule.ENERGY);
                 cost = 150;
-            } else {
+            } else if (smithoreSelected) {
                 g.setMuleType(Mule.SMITHORE);
                 cost = 175;
+            } else if (Main.myGame.getMapType().equals("Random")) {
+                g.setMuleType(Mule.FLOWER);
+                cost = 600;
             }
-            if (g.getCurrentPlayer().getMoney() >= cost) {
+
+            if (g.getCurrentPlayer().getMoney() >= cost && cost != 0) {
                 g.setPhase("Emplacing Mule");
                 g.getCurrentPlayer().addMoney(cost * -1);
                 g.refreshLabels();
@@ -60,6 +66,8 @@ public class MuleTransactionController implements Serializable {
                 foodSelected = false;
                 energySelected = false;
                 smithoreSelected = false;
+                flowerSelected = false;
+                flowerMule.setOpacity(0);
                 smithoreMule.setOpacity(0);
                 energyMule.setOpacity(0);
                 foodMule.setOpacity(0);
@@ -94,6 +102,8 @@ public class MuleTransactionController implements Serializable {
             energySelected = false;
             smithoreMule.setOpacity(0);
             smithoreSelected = false;
+            flowerMule.setOpacity(0);
+            flowerSelected = false;
         }
     }
 
@@ -112,6 +122,8 @@ public class MuleTransactionController implements Serializable {
             foodSelected = false;
             smithoreMule.setOpacity(0);
             smithoreSelected = false;
+            flowerMule.setOpacity(0);
+            flowerSelected = false;
         }
     }
 
@@ -130,6 +142,28 @@ public class MuleTransactionController implements Serializable {
             energySelected = false;
             foodMule.setOpacity(0);
             foodSelected = false;
+            flowerMule.setOpacity(0);
+            flowerSelected = false;
+        }
+    }
+
+    @FXML
+    /**
+     * Sets properts of flower mule.
+     */
+    private void setFlowerMule() {
+        if (flowerSelected) {
+            flowerMule.setOpacity(0);
+            flowerSelected = false;
+        } else {
+            flowerMule.setOpacity(.30);
+            flowerSelected = true;
+            energyMule.setOpacity(0);
+            energySelected = false;
+            foodMule.setOpacity(0);
+            foodSelected = false;
+            smithoreSelected = false;
+            smithoreMule.setOpacity(0);
         }
     }
 }
