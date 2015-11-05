@@ -1,6 +1,6 @@
 package model;
 
-import Controller.MasterController;
+import controller.MasterController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

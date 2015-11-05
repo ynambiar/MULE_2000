@@ -1,7 +1,7 @@
 package model;
 
-import Controller.MapController;
-import Controller.MasterController;
+import controller.MapController;
+import controller.MasterController;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;

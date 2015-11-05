@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import model.Main;
 import javafx.fxml.FXML;

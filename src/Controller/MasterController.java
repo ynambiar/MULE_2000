@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 
 public class MasterController implements Serializable {
@@ -31,7 +30,7 @@ public class MasterController implements Serializable {
     }
 
     /**
-     * Constructor for Master Controller. Loads all the scenes.
+     * Constructor for Master controller. Loads all the scenes.
      */
     public MasterController() {
         Parent root;
