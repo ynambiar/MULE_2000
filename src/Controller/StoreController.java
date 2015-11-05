@@ -147,7 +147,7 @@ public class StoreController implements Serializable {
   @FXML
   private ImageView energyAnim;
   @FXML
-  private ImageView muleAnim
+  private ImageView muleAnim;
   @FXML
   private ImageView caAnim;
   @FXML
