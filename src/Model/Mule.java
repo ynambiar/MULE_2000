@@ -1,7 +1,11 @@
 package model;
 
 import java.io.Serializable;
+/**
+* Mule class.
+*/
 
 public enum Mule implements Serializable {
-    FOOD, ENERGY, SMITHORE, FLOWER
+  //NEED JAVA DOC
+  FOOD, ENERGY, SMITHORE, FLOWER
 }
