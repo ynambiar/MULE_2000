@@ -1,10 +1,7 @@
 package Controller;
 
-import Model.Main;
+import model.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Label;
 
 import java.io.Serializable;
 

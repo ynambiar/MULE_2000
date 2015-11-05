@@ -1,14 +1,13 @@
 package Controller;
 
-import Model.*;
-import Model.Map.Difficulty;
-import Model.Map.MapType;
+import model.*;
+import model.Map.Difficulty;
+import model.Map.MapType;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Toggle;
 import javafx.scene.layout.AnchorPane;
 
@@ -40,7 +39,7 @@ public class Config1Controller implements Serializable {
      */
     private void setNextBtn() {
         boolean toggles[] = {false, false};
-        Model.Game game = Main.myGame;
+        model.Game game = Main.myGame;
         for (Toggle t : difficultyToggle.getToggles()) {
             if (t.isSelected()) {
                 toggles[0] = true;

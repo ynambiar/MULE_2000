@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.io.Serializable;
 
@@ -270,5 +270,4 @@ public class Store implements Serializable {
     public int getSmithorePrice() {
         return smithorePrice;
     }
-
 }

@@ -1,7 +1,7 @@
 package Controller;
 
-import Model.Game;
-import Model.Main;
+import model.Game;
+import model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;

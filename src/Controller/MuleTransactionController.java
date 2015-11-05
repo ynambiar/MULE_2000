@@ -1,8 +1,8 @@
 package Controller;
 
-import Model.Game;
-import Model.Main;
-import Model.Mule;
+import model.Game;
+import model.Main;
+import model.Mule;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;

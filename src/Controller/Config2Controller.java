@@ -1,7 +1,7 @@
 package Controller;
 
 
-import Model.*;
+import model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Config2Controller implements Serializable {
 

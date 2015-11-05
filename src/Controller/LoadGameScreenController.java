@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Main;
+import model.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 

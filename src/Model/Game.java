@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.io.*;
 import java.net.URL;
@@ -8,7 +8,7 @@ import java.util.Random;
 
 import Controller.MapController;
 import Controller.MasterController;
-import Model.Map.*;
+import model.Map.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 

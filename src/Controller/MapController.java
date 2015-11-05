@@ -1,18 +1,16 @@
 package Controller;
 
-import Model.*;
+import model.*;
 import javafx.scene.layout.GridPane;
-import Model.Map.MapType;
+import model.Map.MapType;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Timer;
