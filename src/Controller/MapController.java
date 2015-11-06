@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -9,12 +9,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
-import model.Game;
-import model.Main;
-import model.Map.MapType;
-import model.Map;
-import model.Mule;
-import model.Player;
+import Model.Game;
+import Model.Main;
+import Model.Map.MapType;
+import Model.Map;
+import Model.Mule;
+import Model.Player;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -86,12 +86,12 @@ public class MapController implements Serializable {
             if (mule != null) {
               ImageView muleImg;
               if (mule == Mule.FOOD) {
-                muleImg = new ImageView("/View/Resources/tinyFoodMule.png");
+                muleImg = new ImageView("/view/Resources/tinyFoodMule.png");
               } else if (mule == Mule.ENERGY) {
-                muleImg = new ImageView("/View/Resources/tinyEnergyMule.png");
+                muleImg = new ImageView("/view/Resources/tinyEnergyMule.png");
               } else {
                 muleImg = new ImageView(
-                    "/View/Resources/tinySmithoreMule.png");
+                        "/view/Resources/tinySmithoreMule.png");
               }
               tileContainer.getChildren().add(muleImg);
             }
@@ -114,11 +114,11 @@ public class MapController implements Serializable {
       } else if (gameset.getPhase().equals("Emplacing Mule")) {
         ImageView mule;
         if (gameset.getMuleType() == Mule.FOOD) {
-          mule = new ImageView("/View/Resources/tinyFoodMule.png");
+          mule = new ImageView("/view/Resources/tinyFoodMule.png");
         } else if (gameset.getMuleType() == Mule.ENERGY) {
-          mule = new ImageView("/View/Resources/tinyEnergyMule.png");
+          mule = new ImageView("/view/Resources/tinyEnergyMule.png");
         } else {
-          mule = new ImageView("/View/Resources/tinySmithoreMule.png");
+          mule = new ImageView("/view/Resources/tinySmithoreMule.png");
         }
         tile.getChildren().add(mule);
       } else if (gameset.getPhase().equals("Selling Mules")) {

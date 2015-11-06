@@ -1,6 +1,6 @@
-package model;
+package Model;
 
-import controller.MasterController;
+import Controller.MasterController;
 
 import java.io.File;
 

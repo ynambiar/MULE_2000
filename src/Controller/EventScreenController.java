@@ -1,9 +1,9 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import model.Main;
+import Model.Main;
 
 import java.io.Serializable;
 /**

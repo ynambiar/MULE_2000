@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,57 +41,57 @@ public class MasterController implements Serializable {
   }
 
   /**
-   * Constructor for Master controller. Loads all the scenes.
+   * Constructor for Master Controller. Loads all the scenes.
    */
   public MasterController() {
     Parent root;
     try {
-      root = FXMLLoader.load(getClass().getResource("/View/Config1.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Config1.fxml"));
       config1Scene = new Scene(root);
 
-      root = FXMLLoader.load(getClass().getResource("/View/Config2.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Config2.fxml"));
       config2Scene = new Scene(root);
 
-      root = FXMLLoader.load(getClass().getResource("/View/Pub.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Pub.fxml"));
       insidePubScene = new Scene(root);
 
-      root = FXMLLoader.load(getClass().getResource("/View/Store.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Store.fxml"));
       insideStoreScene = new Scene(root);
 
       root = FXMLLoader.load(getClass().getResource(
-          "/View/StoreTransactionScreenFood.fxml"));
+              "/view/StoreTransactionScreenFood.fxml"));
       storeTransactionSceneFood = new Scene(root);
 
       root = FXMLLoader.load(getClass().getResource(
-          "/View/StoreTransactionScreenEnergy.fxml"));
+              "/view/StoreTransactionScreenEnergy.fxml"));
       storeTransactionSceneEnergy = new Scene(root);
 
       root = FXMLLoader.load(getClass().getResource(
-          "/View/StoreTransactionScreenSmithore.fxml"));
+              "/view/StoreTransactionScreenSmithore.fxml"));
       storeTransactionSceneSmithore = new Scene(root);
 
       root = FXMLLoader.load(getClass().getResource(
-          "/View/MuleTransactionScreen.fxml"));
+              "/view/MuleTransactionScreen.fxml"));
       muleTransactionScene = new Scene(root);
 
-      root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Town.fxml"));
       insideTownScene = new Scene(root);
 
-      loader = new FXMLLoader(getClass().getResource("/View/Map.fxml"));
+      loader = new FXMLLoader(getClass().getResource("/view/Map.fxml"));
       root = (Parent) loader.load();
       mapScene = new Scene(root);
       mapController = (MapController) loader.getController();
-      System.out.println("master controller" + mapController);
+      System.out.println("master Controller" + mapController);
 
       root = FXMLLoader
-          .load(getClass().getResource("/View/RulesScreen.fxml"));
+          .load(getClass().getResource("/view/RulesScreen.fxml"));
       rulesScene = new Scene(root);
 
       root = FXMLLoader.load(getClass().getResource(
-          "/View/loadGameScreen.fxml"));
+              "/view/loadGameScreen.fxml"));
       loadGameScreen = new Scene(root);
 
-      root = FXMLLoader.load(getClass().getResource("/View/Start.fxml"));
+      root = FXMLLoader.load(getClass().getResource("/view/Start.fxml"));
       startScene = new Scene(root);
 
     } catch (IOException e) {
@@ -197,7 +197,7 @@ public class MasterController implements Serializable {
   public final void loadEventScene() {
     try {
       stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(
-          "/View/EventScreen.fxml"))));
+              "/view/EventScreen.fxml"))));
     } catch (IOException e) {
       System.out.println("IO EXCEPTION");
     }
@@ -209,7 +209,7 @@ public class MasterController implements Serializable {
   public final void loadLandOfficeScene() {
     try {
       stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(
-          "/View/LandOffice.fxml"))));
+              "/view/LandOffice.fxml"))));
     } catch (IOException e) {
       System.out.println("IO EXCEPTION");
     }
@@ -221,7 +221,7 @@ public class MasterController implements Serializable {
   public final void loadStartTurnScene() {
     try {
       stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(
-          "/View/StartTurn.fxml"))));
+              "/view/StartTurn.fxml"))));
     } catch (IOException e) {
       System.out.println("IO EXCEPTION");
     }
@@ -233,7 +233,7 @@ public class MasterController implements Serializable {
   public final void loadGamblingResultsScene() {
     try {
       stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(
-          "/View/GamblingResults.fxml"))));
+              "/view/GamblingResults.fxml"))));
     } catch (IOException e) {
       System.out.println("IO EXCEPTION");
     }

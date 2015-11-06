@@ -1,12 +1,12 @@
-package model;
+package Model;
 
-import controller.MapController;
-import controller.MasterController;
+import Controller.MapController;
+import Controller.MasterController;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import model.Map.Difficulty;
-import model.Map.MapType;
+import Model.Map.Difficulty;
+import Model.Map.MapType;
 
 
 import java.io.IOException;
@@ -52,7 +52,7 @@ public class Game implements Serializable {
     save = new Save();
     // Code for the music
     final URL resource = getClass()
-        .getResource("/View/Resources/music.mp3");
+        .getResource("/view/Resources/music.mp3");
     final Media media = new Media(resource.toString());
     final MediaPlayer mediaPlayer = new MediaPlayer(media);
     mediaPlayer.play();
