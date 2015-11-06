@@ -6,13 +6,64 @@ import java.io.Serializable;
  * Event class.
  */
 public enum Event implements Serializable {
-  //JAVA DOCS THESE
-  ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, // affects 1
-  // player
+    /**
+     * Random event 1.
+    */
+    ONE,
+    /**
+     * Random event 2.
+    */
+    TWO,
+    /**
+     * Random event 3.
+    */
+    THREE,
+    /**
+     * Random event 4.
+    */
+    FOUR,
+    /**
+     * Random event 5.
+    */
+    FIVE,
+    /**
+     * Random event 6.
+    */
+    SIX,
+    /**
+     * Random event 7.
+    */
+    SEVEN,
+    /**
+     * Random event 8.
+    */
+    EIGHT,
+    /**
+     * Random event 9.
+    */
+    NINE,
+    /**
+     * Random event 10.
+    */
+    TEN,
+    /**
+     * Random event 11.
+     * Affects all players.
+    */
+    ELEVEN,
+    /**
+     * Random event 12.
+     * Affects all players.
+    */
+    TWELVE; // affects all players
 
-  ELEVEN, TWELVE; // affects all players
-
+    /**
+     * Current value of map.
+     */
   private int mapval;
+    /**
+     * Potential map values.
+    */
   private int[] mvals = new int[] {
       25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100
   };

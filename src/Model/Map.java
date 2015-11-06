@@ -8,11 +8,29 @@ import java.util.Random;
 
 public class Map implements Serializable {
   //NEED JAVADOCS FOR THESE VARIABLES
+  /**
+   * Height of board.
+   */
   private int height;
+  /**
+   * Width of board.
+   */
   private int width;
+  /**
+   * 2D Array of bord of MapTiles.
+   */
   private MapTile[][] board;
+  /**
+   * 2D Array of ownership status.
+   */
   private boolean[][] tilesOwned;
+  /**
+   * 2D Array of tiles that have mules.
+   */
   private boolean[][] hasMule;
+  /**
+   * Standard Map.
+   */
   private final MapTile[][] standardMap = {
     {MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R,
       MapTile.P, MapTile.M3, MapTile.P, MapTile.P},
@@ -25,9 +43,17 @@ public class Map implements Serializable {
     {MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R,
       MapTile.P, MapTile.P, MapTile.P, MapTile.M2}};
 
+  /**
+   * Enum class for MapType.
+   */
+
   public enum MapType {
     RANDOM, STANDARD;
   }
+
+  /**
+   * Enum class for Difficulty.
+   */
 
   public enum Difficulty {
     EASY, MEDIUM, HARD;
