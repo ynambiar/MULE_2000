@@ -21,24 +21,71 @@ import java.util.Random;
 */
 
 public class Game implements Serializable {
-  //JAVADOC
+  /**
+   * List of players.
+  **/
   ArrayList<Player> players;
+  /**
+   * Current player.
+  **/
   Player currentPlayer;
+  /**
+   * Difficulty of the game.
+  **/
   Difficulty difficulty;
+  /**
+   * Map type.
+  **/
   MapType mapType;
+  /**
+   * Map.
+  **/
   Map map;
+  /**
+   * Store.
+  **/
   Store store;
+  /**
+   * Save object.
+  **/
   Save save;
+  /**
+   * Round Number.
+  **/
   int roundNumber;
+  /**
+   * Time left in the turn.
+  **/
   int timeLeft;
+  /**
+   *  Money own from gambling.
+  **/
   int gamble;
+  /**
+   * Phase of the game.
+  **/
   String phase;
+  /**
+   * Type of mule.
+  **/
   Mule muleType;
+  /**
+   * Array of events.
+  **/
   Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE,
       Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN, Event.EIGHT,
-      Event.NINE, Event.TEN};
+      Event.NINE, Event.TEN, Event.ELEVEN, Event.TWELVE};
+  /**
+   * The current event.
+  **/
   Event currentEvent;
+  /**
+   * Cost of land.
+  **/
   int landCost;
+  /**
+   * Single instance of Main.
+  **/
   Main main;
 
   /**

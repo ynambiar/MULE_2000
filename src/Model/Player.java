@@ -7,20 +7,53 @@ import java.io.Serializable;
 */
 
 public class Player implements Serializable {
-  //JAVADOC
+  /**
+   * Player's name.
+  **/
   private String name;
+  /**
+   * Player's race.
+  **/
   private String race;
+  /**
+   * Player's color.
+  **/
   private String color;
+  /**
+   * Player's human or AI status.
+  **/
   private String human;
+  /**
+   * 2D Array of the tiles a player owns.
+  **/
   private boolean[][] tilesOwned;
-
+  /**
+   * 2D Array of the mules emplaced by the Player.
+  **/
   private Mule[][] muleEmplaced;
+  /**
+   * Round number.
+  **/
   private int roundNumber;
+  /**
+   * PLayer time.
+  **/
   private int playerTime;
-
+  /**
+   * Player's money.
+  **/
   private int money;
+  /**
+   * Player's food.
+  **/
   private int food;
+  /**
+   * Player's smithore.
+  **/
   private int smithore;
+  /**
+   * Player's energy.
+   */
   private int energy;
 
   /**
