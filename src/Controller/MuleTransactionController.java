@@ -1,11 +1,11 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
-import Model.Game;
-import Model.Main;
-import Model.Mule;
+import model.Game;
+import model.Main;
+import model.Mule;
 
 
 import java.io.Serializable;

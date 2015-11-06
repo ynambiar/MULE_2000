@@ -1,8 +1,8 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import Model.Main;
+import model.Main;
 
 import java.io.Serializable;
 /**
@@ -23,7 +23,7 @@ public class GambleController implements Serializable {
   }
 
   /**
-  * Initialize Gamble Controller.
+  * Initialize Gamble controller.
   */
   public final void initialize() {
     resultsLabel.setText(Integer.toString(Main.myGame.getGamble()));

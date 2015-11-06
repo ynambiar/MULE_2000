@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,9 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import Model.Game;
-import Model.Main;
-import Model.Player;
+import model.Game;
+import model.Main;
+import model.Player;
 
 
 import java.io.IOException;

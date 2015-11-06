@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXML;
-import Model.Main;
+import model.Main;
 
 import java.io.Serializable;
 /**

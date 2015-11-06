@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import Model.Main;
+import model.Main;
 
 import java.io.Serializable;
 import java.net.URL;
@@ -48,7 +48,7 @@ public class StoreController implements Serializable {
    * Sound code that makes chaChing sound.
    */
   private void chaChing() {
-    final URL resource = getClass().getResource("/view/Resources/money.mp3");
+    final URL resource = getClass().getResource("/View/Resources/money.mp3");
     final Media media = new Media(resource.toString());
     final MediaPlayer mediaPlayer = new MediaPlayer(media);
     mediaPlayer.play();

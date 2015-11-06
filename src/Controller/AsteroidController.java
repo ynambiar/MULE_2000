@@ -8,7 +8,7 @@
 // import javafx.scene.input.KeyEvent;
 
 // /**
-// * Asteroid Controller class.
+// * Asteroid controller class.
 // */
 
 // public class AsteroidController {
@@ -44,7 +44,7 @@
 //   * Initialize.
 //   */
 //   public final void initialize() {
-//     System.out.println("Initialize asteroid Controller \n");
+//     System.out.println("Initialize asteroid controller \n");
 //     scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 //       @Override
 //       public void handle(final KeyEvent event) {

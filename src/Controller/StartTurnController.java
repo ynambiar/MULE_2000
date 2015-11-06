@@ -1,11 +1,11 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import Model.Game;
-import Model.Main;
+import model.Game;
+import model.Main;
 
 
 import java.io.Serializable;

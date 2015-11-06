@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -39,13 +39,13 @@ public enum MapTile implements Serializable {
     energyProduction = energy;
     smithoreProduction = smith;
     imagePath = new HashMap<String, String>();
-    imagePath.put("P", "/view/Resources/TilePlain.png");
-    imagePath.put("R", "/view/Resources/TileRiver.png");
-    imagePath.put("M1", "/view/Resources/TileMountain1.png");
-    imagePath.put("M2", "/view/Resources/TileMountain2.png");
-    imagePath.put("M3", "/view/Resources/TileMountain3.png");
-    imagePath.put("Town", "/view/Resources/TileTown.png");
-    imagePath.put("F", "/view/Resources/TileFlowers.png");
+    imagePath.put("P", "/View/Resources/TilePlain.png");
+    imagePath.put("R", "/View/Resources/TileRiver.png");
+    imagePath.put("M1", "/View/Resources/TileMountain1.png");
+    imagePath.put("M2", "/View/Resources/TileMountain2.png");
+    imagePath.put("M3", "/View/Resources/TileMountain3.png");
+    imagePath.put("Town", "/View/Resources/TileTown.png");
+    imagePath.put("F", "/View/Resources/TileFlowers.png");
   }
 
   /**

@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Model.Game;
-import Model.Main;
+import model.Game;
+import model.Main;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -60,7 +60,7 @@ public class LandOfficeController implements Serializable {
   }
 
   /**
-  * Initialize Land Office Controller.
+  * Initialize Land Office controller.
   */
   public final void initialize() {
     Game gameset = Main.myGame;
