@@ -7,14 +7,37 @@ import java.io.Serializable;
  */
 
 public class Store implements Serializable {
-  //JAVADOCS
+  /**
+   * Store's mule stock.
+  **/
   private int muleStock;
+  /**
+   * Store's food stock.
+  **/
   private int foodStock;
+  /**
+   * Store's energy stock.
+  **/
   private int energyStock;
+  /**
+   * Store's smithore stock.
+  **/
   private int smithoreStock;
+  /**
+   * Store's mule price.
+  **/
   private int mulePrice;
+  /**
+   * Store's food price.
+  **/
   private int foodPrice;
+  /**
+   * Store's energy price.
+  **/
   private int energyPrice;
+  /**
+   * Store's smithore price.
+  **/
   private int smithorePrice;
 
   /**

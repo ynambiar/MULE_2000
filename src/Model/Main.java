@@ -10,7 +10,9 @@ import java.io.Serializable;
 */
 
 public class Main extends Application implements Serializable {
-  //JAVADOCS
+  /**
+   * One instance of game to be used throughout the program.
+  **/
   public static Game myGame;
 
   /**

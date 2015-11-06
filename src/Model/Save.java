@@ -17,15 +17,19 @@ import java.util.ArrayList;
 */
 
 public class Save implements Serializable {
-  //JAVA DOC
-  private File f1 = new File("Player1.ser");
-  private File f2 = new File("Player2.ser");
-  private File f3 = new File("Player3.ser");
-  private File f4 = new File("Player4.ser");
+
+  /**
+   * Save map file.
+   **/
   private File m1 = new File("MapSave.ser");
+  /**
+   * Save store file.
+   **/
   private File s1 = new File("StoreSave.ser");
+  /**
+   * Save game file.
+   **/
   private File g1 = new File("GameSave.ser");
-  private File main1 = new File("MainSave.ser");
 
   /**
    * Saves data.

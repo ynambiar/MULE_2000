@@ -6,6 +6,20 @@ import java.io.Serializable;
 */
 
 public enum Mule implements Serializable {
-  //NEED JAVA DOC
-  FOOD, ENERGY, SMITHORE, FLOWER
+  /**
+   * Food mule.
+  **/
+  FOOD,
+  /**
+   * Energy mule.
+  **/
+  ENERGY,
+  /**
+   * Smithore mule.
+  **/
+  SMITHORE,
+  /**
+   * Flower mule.
+  **/
+  FLOWER
 }
