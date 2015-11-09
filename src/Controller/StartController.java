@@ -1,11 +1,11 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.Serializable;
 /**
-* Start controller Class.
+* Start Controller Class.
 **/
 
 public class StartController implements Serializable {

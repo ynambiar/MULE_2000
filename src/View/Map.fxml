@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0"
             prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MapController">
+            fx:controller="Controller.MapController">
     <children>
         <Label layoutX="527.0" layoutY="390.0" prefHeight="130.0" prefWidth="162.0"
                style="-fx-background-color: lightgrey;">
