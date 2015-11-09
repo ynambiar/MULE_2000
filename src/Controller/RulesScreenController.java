@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 
 import java.io.Serializable;
 /**
-* Rules Screen Controller.
+* Rules Screen controller.
 */
 
 public class RulesScreenController implements Serializable {

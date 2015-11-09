@@ -10,7 +10,7 @@ import model.Main;
 
 import java.io.Serializable;
 /**
-* Start Turn Controller.
+* Start Turn controller.
 */
 
 public class StartTurnController implements Serializable {

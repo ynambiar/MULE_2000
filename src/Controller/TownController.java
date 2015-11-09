@@ -5,7 +5,7 @@ import model.Main;
 
 import java.io.Serializable;
 /**
-* Town Controller Class.
+* Town controller Class.
 */
 
 public class TownController implements Serializable {

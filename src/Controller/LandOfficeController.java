@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 /**
-* Land Office Controller class.
+* Land Office controller class.
 */
 
 public class LandOfficeController implements Serializable {

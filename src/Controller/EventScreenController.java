@@ -7,7 +7,7 @@ import model.Main;
 
 import java.io.Serializable;
 /**
-* Event Screen Controller class.
+* Event Screen controller class.
 */
 
 public class EventScreenController implements Serializable {

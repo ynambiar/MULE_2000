@@ -6,7 +6,7 @@ import model.Main;
 
 import java.io.Serializable;
 /**
-* Gamble Controller Class.
+* Gamble controller Class.
 */
 
 public class GambleController implements Serializable {

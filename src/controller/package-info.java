@@ -1,3 +1,3 @@
 /**
- * Model Package
+ * model Package
  */

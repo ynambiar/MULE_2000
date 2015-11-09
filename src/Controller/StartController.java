@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 
 import java.io.Serializable;
 /**
-* Start Controller Class.
+* Start controller Class.
 **/
 
 public class StartController implements Serializable {
