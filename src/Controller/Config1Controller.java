@@ -15,27 +15,60 @@ import Model.Map.MapType;
 import java.io.Serializable;
 
 public class Config1Controller implements Serializable {
-  //JAVADOCS
+
+  /*
+   Anchor pane.
+  */
   @FXML
   private AnchorPane pane;
+  /*
+   Back button.
+  */
   @FXML
   private Button backBtn;
+  /*
+   Next button.
+  */
   @FXML
   private Button nextBtn;
+  /*
+   Difficulty toggle.
+  */
   @FXML
   private ToggleGroup difficultyToggle;
+  /*
+   Map toggle.
+  */
   @FXML
   private ToggleGroup mapToggle;
+  /*
+   Easy radio button.
+  */
   @FXML
   private RadioButton easyRadio;
+  /*
+   Medium radio button.
+  */
   @FXML
   private RadioButton mediumRadio;
+  /*
+   Hard radio button.
+  */
   @FXML
   private RadioButton hardRadio;
+  /*
+   Standard radio button.
+  */
   @FXML
   private RadioButton standardMapRadio;
+  /*
+   Random map radio button.
+  */
   @FXML
   private RadioButton randomMapRadio;
+  /*
+   Error Label.
+  */
   @FXML
   private Label errorLabel;
 

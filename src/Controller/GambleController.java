@@ -10,7 +10,9 @@ import java.io.Serializable;
 */
 
 public class GambleController implements Serializable {
-  //JAVADOC
+  /*
+   Results label.
+  */
   @FXML
   private Label resultsLabel;
 

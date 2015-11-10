@@ -33,20 +33,4 @@ public class GameTest {
         }
     }
 
-
 }
-
-import org.junit.Rule
-
-/**
- * A JUnit {@link Rule} for running tests on the JavaFX thread and performing
- * JavaFX initialisation.  To include in your test case, add the following code:
- *
- * <pre>
- * {@literal @}Rule
- * public JavaFXThreadingRule jfxRule = new JavaFXThreadingRule();
- * </pre>
- *
- * @author Andy Till
- *
- */
