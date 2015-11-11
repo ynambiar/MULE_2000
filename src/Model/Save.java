@@ -131,6 +131,8 @@ public class Save implements Serializable {
     	gameval.setMap(mapval);
     }
     MasterController.getInstance().getMapController().setMap(mapval);
-    gameval.startTurn();
+    if (null != gameval) {
+        gameval.startTurn();
+    }
   }
 }
