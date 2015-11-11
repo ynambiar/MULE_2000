@@ -7,9 +7,11 @@ import java.io.Serializable;
 /**
 * Rules Screen Controller.
 */
-
 public class RulesScreenController implements Serializable {
 
+  /*
+    button that takes you back to home screen from rules screen
+   */
   @FXML
   private Button backBtn;
 

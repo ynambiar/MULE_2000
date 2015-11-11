@@ -7,16 +7,27 @@ import java.io.Serializable;
 /**
 * Start Controller Class.
 **/
-
 public class StartController implements Serializable {
-  //JAVADOC
+
+  /*
+    rules button
+   */
   @FXML
   private Button ruleBtn;
+  /*
+    play button
+   */
   @FXML
   private Button playBtn;
+  /*
+    load button
+   */
   @FXML
   private Button loadBtn;
 
+  /**
+   * Loads the rules screen (In Progress)
+   */
   @FXML
   private void setRuleBtn() {
     // MasterController.getInstance().loadAsteroidScene();

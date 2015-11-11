@@ -21,29 +21,67 @@ import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Map Controller Class
+ */
 public class MapController implements Serializable {
 
+  /*
+    map
+   */
   @FXML
   private GridPane map;
+  /*
+    current phase label
+   */
   @FXML
   private Label currentPhaseLabel;
+  /*
+    current player label
+   */
   @FXML
   private Label currentPlayerLabel;
+  /*
+    time left label
+   */
   @FXML
   private Label timeLeftLabel;
+  /*
+    food label
+   */
   @FXML
   private Label foodLbl;
+  /*
+    energy label
+   */
   @FXML
   private Label energyLbl;
+  /*
+    smithore label
+   */
   @FXML
   private Label smithoreLbl;
+  /*
+    money label
+   */
   @FXML
   private Label moneyLbl;
+
+  /*
+    "End Turn" button
+   */
   @FXML
   private Button endTurnBtn;
+  /*
+    "Save Game" button
+   */
   @FXML
   private Button saveGameBtn;
 
+  /**
+   * Creates a Map
+   * @param type the type of Map (either standard or randomized)
+   */
   public final void createMap(final MapType type) {
     Map myMap;
     if (type == MapType.RANDOM) {
@@ -66,6 +104,10 @@ public class MapController implements Serializable {
     }
   }
 
+  /**
+   * Sets a map
+   * @param myMap the map that needs to be set as the main map
+   */
   public final void setMap(final Map myMap) {
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 9; j++) {
@@ -102,6 +144,10 @@ public class MapController implements Serializable {
     }
   }
 
+  /**
+   * Carries out various actions if a tile is cliced
+   * @param event an event/click of a tile
+   */
   public final void tileClicked(final MouseEvent event) {
     Game gameset = Main.myGame;
     StackPane tile = (StackPane) event.getSource();
@@ -133,6 +179,9 @@ public class MapController implements Serializable {
     }
   }
 
+  /**
+   * Timer is started when run
+   */
   public final void startTimer() {
     Timer timer = new java.util.Timer();
     timer.scheduleAtFixedRate(new TimerTask() {
@@ -148,6 +197,10 @@ public class MapController implements Serializable {
     }, 0, 1000);
   }
 
+  /**
+   * Loads town when town tile is clicked
+   * @param event a click on the tile with the town
+   */
   public final void townClicked(final MouseEvent event) {
     if (Main.myGame.getRoundNumber() >= 1) {
       MasterController.getInstance().loadTownScene();

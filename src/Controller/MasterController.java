@@ -8,26 +8,80 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.io.Serializable;
 
+/**
+ * Master Controller Class
+ */
 public class MasterController implements Serializable {
 
+  /*
+    stage
+   */
   private Stage stage;
+  /*
+    config 1 scene
+   */
   private Scene config1Scene;
+  /*
+    config 2 scene
+   */
   private Scene config2Scene;
+  /*
+    inside pub scene
+   */
   private Scene insidePubScene;
+  /*
+    inside store scene
+   */
   private Scene insideStoreScene;
+  /*
+    store transaction scene for food
+   */
   private Scene storeTransactionSceneFood;
+  /*
+    store transaction scene for energy
+   */
   private Scene storeTransactionSceneEnergy;
+  /*
+    store transaction scene for smithore
+   */
   private Scene storeTransactionSceneSmithore;
+  /*
+    inside town scene
+   */
   private Scene insideTownScene;
+  /*
+    rules scene
+   */
   private Scene rulesScene;
+  /*
+    map scene
+   */
   private Scene mapScene;
+  /*
+    start scene
+   */
   private Scene startScene;
+  /*
+    mule transaction scene
+   */
   private Scene muleTransactionScene;
+  /*
+    load game scene
+   */
   private Scene loadGameScreen;
+  /*
+    loader
+   */
   private FXMLLoader loader;
+  /*
+    map controller
+   */
   private MapController mapController;
 
   // create a singleton
+  /**
+   * Creates a singleton
+   */
   private static MasterController masterController = new MasterController();
 
   /**

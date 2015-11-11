@@ -8,9 +8,14 @@ import java.io.Serializable;
 
 import java.util.Random;
 
+/**
+ * Pub Controller Class
+ */
 public class PubController implements Serializable {
 
-  // results Screen
+  /*
+    money label
+   */
   @FXML
   private Label moneyLabel;
 
