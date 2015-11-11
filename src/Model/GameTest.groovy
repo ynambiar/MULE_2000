@@ -71,13 +71,18 @@ public class GameTest {
     @Test
     public void testDoProduction() {
         Player current = Main.myGame.getCurrentPlayer();
-        current.addEnergy(10);
+        current.addEnergy(30);
         game.setMap(new Map());
+        current.doProduction();
+        assertEquals(0, current.getFood());
         current.setTileOwned(0, 0, true);
         current.setMuleEmplaced(0, 0, Mule.FOOD);
         current.doProduction();
         assertEquals(4, current.getFood());
+        current.setTileOwned(0, 4, true);
+        current.setMuleEmplaced(0, 4, Mule.SMITHORE);
         current.doProduction();
+        assertEquals(1, 0, current.getSmithore());
         assertEquals(8, current.getFood());
     }
 }
