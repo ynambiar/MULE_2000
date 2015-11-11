@@ -48,6 +48,7 @@ public class GameTest {
         assertEquals(4, p.getNumMules());
     }
 
+    //Saqlain Golandaz
     @Test
     public void testPlayerType() {
         Player p = new Player("Human", "Pegasite", "Player 1", "blue");
