@@ -296,11 +296,11 @@ public class Player implements Serializable {
    *
    * @param row int
    * @param col int
-   * @param moremoney Mule
+   * @param mule Mule
    */
   public final void setMuleEmplaced(final int row, final int col,
-      final Mule moremoney) {
-    muleEmplaced[row][col] = moremoney;
+      final Mule mule) {
+    muleEmplaced[row][col] = mule;
   }
 
   /**

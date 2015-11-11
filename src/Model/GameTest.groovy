@@ -37,14 +37,14 @@ public class GameTest {
     // Tucker LoCicero
     @Test
     public void testNumMules() {
-        Player p = new Player();
+        Player p = new Player("AI", "Flapper", "TesterBob", "blue")
         p.setMuleEmplaced(0, 0, Mule.FOOD);
         assertEquals(1, p.getNumMules());
-        p.setMuleEmplaced(5, 9, Mule.SMITHORE);
+        p.setMuleEmplaced(4, 8, Mule.SMITHORE);
         assertEquals(2, p.getNumMules());
-        p.setMuleEmplaced(5, 0, Mule.FLOWER);
+        p.setMuleEmplaced(4, 0, Mule.FLOWER);
         assertEquals(3, p.getNumMules());
-        p.setMuleEmplaced(0, 9, Mule.ENERGY);
+        p.setMuleEmplaced(0, 8, Mule.ENERGY);
         assertEquals(4, p.getNumMules());
     }
 
@@ -52,15 +52,15 @@ public class GameTest {
     @Test
     public void testPlayerType() {
         Player p = new Player("Human", "Pegasite", "Player 1", "blue");
-        if(p.getMoney() == 1600 && p.getFood() == 0) {
+        if (p.getMoney() == 1600 && p.getFood() == 0) {
             assertEquals("Flapper", p.getRace());
-        } else if(p.getMoney() == 600 && p.getFood() == 0) {
+        } else if (p.getMoney() == 600 && p.getFood() == 0) {
             assertEquals("Human", p.getRace());
-        } else if(p.getMoney() == 550 && p.getFood() == 10) {
+        } else if (p.getMoney() == 550 && p.getFood() == 10) {
             assertEquals("Pegasite", p.getRace());
-        } else if(p.getMoney() == 2000 && p.getFood() == 15) {
+        } else if (p.getMoney() == 2000 && p.getFood() == 15) {
             assertEquals("Techoid", p.getRace());
-        } else if(p.getMoney() == 200 && p.getFood() == 10) {
+        } else if (p.getMoney() == 200 && p.getFood() == 10) {
             assertEquals("Strandroid", p.getRace());
         } else {
             System.out.println("It's a standard player");
