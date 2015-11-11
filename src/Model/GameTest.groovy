@@ -11,7 +11,7 @@ public class GameTest {
 
     public GameTest() {
         game = new Game();
-        game.currentPlayer = new Player("AI", "Flapper", "TesterBob", "blue");
+        game.setCurrentPlayer(new Player("AI", "Flapper", "TesterBob", "blue"));
     }
 
 
@@ -67,8 +67,17 @@ public class GameTest {
         }
     }
 
+    //Willim Stith
     @Test
     public void testDoProduction() {
-
+        Player current = Main.myGame.getCurrentPlayer();
+        current.addEnergy(10);
+        game.setMap(new Map());
+        current.setTileOwned(0, 0, true);
+        current.setMuleEmplaced(0, 0, Mule.FOOD);
+        current.doProduction();
+        assertEquals(4, current.getFood());
+        current.doProduction();
+        assertEquals(8, current.getFood());
     }
 }
