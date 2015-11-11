@@ -2,12 +2,6 @@ package Model;
 
 import Controller.MapController;
 import Controller.MasterController;
-
-<<<<<<< HEAD
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-=======
->>>>>>> origin/master
 import Model.Map.Difficulty;
 import Model.Map.MapType;
 

@@ -5,12 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import Model.Game;
 import Model.Main;
-<<<<<<< HEAD
-import Model.Map;
-=======
->>>>>>> origin/master
 import Model.Mule;
-
+import Model.Map;
 
 import java.io.Serializable;
 
