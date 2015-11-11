@@ -10,7 +10,7 @@ public class Store implements Serializable {
     private int mulePrice, foodPrice, energyPrice, smithorePrice;
 
     /**
-     * Constructor for Store. Sets default values ofr Store's stock in easy mode.
+     * Constructor for Store. Sets default values ofr Store's stock.
      */
     public Store() {
         this(14, 8, 8, 8, 100, 25, 30, 50);
@@ -195,7 +195,7 @@ public class Store implements Serializable {
      *
      * @param f
      */
-    private void addFoodStock(int f) {
+    public void addFoodStock(int f) {
         foodStock = foodStock + f;
     }
 
@@ -204,7 +204,7 @@ public class Store implements Serializable {
      *
      * @param e
      */
-    private void addEnergyStock(int e) {
+    public void addEnergyStock(int e) {
         energyStock = energyStock + e;
     }
 
@@ -213,7 +213,7 @@ public class Store implements Serializable {
      *
      * @param s
      */
-    private void addSmithoreStock(int s) {
+    public void addSmithoreStock(int s) {
         smithoreStock = smithoreStock + s;
     }
 
@@ -222,7 +222,7 @@ public class Store implements Serializable {
      *
      * @return int
      */
-    private int getFoodStock() {
+    public int getFoodStock() {
         return foodStock;
     }
 
@@ -231,7 +231,7 @@ public class Store implements Serializable {
      *
      * @return int
      */
-    private int getEnergyStock() {
+    public int getEnergyStock() {
         return energyStock;
     }
 

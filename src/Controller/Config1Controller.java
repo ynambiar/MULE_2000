@@ -27,7 +27,7 @@ public class Config1Controller implements Serializable {
     @FXML
     private Label errorLabel;
 
-    private boolean configsAreSet = false;
+    boolean configsAreSet = false;
 
     @FXML
     private void setBackBtn() {
@@ -74,13 +74,14 @@ public class Config1Controller implements Serializable {
         if (configsAreSet) {
             MasterController.getInstance().getMapController().createMap(game.getMapType());
             MasterController.getInstance().loadConfig2Scene();
+            //Driver.mygame.createMap();
         } else {
             errorLabel.setVisible(true);
         }
     }
 
     /**
-     * Initializes toggle groups.
+     * Intilializes toggle groups.
      */
     public void initialize() {
         mapToggle = new ToggleGroup();

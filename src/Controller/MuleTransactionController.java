@@ -26,7 +26,7 @@ public class MuleTransactionController implements Serializable {
     @FXML
     Rectangle flowerMule;
 
-    private boolean foodSelected, energySelected, smithoreSelected, flowerSelected;
+    boolean foodSelected, energySelected, smithoreSelected, flowerSelected;
 
     @FXML
     /**

@@ -8,11 +8,16 @@ import java.util.ArrayList;
 /**
  * Created by SaqlainGolandaz on 11/3/15.
  */
-class Save implements Serializable {
+public class Save implements Serializable {
 
+    private File f1 = new File("Player1.ser");
+    private File f2 = new File("Player2.ser");
+    private File f3 = new File("Player3.ser");
+    private File f4 = new File("Player4.ser");
     private File m1 = new File("MapSave.ser");
     private File s1 = new File("StoreSave.ser");
     private File g1 = new File("GameSave.ser");
+    private File main1 = new File("MainSave.ser");
 
     /**
      * Saves data.
@@ -100,7 +105,6 @@ class Save implements Serializable {
             System.out.println("Loading game doesn't work b/c game doesn't exist?");
         }
 
-        //makes game
         Main.setMyGame(w);
         w.setStore(y);
         w.setMap(z);
