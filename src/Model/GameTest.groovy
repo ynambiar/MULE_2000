@@ -1,4 +1,7 @@
-package Model;
+package Model
+
+import sun.jvm.hotspot.debugger.win32.coff.TestDebugInfo;
+
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -42,5 +45,24 @@ public class GameTest {
         assertEquals(3, p.getNumMules());
         p.setMuleEmplaced(0, 9, Mule.ENERGY);
         assertEquals(4, p.getNumMules());
+    }
+
+    @Test
+    public void testPlayerType() {
+        Player p = new Player("Human", "Pegasite", "Player 1", "blue");
+        if(p.getMoney() == 1600 && p.getFood() == 0) {
+            assertEquals("Flapper", p.getRace());
+        } else if(p.getMoney() == 600 && p.getFood() == 0) {
+            assertEquals("Human", p.getRace());
+        } else if(p.getMoney() == 550 && p.getFood() == 10) {
+            assertEquals("Pegasite", p.getRace());
+        } else if(p.getMoney() == 2000 && p.getFood() == 15) {
+            assertEquals("Techoid", p.getRace());
+        } else if(p.getMoney() == 200 && p.getFood() == 10) {
+            assertEquals("Strandroid", p.getRace());
+        } else {
+            System.out.println("It's a standard player");
+        }
+
     }
 }

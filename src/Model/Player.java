@@ -214,6 +214,15 @@ public class Player implements Serializable {
   }
 
   /**
+   * Returns race of player.
+   *
+   * @return String
+   */
+  public final String getRace() {
+    return race;
+  }
+
+  /**
    * Returns how much money a player has.
    *
    * @return int
