@@ -14,19 +14,38 @@ import java.util.Random;
 */
 
 public class LandOfficeController implements Serializable {
-  //JAVADOC
+  /*
+    Yes Buy Land button.
+   */
   @FXML
   private Button yesBuyLandBtn;
+  /*
+   No buy land button.
+  */
   @FXML
   private Button noBuyLandBtn;
+  /*
+   Yes sell land button.
+  */
   @FXML
   private Button yesSellLandBtn;
+  /*
+   Buying price label.
+  */
   @FXML
   private Label buyPrice;
+  /*
+   Selling price label.
+  */
   @FXML
   private Label sellPrice;
-
+  /*
+   Buying price.
+  */
   private int buyingPrice;
+  /*
+   Selling price.
+  */
   private int sellingPrice;
 
   @FXML

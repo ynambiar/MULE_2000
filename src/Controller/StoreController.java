@@ -13,34 +13,76 @@ import Model.Main;
 import java.io.Serializable;
 import java.net.URL;
 
+/**
+ * Store Controller Class.
+ */
 public class StoreController implements Serializable {
 
+  /*
+    Button to buy food
+   */
   @FXML
   private Button buyFood;
+  /*
+    Button to buy energy
+   */
   @FXML
   private Button buyEnergy;
+  /*
+    Button to buy smithore
+   */
   @FXML
   private Button buySmithore;
+  /*
+    Button to buy mule
+   */
   @FXML
   private Button buyMule;
+  /*
+    Button to leave store and go back to town
+   */
   @FXML
   private Button leaveStore;
+  /*
+    Confirm button for buying/selling food
+   */
   @FXML
   private Button confirmBtnFood;
 
+  /*
+    Title label
+   */
   @FXML
   private Label titleLbl;
 
+  /*
+    Text field to enter how much food one wants to buy
+   */
   @FXML
   private TextField buyTxtFood;
+  /*
+    Text field to enter how much food one wants to sell
+   */
   @FXML
   private TextField sellTxtFood;
+  /*
+    Text field to enter how much energy one wants to buy
+   */
   @FXML
   private TextField buyTxtEnergy;
+  /*
+    Text field to enter how much energy one wants to sell
+   */
   @FXML
   private TextField sellTxtEnergy;
+  /*
+    Text field to enter how much smithore one wants to buy
+   */
   @FXML
   private TextField buyTxtSmithore;
+  /*
+    Text field to enter how much smithore one wants to sell
+   */
   @FXML
   private TextField sellTxtSmithore;
 
@@ -142,14 +184,29 @@ public class StoreController implements Serializable {
 
   /* CODE FOR ANIMATION */
 
+  /*
+    Food animation
+   */
   @FXML
   private ImageView foodAnim;
+  /*
+    Energy animation
+   */
   @FXML
   private ImageView energyAnim;
+  /*
+    Mule animation
+   */
   @FXML
   private ImageView muleAnim;
+  /*
+    ca animation
+   */
   @FXML
   private ImageView caAnim;
+  /*
+    ore animation
+   */
   @FXML
   private ImageView oreAnim;
 

@@ -5,32 +5,71 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import Model.Game;
 import Model.Main;
+<<<<<<< HEAD
 import Model.Map;
+=======
+>>>>>>> origin/master
 import Model.Mule;
 
 
 import java.io.Serializable;
 
+/**
+ * Mule Transaction Controller class
+ */
 public class MuleTransactionController implements Serializable {
 
+  /*
+    sell button
+   */
   @FXML
   private Button sellBtn;
+  /*
+    buy button
+   */
   @FXML
   private Button buyBtn;
+  /*
+    cancel button
+   */
   @FXML
   private Button cancelBtn;
+  /*
+    food mule
+   */
   @FXML
   private Rectangle foodMule;
+  /*
+    energy mule
+   */
   @FXML
   private Rectangle energyMule;
+  /*
+    smithore mule
+   */
   @FXML
   private Rectangle smithoreMule;
+  /*
+    flower mule
+   */
   @FXML
   private Rectangle flowerMule;
 
+  /*
+    boolean that tells us if food is selected in store
+   */
   private boolean foodSelected;
+  /*
+    boolean that tells us if energy is selected in store
+   */
   private boolean energySelected;
+  /*
+    boolean that tells us if smithore is selected in store
+   */
   private boolean smithoreSelected;
+  /*
+    boolean that tells us if flower is selected in store
+   */
   private boolean flowerSelected;
 
   @FXML

@@ -3,15 +3,17 @@ package Model;
 import Controller.MapController;
 import Controller.MasterController;
 
+<<<<<<< HEAD
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+=======
+>>>>>>> origin/master
 import Model.Map.Difficulty;
 import Model.Map.MapType;
 
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
@@ -98,11 +100,11 @@ public class Game implements Serializable {
     store = new Store();
     save = new Save();
     // Code for the music
-    final URL resource = getClass()
-        .getResource("/View/Resources/music.mp3");
-    final Media media = new Media(resource.toString());
-    final MediaPlayer mediaPlayer = new MediaPlayer(media);
-    mediaPlayer.play();
+//    final URL resource = getClass()
+//        .getResource("/View/Resources/music.mp3");
+//    final Media media = new Media(resource.toString());
+//    final MediaPlayer mediaPlayer = new MediaPlayer(media);
+//    mediaPlayer.play();
 
   }
 

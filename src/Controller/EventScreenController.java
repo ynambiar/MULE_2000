@@ -12,6 +12,9 @@ import java.io.Serializable;
 
 public class EventScreenController implements Serializable {
 
+  /*
+   Event Label.
+  */
   @FXML
   private Label eventLabel;
 

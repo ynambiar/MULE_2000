@@ -20,40 +20,90 @@ import java.io.Serializable;
 */
 
 public class Config2Controller implements Serializable {
-  //JAVADOC THIS
+  /*
+   Combo box for race
+  */
   @FXML
   private ComboBox<String> combo1race;
+  /*
+   Combo box for race.
+  */
   @FXML
   private ComboBox<String> combo2race;
+  /*
+   Combo box for race.
+  */
   @FXML
   private ComboBox<String> combo3race;
+  /*
+   Combo box for race.
+  */
   @FXML
   private ComboBox<String> combo4race;
+  /*
+   Start game button.
+  */
   @FXML
   private Button startGame;
+  /*
+   Back game button.
+  */
   @FXML
   private Button backBtn;
+  /*
+   Combo box for human.
+  */
   @FXML
   private ComboBox<String> combo1human;
+  /*
+   Combo box for human.
+  */
   @FXML
   private ComboBox<String> combo2human;
+  /*
+   Combo box for human.
+  */
   @FXML
   private ComboBox<String> combo3human;
+  /*
+   Combo box for human.
+  */
   @FXML
   private ComboBox<String> combo4human;
+  /*
+   Error Label.
+  */
   @FXML
   private Label errorLabel;
   @FXML
+  /*
+   Combo box for player 1 name.
+  */
   private TextField p1Name;
+  /*
+   Combo box for player 2 name.
+  */
   @FXML
   private TextField p2Name;
+  /*
+   Combo box for player 3 name.
+  */
   @FXML
   private TextField p3Name;
+  /*
+   Combo box for player 4 name.
+  */
   @FXML
   private TextField p4Name;
+  /*
+   List of player human/AI status.
+  */
   @FXML
   private ObservableList<String> humanBox = FXCollections.observableArrayList(
       "Human", "AI", "Not playing");
+  /*
+   List of player races.
+  */
   @FXML
   private ObservableList<String> raceBox =
       FXCollections.observableArrayList("Human",

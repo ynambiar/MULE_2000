@@ -12,11 +12,16 @@ import java.io.Serializable;
 /**
 * Start Turn Controller.
 */
-
 public class StartTurnController implements Serializable {
-  //JAVADOC
+
+  /*
+    start turn label
+   */
   @FXML
   private Label startTurnLabel;
+  /*
+    start button
+   */
   @FXML
   private Button startBtn;
 

@@ -91,7 +91,7 @@ public class Save implements Serializable {
       inMap.close();
       fileInMap.close();
     } catch (ClassNotFoundException e) {
-      System.out.println("Loading map doesn't work. shit");
+      System.out.println("Loading map doesn't work.");
     } catch (IOException x) {
       System.out.println("Loading map doesn't work b/c map doesn't exist?");
     }
@@ -104,7 +104,7 @@ public class Save implements Serializable {
       inStore.close();
       fileInStore.close();
     } catch (ClassNotFoundException e) {
-      System.out.println("Loading store doesn't work. shit");
+      System.out.println("Loading store doesn't work.");
     } catch (IOException x) {
       System.out
           .println("Loading store doesn't work b/c store doesn't exist?");
@@ -118,7 +118,7 @@ public class Save implements Serializable {
       inGame.close();
       fileInGame.close();
     } catch (ClassNotFoundException e) {
-      System.out.println("Loading game doesn't work. shit");
+      System.out.println("Loading game doesn't work.");
     } catch (IOException x) {
       System.out.println("Loading game doesn't work b/c game doesn't exist?");
     }

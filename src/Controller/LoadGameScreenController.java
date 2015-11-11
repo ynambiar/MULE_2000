@@ -12,10 +12,14 @@ import java.io.Serializable;
 * Load Game Screen Class.
 */
 public class LoadGameScreenController implements Serializable {
-  //JAVADOC
+  /*
+    Yes save button.
+  */
   @FXML
   private Button yesButton;
-
+  /*
+   No save button.
+  */
   @FXML
   private Button noButton;
 
