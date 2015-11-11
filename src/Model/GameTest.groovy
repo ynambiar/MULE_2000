@@ -46,5 +46,3 @@ public class GameTest {
         assertEquals(4, p.getNumMules());
     }
 }
-
-}
