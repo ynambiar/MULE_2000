@@ -33,4 +33,18 @@ public class GameTest {
         }
     }
 
+    @Test
+    public void testNumMules() {
+        Player p = new Player();
+        p.setMuleEmplaced(0, 0, Mule.FOOD);
+        assertEquals(1, p.getNumMules());
+        p.setMuleEmplaced(5, 9, Mule.SMITHORE);
+        assertEquals(2, p.getNumMules());
+        p.setMuleEmplaced(5, 0, Mule.FLOWER);
+        assertEquals(3, p.getNumMules());
+        p.setMuleEmplaced(0, 9, Mule.ENERGY);
+        assertEquals(4, p.getNumMules());
+    }
+}
+
 }
