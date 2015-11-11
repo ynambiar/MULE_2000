@@ -98,7 +98,7 @@ public class MapController implements Serializable {
         }
     }
 
-    public void tileClicked(MouseEvent event) {
+    private void tileClicked(MouseEvent event) {
         Game g = Main.myGame;
         StackPane tile = (StackPane) event.getSource();
         int row = map.getRowIndex(tile);
@@ -143,7 +143,7 @@ public class MapController implements Serializable {
     }
 
 
-    public void townClicked(MouseEvent event) {
+    private void townClicked(MouseEvent event) {
         if (Main.myGame.getRoundNumber() >= 1) {
             MasterController.getInstance().loadTownScene();
             Main.myGame.setPhase("Normal Play");

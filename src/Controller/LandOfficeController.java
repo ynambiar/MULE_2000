@@ -23,7 +23,7 @@ public class LandOfficeController implements Serializable {
     @FXML
     private Label sellPrice;
 
-    int buyingPrice, sellingPrice;
+    private int buyingPrice, sellingPrice;
 
     @FXML
     /**

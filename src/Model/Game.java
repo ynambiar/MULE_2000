@@ -14,25 +14,23 @@ import javafx.scene.media.MediaPlayer;
 
 public class Game implements Serializable {
 
-    ArrayList<Player> players;
-    Player currentPlayer;
-    Difficulty difficulty;
-    MapType mapType;
-    Map map;
-    Store store;
-    Save save;
-    int roundNumber;
-    int timeLeft;
-    int gamble;
-    String phase;
-    Mule muleType;
-    Event[] events = new Event[] { Event.ONE, Event.TWO, Event.THREE,
+    private ArrayList<Player> players;
+    private Player currentPlayer;
+    private Difficulty difficulty;
+    private MapType mapType;
+    private Map map;
+    private Store store;
+    private Save save;
+    private int roundNumber;
+    private int timeLeft;
+    private int gamble;
+    private String phase;
+    private Mule muleType;
+    private Event[] events = new Event[] { Event.ONE, Event.TWO, Event.THREE,
             Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN, Event.EIGHT,
             Event.NINE, Event.TEN };
-    Event currentEvent;
-    int landCost;
-    Main main;
-
+    private Event currentEvent;
+    private int landCost;
 
     /**
      * Constructor for the Game object.

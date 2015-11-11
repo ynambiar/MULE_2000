@@ -12,7 +12,7 @@ public enum Event implements Serializable {
     ELEVEN, TWELVE; // affects all players
 
     private int m;
-    int[] mVals = new int[] {
+    int[] mValues = new int[] {
             25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100
     };
 
@@ -23,7 +23,7 @@ public enum Event implements Serializable {
      * @return int[]
      */
     public int[] getEffects() {
-        m = mVals[Main.myGame.getRoundNumber() - 1];
+        m = mValues[Main.myGame.getRoundNumber() - 1];
         switch (this) {
             case ONE:
                 return new int[] {
@@ -86,7 +86,7 @@ public enum Event implements Serializable {
      * @return String
      */
     public String toString() {
-        m = mVals[Main.myGame.getRoundNumber() - 1];
+        m = mValues[Main.myGame.getRoundNumber() - 1];
         switch (this) {
             case ONE:
                 return "You just received a package from the GT alumni "

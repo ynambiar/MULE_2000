@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Config2Controller implements Serializable {
 
@@ -27,9 +26,9 @@ public class Config2Controller implements Serializable {
     @FXML
     private TextField p1Name, p2Name, p3Name, p4Name;
     @FXML
-    ObservableList<String> humanBox = FXCollections.observableArrayList("Human", "AI", "Not playing");
+    private ObservableList<String> humanBox = FXCollections.observableArrayList("Human", "AI", "Not playing");
     @FXML
-    ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite", "Techoid");
+    private ObservableList<String> raceBox = FXCollections.observableArrayList("Human", "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite", "Techoid");
 
     @FXML
     /**
@@ -45,13 +44,12 @@ public class Config2Controller implements Serializable {
      */
     private void setStartGameBtn() {
         try {
-            if (comboBoxesAreVerififed()) {
+            if (comboBoxesAreVerified()) {
                 Main.myGame.startGame();
             } else {
                 errorLabel.setVisible(true);
             }
         } catch (Exception e) {
-            System.out.println(e);
         }
     }
 
@@ -59,7 +57,7 @@ public class Config2Controller implements Serializable {
      * Verifies combo boxes and adds players accordingly.
      * @return verified
      */
-    private boolean comboBoxesAreVerififed() {
+    private boolean comboBoxesAreVerified() {
         Game game = Main.myGame;
         boolean verified = false;
         if (combo1human.getValue() != "Not Playing" && combo1race.getValue() != null && p1Name.getText() != null) {

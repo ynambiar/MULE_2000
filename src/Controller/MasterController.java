@@ -16,7 +16,6 @@ public class MasterController implements Serializable {
     private Scene config1Scene, config2Scene, insidePubScene,
             insideStoreScene, storeTransactionSceneFood, storeTransactionSceneEnergy, storeTransactionSceneSmithore,
             insideTownScene, rulesScene, mapScene, startScene, muleTransactionScene, loadGameScreen;
-    private FXMLLoader loader;
     private MapController mapController;
 
     //create a singleton
@@ -33,7 +32,7 @@ public class MasterController implements Serializable {
     /**
      * Constructor for Master Controller. Loads all the scenes.
      */
-    public MasterController() {
+    private MasterController() {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("/View/Config1.fxml"));
@@ -63,7 +62,7 @@ public class MasterController implements Serializable {
             root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
             insideTownScene = new Scene(root);
 
-            loader = new FXMLLoader(getClass().getResource("/View/Map.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Map.fxml"));
             root = (Parent) loader.load();
             mapScene = new Scene(root);
             mapController = (MapController) loader.getController();

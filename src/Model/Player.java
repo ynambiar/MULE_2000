@@ -12,8 +12,6 @@ public class Player implements Serializable {
 	private boolean[][] tilesOwned;
 
 	private Mule[][] muleEmplaced;
-	private int roundNumber;
-	private int playerTime;
 
 	private int money, food, smithore, energy;
 
@@ -103,7 +101,7 @@ public class Player implements Serializable {
 	 * Returns number of tiles the player owns.
 	 * @return int
 	 */
-	public int getNumTilesOwned() {
+	private int getNumTilesOwned() {
 		int owned = 0;
 		for (int i = 0; i < tilesOwned.length; i++) {
 			for (int j = 0; j < tilesOwned[i].length; j++) {
