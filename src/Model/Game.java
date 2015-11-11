@@ -577,4 +577,13 @@ public class Game implements Serializable {
     return gamble;
   }
 
+  /**
+   * Sets currentPlayer to player.
+   *
+   * @param player Player
+   */
+  public final void setCurrentPlayer(Player player) {
+    currentPlayer = player;
+  }
+
 }

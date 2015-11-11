@@ -65,6 +65,10 @@ public class GameTest {
         } else {
             System.out.println("It's a standard player");
         }
+    }
+
+    @Test
+    public void testDoProduction() {
 
     }
 }
