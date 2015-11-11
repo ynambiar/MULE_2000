@@ -1,35 +1,45 @@
 package Controller;
 
-import Model.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.control.Label;
+import Model.Main;
 
 import java.io.Serializable;
-
-
+/**
+* Town Controller Class.
+*/
 public class TownController implements Serializable {
 
-    @FXML
-    private void setLeaveTownBtn() {
-        Main.myGame.setPhase("Regular Turn");
-        Main.myGame.refreshLabels();
-        MasterController.getInstance().loadMapScene();
-    }
+  /**
+   * Changes screens from town to main map
+   */
+  @FXML
+  private void setLeaveTownBtn() {
+    Main.myGame.setPhase("Regular Turn");
+    Main.myGame.refreshLabels();
+    MasterController.getInstance().loadMapScene();
+  }
 
-    @FXML
-    private void setPubBtn() {
-        MasterController.getInstance().loadPubScene();
-    }
+  /**
+   * Changes screens from town to pub
+   */
+  @FXML
+  private void setPubBtn() {
+    MasterController.getInstance().loadPubScene();
+  }
 
-    @FXML
-    private void setStoreBtn() {
-        MasterController.getInstance().loadStoreScene();
-    }
+  /**
+   * Changes screens from town to store
+   */
+  @FXML
+  private void setStoreBtn() {
+    MasterController.getInstance().loadStoreScene();
+  }
 
-    @FXML
-    private void setLandBtn() {
-        MasterController.getInstance().loadLandOfficeScene();
-    }
+  /**
+   * Changes screens from town to land office
+   */
+  @FXML
+  private void setLandBtn() {
+    MasterController.getInstance().loadLandOfficeScene();
+  }
 }
