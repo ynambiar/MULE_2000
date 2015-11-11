@@ -1,6 +1,6 @@
-package model;
+package Model;
 
-import controller.MasterController;
+import Controller.MasterController;
 
 import java.io.File;
 
@@ -124,8 +124,12 @@ public class Save implements Serializable {
     }
 
     Main.setMyGame(gameval);
-    gameval.setStore(storeval);
-    gameval.setMap(mapval);
+    if (null != storeval) {
+    	gameval.setStore(storeval);
+    }
+    if (null != mapval) {
+    	gameval.setMap(mapval);
+    }
     MasterController.getInstance().getMapController().setMap(mapval);
     gameval.startTurn();
   }

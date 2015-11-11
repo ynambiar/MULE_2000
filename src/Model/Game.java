@@ -1,12 +1,12 @@
-package model;
+package Model;
 
-import controller.MapController;
-import controller.MasterController;
+import Controller.MapController;
+import Controller.MasterController;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import model.Map.Difficulty;
-import model.Map.MapType;
+import Model.Map.Difficulty;
+import Model.Map.MapType;
 
 
 import java.io.IOException;

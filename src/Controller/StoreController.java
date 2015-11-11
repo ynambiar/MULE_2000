@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import model.Main;
+import Model.Main;
 
 import java.io.Serializable;
 import java.net.URL;

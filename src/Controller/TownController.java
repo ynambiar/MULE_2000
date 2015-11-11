@@ -1,11 +1,11 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXML;
-import model.Main;
+import Model.Main;
 
 import java.io.Serializable;
 /**
-* Town controller Class.
+* Town Controller Class.
 */
 
 public class TownController implements Serializable {

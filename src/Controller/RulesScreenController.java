@@ -1,11 +1,11 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.Serializable;
 /**
-* Rules Screen controller.
+* Rules Screen Controller.
 */
 
 public class RulesScreenController implements Serializable {

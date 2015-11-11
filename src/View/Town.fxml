@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.TownController">
+            fx:controller="Controller.TownController">
     <children>
         <ImageView fitHeight="400.0" fitWidth="612.0" pickOnBounds="true" preserveRatio="true">
             <image>

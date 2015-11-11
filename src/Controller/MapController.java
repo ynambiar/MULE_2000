@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -9,12 +9,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
-import model.Game;
-import model.Main;
-import model.Map.MapType;
-import model.Map;
-import model.Mule;
-import model.Player;
+import Model.Game;
+import Model.Main;
+import Model.Map.MapType;
+import Model.Map;
+import Model.Mule;
+import Model.Player;
 
 import java.io.IOException;
 import java.io.Serializable;

@@ -1,11 +1,12 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
-import model.Game;
-import model.Main;
-import model.Mule;
+import Model.Game;
+import Model.Main;
+import Model.Map;
+import Model.Mule;
 
 
 import java.io.Serializable;
@@ -57,7 +58,7 @@ public class MuleTransactionController implements Serializable {
       } else if (smithoreSelected) {
         gameset.setMuleType(Mule.SMITHORE);
         cost = 175;
-      } else if (Main.myGame.getMapType().equals("Random")) {
+      } else if (Main.myGame.getMapType() == Map.MapType.RANDOM && flowerSelected) {
         gameset.setMuleType(Mule.FLOWER);
         cost = 600;
       }

@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,7 +41,7 @@ public class MasterController implements Serializable {
   }
 
   /**
-   * Constructor for Master controller. Loads all the scenes.
+   * Constructor for Master Controller. Loads all the scenes.
    */
   public MasterController() {
     Parent root;
@@ -81,7 +81,7 @@ public class MasterController implements Serializable {
       root = (Parent) loader.load();
       mapScene = new Scene(root);
       mapController = (MapController) loader.getController();
-      System.out.println("master controller" + mapController);
+      System.out.println("master Controller" + mapController);
 
       root = FXMLLoader
           .load(getClass().getResource("/View/RulesScreen.fxml"));
