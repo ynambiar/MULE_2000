@@ -10,35 +10,31 @@ public class Player implements Serializable {
   /**
    * Player's name.
   **/
-  private String name;
+  private final String name;
   /**
    * Player's race.
   **/
-  private String race;
+  private final String race;
   /**
    * Player's color.
   **/
-  private String color;
+  private final String color;
   /**
    * Player's human or AI status.
   **/
-  private String human;
+  private final String human;
   /**
    * 2D Array of the tiles a player owns.
   **/
-  private boolean[][] tilesOwned;
+  private final boolean[][] tilesOwned;
   /**
    * 2D Array of the mules emplaced by the Player.
   **/
-  private Mule[][] muleEmplaced;
+  private final Mule[][] muleEmplaced;
   /**
    * Round number.
   **/
   private int roundNumber;
-  /**
-   * PLayer time.
-  **/
-  private int playerTime;
   /**
    * Player's money.
   **/
@@ -110,21 +106,28 @@ public class Player implements Serializable {
     this.color = color;
     tilesOwned = new boolean[5][9];
     muleEmplaced = new Mule[5][9];
-    if (race.equals("Flapper")) {
-      this.money = 1600;
-    } else if (race.equals("Human")) {
-      this.money = 600;
-    } else if (race.equals("Pegasite")) {
-      this.money = 550;
-      this.food = 10;
-    } else if (race.equals("Techoid")) {
-      this.money = 2000;
-      this.energy = 15;
-    } else if (race.equals("Strandoid")) {
-      this.money = 200;
-      this.smithore = 10;
-    } else {
-      this.money = 1000;
+    switch (race) {
+      case "Flapper":
+        this.money = 1600;
+        break;
+      case "Human":
+        this.money = 600;
+        break;
+      case "Pegasite":
+        this.money = 550;
+        this.food = 10;
+        break;
+      case "Techoid":
+        this.money = 2000;
+        this.energy = 15;
+        break;
+      case "Strandoid":
+        this.money = 200;
+        this.smithore = 10;
+        break;
+      default:
+        this.money = 1000;
+        break;
     }
   }
 
@@ -150,11 +153,11 @@ public class Player implements Serializable {
    *
    * @return int
    */
-  public final int getNumTilesOwned() {
+  private int getNumTilesOwned() {
     int owned = 0;
-    for (int time = 0; time < tilesOwned.length; time++) {
-      for (int j = 0; j < tilesOwned[time].length; j++) {
-        if (tilesOwned[time][j]) {
+    for (boolean[] aTilesOwned : tilesOwned) {
+      for (boolean anATilesOwned : aTilesOwned) {
+        if (anATilesOwned) {
           owned++;
         }
       }
@@ -169,9 +172,9 @@ public class Player implements Serializable {
    */
   public final int getNumMules() {
     int emplaced = 0;
-    for (int time = 0; time < muleEmplaced.length; time++) {
-      for (int j = 0; j < muleEmplaced[time].length; j++) {
-        if (muleEmplaced[time][j] != null) {
+    for (Mule[] aMuleEmplaced : muleEmplaced) {
+      for (Mule anAMuleEmplaced : aMuleEmplaced) {
+        if (anAMuleEmplaced != null) {
           emplaced++;
         }
       }
@@ -309,14 +312,5 @@ public class Player implements Serializable {
    */
   public final String toString() {
     return human + " player " + name + " is a " + race;
-  }
-
-  /**
-   * Sets amount of time player has left in turn.
-   *
-   * @param time int
-   */
-  public final void setPlayerTime(final int time) {
-    playerTime = time;
   }
 }

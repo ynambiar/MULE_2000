@@ -6,7 +6,6 @@ import javafx.scene.shape.Rectangle;
 import Model.Game;
 import Model.Main;
 import Model.Mule;
-import Model.Map;
 
 import java.io.Serializable;
 
@@ -82,7 +81,7 @@ public class MuleTransactionController implements Serializable {
   */
   private void setBuyBtn() {
     Game gameset = Main.myGame;
-    int cost = 0;
+    int cost;
     if (foodSelected || energySelected || smithoreSelected || flowerSelected) {
       if (foodSelected) {
         gameset.setMuleType(Mule.FOOD);
@@ -93,12 +92,12 @@ public class MuleTransactionController implements Serializable {
       } else if (smithoreSelected) {
         gameset.setMuleType(Mule.SMITHORE);
         cost = 175;
-      } else if (Main.myGame.getMapType() == Map.MapType.RANDOM && flowerSelected) {
+      } else {
         gameset.setMuleType(Mule.FLOWER);
         cost = 600;
       }
 
-      if (gameset.getCurrentPlayer().getMoney() >= cost && cost != 0) {
+      if (gameset.getCurrentPlayer().getMoney() >= cost) {
         gameset.setPhase("Emplacing Mule");
         gameset.getCurrentPlayer().addMoney(cost * -1);
         gameset.refreshLabels();

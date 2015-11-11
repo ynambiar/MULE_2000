@@ -16,20 +16,20 @@ import java.util.ArrayList;
 * Save class.
 */
 
-public class Save implements Serializable {
+class Save implements Serializable {
 
   /**
    * Save map file.
    **/
-  private File m1 = new File("MapSave.ser");
+  private final File m1 = new File("MapSave.ser");
   /**
    * Save store file.
    **/
-  private File s1 = new File("StoreSave.ser");
+  private final File s1 = new File("StoreSave.ser");
   /**
    * Save game file.
    **/
-  private File g1 = new File("GameSave.ser");
+  private final File g1 = new File("GameSave.ser");
 
   /**
    * Saves data.
@@ -87,7 +87,6 @@ public class Save implements Serializable {
       FileInputStream fileInMap = new FileInputStream(m1);
       ObjectInputStream inMap = new ObjectInputStream(fileInMap);
       mapval = (Map) inMap.readObject();
-      inMap.read();
       inMap.close();
       fileInMap.close();
     } catch (ClassNotFoundException e) {
@@ -100,7 +99,6 @@ public class Save implements Serializable {
       FileInputStream fileInStore = new FileInputStream(s1);
       ObjectInputStream inStore = new ObjectInputStream(fileInStore);
       storeval = (Store) inStore.readObject();
-      inStore.read();
       inStore.close();
       fileInStore.close();
     } catch (ClassNotFoundException e) {
@@ -114,7 +112,6 @@ public class Save implements Serializable {
       FileInputStream fileInGame = new FileInputStream(g1);
       ObjectInputStream inGame = new ObjectInputStream(fileInGame);
       gameval = (Game) inGame.readObject();
-      inGame.read();
       inGame.close();
       fileInGame.close();
     } catch (ClassNotFoundException e) {
@@ -122,17 +119,17 @@ public class Save implements Serializable {
     } catch (IOException x) {
       System.out.println("Loading game doesn't work b/c game doesn't exist?");
     }
-
-    Main.setMyGame(gameval);
-    if (null != storeval) {
-    	gameval.setStore(storeval);
-    }
-    if (null != mapval) {
-    	gameval.setMap(mapval);
-    }
-    MasterController.getInstance().getMapController().setMap(mapval);
     if (null != gameval) {
-        gameval.startTurn();
+      Main.setMyGame(gameval);
+      if (null != storeval) {
+        gameval.setStore(storeval);
+      }
+      if (null != mapval) {
+        gameval.setMap(mapval);
+      }
+      MasterController.getInstance().getMapController().setMap(mapval);
+      gameval.startTurn();
+
     }
   }
 }

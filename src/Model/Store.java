@@ -8,10 +8,6 @@ import java.io.Serializable;
 
 public class Store implements Serializable {
   /**
-   * Store's mule stock.
-  **/
-  private int muleStock;
-  /**
    * Store's food stock.
   **/
   private int foodStock;
@@ -24,50 +20,42 @@ public class Store implements Serializable {
   **/
   private int smithoreStock;
   /**
-   * Store's mule price.
-  **/
-  private int mulePrice;
-  /**
    * Store's food price.
   **/
-  private int foodPrice;
+  private final int foodPrice;
   /**
    * Store's energy price.
   **/
-  private int energyPrice;
+  private final int energyPrice;
   /**
    * Store's smithore price.
   **/
-  private int smithorePrice;
+  private final int smithorePrice;
 
   /**
    * Constructor for Store. Sets default values ofr Store'sstock stock.
    */
   public Store() {
-    this(14, 8, 8, 8, 100, 25, 30, 50);
+    this(8, 8, 8, 25, 30, 50);
   }
 
   /**
    * Constructs a Store based on the the given stock parameters and stock price
    * values.
    *
-   * @param mstock int
    * @param fstock int
    * @param estock int
    * @param sstock int
-   * @param mp int
    * @param fp int
    * @param ep int
    * @param sp int
    */
-  public Store(final int mstock, final int fstock, final int estock,
-      final int sstock, final int mp, final int fp, final int ep,
+  private Store(final int fstock, final int estock,
+      final int sstock, final int fp, final int ep,
           final int sp) {
-    muleStock = mstock;
     foodStock = fstock;
     energyStock = estock;
     smithoreStock = sstock;
-    mulePrice = mp;
     foodPrice = fp;
     energyPrice = ep;
     smithorePrice = sp;
@@ -213,22 +201,11 @@ public class Store implements Serializable {
   }
 
   /**
-   * Sell item for amount.
-   * @param item String
-   * @param amnt int
-   * @return boolean
-   */
-  // TODO Needs to be implemented lol
-  public final boolean sellTransaction(final String item, final int amnt) {
-    return false;
-  }
-
-  /**
    * Adds fstock number of food units to the Store'sstock food stock.
    *
    * @param fstock int
    */
-  public final void addFoodStock(final int fstock) {
+  private void addFoodStock(final int fstock) {
     foodStock = foodStock + fstock;
   }
 
@@ -237,7 +214,7 @@ public class Store implements Serializable {
    *
    * @param estock int
    */
-  public final void addEnergyStock(final int estock) {
+  private void addEnergyStock(final int estock) {
     energyStock = energyStock + estock;
   }
 
@@ -246,7 +223,7 @@ public class Store implements Serializable {
    *
    * @param sstock int
    */
-  public final void addSmithoreStock(final int sstock) {
+  private void addSmithoreStock(final int sstock) {
     smithoreStock = smithoreStock + sstock;
   }
 
@@ -255,7 +232,7 @@ public class Store implements Serializable {
    *
    * @return int
    */
-  public final int getFoodStock() {
+  private int getFoodStock() {
     return foodStock;
   }
 
@@ -264,7 +241,7 @@ public class Store implements Serializable {
    *
    * @return int
    */
-  public final int getEnergyStock() {
+  private int getEnergyStock() {
     return energyStock;
   }
 
@@ -273,7 +250,7 @@ public class Store implements Serializable {
    *
    * @return int
    */
-  public final int getSmithoreStock() {
+  private int getSmithoreStock() {
     return smithoreStock;
   }
 

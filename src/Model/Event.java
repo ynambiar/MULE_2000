@@ -64,7 +64,7 @@ public enum Event implements Serializable {
     /**
      * Potential map values.
     */
-  private int[] mvals = new int[] {
+  private final int[] mvals = new int[] {
       25, 25, 25, 50, 50, 50, 50, 75, 75, 75, 75, 100
   };
 

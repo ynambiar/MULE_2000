@@ -148,30 +148,35 @@ public class MapController implements Serializable {
    * Carries out various actions if a tile is cliced
    * @param event an event/click of a tile
    */
-  public final void tileClicked(final MouseEvent event) {
+  private void tileClicked(final MouseEvent event) {
     Game gameset = Main.myGame;
     StackPane tile = (StackPane) event.getSource();
     int row = map.getRowIndex(tile);
     int col = map.getColumnIndex(tile);
     Player play = gameset.getCurrentPlayer();
     if (gameset.tileClicked(row, col)) {
-      if (gameset.getPhase().equals("Selling Land")) {
-        tile.setStyle("-fx-border-color: GREEN;");
-      } else if (gameset.getPhase().equals("Emplacing Mule")) {
-        ImageView mule;
-        if (gameset.getMuleType() == Mule.FOOD) {
-          mule = new ImageView("/View/Resources/tinyFoodMule.png");
-        } else if (gameset.getMuleType() == Mule.ENERGY) {
-          mule = new ImageView("/View/Resources/tinyEnergyMule.png");
-        } else {
-          mule = new ImageView("/View/Resources/tinySmithoreMule.png");
-        }
-        tile.getChildren().add(mule);
-      } else if (gameset.getPhase().equals("Selling Mules")) {
-        tile.getChildren().remove(1);
-      } else {
-        tile.setStyle("-fx-border-color: " + play.getColor()
-            + "; -fx-border-width: 6px;");
+      switch (gameset.getPhase()) {
+        case "Selling Land":
+          tile.setStyle("-fx-border-color: GREEN;");
+          break;
+        case "Emplacing Mule":
+          ImageView mule;
+          if (gameset.getMuleType() == Mule.FOOD) {
+            mule = new ImageView("/View/Resources/tinyFoodMule.png");
+          } else if (gameset.getMuleType() == Mule.ENERGY) {
+            mule = new ImageView("/View/Resources/tinyEnergyMule.png");
+          } else {
+            mule = new ImageView("/View/Resources/tinySmithoreMule.png");
+          }
+          tile.getChildren().add(mule);
+          break;
+        case "Selling Mules":
+          tile.getChildren().remove(1);
+          break;
+        default:
+          tile.setStyle("-fx-border-color: " + play.getColor()
+                  + "; -fx-border-width: 6px;");
+          break;
       }
       if (gameset.getRoundNumber() < 1) {
         gameset.endTurn();
@@ -186,12 +191,10 @@ public class MapController implements Serializable {
     Timer timer = new java.util.Timer();
     timer.scheduleAtFixedRate(new TimerTask() {
       public void run() {
-        Platform.runLater(new Runnable() {
-          public void run() {
-            timeLeftLabel.setText(((Integer) Main.myGame.getTimeLeft())
-                    .toString());
-            Main.myGame.decrementTimeLeft();
-          }
+        Platform.runLater(() -> {
+          timeLeftLabel.setText(((Integer) Main.myGame.getTimeLeft())
+                  .toString());
+          Main.myGame.decrementTimeLeft();
         });
       }
     }, 0, 1000);
@@ -201,7 +204,7 @@ public class MapController implements Serializable {
    * Loads town when town tile is clicked
    * @param event a click on the tile with the town
    */
-  public final void townClicked(final MouseEvent event) {
+  private void townClicked(final MouseEvent event) {
     if (Main.myGame.getRoundNumber() >= 1) {
       MasterController.getInstance().loadTownScene();
       Main.myGame.setPhase("Normal Play");

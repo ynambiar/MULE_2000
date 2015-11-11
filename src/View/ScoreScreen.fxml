@@ -3,12 +3,11 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.chart.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0"
-            prefWidth="694.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            prefWidth="694.0" xmlns="http://javafx.com/javafx/8">
     <children>
         <LineChart layoutX="10.0" layoutY="250.0" prefHeight="275.0" prefWidth="674.0" title="Score Across Rounds">
             <xAxis>

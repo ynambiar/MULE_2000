@@ -9,46 +9,24 @@ import java.util.Random;
 public class Map implements Serializable {
   //NEED JAVADOCS FOR THESE VARIABLES
   /**
-   * Height of board.
-   */
-  private int height;
-  /**
-   * Width of board.
-   */
-  private int width;
-  /**
    * 2D Array of bord of MapTiles.
    */
-  private MapTile[][] board;
+  private final MapTile[][] board;
   /**
    * 2D Array of ownership status.
    */
-  private boolean[][] tilesOwned;
+  private final boolean[][] tilesOwned;
   /**
    * 2D Array of tiles that have mules.
    */
-  private boolean[][] hasMule;
-  /**
-   * Standard Map.
-   */
-  private final MapTile[][] standardMap = {
-    {MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R,
-      MapTile.P, MapTile.M3, MapTile.P, MapTile.P},
-    {MapTile.P, MapTile.M1, MapTile.P, MapTile.P, MapTile.R,
-      MapTile.P, MapTile.P, MapTile.P, MapTile.M3},
-    {MapTile.M3, MapTile.P, MapTile.P, MapTile.P, MapTile.Town,
-      MapTile.P, MapTile.P, MapTile.P, MapTile.M1},
-    {MapTile.P, MapTile.M2, MapTile.P, MapTile.P, MapTile.R,
-      MapTile.P, MapTile.M2, MapTile.P, MapTile.P},
-    {MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R,
-      MapTile.P, MapTile.P, MapTile.P, MapTile.M2}};
+  private final boolean[][] hasMule;
 
   /**
    * Enum class for MapType.
    */
 
   public enum MapType {
-    RANDOM, STANDARD;
+    RANDOM, STANDARD
   }
 
   /**
@@ -56,7 +34,7 @@ public class Map implements Serializable {
    */
 
   public enum Difficulty {
-    EASY, MEDIUM, HARD;
+    EASY, MEDIUM, HARD
   }
 
   /**
@@ -74,8 +52,19 @@ public class Map implements Serializable {
   * @param type MapType
   */
   public Map(final MapType type) {
-    this.height = 5;
-    this.width = 9;
+    MapTile[][] standardMap = {
+            {MapTile.P, MapTile.P, MapTile.M1, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.M3, MapTile.P, MapTile.P},
+            {MapTile.P, MapTile.M1, MapTile.P, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M3},
+            {MapTile.M3, MapTile.P, MapTile.P, MapTile.P, MapTile.Town,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M1},
+            {MapTile.P, MapTile.M2, MapTile.P, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.M2, MapTile.P, MapTile.P},
+            {MapTile.P, MapTile.P, MapTile.M2, MapTile.P, MapTile.R,
+                    MapTile.P, MapTile.P, MapTile.P, MapTile.M2}};
+    int height = 5;
+    int width = 9;
     if (type == MapType.STANDARD) {
       board = standardMap;
     } else {

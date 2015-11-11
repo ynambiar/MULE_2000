@@ -25,11 +25,4 @@ public class RulesScreenController implements Serializable {
     MasterController.getInstance().loadStartScene();
   }
 
-  /**
-   * Required method for Serializable class.
-   */
-  public void initialize() {
-
-  }
-
 }

@@ -12,19 +12,19 @@ public enum MapTile implements Serializable {
   /**
    * URL paths of the image, <tile type, URL>.
    */
-  private Map<String, String> imagePath;
+  private final Map<String, String> imagePath;
   /**
    * Integer amount of food production.
    */
-  private int foodProduction;
+  private final int foodProduction;
   /**
    * Integer amount of energy production.
    */
-  private int energyProduction;
+  private final int energyProduction;
   /**
    * Integer amount of smithore production.
    */
-  private int smithoreProduction;
+  private final int smithoreProduction;
 
   /**
   * Constructor for a MapTile. Adds the appropriate images and sets
@@ -38,7 +38,7 @@ public enum MapTile implements Serializable {
     foodProduction = food;
     energyProduction = energy;
     smithoreProduction = smith;
-    imagePath = new HashMap<String, String>();
+    imagePath = new HashMap<>();
     imagePath.put("P", "/View/Resources/TilePlain.png");
     imagePath.put("R", "/View/Resources/TileRiver.png");
     imagePath.put("M1", "/View/Resources/TileMountain1.png");

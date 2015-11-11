@@ -25,7 +25,7 @@ public class PubController implements Serializable {
    */
   private void setYesGambleBtn() {
     System.out.println("moneyLabel: " + moneyLabel);
-    int bonus = 0;
+    int bonus;
     int[] roundBonus = {50, 50, 50, 100, 100, 100, 100, 150, 150, 150, 150,
         200};
     bonus = roundBonus[Main.myGame.getRoundNumber() - 1];

@@ -20,69 +20,65 @@ public class Game implements Serializable {
   /**
    * List of players.
   **/
-  ArrayList<Player> players;
+  private final ArrayList<Player> players;
   /**
    * Current player.
   **/
-  Player currentPlayer;
+  private Player currentPlayer;
   /**
    * Difficulty of the game.
   **/
-  Difficulty difficulty;
+  private Difficulty difficulty;
   /**
    * Map type.
   **/
-  MapType mapType;
+  private MapType mapType;
   /**
    * Map.
   **/
-  Map map;
+  private Map map;
   /**
    * Store.
   **/
-  Store store;
+  private Store store;
   /**
    * Save object.
   **/
-  Save save;
+  private final Save save;
   /**
    * Round Number.
   **/
-  int roundNumber;
+  private int roundNumber;
   /**
    * Time left in the turn.
   **/
-  int timeLeft;
+  private int timeLeft;
   /**
    *  Money own from gambling.
   **/
-  int gamble;
+  private int gamble;
   /**
    * Phase of the game.
   **/
-  String phase;
+  private String phase;
   /**
    * Type of mule.
   **/
-  Mule muleType;
+  private Mule muleType;
   /**
    * Array of events.
   **/
-  Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE,
+  private final Event[] events = new Event[] {Event.ONE, Event.TWO, Event.THREE,
       Event.FOUR, Event.FIVE, Event.SIX, Event.SEVEN, Event.EIGHT,
       Event.NINE, Event.TEN, Event.ELEVEN, Event.TWELVE};
   /**
    * The current event.
   **/
-  Event currentEvent;
+  private Event currentEvent;
   /**
    * Cost of land.
   **/
-  int landCost;
-  /**
-   * Single instance of Main.
-  **/
-  Main main;
+  private int landCost;
 
   /**
    * Constructor for the Game object. Creates Map, Players list, and Store.
@@ -90,7 +86,7 @@ public class Game implements Serializable {
    */
   public Game() {
     map = new Map();
-    players = new ArrayList<Player>();
+    players = new ArrayList<>();
     store = new Store();
     save = new Save();
     // Code for the music
@@ -138,6 +134,7 @@ public class Game implements Serializable {
         for (Player playcur : players) {
           currentEvent = events[rand];
           int[] modifier = currentEvent.getEffects();
+          assert modifier != null;
           playcur.addMoney(modifier[0]);
           playcur.addFood(modifier[1]);
           playcur.addEnergy(modifier[2]);
@@ -146,6 +143,7 @@ public class Game implements Serializable {
       } else { // event only affects the current player
         currentEvent = events[rand];
         int[] modifier = currentEvent.getEffects();
+        assert modifier != null;
         currentPlayer.addMoney(modifier[0]);
         currentPlayer.addFood(modifier[1]);
         currentPlayer.addEnergy(modifier[2]);
@@ -191,7 +189,7 @@ public class Game implements Serializable {
    * score, sets current player, and loads Start Turn scene.
    */
 
-  public final void endRound() {
+  private void endRound() {
     roundNumber++;
     if (roundNumber >= 1) {
       players.sort(new PlayerComparator<>());
@@ -207,7 +205,7 @@ public class Game implements Serializable {
    *
    * @param <Object> Player
    */
-  public static class PlayerComparator<Object> implements Comparator<Player> {
+  private static class PlayerComparator<Object> implements Comparator<Player> {
     /**
     * Compare two players.
     * @param firstplayer player
@@ -252,42 +250,45 @@ public class Game implements Serializable {
         return false;
       }
     } else {
-      if (phase.equals("Purchasing Land")) {
-        if (map.tileUnowned(row, col)) {
-          if (currentPlayer.getMoney() >= landCost) {
-            currentPlayer.setTileOwned(row, col, true);
-            map.setTileOwned(row, col, true);
-            currentPlayer.addMoney(landCost * -1);
+      switch (phase) {
+        case "Purchasing Land":
+          if (map.tileUnowned(row, col)) {
+            if (currentPlayer.getMoney() >= landCost) {
+              currentPlayer.setTileOwned(row, col, true);
+              map.setTileOwned(row, col, true);
+              currentPlayer.addMoney(landCost * -1);
+              refreshLabels();
+              return true;
+            }
+          }
+          break;
+        case "Selling Land":
+          if (currentPlayer.getTileOwned(row, col)) {
+            currentPlayer.addMoney(landCost);
+            currentPlayer.setTileOwned(row, col, false);
+            map.setTileOwned(row, col, false);
             refreshLabels();
             return true;
           }
-        }
-      } else if (phase.equals("Selling Land")) {
-        if (currentPlayer.getTileOwned(row, col)) {
-          currentPlayer.addMoney(landCost);
-          currentPlayer.setTileOwned(row, col, false);
-          map.setTileOwned(row, col, false);
-          refreshLabels();
-          return true;
-        }
-      } else if (phase.equals("Emplacing Mule")) {
-        if (currentPlayer.getTileOwned(row, col)) {
-          currentPlayer.setMuleEmplaced(row, col, muleType);
-          MasterController.getInstance().loadStoreScene();
-          return true;
-        } else {
-          MasterController.getInstance().loadStoreScene();
+          break;
+        case "Emplacing Mule":
+          if (currentPlayer.getTileOwned(row, col)) {
+            currentPlayer.setMuleEmplaced(row, col, muleType);
+            MasterController.getInstance().loadStoreScene();
+            return true;
+          } else {
+            MasterController.getInstance().loadStoreScene();
+            return false;
+          }
+        case "Selling Mules":
+          if (currentPlayer.getTileOwned(row, col)
+                  && currentPlayer.getMuleEmplaced(row, col) != null) {
+            int cost = 100;
+            currentPlayer.addMoney(cost);
+            currentPlayer.setMuleEmplaced(row, col, null);
+            return true;
+          }
           return false;
-        }
-      } else if (phase.equals("Selling Mules")) {
-        if (currentPlayer.getTileOwned(row, col)
-            && currentPlayer.getMuleEmplaced(row, col) != null) {
-          int cost = 100;
-          currentPlayer.addMoney(cost);
-          currentPlayer.setMuleEmplaced(row, col, null);
-          return true;
-        }
-        return false;
       }
     }
     return false;
@@ -320,7 +321,7 @@ public class Game implements Serializable {
     if (buying) {
       return store.purchaseTransaction(item, amnt);
     } else {
-      return store.sellTransaction(item, amnt);
+      return store.purchaseTransaction(item, 0);
     }
   }
 
@@ -364,7 +365,7 @@ public class Game implements Serializable {
    *
    * @return int
    */
-  public final int getTimeAfterFoodCheck() {
+  private int getTimeAfterFoodCheck() {
     int[] foodRq = {0, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5};
     int food = currentPlayer.getFood();
     if (roundNumber == 1) {
@@ -386,7 +387,7 @@ public class Game implements Serializable {
    * player'newPhase energy and continues,
    * production.
    */
-  public final void checkProduction() {
+  private void checkProduction() {
     int numMules = currentPlayer.getNumMules();
     System.out.println("numMules: " + numMules);
     if (currentPlayer.getEnergy() >= numMules) {

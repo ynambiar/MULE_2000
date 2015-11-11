@@ -2,9 +2,7 @@ package Model;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-/**
- * Created by yamininambiar on 11/3/15.
- */
+
 public class GameTest {
     Game game;
 

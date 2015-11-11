@@ -99,13 +99,13 @@ public class Config2Controller implements Serializable {
    List of player human/AI status.
   */
   @FXML
-  private ObservableList<String> humanBox = FXCollections.observableArrayList(
+  private final ObservableList<String> humanBox = FXCollections.observableArrayList(
       "Human", "AI", "Not playing");
   /*
    List of player races.
   */
   @FXML
-  private ObservableList<String> raceBox =
+  private final ObservableList<String> raceBox =
       FXCollections.observableArrayList("Human",
       "Flapper", "Bonzoid", "Ugaite", "Buzzite", "Strandoid", "Pegasite",
       "Techoid");
@@ -130,7 +130,7 @@ public class Config2Controller implements Serializable {
         errorLabel.setVisible(true);
       }
     } catch (Exception e) {
-      System.out.println(e);
+        errorLabel.setVisible(true);
     }
   }
 
@@ -142,22 +142,22 @@ public class Config2Controller implements Serializable {
   private boolean comboBoxesAreVerififed() {
     Game game = Main.myGame;
     boolean verified = false;
-    if (combo1human.getValue() != "Not Playing"
+    if (!combo1human.getValue().equals("Not Playing")
         && combo1race.getValue() != null && p1Name.getText() != null) {
       game.addPlayer(new Player(combo1human.getValue(),
           combo1race.getValue(), p1Name.getText(), "DODGERBLUE"));
     }
-    if (combo2human.getValue() != "Not Playing"
+    if (!combo2human.getValue().equals("Not Playing")
         && combo2race.getValue() != null && p2Name.getText() != null) {
       game.addPlayer(new Player(combo2human.getValue(),
           combo2race.getValue(), p2Name.getText(), "#ff321f"));
     }
-    if (combo3human.getValue() != "Not Playing"
+    if (!combo3human.getValue().equals("Not Playing")
         && combo3race.getValue() != null && p3Name.getText() != null) {
       game.addPlayer(new Player(combo3human.getValue(),
           combo3race.getValue(), p3Name.getText(), "#dd02cf"));
     }
-    if (combo4human.getValue() != "Not Playing"
+    if (!combo4human.getValue().equals("Not Playing")
         && combo4race.getValue() != null && p4Name.getText() != null) {
       game.addPlayer(new Player(combo4human.getValue(),
           combo4race.getValue(), p4Name.getText(), "#ffa639"));
