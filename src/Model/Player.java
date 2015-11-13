@@ -131,20 +131,20 @@ public class Player implements Serializable {
     }
   }
 
-  public void getPlayerAttributes() {
-    if(this.race == "Flapper") {
+  public final void getPlayerAttributes() {
+    if (this.race == "Flapper") {
       this.money = 1600;
       this.food = 0;
-    } else if(this.race == "Human") {
+    } else if (this.race == "Human") {
       this.money = 600;
       this.food = 0;
-    } else if(this.race == "Pegasite") {
+    } else if (this.race == "Pegasite") {
       this.money = 550;
       this.food = 10;
-    } else if(this.race == "Techoid") {
+    } else if (this.race == "Techoid") {
       this.money = 2000;
       this.money = 15;
-    } else if(this.race == "Strandoid") {
+    } else if (this.race == "Strandoid") {
       this.money = 200;
       this.food = 10;
     } else {

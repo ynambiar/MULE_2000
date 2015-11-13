@@ -4,11 +4,38 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Enum MapTile.
+**/
 public enum MapTile implements Serializable {
-    //NEED JAVADOCS FOR ALL PVT/LOCAL VARIABLSE
-    P(4, 2, 0), R(2, 3, 1), M1(1, 1, 2), M2(1, 1, 3),
-      M3(1, 1, 4), Town(0, 0, 0), F(5, 5, 5);
+  /**
+   * Plain tile.
+  **/
+  P(4, 2, 0),
+  /**
+   * River tile.
+  **/
+  R(2, 3, 1),
+  /**
+   * Mountain 1 tile.
+  **/
+  M1(1, 1, 2),
+  /**
+   * Mountain 2 tile.
+  **/
+  M2(1, 1, 3),
+  /**
+   * Mountain 3 tile.
+  **/
+  M3(1, 1, 4),
+  /**
+   * Town tile.
+  **/
+  Town(0, 0, 0),
+  /**
+   * F tile?.
+  **/
+  F(5, 5, 5);
   /**
    * URL paths of the image, <tile type, URL>.
    */

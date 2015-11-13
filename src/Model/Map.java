@@ -26,7 +26,14 @@ public class Map implements Serializable {
    */
 
   public enum MapType {
-    RANDOM, STANDARD
+    /**
+     * Random map.
+    **/
+    RANDOM,
+    /**
+     * Standard map.
+    **/
+    STANDARD
   }
 
   /**
@@ -34,7 +41,18 @@ public class Map implements Serializable {
    */
 
   public enum Difficulty {
-    EASY, MEDIUM, HARD
+    /**
+     * Easy difficulty.
+    **/
+    EASY,
+    /**
+     * Medium difficulty.
+    **/
+    MEDIUM,
+    /**
+     * Hard difficulty.
+    **/
+    HARD
   }
 
   /**
