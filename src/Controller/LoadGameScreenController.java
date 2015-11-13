@@ -33,6 +33,7 @@ public class LoadGameScreenController implements Serializable {
 
   /**
    * Set Yes button action to load data.
+   * @throws java.io.IOException
    */
   @FXML
   private void setYesButton() throws IOException, ClassNotFoundException {
