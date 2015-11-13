@@ -330,7 +330,7 @@ public class Game implements Serializable {
    * @throws IOException e
    */
   public final void saveData() throws IOException {
-    save.saveData(players, map, store, this);
+    save.saveData(map, store, this);
   }
 
   /**

@@ -12,7 +12,7 @@ import java.io.Serializable;
 /**
 * Start Turn Controller.
 */
-public class StartTurnController implements Serializable {
+class StartTurnController implements Serializable {
 
   /*
     start turn label

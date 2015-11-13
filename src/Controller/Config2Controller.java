@@ -12,7 +12,6 @@ import Model.Main;
 import Model.Player;
 
 
-import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -173,10 +172,8 @@ public class Config2Controller implements Serializable {
 
   /**
   * Initializes Configuration screen 2.
-  *
-  * @throws IOException exception
   */
-  public final void initialize() throws IOException {
+  public final void initialize(){
     combo1human.setItems(humanBox);
     combo2human.setItems(humanBox);
     combo3human.setItems(humanBox);

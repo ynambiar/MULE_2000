@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
 * Save class.
@@ -34,15 +33,12 @@ class Save implements Serializable {
   /**
    * Saves data.
    *
-   * @param play ArrayList of players
    * @param map Map
    * @param store Store
    * @param game Game
-   * @throws IOException Exception
    */
-  public final void saveData(final ArrayList<Player> play, final Map map,
-      final Store store, final Game game)
-      throws IOException {
+  public final void saveData(final Map map,
+      final Store store, final Game game) {
 
     try {
       FileOutputStream fileOutMap = new FileOutputStream(m1);
@@ -75,9 +71,8 @@ class Save implements Serializable {
   /**
    * Loads data.
    *
-   * @throws IOException Exception
    */
-  public final void loadData() throws IOException {
+  public final void loadData() {
 
     Map mapval = null;
     Store storeval = null;

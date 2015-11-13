@@ -27,11 +27,11 @@ public class StartController implements Serializable {
 
   /**
    * Loads the rules screen (In Progress)
-   */
-  @FXML
+
   private void setRuleBtn() {
     // MasterController.getInstance().loadRuleScene();
   }
+   */
 
   @FXML
   /**
