@@ -14,13 +14,14 @@ import java.io.Serializable;
 */
 class StartTurnController implements Serializable {
 
-  /*
-    start turn label
+  /**
+    Start turn label.
    */
   @FXML
   private Label startTurnLabel;
-  /*
-    start button
+
+  /**
+    Start button.
    */
   @FXML
   private Button startBtn;
@@ -28,6 +29,7 @@ class StartTurnController implements Serializable {
   /**
   * Sets labels for the scene.
   */
+  @FXML
   public final void initialize() {
     Game game = Main.myGame;
     if (game.getCurrentPlayer() != null) {
@@ -41,11 +43,11 @@ class StartTurnController implements Serializable {
     }
   }
 
-  @FXML
   /**
    * Sets Start button function.
    * @param event MouseEvent
    */
+  @FXML
   public final void setStartBtn(final MouseEvent event) {
     Main.myGame.startTurn();
   }

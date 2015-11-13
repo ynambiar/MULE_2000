@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class TownController implements Serializable {
 
   /**
-   * Changes screens from town to main map
+   * Changes screens from town to main map.
    */
   @FXML
   private void setLeaveTownBtn() {
@@ -20,7 +20,7 @@ public class TownController implements Serializable {
   }
 
   /**
-   * Changes screens from town to pub
+   * Changes screens from town to pub.
    */
   @FXML
   private void setPubBtn() {
@@ -28,7 +28,7 @@ public class TownController implements Serializable {
   }
 
   /**
-   * Changes screens from town to store
+   * Changes screens from town to store.
    */
   @FXML
   private void setStoreBtn() {
@@ -36,7 +36,7 @@ public class TownController implements Serializable {
   }
 
   /**
-   * Changes screens from town to land office
+   * Changes screens from town to land office.
    */
   @FXML
   private void setLandBtn() {

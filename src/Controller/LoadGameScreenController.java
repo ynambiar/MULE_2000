@@ -12,29 +12,29 @@ import java.io.Serializable;
 * Load Game Screen Class.
 */
 public class LoadGameScreenController implements Serializable {
-  /*
+  /**
     Yes save button.
   */
   @FXML
   private Button yesButton;
-  /*
+  /**
    No save button.
   */
   @FXML
   private Button noButton;
 
-  @FXML
   /**
    * Set No button action to load Start scene.
    */
+  @FXML
   private void setNoButton() {
     MasterController.getInstance().loadStartScene();
   }
 
-  @FXML
   /**
    * Set Yes button action to load data.
    */
+  @FXML
   private void setYesButton() throws IOException, ClassNotFoundException {
     Main.myGame.loadData();
   }

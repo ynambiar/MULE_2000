@@ -9,20 +9,20 @@ import java.io.Serializable;
 import java.util.Random;
 
 /**
- * Pub Controller Class
+ * Pub Controller Class.
  */
 public class PubController implements Serializable {
 
-  /*
-    money label
+  /**
+    Money label.
    */
   @FXML
   private Label moneyLabel;
 
-  @FXML
   /**
    * Set Yes Gamble button to add bonus money to current player.
-   */
+  */
+  @FXML
   private void setYesGambleBtn() {
     System.out.println("moneyLabel: " + moneyLabel);
     int bonus;
@@ -52,10 +52,10 @@ public class PubController implements Serializable {
     MasterController.getInstance().loadGamblingResultsScene();
   }
 
-  @FXML
   /**
    * Set No Gamble button to load town scene.
-   */
+  */
+  @FXML
   private void setNoGambleBtn() {
     MasterController.getInstance().loadTownScene();
   }

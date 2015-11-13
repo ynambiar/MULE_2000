@@ -12,16 +12,16 @@ import java.io.Serializable;
 
 public class EventScreenController implements Serializable {
 
-  /*
+  /**
    Event Label.
   */
   @FXML
   private Label eventLabel;
 
-  @FXML
   /**
    * Sets OK button action.
    */
+  @FXML
   public final void setOkBtn(final MouseEvent event) {
     Main.myGame.finishEvent();
   }

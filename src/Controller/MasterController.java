@@ -9,76 +9,91 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Master Controller Class
+ * Master Controller Class.
  */
 public class MasterController implements Serializable {
 
-  /*
-    stage
+  /**
+    Stage.
    */
   private Stage stage;
-  /*
-    config 1 scene
+
+  /**
+    Config 1 scene.
    */
   private Scene config1Scene;
-  /*
-    config 2 scene
+
+  /**
+    Config 2 scene.
    */
   private Scene config2Scene;
-  /*
-    inside pub scene
+
+  /**
+    Inside pub scene.
    */
   private Scene insidePubScene;
-  /*
-    inside store scene
+
+  /**
+    Inside store scene.
    */
   private Scene insideStoreScene;
-  /*
-    store transaction scene for food
+
+  /**
+    Store transaction scene for food.
    */
   private Scene storeTransactionSceneFood;
-  /*
-    store transaction scene for energy
+
+  /**
+    Store transaction scene for energy.
    */
   private Scene storeTransactionSceneEnergy;
-  /*
-    store transaction scene for smithore
+
+  /**
+    Store transaction scene for smithore.
    */
   private Scene storeTransactionSceneSmithore;
-  /*
-    inside town scene
+
+  /**
+    Inside town scene.
    */
   private Scene insideTownScene;
-  /*
-    rules scene
+
+  /**
+    Rules scene.
    */
   private Scene rulesScene;
-  /*
-    map scene
+
+  /**
+    Map scene.
    */
   private Scene mapScene;
-  /*
-    start scene
+
+  /**
+    Start scene.
    */
   private Scene startScene;
-  /*
-    mule transaction scene
+
+  /**
+    Mule transaction scene.
    */
   private Scene muleTransactionScene;
-  /*
-    load game scene
+
+  /**
+    Load game scene.
    */
   private Scene loadGameScreen;
-  /*
-    map controller
+
+  /**
+    Map controller.
    */
   private MapController mapController;
 
-  // create a singleton
+
   /**
    * Creates a singleton
    */
-  private final static MasterController masterController = new MasterController();
+  private final static MasterController masterController
+          = new MasterController();
 
   /**
    * Returns the single instance of MasterController within the entire scope of
@@ -127,7 +142,8 @@ public class MasterController implements Serializable {
       root = FXMLLoader.load(getClass().getResource("/View/Town.fxml"));
       insideTownScene = new Scene(root);
 
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Map.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass()
+              .getResource("/View/Map.fxml"));
       root = loader.load();
       mapScene = new Scene(root);
       mapController = loader.getController();

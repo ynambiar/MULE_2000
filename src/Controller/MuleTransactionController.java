@@ -14,71 +14,81 @@ import java.io.Serializable;
  */
 public class MuleTransactionController implements Serializable {
 
-  /*
-    sell button
+  /**
+    Sell button.
    */
   @FXML
   private Button sellBtn;
-  /*
-    buy button
+
+  /**
+    Buy button.
    */
   @FXML
   private Button buyBtn;
-  /*
-    cancel button
+
+  /**
+   Cancel button.
    */
   @FXML
   private Button cancelBtn;
-  /*
-    food mule
+
+  /**
+    Food mule.
    */
   @FXML
   private Rectangle foodMule;
-  /*
-    energy mule
+
+  /**
+    Energy mule.
    */
   @FXML
   private Rectangle energyMule;
-  /*
-    smithore mule
+
+  /**
+    Smithore mule.
    */
   @FXML
   private Rectangle smithoreMule;
-  /*
-    flower mule
+
+  /**
+    Flower mule.
    */
   @FXML
   private Rectangle flowerMule;
 
-  /*
-    boolean that tells us if food is selected in store
+  /**
+    Boolean that tells us if food is selected in store.
    */
   private boolean foodSelected;
-  /*
-    boolean that tells us if energy is selected in store
+
+  /**
+    Boolean that tells us if energy is selected in store.
    */
   private boolean energySelected;
-  /*
-    boolean that tells us if smithore is selected in store
+
+  /**
+    Boolean that tells us if smithore is selected in store.
    */
   private boolean smithoreSelected;
-  /*
-    boolean that tells us if flower is selected in store
+
+  /**
+    Boolean that tells us if flower is selected in store.
    */
   private boolean flowerSelected;
 
-  @FXML
   /**
   * Set Cancel button to load store scene.
   */
+  @FXML
   private void setCancelBtn() {
     MasterController.getInstance().loadStoreScene();
   }
 
-  @FXML
+
   /**
   * Set Buy button function to update current player.
   */
+  @FXML
   private void setBuyBtn() {
     Game gameset = Main.myGame;
     int cost;
@@ -116,20 +126,21 @@ public class MuleTransactionController implements Serializable {
     }
   }
 
-  @FXML
+
   /**
   * Set Sell button to load Map scene.
   */
+  @FXML
   private void setSellBtn() {
     Main.myGame.setPhase("Selling Mules");
     Main.myGame.refreshLabels();
     MasterController.getInstance().loadMapScene();
   }
 
-  @FXML
   /**
   * Sets properties for food mule.
   */
+  @FXML
   private void setFoodMule() {
     if (foodSelected) {
       foodMule.setOpacity(0);
@@ -146,10 +157,10 @@ public class MuleTransactionController implements Serializable {
     }
   }
 
-  @FXML
   /**
   * Sets properties for energy mule.
   */
+  @FXML
   private void setEnergyMule() {
     if (energySelected) {
       energyMule.setOpacity(0);
@@ -166,10 +177,10 @@ public class MuleTransactionController implements Serializable {
     }
   }
 
-  @FXML
   /**
   * Sets properts of smithore mule.
   */
+  @FXML
   private void setSmithoreMule() {
     if (smithoreSelected) {
       smithoreMule.setOpacity(0);
@@ -186,10 +197,10 @@ public class MuleTransactionController implements Serializable {
     }
   }
 
-  @FXML
   /**
   * Sets properts of flower mule.
   */
+  @FXML
   private void setFlowerMule() {
     if (flowerSelected) {
       flowerMule.setOpacity(0);

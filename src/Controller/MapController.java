@@ -22,64 +22,72 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Map Controller Class
+ * Map Controller Class.
  */
 public class MapController implements Serializable {
 
-  /*
-    map
+  /**
+    Map.
    */
   @FXML
   private GridPane map;
-  /*
-    current phase label
+
+  /**
+    Current phase label.
    */
   @FXML
   private Label currentPhaseLabel;
-  /*
-    current player label
+
+  /**
+    Current player label.
    */
   @FXML
   private Label currentPlayerLabel;
-  /*
-    time left label
+
+  /**
+    Time left label.
    */
   @FXML
   private Label timeLeftLabel;
-  /*
-    food label
+
+  /**
+    Food label.
    */
   @FXML
   private Label foodLbl;
-  /*
-    energy label
+
+  /**
+    Energy label.
    */
   @FXML
   private Label energyLbl;
-  /*
-    smithore label
+
+  /**
+    Smithore label.
    */
   @FXML
   private Label smithoreLbl;
-  /*
-    money label
+
+  /**
+    Money label.
    */
   @FXML
   private Label moneyLbl;
 
-  /*
-    "End Turn" button
+  /**
+    "End Turn" button.
    */
   @FXML
   private Button endTurnBtn;
-  /*
-    "Save Game" button
+
+  /**
+    "Save Game" button.
    */
   @FXML
   private Button saveGameBtn;
 
   /**
-   * Creates a Map
+   * Creates a Map.
    * @param type the type of Map (either standard or randomized)
    */
   public final void createMap(final MapType type) {
@@ -105,7 +113,7 @@ public class MapController implements Serializable {
   }
 
   /**
-   * Sets a map
+   * Sets a map.
    * @param myMap the map that needs to be set as the main map
    */
   public final void setMap(final Map myMap) {
@@ -145,7 +153,7 @@ public class MapController implements Serializable {
   }
 
   /**
-   * Carries out various actions if a tile is cliced
+   * Carries out various actions if a tile is clicked.
    * @param event an event/click of a tile
    */
   private void tileClicked(final MouseEvent event) {
@@ -185,7 +193,7 @@ public class MapController implements Serializable {
   }
 
   /**
-   * Timer is started when run
+   * Timer is started when run.
    */
   public final void startTimer() {
     Timer timer = new java.util.Timer();
@@ -201,7 +209,7 @@ public class MapController implements Serializable {
   }
 
   /**
-   * Loads town when town tile is clicked
+   * Loads town when town tile is clicked.
    * @param event a click on the tile with the town
    */
   private void townClicked(final MouseEvent event) {
@@ -212,10 +220,10 @@ public class MapController implements Serializable {
     }
   }
 
-  @FXML
   /**
    * Set End Turn button to end turn.
    */
+  @FXML
   public final void setEndTurnBtn() {
     Main.myGame.endTurn();
   }

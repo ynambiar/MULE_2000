@@ -14,44 +14,44 @@ import java.util.Random;
 */
 
 public class LandOfficeController implements Serializable {
-  /*
+  /**
     Yes Buy Land button.
    */
   @FXML
   private Button yesBuyLandBtn;
-  /*
+  /**
    No buy land button.
   */
   @FXML
   private Button noBuyLandBtn;
-  /*
+  /**
    Yes sell land button.
   */
   @FXML
   private Button yesSellLandBtn;
-  /*
+  /**
    Buying price label.
   */
   @FXML
   private Label buyPrice;
-  /*
+  /**
    Selling price label.
   */
   @FXML
   private Label sellPrice;
-  /*
+  /**
    Buying price.
   */
   private int buyingPrice;
-  /*
+  /**
    Selling price.
   */
   private int sellingPrice;
 
-  @FXML
   /**
   * Set Yes Buy Land button and sets land cost.
   */
+  @FXML
   private void setYesBuyLandBtn() {
     Main.myGame.setPhase("Purchasing Land");
     Main.myGame.setLandCost(buyingPrice);
@@ -59,18 +59,19 @@ public class LandOfficeController implements Serializable {
     Main.myGame.refreshLabels();
   }
 
-  @FXML
   /**
   * Sets No button and loads town screen.
   */
+  @FXML
   private void setNoBuyLandBtn() {
     MasterController.getInstance().loadTownScene();
   }
 
-  @FXML
+
   /**
   * Set Yes Sell Land button and sets land selling price.
   */
+  @FXML
   private void setYesSellLandBtn() {
     Main.myGame.setPhase("Selling Land");
     Main.myGame.setLandCost(sellingPrice);

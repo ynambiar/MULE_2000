@@ -18,70 +18,78 @@ import java.net.URL;
  */
 public class StoreController implements Serializable {
 
-  /*
-    Button to buy food
+  /**
+    Button to buy food.
    */
   @FXML
   private Button buyFood;
-  /*
-    Button to buy energy
+
+  /**
+    Button to buy energy.
    */
   @FXML
   private Button buyEnergy;
-  /*
-    Button to buy smithore
+
+  /**
+    Button to buy smithore.
    */
   @FXML
   private Button buySmithore;
-  /*
-    Button to buy mule
+
+  /**
+    Button to buy mule.
    */
   @FXML
   private Button buyMule;
-  /*
-    Button to leave store and go back to town
+
+  /**
+    Button to leave store and go back to town.
    */
   @FXML
   private Button leaveStore;
-  /*
-    Confirm button for buying/selling food
+
+  /**
+    Confirm button for buying/selling food.
    */
   @FXML
   private Button confirmBtnFood;
 
-  /*
-    Title label
+  /**
+    Title label.
    */
   @FXML
   private Label titleLbl;
 
-  /*
-    Text field to enter how much food one wants to buy
+  /**
+    Text field to enter how much food one wants to buy.
    */
   @FXML
   private TextField buyTxtFood;
-  /*
-    Text field to enter how much food one wants to sell
+  /**
+    Text field to enter how much food one wants to sell.
    */
   @FXML
   private TextField sellTxtFood;
-  /*
-    Text field to enter how much energy one wants to buy
+  /**
+    Text field to enter how much energy one wants to buy.
    */
   @FXML
   private TextField buyTxtEnergy;
-  /*
-    Text field to enter how much energy one wants to sell
+
+  /**
+    Text field to enter how much energy one wants to sell.
    */
   @FXML
   private TextField sellTxtEnergy;
-  /*
-    Text field to enter how much smithore one wants to buy
+
+  /**
+    Text field to enter how much smithore one wants to buy.
    */
   @FXML
   private TextField buyTxtSmithore;
-  /*
-    Text field to enter how much smithore one wants to sell
+
+  /**
+    Text field to enter how much smithore one wants to sell.
    */
   @FXML
   private TextField sellTxtSmithore;
@@ -96,19 +104,21 @@ public class StoreController implements Serializable {
     mediaPlayer.play();
   }
 
-  @FXML
+
   /**
    * Loads food Store transaction scene.
    */
+  @FXML
   private void setBuyFood() {
     chaChing();
     MasterController.getInstance().loadStoreTransactionSceneFood();
   }
 
-  @FXML
+
   /**
    * Loads energy Store transaction scene.
    */
+  @FXML
   private void setBuyEnergy() {
     chaChing();
     MasterController.getInstance().loadStoreTransactionSceneEnergy();
@@ -123,19 +133,19 @@ public class StoreController implements Serializable {
     MasterController.getInstance().loadStoreTransactionSceneSmithore();
   }
 
-  @FXML
   /**
    * Loads mule transaction scene.
    */
+  @FXML
   private void setBuyMule() {
     chaChing();
     MasterController.getInstance().loadMuleTransactionScene();
   }
 
-  @FXML
   /**
    * Sets Food Confirm button and does transaction with food.
    */
+  @FXML
   private void setConfirmBtnFood() {
     Main.myGame.doStoreTransaction("Food", true, Integer.parseInt(buyTxtFood
         .getText()));
@@ -146,10 +156,10 @@ public class StoreController implements Serializable {
     MasterController.getInstance().loadStoreScene();
   }
 
-  @FXML
   /**
    * Sets Energy Confirm button and does transaction with energy.
    */
+  @FXML
   private void setConfirmBtnEnergy() {
     Main.myGame.doStoreTransaction("Energy", true, Integer
         .parseInt(buyTxtEnergy.getText()));
@@ -160,10 +170,11 @@ public class StoreController implements Serializable {
     MasterController.getInstance().loadStoreScene();
   }
 
-  @FXML
+
   /**
    * Sets Smirthore Confirm button and does transaction with smithore.
    */
+  @FXML
   private void setConfirmBtnSmithore() {
     Main.myGame.doStoreTransaction("Smithore", true, Integer
         .parseInt(buyTxtSmithore.getText()));
@@ -174,120 +185,128 @@ public class StoreController implements Serializable {
     MasterController.getInstance().loadStoreScene();
   }
 
-  @FXML
   /**
    * Loads Town scene.
    */
+  @FXML
   private void setLeaveStore() {
     MasterController.getInstance().loadTownScene();
   }
 
   /* CODE FOR ANIMATION */
 
-  /*
-    Food animation
-   */
+  /**
+    Food animation.
+  */
   @FXML
   private ImageView foodAnim;
-  /*
-    Energy animation
-   */
+
+  /**
+    Energy animation.
+  */
   @FXML
   private ImageView energyAnim;
-  /*
-    Mule animation
+
+  /**
+    Mule animation.
    */
   @FXML
   private ImageView muleAnim;
-  /*
-    ca animation
+
+  /**
+    ca animation.
    */
   @FXML
   private ImageView caAnim;
-  /*
-    ore animation
+
+  /**
+    Ore animation.
    */
   @FXML
   private ImageView oreAnim;
 
-  @FXML
   /**
    * Sets food animation to visible.
    */
+  @FXML
   private void foodmouseEnter() {
     foodAnim.setVisible(true);
   }
 
-  @FXML
   /**
    * Sets food animation to not visible.
    */
+  @FXML
   private void foodmouseLeave() {
     foodAnim.setVisible(false);
   }
 
-  @FXML
+
   /**
    * Sets energy animation to visible.
    */
+  @FXML
   private void energymouseEnter() {
     energyAnim.setVisible(true);
   }
 
-  @FXML
+
   /**
    * Sets energy animation to not visible.
    */
+  @FXML
   private void energymouseLeave() {
     energyAnim.setVisible(false);
   }
 
-  @FXML
+
   /**
    * Sets mule animation to visible.
    */
+  @FXML
   private void mulemouseEnter() {
     muleAnim.setVisible(true);
   }
 
-  @FXML
+
   /**
    * Sets mule animation to not visible.
    */
+  @FXML
   private void mulemouseLeave() {
     muleAnim.setVisible(false);
   }
 
-  @FXML
   /**
    * Sets crystite animation to visible.
    */
+  @FXML
   private void cmouseEnter() {
     caAnim.setVisible(true);
   }
 
-  @FXML
   /**
    * Sets crystite animation to not visible.
    */
+  @FXML
   private void cmouseLeave() {
     caAnim.setVisible(false);
   }
 
-  @FXML
   /**
    * Sets smithore animation to visible.
    */
+  @FXML
   private void oremouseEnter() {
     oreAnim.setVisible(true);
   }
 
-  @FXML
   /**
    * Sets smithore animation to visible.
-   */
+  */
+  @FXML
   private void oremouseLeave() {
     oreAnim.setVisible(false);
   }
-  /* END OF ANIMATION CODE */
+  /** END OF ANIMATION CODE */
 }

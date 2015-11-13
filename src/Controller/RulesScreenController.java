@@ -9,18 +9,19 @@ import java.io.Serializable;
 */
 class RulesScreenController implements Serializable {
 
-  /*
-    button that takes you back to home screen from rules screen
+  /**
+    Button that takes you back to home screen from rules screen.
    */
   @FXML
   private Button backBtn;
 
   // TODO Add Label (or maybe Scroll Pane) that has the rules written out
 
-  @FXML
+
   /**
    * Set Back button to load Start scene.
    */
+  @FXML
   private void setBackBtn() {
     MasterController.getInstance().loadStartScene();
   }

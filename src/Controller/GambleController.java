@@ -16,10 +16,10 @@ public class GambleController implements Serializable {
   @FXML
   private Label resultsLabel;
 
-  @FXML
   /**
   * Set OK button function so that turn ends.
   */
+  @FXML
   public final void setOkBtn() {
     Main.myGame.endTurn();
   }

@@ -9,18 +9,19 @@ import java.io.Serializable;
 **/
 public class StartController implements Serializable {
 
-  /*
-    rules button
+  /**
+    Rules button.
    */
   @FXML
   private Button ruleBtn;
-  /*
-    play button
+
+  /**
+    Play button.
    */
   @FXML
   private Button playBtn;
-  /*
-    load button
+  /**
+    Load button.
    */
   @FXML
   private Button loadBtn;
@@ -33,18 +34,19 @@ public class StartController implements Serializable {
   }
    */
 
-  @FXML
   /**
   * Sets Play button to load Config 1 scene.
   */
+  @FXML
   private void setPlayBtn() {
     MasterController.getInstance().loadConfig1Scene();
   }
 
-  @FXML
+
   /**
    * Sets Load button to Load screen scene.
    */
+  @FXML
   private void setLoadBtn() {
     MasterController.getInstance().loadLoadScreenScene();
   }
