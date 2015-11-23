@@ -50,4 +50,12 @@ public class StartController implements Serializable {
   private void setLoadBtn() {
     MasterController.getInstance().loadLoadScreenScene();
   }
+
+  /**
+   * Sets Rule button to Load screen scene.
+   */
+  @FXML
+  private void setRuleBtn() {
+    MasterController.getInstance().loadRulesScene();
+  }
 }

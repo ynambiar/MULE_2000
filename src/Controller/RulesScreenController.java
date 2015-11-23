@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
 * Rules Screen Controller.
 */
-class RulesScreenController implements Serializable {
+public class RulesScreenController implements Serializable {
 
   /**
     Button that takes you back to home screen from rules screen.
