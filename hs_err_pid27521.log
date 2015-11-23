@@ -594,7 +594,7 @@ OS:Bsduname:Darwin 15.0.0 Darwin Kernel Version 15.0.0: Sat Sep 19 15:53:46 PDT 
 rlimit: STACK 8192k, CORE 0k, NPROC 709, NOFILE 10240, AS infinity
 load average:5.24 4.62 3.52
 
-CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 Model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
 
 Memory: 4k page, physical 4194304k(25648k free)
 

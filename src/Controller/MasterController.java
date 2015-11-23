@@ -84,7 +84,7 @@ public class MasterController implements Serializable {
   private Scene loadGameScreen;
 
   /**
-    Map controller.
+    Map Controller.
    */
   private MapController mapController;
 
@@ -163,7 +163,6 @@ public class MasterController implements Serializable {
     } catch (IOException e) {
       System.out.println("MasterController(): " + e);
     }
-
   }
 
   /**
