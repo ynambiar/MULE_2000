@@ -1,5 +1,5 @@
 package pkg;
-import Model;
+import Model.*;
 
 /**
  * MULE Game
@@ -13,9 +13,8 @@ import Model;
      */
      public static void main(String[] args) {
         
-
         System.out.println("Let's play MULE!!");
-        Main.main(args);
+        Main.main();
 
      } 
     
