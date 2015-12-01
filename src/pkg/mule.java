@@ -1,5 +1,7 @@
 package pkg;
 import Model.*;
+import View.*;
+import Controller.*;
 
 /**
  * MULE Game
@@ -17,8 +19,5 @@ import Model.*;
         Main.main();
 
      } 
-    
-    
-    
     
  } 
