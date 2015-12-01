@@ -4,8 +4,6 @@ package pkg;
  * MULE Game
  * By: Ashika, Yamini, William, Tucker, and Saqlain
  *
- * Prints out a simple message gathered from all of the other classes
- * in the package structure
  */
  public class mule {
     
@@ -15,7 +13,8 @@ package pkg;
      public static void main(String[] args) {
         
         System.out.println("Let's play MULE!!");
-                
+
+
      } 
     
     
