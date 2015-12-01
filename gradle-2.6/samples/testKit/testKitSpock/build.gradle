@@ -1,0 +1,14 @@
+apply plugin: 'groovy'
+
+dependencies {
+    testCompile localGroovy()
+    testCompile gradleTestKit()
+}
+
+dependencies {
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.3'
+}
+
+repositories {
+    mavenCentral()
+}

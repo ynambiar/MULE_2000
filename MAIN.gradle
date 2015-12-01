@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+version = '1.0'
+
+dependencies {
+    compile files("lib/resources.jar")
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Mule Game',
+                   'Implementation-Version': version,
+                   'Main-Class': 'pkg/mule',
+                   'Class-Path': '../../lib/resources.jar'
+    }
+}
