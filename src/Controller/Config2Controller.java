@@ -141,7 +141,7 @@ public class Config2Controller implements Serializable {
   *
   * @return boolean
   */
-  private boolean comboBoxesAreVerififed() {
+  private boolean comboBoxesAreVerififed () {
       Game game = Main.myGame;
       boolean verified = false;
       if (combo1human.getValue() != "Not Playing" && combo1race.getValue() != null && p1Name.getText() != null) {
