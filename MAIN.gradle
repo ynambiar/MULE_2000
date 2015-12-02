@@ -17,7 +17,7 @@ jar {
     manifest {
         attributes 'Implementation-Title': 'Mule Game',
                    'Implementation-Version': version,
-                   'Main-Class': 'Model/Main',
+                   'Main-Class': 'Model.Main',
                    'Class-Path': '../../lib/resources.jar'
     }
 }
