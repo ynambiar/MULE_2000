@@ -1,9 +1,9 @@
 package Model;
 
 import Controller.MasterController;
+import Model.Game;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
 import java.io.Serializable;
 /**
 * Main Class.
@@ -35,8 +35,8 @@ public class Main extends Application implements Serializable {
    *
    * @param args String[]
    */
-  public static void main(final String[] args) {
-    launch(args);
+  public static void main(String[] args) {
+      launch(args);
   }
 
   /**

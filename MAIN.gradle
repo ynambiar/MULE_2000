@@ -1,5 +1,6 @@
 apply plugin: 'java'
 
+
 defaultTasks 'jar'
 version = '1.0'
 
@@ -10,6 +11,7 @@ dependencies {
 javadoc {
     source = sourceSets
 }
+
 
 jar {
     manifest {
