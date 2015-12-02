@@ -5,10 +5,10 @@ import Model.*;
  * By: Ashika, Yamini, William, Tucker, and Saqlain
  *
  */
+import javafx.application.Application;
 import Controller.MasterController;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.application.Application;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -47,7 +47,7 @@ public class mule extends Application {
      */
     public static void main(final String[] args) {
         System.out.println("Welcome");
-        launch(args);
+        Application.launch(args);
     }
 
     /**
