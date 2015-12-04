@@ -12,7 +12,7 @@ dependencies {
 }
 
 javafx {
-	mainClass = 'main.java.com.mule.Main'
+	mainClass = 'com.mule.Main'
 	appID 'MULE'
 	appName 'MULE Game'
 }
@@ -21,6 +21,6 @@ jar {
   manifest {
     attributes 'Implementation-Title': 'MULE - Deep Thought',
            	   'Implementation-Version': '1.0',
-           	   'Main-Class': 'main.java.com.mule.Main'
+           	   'Main-Class': 'com.mule.Main'
   }
 }
