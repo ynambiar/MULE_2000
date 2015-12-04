@@ -5,7 +5,7 @@ import play.api.mvc._
 
 import org.sample.util.BuiltBy
 
-object Application extends Controller {
+object Application extends main.java.com.mule.Controller {
   def index = Action {
     Ok(views.html.user.index(BuiltBy.watermark("Here is the USER module.")))
   }

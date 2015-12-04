@@ -15,6 +15,6 @@
  */
 
 /**
- * Model classes for managing language sources.
+ * main.java.com.mule.Model classes for managing language sources.
  */
 package org.gradle.language;

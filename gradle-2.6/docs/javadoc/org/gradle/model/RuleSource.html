@@ -114,7 +114,7 @@ extends <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html
  <p>
  Each method that is annotated with one of the following is considered a rule:
  <ul>
- <li><a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a></li>
+ <li><a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a></li>
  <li><a href="../../../org/gradle/model/Defaults.html" title="annotation in org.gradle.model"><code>Defaults</code></a></li>
  <li><a href="../../../org/gradle/model/Mutate.html" title="annotation in org.gradle.model"><code>Mutate</code></a></li>
  <li><a href="../../../org/gradle/model/Finalize.html" title="annotation in org.gradle.model"><code>Finalize</code></a></li>
@@ -128,20 +128,20 @@ extends <a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html
  <li>A method may only be annotated by at most one of the above annotations.</li>
  <li>A rule method may be <code>static</code> or not; it makes no difference.</li>
  <li>A rule method cannot be generic (i.e. cannot have type parameters).</li>
- <li>With the exception of <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> methods, all methods must have at least one parameter.</li>
- <li>With the exception of <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> methods, all methods must have a <code>void</code> return type.</li>
+ <li>With the exception of <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> methods, all methods must have at least one parameter.</li>
+ <li>With the exception of <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> methods, all methods must have a <code>void</code> return type.</li>
  </ul>
  <p>
- See <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> for information on the significance of the return type of a <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> method.
+ See <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> for information on the significance of the return type of a <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> method.
 
  <h4>Subjects and inputs</h4>
  <p>
  Method rules declare the subject and any inputs as parameters to the method.
- With the exception of <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> methods, the subject of the rule is the, required, first parameter and all subsequent parameters are inputs.
- For a non-void <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> method, the subject (i.e. model element being created) is the return object.
- For a void <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> method, the subject is the first method parameter.
+ With the exception of <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> methods, the subject of the rule is the, required, first parameter and all subsequent parameters are inputs.
+ For a non-void <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> method, the subject (i.e. model element being created) is the return object.
+ For a void <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> method, the subject is the first method parameter.
  <p>
- The <a href="../../../org/gradle/model/Path.html" title="annotation in org.gradle.model"><code>Path</code></a> annotation can be placed on any parameter (except the subject of <a href="../../../org/gradle/model/Model.html" title="annotation in org.gradle.model"><code>Model</code></a> rules) to indicate the model element to bind to.
+ The <a href="../../../org/gradle/model/Path.html" title="annotation in org.gradle.model"><code>Path</code></a> annotation can be placed on any parameter (except the subject of <a href="../../../org/gradle/model/main.java.com.mule.Model.html" title="annotation in org.gradle.model"><code>main.java.com.mule.Model</code></a> rules) to indicate the model element to bind to.
  If there is no <a href="../../../org/gradle/model/Path.html" title="annotation in org.gradle.model"><code>Path</code></a> annotation, a “by-type” binding will be attempted.
  The binding scope is determined by how the rule source is applied.
 

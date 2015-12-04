@@ -15,6 +15,6 @@
  */
 
 /**
- * Model classes for building from Windows Resource scripts.
+ * main.java.com.mule.Model classes for building from Windows Resource scripts.
  */
 package org.gradle.language.rc;

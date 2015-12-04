@@ -15,6 +15,6 @@
  */
 
 /**
- * Model classes for building from Assembler language sources.
+ * main.java.com.mule.Model classes for building from Assembler language sources.
  */
 package org.gradle.language.assembler;

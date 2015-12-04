@@ -136,7 +136,7 @@ class PluginBuilder {
                 void addTask($ModelMap.name<$Task.name> tasks) {
                     tasks.create("fromModelRule") {
                         it.doLast {
-                            println "Model rule provided task executed"
+                            println "main.java.com.mule.Model rule provided task executed"
                         }
                     }
                 }

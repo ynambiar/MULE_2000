@@ -14,7 +14,7 @@
 }
 
 <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">class</span> PersonRules <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">extends</span> RuleSource {
-  <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
+  <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@main.java.com.mule.Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
 
   <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@Mutate</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> setFirstName(Person p) {
     p.firstName = <span xmlns:xslthl="http://xslthl.sf.net" class="hl-string">"John"</span>
@@ -99,7 +99,7 @@ Total time: 1 secs
             </p><p>
                 The model space will eventually replace the project space, in so far as it will be the only &ldquo;space&rdquo;.
                 However, during the transition the distinction is helpful.
-            </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N17F87"></a>69.3.2.&nbsp;Model paths</h3></div></div></div><p>
+            </p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N17F87"></a>69.3.2.&nbsp;main.java.com.mule.Model paths</h3></div></div></div><p>
                 A model path identifies a path through a model space, to an element.
                 A common representation is a period-delimited set of names.
                 The model path <code class="literal">"tasks"</code> is the path to the element that is the task container.
@@ -119,7 +119,7 @@ Total time: 1 secs
                 rules effectively depend on each other (i.e. a rule depends on all rules who's subject is one of the inputs) and Gradle ensures that all dependencies are satisfied
                 before executing the rule.
             </p><p>
-                Model elements are very often defined in terms of other model elements.
+                main.java.com.mule.Model elements are very often defined in terms of other model elements.
                 For example, a compile task's configuration can be defined in terms of the configuration of the source set that it is compiling.
                 In this scenario, the compile task would be the subject of a rule and the source set an input.
                 Such a rule could configure the task subject based on the source set input without concern for how it was configured, who it was configured by or when the configuration was specified.
@@ -180,7 +180,7 @@ Total time: 1 secs
 }
 
 <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">class</span> PersonRules <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">extends</span> RuleSource {
-  <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
+  <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@main.java.com.mule.Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
 
   <span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@Mutate</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> setFirstName(Person p) {
     p.firstName = <span xmlns:xslthl="http://xslthl.sf.net" class="hl-string">"John"</span>
@@ -201,10 +201,10 @@ apply plugin: PersonRules
         </p><p>
             The different methods of the rule source are discrete, independent rules.
             Their order, or the fact that they belong to the same class, are irrelevant.
-        </p><div class="example"><a name="basicRuleSourcePlugin"></a><p class="title"><b>Example&nbsp;69.3.&nbsp;a model creation rule</b></p><div class="example-contents"><p><code class="filename">build.gradle</code></p><pre class="programlisting"><span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
+        </p><div class="example"><a name="basicRuleSourcePlugin"></a><p class="title"><b>Example&nbsp;69.3.&nbsp;a model creation rule</b></p><div class="example-contents"><p><code class="filename">build.gradle</code></p><pre class="programlisting"><span xmlns:xslthl="http://xslthl.sf.net" class="hl-annotation">@main.java.com.mule.Model</span> <span xmlns:xslthl="http://xslthl.sf.net" class="hl-keyword">void</span> person(Person p) {}
 </pre></div></div><br class="example-break"><p>
             This rule declares that there is a model element at path <code class="literal">"person"</code> (defined by the method name), of type <code class="literal">Person</code>.
-            This is the form of the <a class="ulink" href="../javadoc/org/gradle/model/Model.html" target="_top"><code class="classname">Model</code></a> type rule for <a class="ulink" href="../javadoc/org/gradle/model/Managed.html" target="_top"><code class="classname">Managed</code></a> types.
+            This is the form of the <a class="ulink" href="../javadoc/org/gradle/model/main.java.com.mule.Model.html" target="_top"><code class="classname">main.java.com.mule.Model</code></a> type rule for <a class="ulink" href="../javadoc/org/gradle/model/Managed.html" target="_top"><code class="classname">Managed</code></a> types.
             Here, the person object is the rule subject.
             The method could potentially have a body, that mutated the person instance.
             It could also potentially have more parameters, that would be the rule inputs.
@@ -279,7 +279,7 @@ model {
             The built-in <a class="ulink" href="../dsl/org.gradle.api.reporting.model.ModelReport.html" target="_top"><code class="classname">ModelReport</code></a> task displays a hierarchical view of the elements in the model space.
             Each item prefixed with a `+`, excluding the topmost `+ model`, on the model report is a model element and the visual nesting of these elements correlates to the model
             path (e.g. `tasks.help`). The model report displays the following details about each model element:
-        </p><div xmlns:xslthl="http://xslthl.sf.net" class="table"><p class="title"><b>Table&nbsp;69.1.&nbsp;Model report - model element details</b></p><div class="table-contents"><table id="N180BA"><thead><td>Detail</td><td>Description</td></thead><tbody><tr>
+        </p><div xmlns:xslthl="http://xslthl.sf.net" class="table"><p class="title"><b>Table&nbsp;69.1.&nbsp;main.java.com.mule.Model report - model element details</b></p><div class="table-contents"><table id="N180BA"><thead><td>Detail</td><td>Description</td></thead><tbody><tr>
                     <td>Type</td>
                     <td>This is the underlying type of the model element and is typically a fully qualified class name.</td>
                 </tr><tr>

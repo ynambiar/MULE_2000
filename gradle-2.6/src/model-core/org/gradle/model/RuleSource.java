@@ -30,7 +30,7 @@ import org.gradle.api.Incubating;
  * <p>
  * Each method that is annotated with one of the following is considered a rule:
  * <ul>
- * <li>{@link Model}</li>
+ * <li>{@link main.java.com.mule.Model}</li>
  * <li>{@link Defaults}</li>
  * <li>{@link Mutate}</li>
  * <li>{@link Finalize}</li>
@@ -44,20 +44,20 @@ import org.gradle.api.Incubating;
  * <li>A method may only be annotated by at most one of the above annotations.</li>
  * <li>A rule method may be {@code static} or not; it makes no difference.</li>
  * <li>A rule method cannot be generic (i.e. cannot have type parameters).</li>
- * <li>With the exception of {@link Model} methods, all methods must have at least one parameter.</li>
- * <li>With the exception of {@link Model} methods, all methods must have a {@code void} return type.</li>
+ * <li>With the exception of {@link main.java.com.mule.Model} methods, all methods must have at least one parameter.</li>
+ * <li>With the exception of {@link main.java.com.mule.Model} methods, all methods must have a {@code void} return type.</li>
  * </ul>
  * <p>
- * See {@link Model} for information on the significance of the return type of a {@link Model} method.
+ * See {@link main.java.com.mule.Model} for information on the significance of the return type of a {@link main.java.com.mule.Model} method.
  *
  * <h4>Subjects and inputs</h4>
  * <p>
  * Method rules declare the subject and any inputs as parameters to the method.
- * With the exception of {@link Model} methods, the subject of the rule is the, required, first parameter and all subsequent parameters are inputs.
- * For a non-void {@link Model} method, the subject (i.e. model element being created) is the return object.
- * For a void {@link Model} method, the subject is the first method parameter.
+ * With the exception of {@link main.java.com.mule.Model} methods, the subject of the rule is the, required, first parameter and all subsequent parameters are inputs.
+ * For a non-void {@link main.java.com.mule.Model} method, the subject (i.e. model element being created) is the return object.
+ * For a void {@link main.java.com.mule.Model} method, the subject is the first method parameter.
  * <p>
- * The {@link Path} annotation can be placed on any parameter (except the subject of {@link Model} rules) to indicate the model element to bind to.
+ * The {@link Path} annotation can be placed on any parameter (except the subject of {@link main.java.com.mule.Model} rules) to indicate the model element to bind to.
  * If there is no {@link Path} annotation, a “by-type” binding will be attempted.
  * The binding scope is determined by how the rule source is applied.
  *

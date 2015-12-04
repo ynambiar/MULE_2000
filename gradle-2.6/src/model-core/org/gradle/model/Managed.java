@@ -100,7 +100,7 @@ import java.lang.annotation.Target;
  *
  * <h3>Creating managed model elements</h3>
  * <p>
- * Please see {@link Model} for information on creating model elements of managed types.
+ * Please see {@link main.java.com.mule.Model} for information on creating model elements of managed types.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

@@ -6,7 +6,7 @@ import play.api.data._
 import play.api.data.Forms._
 import models.Person
 
-object QuestionsThreeController extends Controller {
+object QuestionsThreeController extends main.java.com.mule.Controller {
     val personForm = Form(
         mapping(
             "name" -> nonEmptyText,

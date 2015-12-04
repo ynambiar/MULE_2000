@@ -94,7 +94,7 @@
                 <td><a class="ulink" href="../dsl/org.gradle.plugins.ide.idea.GenerateIdeaWorkspace.html" target="_top"><code class="classname">GenerateIdeaWorkspace</code></a></td>
                 <td>Generates the <code class="literal">.iws</code> file. This task is only added to the root project.</td>
             </tr></table></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title"><a name="N14496"></a>39.3.&nbsp;Configuration</h2></div></div></div><div xmlns:xslthl="http://xslthl.sf.net" class="table"><p class="title"><b>Table&nbsp;39.3.&nbsp;Configuration of the idea plugin</b></p><div class="table-contents"><table id="idea-configuration"><thead><tr>
-                    <td>Model</td>
+                    <td>main.java.com.mule.Model</td>
                     <td>Reference name</td>
                     <td>Description</td>
                 </tr></thead><tr>
@@ -135,7 +135,7 @@
                 </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">The file is read; or a default version provided by Gradle is used if it does not exist</li><li class="listitem">The <code class="code">beforeMerged</code> hook is executed with a domain object representing the existing file</li><li class="listitem">The existing content is merged with the configuration inferred from the Gradle build or defined explicitly in the eclipse DSL</li><li class="listitem">The <code class="code">whenMerged</code> hook is executed with a domain object representing contents of the file to be persisted</li><li class="listitem">The <code class="code">withXml</code> hook is executed with a raw representation of the XML that will be persisted</li><li class="listitem">The final XML is persisted</li></ol></div><p>
                 The following table lists the domain object used for each of the model types:
             </p><div xmlns:xslthl="http://xslthl.sf.net" class="table"><p class="title"><b>Table&nbsp;39.4.&nbsp;Idea plugin hooks</b></p><div class="table-contents"><table id="idea-hooks"><thead><tr>
-                        <td>Model</td>
+                        <td>main.java.com.mule.Model</td>
                         <td><code class="literal">beforeMerged { arg -&gt; }</code> argument type</td>
                         <td><code class="literal">whenMerged { arg -&gt; }</code> argument type</td>
                         <td><code class="literal">withXml { arg -&gt; }</code> argument type</td>

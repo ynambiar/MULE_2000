@@ -200,13 +200,13 @@ public class ModelPath implements Iterable<String>, Comparable<ModelPath> {
         char firstChar = name.charAt(0);
 
         if (INVALID_FIRST_CHAR_MATCHER.matches(firstChar)) {
-            throw new InvalidNameException(String.format("Model element name '%s' has illegal first character '%s' (names must start with an ASCII letter or underscore).", name, firstChar));
+            throw new InvalidNameException(String.format("main.java.com.mule.Model element name '%s' has illegal first character '%s' (names must start with an ASCII letter or underscore).", name, firstChar));
         }
 
         for (int i = 1; i < name.length(); ++i) {
             char character = name.charAt(i);
             if (INVALID_CHAR_MATCHER.matches(character)) {
-                throw new InvalidNameException(String.format("Model element name '%s' contains illegal character '%s' (only ASCII letters, numbers and the underscore are allowed).", name, character));
+                throw new InvalidNameException(String.format("main.java.com.mule.Model element name '%s' contains illegal character '%s' (only ASCII letters, numbers and the underscore are allowed).", name, character));
             }
         }
     }
@@ -235,11 +235,11 @@ public class ModelPath implements Iterable<String>, Comparable<ModelPath> {
         }
 
         if (path.startsWith(SEPARATOR)) {
-            throw new InvalidPathException(String.format("Model path '%s' cannot start with name separator '%s'.", path, SEPARATOR), null);
+            throw new InvalidPathException(String.format("main.java.com.mule.Model path '%s' cannot start with name separator '%s'.", path, SEPARATOR), null);
         }
 
         if (path.endsWith(SEPARATOR)) {
-            throw new InvalidPathException(String.format("Model path '%s' cannot end with name separator '%s'.", path, SEPARATOR), null);
+            throw new InvalidPathException(String.format("main.java.com.mule.Model path '%s' cannot end with name separator '%s'.", path, SEPARATOR), null);
         }
 
         List<String> names = PATH_SPLITTER.splitToList(path);
@@ -250,7 +250,7 @@ public class ModelPath implements Iterable<String>, Comparable<ModelPath> {
                 try {
                     validateName(name);
                 } catch (InvalidNameException e) {
-                    throw new InvalidPathException(String.format("Model path '%s' is invalid due to invalid name component.", path), e);
+                    throw new InvalidPathException(String.format("main.java.com.mule.Model path '%s' is invalid due to invalid name component.", path), e);
                 }
             }
         }

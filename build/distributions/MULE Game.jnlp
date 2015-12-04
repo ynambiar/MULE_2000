@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="MULE Game.jnlp">
+  <information>
+    <title>MULE Game</title>
+    <vendor>Unknown</vendor>
+    <description>MULE Game</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="commons-collections-3.2.jar" size="571259" download="null" />
+    <jar href="MULE_2000.jar" size="44641555" download="null" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <jfx:javafx-desc  width="1024" height="768" main-class="com.mule.Main"  name="MULE Game" />
+  <update check="background"/>
+</jnlp>

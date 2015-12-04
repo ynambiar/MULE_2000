@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: Ashika Ganesh - aganesh32
+Implementation-Title: MULE - Deep Thought
 Implementation-Version: 1.0
-Main-Class: edu/gatech/oad/antlab/pkg1/AntLabMain
-Class-Path: ../../lib/resources.jar
+Main-Class: com.mule.Main
 

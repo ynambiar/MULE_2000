@@ -167,7 +167,7 @@ abstract class ModelNodeInternal implements MutableModelNode {
     public <T> ModelView<? extends T> asReadOnly(ModelType<T> type, @Nullable ModelRuleDescriptor ruleDescriptor) {
         ModelView<? extends T> modelView = getAdapter().asReadOnly(type, this, ruleDescriptor);
         if (modelView == null) {
-            throw new IllegalStateException("Model node " + getPath() + " cannot be expressed as a read-only view of type " + type);
+            throw new IllegalStateException("main.java.com.mule.Model node " + getPath() + " cannot be expressed as a read-only view of type " + type);
         }
         return modelView;
     }
@@ -176,7 +176,7 @@ abstract class ModelNodeInternal implements MutableModelNode {
     public <T> ModelView<? extends T> asWritable(ModelType<T> type, ModelRuleDescriptor ruleDescriptor, List<ModelView<?>> inputs) {
         ModelView<? extends T> modelView = getAdapter().asWritable(type, this, ruleDescriptor, inputs);
         if (modelView == null) {
-            throw new IllegalStateException("Model node " + getPath() + " cannot be expressed as a mutable view of type " + type);
+            throw new IllegalStateException("main.java.com.mule.Model node " + getPath() + " cannot be expressed as a mutable view of type " + type);
         }
         return modelView;
     }

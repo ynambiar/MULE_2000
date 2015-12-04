@@ -425,7 +425,7 @@ public class DefaultModelRegistry implements ModelRegistry {
         ModelView<? extends T> view = adapter.asReadOnly(targetType, node, descriptor);
         if (view == null) {
             // TODO better error reporting here
-            throw new IllegalArgumentException("Model node '" + node.getPath().toString() + "' is not compatible with requested " + targetType + " (operation: " + String.format(msg, msgArgs) + ")");
+            throw new IllegalArgumentException("main.java.com.mule.Model node '" + node.getPath().toString() + "' is not compatible with requested " + targetType + " (operation: " + String.format(msg, msgArgs) + ")");
         } else {
             return view;
         }

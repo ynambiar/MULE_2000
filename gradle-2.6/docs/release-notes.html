@@ -655,7 +655,7 @@ section.footer {
     <p>See the Javadoc for <a href="dsl/org.gradle.tooling.ProjectConnection.html"><code>ProjectConnection</code></a> and <a href="dsl/org.gradle.tooling.TestLauncher.html"><code>TestLauncher</code></a> for more information on using the new TestLauncher API.</p> 
     <h3 class=" incubating" id="rule-based-model-configuration-reporting-improvements">Rule based model configuration reporting improvements <a class="incubating-marker" href="userguide/feature_lifecycle.html" title="“incubating” features are not yet guaranteed to be backwards compatible&lt;br /&gt;(click for more information)">incubating feature</a></h3> 
     <p>Gradle 2.5 brings significant usability enhancements to the new <a href="userguide/new_model.html">Rule based model configuration mechanism</a>, through better reporting.</p> 
-    <p>The <a href="userguide/new_model.html#N180B0">in-built “Model report”</a> now exposes much more information about the build model, including:</p> 
+    <p>The <a href="userguide/new_model.html#N180B0">in-built “main.java.com.mule.Model report”</a> now exposes much more information about the build model, including:</p>
     <ul> 
      <li>The Java type of each model element</li> 
      <li>A string representation of the value of each model element</li> 
@@ -680,7 +680,7 @@ section.footer {
     </ul> 
     <p>e.g. Consider the following rule configuration which is invalid because of an unsatisfied input: <code>bar</code>.</p> 
     <pre class=" code"><code><span class="java_keyword">class</span><span class="java_plain">&nbsp;</span><span class="java_type">Rules</span><span class="java_plain">&nbsp;</span><span class="java_keyword">extends</span><span class="java_plain">&nbsp;</span><span class="java_type">RuleSource</span><span class="java_plain">&nbsp;</span><span class="java_separator">{</span><span class="java_plain"></span>
-<span class="java_plain">&nbsp;&nbsp;&nbsp;&nbsp;@</span><span class="java_type">Model</span><span class="java_plain"></span>
+<span class="java_plain">&nbsp;&nbsp;&nbsp;&nbsp;@</span><span class="java_type">main.java.com.mule.Model</span><span class="java_plain"></span>
 <span class="java_plain">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="java_type">Integer</span><span class="java_plain">&nbsp;foo</span><span class="java_separator">(</span><span class="java_plain">@</span><span class="java_type">Path</span><span class="java_separator">(</span><span class="java_literal">&quot;bar&quot;</span><span class="java_separator">)</span><span class="java_plain">&nbsp;</span><span class="java_type">Integer</span><span class="java_plain">&nbsp;bar</span><span class="java_separator">)</span><span class="java_plain">&nbsp;</span><span class="java_separator">{</span><span class="java_plain"></span>
 <span class="java_plain">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="java_keyword">return</span><span class="java_plain">&nbsp;</span><span class="java_literal">22</span><span class="java_plain"></span>
 <span class="java_plain">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="java_separator">}</span><span class="java_plain"></span>

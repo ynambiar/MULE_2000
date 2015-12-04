@@ -26,7 +26,7 @@ public abstract class ModelViews {
             return view;
         } else {
             // TODO better exception type
-            throw new IllegalArgumentException("Model view of type " + untypedView.getType() + " requested as " + type);
+            throw new IllegalArgumentException("main.java.com.mule.Model view of type " + untypedView.getType() + " requested as " + type);
         }
     }
 

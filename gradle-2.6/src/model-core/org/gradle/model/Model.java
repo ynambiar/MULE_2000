@@ -35,9 +35,9 @@ import java.lang.annotation.Target;
  * If the element is to be of a managed type, the method must return {@code void} and receive the newly created instance as the <b>first</b> parameter.
  * All other parameters are considered <i>inputs</i>.
  * <p>
- * It is an error for a {@code @Model} rule to return {@code void} and specify a non-managed type as the first parameter.
- * It is an error for a {@code @Model} rule to return {@code void} and for the first parameter to be annotated with {@link Path}.
- * It is an error for a {@code @Model} rule to specify a managed type as the return type.
+ * It is an error for a {@code @main.java.com.mule.Model} rule to return {@code void} and specify a non-managed type as the first parameter.
+ * It is an error for a {@code @main.java.com.mule.Model} rule to return {@code void} and for the first parameter to be annotated with {@link Path}.
+ * It is an error for a {@code @main.java.com.mule.Model} rule to specify a managed type as the return type.
 
  * <h3>Creating non-managed model elements</h3>
  * <p>

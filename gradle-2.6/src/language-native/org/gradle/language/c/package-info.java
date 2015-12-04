@@ -15,6 +15,6 @@
  */
 
 /**
- * Model classes for building from C language sources.
+ * main.java.com.mule.Model classes for building from C language sources.
  */
 package org.gradle.language.c;

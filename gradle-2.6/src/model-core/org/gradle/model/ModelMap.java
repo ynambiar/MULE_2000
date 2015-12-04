@@ -25,10 +25,10 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * Model backed map like structure allowing adding of items where instantiation is managed.
+ * main.java.com.mule.Model backed map like structure allowing adding of items where instantiation is managed.
  * <p>
  * {@link org.gradle.model.Managed} types may declare model map properties.
- * Model maps can only contain managed types.
+ * main.java.com.mule.Model maps can only contain managed types.
  *
  * @param <T> the contract type for all items
  */

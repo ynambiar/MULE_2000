@@ -15,6 +15,6 @@
  */
 
 /**
- * Model classes for visual studio.
+ * main.java.com.mule.Model classes for visual studio.
  */
 package org.gradle.ide.visualstudio;

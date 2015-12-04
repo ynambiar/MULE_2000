@@ -65,7 +65,7 @@ public class IncompatibleTypeReferenceReporter {
 
     public void writeTo(PrintWriter writer) {
         //"type-only model reference of type '%s'%s is ambiguous as multiple model elements are available for this type:%n  %s (created by %s)%n  %s (created by %s)",
-        writer.print("Model reference to element '");
+        writer.print("main.java.com.mule.Model reference to element '");
         writer.print(path);
         writer.print("' with type ");
         writer.print(type);
