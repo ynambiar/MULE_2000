@@ -147,7 +147,7 @@ public class MasterController implements Serializable {
       root = loader.load();
       mapScene = new Scene(root);
       mapController = loader.getController();
-      System.out.println("Controller" + mapController);
+      System.out.println("master main.java.com.mule.Controller" + mapController);
 
       root = FXMLLoader
           .load(getClass().getResource("/main/resources/View/RulesScreen.fxml"));
